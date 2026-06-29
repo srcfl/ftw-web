@@ -739,15 +739,19 @@
       <!-- ============ INSTALL ============ -->
       <section id="install">
         <p class="section-label">// get started</p>
-        <h2>Four ways in.</h2>
+        <h2>Five ways in.</h2>
         <p class="section-intro">
-          Pick the shortest path to your house. All four end up at the same web UI on port 8080 with the same setup wizard.
+          Pick the shortest path to your house. All five end up at the same web UI on port 8080 with the same setup wizard.
         </p>
 
         <div class="grid">
           <div class="cell">
-            <h3>SD card image <span class="k">easiest</span></h3>
-            <p>Flash <code>42w-rpi4-arm64.img.xz</code> to a card with Raspberry Pi Imager or balenaEtcher, boot, open <code>http://42w.local/</code>. A <code>42w-setup</code> captive portal handles WiFi if you didn't pre-configure it.</p>
+            <h3>Raspberry Pi Imager <span class="k">easiest</span></h3>
+            <p>In Raspberry Pi Imager 2.0+, add our content repository — <code>App&nbsp;Options → Content&nbsp;Repository → EDIT → Use&nbsp;custom&nbsp;URL</code>, paste the <code>os_list.json</code> URL below — then pick <strong style="color:var(--fg)">Forty-Two Watts</strong> from the OS list. Imager downloads, writes and SHA-verifies the image, and unlocks the hostname / WiFi / SSH customisation panel a bare image can't.</p>
+          </div>
+          <div class="cell">
+            <h3>SD card image <span class="k">manual</span></h3>
+            <p>Prefer to flash by hand? Grab <code>42w-rpi4-arm64.img.xz</code> and write it to a card with Raspberry Pi Imager or balenaEtcher, boot, open <code>http://42w.local/</code>. A <code>42w-setup</code> captive portal handles WiFi if you didn't pre-configure it.</p>
           </div>
           <div class="cell">
             <h3>One-shot Docker <span class="k">curl | bash</span></h3>
@@ -764,7 +768,10 @@
         </div>
 
         <div class="arch" style="margin-top:24px">
-<pre><span class="d"># Pi or Linux box, one shot</span>
+<pre><span class="d"># Easiest — add our repo to Raspberry Pi Imager, then pick "Forty-Two Watts"</span>
+<span class="d">$</span> rpi-imager --repo https://github.com/frahlg/forty-two-watts/releases/latest/download/os_list.json
+
+<span class="d"># Pi or Linux box, one shot</span>
 <span class="d">$</span> curl -fsSL https://raw.githubusercontent.com/frahlg/forty-two-watts/master/scripts/install.sh | bash
 <span class="d">$</span> open http://&lt;your-pi&gt;:8080/setup
 
