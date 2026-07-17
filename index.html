@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>FTW — open-source home energy management by Sourceful Energy</title>
+<title>FTW | Open-source home energy management by Sourceful Energy</title>
 <meta name="description" content="FTW is an Apache-2.0 open-source home energy management system maintained by Sourceful Energy and the community. Coordinate solar, batteries, grid and EV charging locally, in real time." />
 <meta name="keywords" content="FTW, home energy management, HEMS, open source, local-first, solar, battery, EV charging, V2X, Raspberry Pi, MPC, Home Assistant, Modbus, MQTT" />
 <meta name="robots" content="index,follow" />
 <meta name="author" content="Sourceful Energy and FTW contributors" />
-<meta name="theme-color" content="#07101f" />
+<meta name="theme-color" content="#0A0A0A" />
 <link rel="canonical" href="https://ftw.sourceful.energy/" />
 
-<meta property="og:title" content="FTW — the open-source brain for your solar, battery and EV" />
+<meta property="og:title" content="FTW | The open-source brain for your solar, battery and EV" />
 <meta property="og:description" content="Local-first home energy coordination. Apache-2.0 open source, maintained by Sourceful Energy and the community." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ftw.sourceful.energy/" />
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="FTW" />
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="FTW — open-source home energy management" />
+<meta name="twitter:title" content="FTW | Open-source home energy management" />
 <meta name="twitter:description" content="Coordinate solar, batteries, grid and EV charging locally, in real time." />
 <meta name="twitter:image" content="https://ftw.sourceful.energy/favicon.svg" />
 
@@ -265,13 +265,14 @@
     .panel, .community-card, .sourceful-card { padding: 23px; }
   }
 </style>
+<link rel="stylesheet" href="/sourceful.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="FTW home">
-        <span class="mark">FTW</span>
-        <span class="brand-copy">FTW<small>maintained by Sourceful Energy</small></span>
+        <img class="sourceful-lockup" src="https://design.sourceful.energy/assets/sourceful-squircle.svg" alt="Sourceful Energy" />
+        <span class="product-name">FTW · Community HEMS</span>
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#capabilities">Capabilities</a>
@@ -286,22 +287,28 @@
   <main id="top">
     <section class="hero">
       <div class="wrap">
-        <span class="eyebrow">Apache-2.0 · running in real homes</span>
-        <h1>The open-source brain for your <span>solar, battery and EV.</span></h1>
-        <p class="hero-lede">
-          <strong>FTW coordinates solar, batteries, grid and EV charging locally, in real time.</strong>
-          One open-source home energy runtime, with no cloud dependency in the control path.
-        </p>
-        <div class="actions">
-          <a class="btn btn-primary" href="#install">Get FTW running →</a>
-          <a class="btn btn-secondary" href="https://github.com/srcfl/ftw">Read the source</a>
-          <a class="btn btn-secondary" href="https://discord.gg/25xcBzQaux">Join the community</a>
+        <div class="spread-meta"><span>Open-source HEMS</span><span>Local control · Signal orange · Satoshi</span><span>Sourceful Energy</span></div>
+        <div class="hero-core">
+          <div class="hero-copy">
+            <span class="eyebrow">00 · FTW Community</span>
+            <h1>The <span>open-source</span> brain for your solar, battery and EV.</h1>
+          </div>
+          <p class="hero-lede">
+            <strong>FTW coordinates solar, batteries, grid and EV charging locally, in real time.</strong>
+            One open-source home energy runtime, with no cloud dependency in the control path.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#install">Get FTW running →</a>
+            <a class="btn btn-secondary" href="https://github.com/srcfl/ftw">Read the source</a>
+            <a class="btn btn-secondary" href="https://discord.gg/25xcBzQaux">Join the community</a>
+          </div>
+          <div class="proof-grid" aria-label="FTW principles">
+            <div class="proof"><b>Local-first control</b><span>Fast decisions stay on your Raspberry Pi or Linux host.</span></div>
+            <div class="proof"><b>Hardware-neutral</b><span>Coordinate devices from different vendors as one energy system.</span></div>
+            <div class="proof"><b>Open by design</b><span>Apache-2.0 code, Lua drivers, public roadmap and community contributions.</span></div>
+          </div>
         </div>
-        <div class="proof-grid" aria-label="FTW principles">
-          <div class="proof"><b>Local-first control</b><span>Fast decisions stay on your Raspberry Pi or Linux host.</span></div>
-          <div class="proof"><b>Hardware-neutral</b><span>Coordinate devices from different vendors as one energy system.</span></div>
-          <div class="proof"><b>Open by design</b><span>Apache-2.0 code, Lua drivers, public roadmap and community contributions.</span></div>
-        </div>
+        <div class="hero-bottom"><span>Apache-2.0 · Community support only</span><span>Directory · 00 of 07</span></div>
       </div>
     </section>
 
@@ -359,7 +366,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section modes">
       <div class="wrap">
         <p class="section-kicker">03 · Choose the objective</p>
         <h2>One control system. Different ways to run your home.</h2>
@@ -420,7 +427,7 @@
             <a class="btn btn-primary" href="https://www.sourceful.energy/contact">Talk to Sourceful →</a>
             <a class="btn btn-secondary" href="https://github.com/srcfl/ftw/blob/master/docs/adr/0004-community-and-commercial-model.md">Read the model</a>
           </div>
-          <p class="license-note">Apache-2.0 already permits commercial use of the Community code. A Sourceful engagement buys additional capabilities, delivery ownership and support — not permission to use open source.</p>
+          <p class="license-note">Apache-2.0 already permits commercial use of the Community code. A Sourceful engagement buys additional capabilities, delivery ownership and support, not permission to use open source.</p>
         </div>
         <div class="commercial-list">
           <div class="commercial-item"><b>Supported rollout</b><span>Architecture, installation, commissioning, upgrades and operational handover.</span></div>
@@ -466,7 +473,7 @@
           <p>Sourceful Energy maintains the project direction, releases and core architecture together with project contributors.</p>
         </div>
         <aside class="sourceful-card">
-          <b>Sourceful Energy</b>
+          <img class="sourceful-card-logo" src="https://design.sourceful.energy/assets/sourceful-squircle.svg" alt="Sourceful Energy" />
           <p>Sourceful builds and operates energy coordination systems for homes, installers, energy companies and commercial sites. FTW is the community HEMS within that wider energy platform.</p>
           <a class="btn btn-primary" href="https://www.sourceful.energy/">Visit Sourceful Energy →</a>
         </aside>
@@ -476,7 +483,10 @@
 
   <footer>
     <div class="wrap footer-row">
-      <div>FTW · Apache-2.0 · maintained by Sourceful Energy and project contributors</div>
+      <div class="footer-brand">
+        <img src="https://design.sourceful.energy/assets/sourceful-squircle.svg" alt="Sourceful Energy" />
+        <span>FTW · Apache-2.0 · maintained with project contributors</span>
+      </div>
       <div class="footer-links">
         <a href="https://github.com/srcfl/ftw">GitHub</a>
         <a href="https://discord.gg/25xcBzQaux">Discord</a>

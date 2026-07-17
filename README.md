@@ -2,11 +2,12 @@
 
 Canonical project landing page for [FTW](https://github.com/srcfl/ftw).
 
-Lean static site. One HTML file, no build step.
+Lean static site. Plain HTML and CSS, no build step.
 
 - Canonical target: https://ftw.sourceful.energy
 - Cutover: https://fortytwowatts.com must redirect to the canonical site
 - Hosting: Cloudflare Pages
+- Design system: https://design.sourceful.energy/DESIGN.md
 
 The legacy `home.fortytwowatts.com` host is not part of the website redirect.
 It remains a WebAuthn security identity until the separate passkey migration is
