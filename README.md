@@ -1,11 +1,16 @@
-# forty-two-watts-web
+# FTW website
 
-Placeholder landing page for [forty-two-watts](https://github.com/frahlg/forty-two-watts).
+Canonical project landing page for [FTW](https://github.com/srcfl/ftw).
 
 Lean static site. One HTML file, no build step.
 
-- Live: https://fortytwowatts.com
-- Hosting: AWS Amplify
+- Canonical target: https://ftw.sourceful.energy
+- Cutover: https://fortytwowatts.com must redirect to the canonical site
+- Hosting: Cloudflare Pages
+
+The legacy `home.fortytwowatts.com` host is not part of the website redirect.
+It remains a WebAuthn security identity until the separate passkey migration is
+complete.
 
 ## Local dev
 
