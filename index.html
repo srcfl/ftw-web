@@ -1,500 +1,338 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>FTW | Open-source home energy management by Sourceful Energy</title>
-<meta name="description" content="FTW is an Apache-2.0 open-source home energy management system maintained by Sourceful Energy and the community. Coordinate solar, batteries, grid and EV charging locally, in real time." />
-<meta name="keywords" content="FTW, home energy management, HEMS, open source, local-first, solar, battery, EV charging, V2X, Raspberry Pi, MPC, Home Assistant, Modbus, MQTT" />
-<meta name="robots" content="index,follow" />
-<meta name="author" content="Sourceful Energy and FTW contributors" />
-<meta name="theme-color" content="#0A0A0A" />
-<link rel="canonical" href="https://ftw.sourceful.energy/" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FTW | Open-source home energy management</title>
+  <meta name="description" content="FTW is an Apache-2.0, self-hosted home energy management system. Coordinate solar, batteries, grid and EV charging locally with a Go runtime and community-built Lua drivers.">
+  <meta name="keywords" content="FTW, home energy management, HEMS, open source, self-hosted, solar, battery, EV charging, Raspberry Pi, Go, Lua, Home Assistant">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="Sourceful Energy and FTW contributors">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="canonical" href="https://ftw.sourceful.energy/">
 
-<meta property="og:title" content="FTW | The open-source brain for your solar, battery and EV" />
-<meta property="og:description" content="Local-first home energy coordination. Apache-2.0 open source, maintained by Sourceful Energy and the community." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://ftw.sourceful.energy/" />
-<meta property="og:image" content="https://ftw.sourceful.energy/favicon.svg" />
-<meta property="og:site_name" content="FTW" />
+  <meta property="og:title" content="FTW | Home energy, coordinated in the open">
+  <meta property="og:description" content="Apache-2.0 home energy management. Self-hosted, local-first and built to be extended.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ftw.sourceful.energy/">
+  <meta property="og:image" content="https://ftw.sourceful.energy/favicon.svg">
+  <meta property="og:site_name" content="FTW">
 
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="FTW | Open-source home energy management" />
-<meta name="twitter:description" content="Coordinate solar, batteries, grid and EV charging locally, in real time." />
-<meta name="twitter:image" content="https://ftw.sourceful.energy/favicon.svg" />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="FTW | Open-source home energy management">
+  <meta name="twitter:description" content="A local-first control system for solar, batteries, grid and EV charging.">
+  <meta name="twitter:image" content="https://ftw.sourceful.energy/favicon.svg">
 
-<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/sourceful.css?v=2">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "FTW",
-  "applicationCategory": "DeveloperApplication",
-  "applicationSubCategory": "Home energy management system",
-  "operatingSystem": "Linux, Raspberry Pi OS",
-  "url": "https://ftw.sourceful.energy/",
-  "downloadUrl": "https://github.com/srcfl/ftw/releases",
-  "softwareHelp": "https://github.com/srcfl/ftw/blob/master/SUPPORT.md",
-  "license": "https://www.apache.org/licenses/LICENSE-2.0",
-  "description": "Apache-2.0 open-source, local-first home energy management for solar, batteries, grid and EV charging.",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
-  "maintainer": {
-    "@type": "Organization",
-    "name": "Sourceful Energy",
-    "url": "https://www.sourceful.energy/"
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "FTW",
+    "applicationCategory": "DeveloperApplication",
+    "applicationSubCategory": "Home energy management system",
+    "operatingSystem": "Linux, Raspberry Pi OS",
+    "url": "https://ftw.sourceful.energy/",
+    "downloadUrl": "https://github.com/srcfl/ftw/releases",
+    "softwareHelp": "https://github.com/srcfl/ftw/blob/master/SUPPORT.md",
+    "license": "https://www.apache.org/licenses/LICENSE-2.0",
+    "description": "Apache-2.0, self-hosted home energy management for solar, batteries, grid and EV charging.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "maintainer": {
+      "@type": "Organization",
+      "name": "Sourceful Energy",
+      "url": "https://www.sourceful.energy/"
+    }
   }
-}
-</script>
-
-<style>
-  :root {
-    --night: #07101f;
-    --night-soft: #0b1729;
-    --card: #0d1a2d;
-    --ink: #f4f6f8;
-    --muted: #a5afbd;
-    --muted-2: #6f7c8d;
-    --line: rgba(255,255,255,.1);
-    --amber: #fbbf24;
-    --amber-deep: #f59e0b;
-    --cyan: #22d3ee;
-    --green: #84cc16;
-    --cream: #f4efe4;
-    --cream-ink: #142034;
-    --radius: 18px;
-    --max: 1120px;
-  }
-
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--night);
-    color: var(--ink);
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.58;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: inherit; }
-  code, pre, .mono {
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  }
-  .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
-
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background: rgba(7,16,31,.88);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(255,255,255,.07);
-  }
-  .nav {
-    min-height: 74px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 28px;
-  }
-  .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 760; }
-  .mark {
-    width: 38px;
-    height: 38px;
-    display: grid;
-    place-items: center;
-    border-radius: 10px;
-    color: var(--night);
-    background: linear-gradient(135deg, var(--amber), var(--amber-deep));
-    letter-spacing: -.08em;
-    font-size: 12px;
-  }
-  .brand-copy small { display: block; color: var(--muted); font-size: 10px; font-weight: 500; letter-spacing: .05em; }
-  .nav-links { display: flex; align-items: center; gap: 24px; font-size: 14px; }
-  .nav-links a { color: var(--muted); text-decoration: none; }
-  .nav-links a:hover { color: var(--ink); }
-  .nav-links .nav-cta { color: var(--night); background: var(--amber); padding: 9px 14px; border-radius: 9px; font-weight: 700; }
-
-  .hero {
-    position: relative;
-    overflow: hidden;
-    padding: 110px 0 84px;
-    border-bottom: 1px solid var(--line);
-  }
-  .hero::before {
-    content: "";
-    position: absolute;
-    width: 680px;
-    height: 680px;
-    right: -260px;
-    top: -320px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(34,211,238,.16), transparent 67%);
-    pointer-events: none;
-  }
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    color: var(--amber);
-    background: rgba(251,191,36,.09);
-    border: 1px solid rgba(251,191,36,.24);
-    border-radius: 999px;
-    padding: 7px 12px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .03em;
-  }
-  .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 14px var(--green); }
-  h1 {
-    max-width: 950px;
-    margin: 26px 0 24px;
-    font-size: clamp(48px, 7.5vw, 92px);
-    line-height: .99;
-    letter-spacing: -.055em;
-  }
-  h1 span { color: var(--amber); }
-  .hero-lede { max-width: 760px; margin: 0; color: var(--muted); font-size: clamp(18px, 2vw, 22px); }
-  .hero-lede strong { color: var(--ink); font-weight: 600; }
-  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 47px;
-    padding: 0 19px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 750;
-    border: 1px solid var(--line);
-  }
-  .btn-primary { background: var(--amber); color: var(--night); border-color: var(--amber); }
-  .btn-secondary { background: rgba(255,255,255,.03); }
-  .btn:hover { transform: translateY(-1px); }
-
-  .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 76px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
-  .proof { padding: 24px; background: rgba(255,255,255,.025); border-right: 1px solid var(--line); }
-  .proof:last-child { border-right: 0; }
-  .proof b { display: block; margin-bottom: 5px; font-size: 15px; }
-  .proof span { color: var(--muted); font-size: 13px; }
-
-  .section { padding: 100px 0; }
-  .section + .section { border-top: 1px solid var(--line); }
-  .section-kicker { margin: 0 0 13px; color: var(--amber); font: 700 11px/1.2 "SFMono-Regular", Consolas, monospace; letter-spacing: .15em; text-transform: uppercase; }
-  h2 { max-width: 850px; margin: 0 0 18px; font-size: clamp(34px, 5vw, 58px); line-height: 1.06; letter-spacing: -.04em; }
-  .section-intro { max-width: 760px; margin: 0 0 42px; color: var(--muted); font-size: 18px; }
-  .section-intro strong { color: var(--ink); }
-
-  .contrast { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  .panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; }
-  .panel h3 { margin: 0 0 18px; font-size: 17px; }
-  .panel ul { margin: 0; padding: 0; list-style: none; }
-  .panel li { display: flex; gap: 12px; margin: 12px 0; color: var(--muted); font-size: 15px; }
-  .panel li::before { content: "—"; color: var(--muted-2); }
-  .panel.good { border-color: rgba(132,204,22,.28); }
-  .panel.good li { color: var(--ink); }
-  .panel.good li::before { content: "✓"; color: var(--green); }
-
-  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
-  .feature { min-height: 220px; background: var(--card); padding: 28px; }
-  .feature .num { color: var(--cyan); font-size: 11px; letter-spacing: .12em; }
-  .feature h3 { margin: 38px 0 9px; font-size: 18px; }
-  .feature p { margin: 0; color: var(--muted); font-size: 14px; }
-
-  .mode-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  .mode { padding: 25px; border-radius: var(--radius); border: 1px solid var(--line); background: rgba(255,255,255,.025); }
-  .mode b { display: block; margin-bottom: 10px; color: var(--amber); font-size: 12px; letter-spacing: .08em; }
-  .mode h3 { margin: 0 0 9px; }
-  .mode p { margin: 0; color: var(--muted); font-size: 14px; }
-
-  .community { background: var(--cream); color: var(--cream-ink); }
-  .community .section-kicker { color: #9a5b00; }
-  .community .section-intro { color: #4c5868; }
-  .community-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  .community-card { border: 1px solid rgba(20,32,52,.16); border-radius: var(--radius); padding: 30px; background: rgba(255,255,255,.4); }
-  .community-card h3 { margin: 0 0 10px; font-size: 22px; }
-  .community-card p { color: #4c5868; }
-  .community-card ul { padding-left: 20px; color: #4c5868; }
-  .community-card a { font-weight: 750; text-underline-offset: 3px; }
-  .support-flag { display: inline-block; margin-bottom: 18px; padding: 6px 9px; border-radius: 7px; background: #142034; color: #fff; font-size: 11px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
-
-  .commercial { position: relative; overflow: hidden; background: linear-gradient(145deg, #0b1729, #14243a); }
-  .commercial-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: start; }
-  .commercial-list { display: grid; gap: 12px; }
-  .commercial-item { padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.025); }
-  .commercial-item b { display: block; margin-bottom: 4px; }
-  .commercial-item span { color: var(--muted); font-size: 14px; }
-  .license-note { margin-top: 24px; color: var(--muted); font-size: 13px; }
-
-  .install-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: start; }
-  .install-options { display: grid; gap: 12px; }
-  .install-option { padding: 17px 19px; border-left: 2px solid var(--amber); background: rgba(255,255,255,.025); }
-  .install-option b { display: block; }
-  .install-option span { color: var(--muted); font-size: 14px; }
-  pre { margin: 0; padding: 26px; overflow: auto; border: 1px solid var(--line); border-radius: var(--radius); background: #050b15; color: #dbeafe; font-size: 13px; line-height: 1.75; }
-  pre .comment { color: var(--muted-2); }
-  pre .prompt { color: var(--green); }
-
-  .stewardship { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-  .stewardship-copy p { color: var(--muted); font-size: 17px; }
-  .sourceful-card { padding: 32px; border: 1px solid rgba(251,191,36,.25); border-radius: var(--radius); background: rgba(251,191,36,.055); }
-  .sourceful-card b { display: block; margin-bottom: 10px; font-size: 22px; }
-  .sourceful-card p { color: var(--muted); }
-
-  footer { border-top: 1px solid var(--line); padding: 42px 0; color: var(--muted); font-size: 13px; }
-  .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-  .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
-  .footer-links a { text-decoration: none; }
-  .footer-links a:hover { color: var(--ink); }
-
-  @media (max-width: 850px) {
-    .nav-links a:not(.nav-cta) { display: none; }
-    .proof-grid, .feature-grid, .mode-grid { grid-template-columns: 1fr; }
-    .proof { border-right: 0; border-bottom: 1px solid var(--line); }
-    .proof:last-child { border-bottom: 0; }
-    .contrast, .community-grid, .commercial-grid, .install-grid, .stewardship { grid-template-columns: 1fr; }
-    .feature { min-height: auto; }
-    .feature h3 { margin-top: 22px; }
-  }
-  @media (max-width: 540px) {
-    .wrap { width: min(100% - 28px, var(--max)); }
-    .hero { padding: 78px 0 60px; }
-    .section { padding: 72px 0; }
-    .brand-copy small { display: none; }
-    .panel, .community-card, .sourceful-card { padding: 23px; }
-  }
-</style>
-<link rel="stylesheet" href="/sourceful.css" />
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
   <header class="site-header">
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="FTW home">
-        <img class="sourceful-lockup" src="https://design.sourceful.energy/assets/sourceful-squircle.svg" alt="Sourceful Energy" />
-        <span class="product-name">FTW · Community HEMS</span>
+        <img src="/favicon.svg" alt="" width="34" height="34">
+        <span class="brand-sourceful">Sourceful Energy</span>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="product-name">FTW</span>
       </a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#capabilities">Capabilities</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#architecture">Architecture</a>
+        <a href="#extend">Build</a>
         <a href="#community">Community</a>
-        <a href="#install">Install</a>
-        <a href="#commercial">For organizations</a>
-        <a class="nav-cta" href="https://github.com/srcfl/ftw">GitHub ↗</a>
+        <a href="https://github.com/srcfl/ftw#documentation">Docs</a>
+        <a class="nav-cta" href="https://github.com/srcfl/ftw">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="wrap">
-        <div class="spread-meta"><span>Open-source HEMS</span><span>Local control · Signal orange · Satoshi</span><span>Sourceful Energy</span></div>
-        <div class="hero-core">
-          <div class="hero-copy">
-            <span class="eyebrow">00 · FTW Community</span>
-            <h1>The <span>open-source</span> brain for your solar, battery and EV.</h1>
+  <main id="content">
+    <section class="hero" id="top">
+      <div class="wrap hero-layout">
+        <div class="hero-copy">
+          <p class="project-state"><span class="status-dot" aria-hidden="true"></span>Apache-2.0 · Self-hosted · Community maintained</p>
+          <h1>Your home energy, coordinated <em>in the open.</em></h1>
+          <p class="hero-lede">FTW is a local-first home energy management system for solar, batteries, grid and EV charging. Run it on your own hardware, inspect every decision and teach it new devices in Lua.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#start">Install FTW <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="https://github.com/srcfl/ftw">View source <span aria-hidden="true">↗</span></a>
           </div>
-          <p class="hero-lede">
-            <strong>FTW coordinates solar, batteries, grid and EV charging locally, in real time.</strong>
-            One open-source home energy runtime, with no cloud dependency in the control path.
-          </p>
-          <div class="actions">
-            <a class="btn btn-primary" href="#install">Get FTW running →</a>
-            <a class="btn btn-secondary" href="https://github.com/srcfl/ftw">Read the source</a>
-            <a class="btn btn-secondary" href="https://discord.gg/25xcBzQaux">Join the community</a>
-          </div>
-          <div class="proof-grid" aria-label="FTW principles">
-            <div class="proof"><b>Local-first control</b><span>Fast decisions stay on your Raspberry Pi or Linux host.</span></div>
-            <div class="proof"><b>Hardware-neutral</b><span>Coordinate devices from different vendors as one energy system.</span></div>
-            <div class="proof"><b>Open by design</b><span>Apache-2.0 code, Lua drivers, public roadmap and community contributions.</span></div>
-          </div>
+          <dl class="project-facts">
+            <div><dt>Runtime</dt><dd>Go + Lua</dd></div>
+            <div><dt>Runs on</dt><dd>Pi + Linux</dd></div>
+            <div><dt>Control</dt><dd>Local-first</dd></div>
+            <div><dt>Support</dt><dd>Community</dd></div>
+          </dl>
         </div>
-        <div class="hero-bottom"><span>Apache-2.0 · Community support only</span><span>Directory · 00 of 07</span></div>
+
+        <aside class="runtime-card" aria-label="Example FTW runtime status">
+          <div class="runtime-topbar">
+            <span>ftw / local-runtime</span>
+            <span class="runtime-live"><i aria-hidden="true"></i>live</span>
+          </div>
+          <div class="energy-state">
+            <div class="state-reading">
+              <span class="reading-label">SITE METER</span>
+              <strong>+ 042 W</strong>
+              <span>near target</span>
+            </div>
+            <div class="flow-line" aria-hidden="true"><span></span></div>
+            <div class="flow-grid">
+              <div><span>PV</span><strong>−4.8 kW</strong></div>
+              <div><span>HOME</span><strong>+1.6 kW</strong></div>
+              <div><span>BATTERY</span><strong>+3.1 kW</strong></div>
+              <div><span>EV</span><strong>idle</strong></div>
+            </div>
+          </div>
+          <div class="runtime-stack">
+            <div><span>01</span><b>Lua drivers</b><small>Modbus · MQTT · HTTP</small></div>
+            <div><span>02</span><b>Control loop</b><small>PI · fuse guard · watchdog</small></div>
+            <div><span>03</span><b>48 h planner</b><small>price · PV · load · SoC</small></div>
+          </div>
+          <div class="runtime-footer"><span>Control stays in the home</span><span>no cloud required</span></div>
+        </aside>
       </div>
     </section>
 
-    <section class="section" id="overview">
-      <div class="wrap">
-        <p class="section-kicker">01 · One home, one system</p>
-        <h2>Your energy devices should work together.</h2>
-        <p class="section-intro">
-          Solar inverters, batteries, grid meters and EV chargers usually arrive with separate apps,
-          separate clouds and separate ideas about what your home needs. <strong>FTW treats the site boundary
-          as the system</strong> and coordinates the devices behind it every few seconds.
-        </p>
-        <div class="contrast">
-          <div class="panel">
-            <h3>The usual home energy stack</h3>
-            <ul>
-              <li>One app and cloud dependency per vendor</li>
-              <li>Battery, solar and EV charging optimize in isolation</li>
-              <li>Schedules stand in for real planning</li>
-              <li>Your data and control path leave the home</li>
-            </ul>
-          </div>
-          <div class="panel good">
-            <h3>With FTW</h3>
-            <ul>
-              <li>One local control loop coordinates the whole site</li>
-              <li>PV, load, storage and charging are planned together</li>
-              <li>Prices, forecasts and physical limits inform every plan</li>
-              <li>Cloud services are optional, never the core control path</li>
-            </ul>
-          </div>
+    <section class="quickstart" id="start">
+      <div class="wrap quickstart-layout">
+        <div>
+          <p class="section-kicker">Get running</p>
+          <h2>Start with the software, not a sales call.</h2>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="capabilities">
-      <div class="wrap">
-        <p class="section-kicker">02 · Built for real homes</p>
-        <h2>Control, planning and hardware integration in one project.</h2>
-        <p class="section-intro">
-          FTW is more than a dashboard. It combines an edge control loop, mathematical planning,
-          self-learning models and hot-editable hardware drivers, with safe fallbacks when inputs disappear.
-        </p>
-        <div class="feature-grid">
-          <article class="feature"><span class="num">01 / CONTROL</span><h3>Local real-time coordination</h3><p>Keep the site meter near target while batteries, PV and charging respond as one system.</p></article>
-          <article class="feature"><span class="num">02 / PLAN</span><h3>Price-aware planning</h3><p>Plan across spot prices, weather, PV, household load and battery state, with a safe local fallback.</p></article>
-          <article class="feature"><span class="num">03 / LEARN</span><h3>Self-learning energy models</h3><p>Local PV, load, price and battery models adapt to the home instead of assuming every site behaves alike.</p></article>
-          <article class="feature"><span class="num">04 / CONNECT</span><h3>Lua device drivers</h3><p>Modbus, MQTT, HTTP, WebSocket and raw TCP integrations can be improved without rebuilding the runtime.</p></article>
-          <article class="feature"><span class="num">05 / PROTECT</span><h3>Safety-first fallbacks</h3><p>Watchdogs, stale-meter protection, fuse limits and explicit clamps return devices to autonomous modes when needed.</p></article>
-          <article class="feature"><span class="num">06 / OWN</span><h3>Your data, locally</h3><p>SQLite history, long-format telemetry and Parquet rolloff keep high-resolution energy data under operator control.</p></article>
-          <article class="feature"><span class="num">07 / INTEGRATE</span><h3>Home Assistant</h3><p>MQTT autodiscovery brings sensors and controls into Home Assistant, with an add-on path for HA OS users.</p></article>
-          <article class="feature"><span class="num">08 / SCHEDULE</span><h3>Calendar-aware energy</h3><p>CalDAV turns ordinary calendar events into departure deadlines, away modes and charging windows.</p></article>
-          <article class="feature"><span class="num">09 / EXTEND</span><h3>Public APIs and drivers</h3><p>Build new integrations, add hardware support and improve the planner through the same public repository.</p></article>
+        <div class="install-command" role="group" aria-label="Docker installation command">
+          <span class="prompt">$</span>
+          <code>curl -fsSL https://raw.githubusercontent.com/srcfl/ftw/master/scripts/install.sh | bash</code>
+        </div>
+        <div class="start-links">
+          <a href="https://github.com/srcfl/ftw#option-a-raspberry-pi-sd-card-image"><span>01</span>Raspberry Pi image <b>Recommended</b></a>
+          <a href="https://github.com/srcfl/ftw#option-b-docker-installer"><span>02</span>Docker installer <b>Debian / Ubuntu</b></a>
+          <a href="https://github.com/srcfl/ftw#option-c-home-assistant-os-add-on"><span>03</span>Home Assistant <b>Add-on</b></a>
+          <a href="https://github.com/srcfl/ftw#option-d-build-from-source"><span>04</span>Build from source <b>Contributors</b></a>
         </div>
       </div>
     </section>
 
-    <section class="section modes">
-      <div class="wrap">
-        <p class="section-kicker">03 · Choose the objective</p>
-        <h2>One control system. Different ways to run your home.</h2>
-        <p class="section-intro">The physical limits stay the same. The planner objective changes with the outcome you want.</p>
-        <div class="mode-grid">
-          <article class="mode"><b>SELF</b><h3>Self-consumption</h3><p>Use the battery to cover household load and absorb your own PV without intentionally importing to charge.</p></article>
-          <article class="mode"><b>PASSIVE</b><h3>Passive arbitrage</h3><p>Decide whether PV surplus is worth more exported now or stored for a more valuable hour later.</p></article>
-          <article class="mode"><b>ACTIVE</b><h3>Active arbitrage</h3><p>Import, hold or export around price opportunities while respecting fuse, power and state-of-charge limits.</p></article>
+    <section class="section architecture" id="architecture">
+      <div class="wrap section-head">
+        <p class="section-kicker">Architecture</p>
+        <h2>One local system across mixed hardware.</h2>
+        <p class="section-intro">Vendor apps optimize one device at a time. FTW treats the whole site as one energy system and keeps the fast control path on your Raspberry Pi or Linux host.</p>
+      </div>
+      <div class="wrap system-map" role="img" aria-label="Signals from the grid meter, prices, weather and devices flow into the local FTW runtime, which coordinates batteries, inverters, EV charging, APIs and Home Assistant.">
+        <div class="system-column inputs">
+          <p class="map-label">Signals in</p>
+          <div class="map-node"><span>Grid meter</span><small>site boundary</small></div>
+          <div class="map-node"><span>Prices + weather</span><small>optional inputs</small></div>
+          <div class="map-node"><span>Device telemetry</span><small>local network</small></div>
+        </div>
+        <div class="map-connector" aria-hidden="true"><span>→</span></div>
+        <div class="system-core">
+          <div class="core-heading"><img src="/favicon.svg" alt="" width="38" height="38"><div><strong>FTW</strong><small>your host</small></div></div>
+          <ol>
+            <li><span>01</span>Normalize device data</li>
+            <li><span>02</span>Learn PV, load and storage</li>
+            <li><span>03</span>Plan across the next 48 h</li>
+            <li><span>04</span>Dispatch with safety fallbacks</li>
+          </ol>
+        </div>
+        <div class="map-connector" aria-hidden="true"><span>→</span></div>
+        <div class="system-column outputs">
+          <p class="map-label">Coordinated out</p>
+          <div class="map-node"><span>Battery + inverter</span><small>charge / discharge</small></div>
+          <div class="map-node"><span>EV charging</span><small>load / V2X</small></div>
+          <div class="map-node"><span>API + Home Assistant</span><small>observe / automate</small></div>
+        </div>
+      </div>
+      <div class="wrap architecture-note">
+        <p><span>Site convention</span> Above the driver boundary, positive power means energy flowing into the site. Every device speaks the same language.</p>
+        <a href="https://github.com/srcfl/ftw/blob/master/docs/architecture.md">Read the architecture <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="section capabilities" id="capabilities">
+      <div class="wrap section-head">
+        <p class="section-kicker">Inside FTW</p>
+        <h2>A serious energy runtime, in a repository you can inspect.</h2>
+      </div>
+      <div class="wrap capability-grid">
+        <article>
+          <span class="cap-number">01 / CONTROL</span>
+          <h3>Real-time site coordination</h3>
+          <p>Keep the grid meter near target while solar, storage and charging respond as one system.</p>
+          <code>PI · slew · dispatch</code>
+        </article>
+        <article>
+          <span class="cap-number">02 / PLAN</span>
+          <h3>Price-aware planning</h3>
+          <p>Plan around spot prices, weather, household load, PV production and battery state.</p>
+          <code>MPC · 48 h horizon</code>
+        </article>
+        <article>
+          <span class="cap-number">03 / LEARN</span>
+          <h3>Models that learn your site</h3>
+          <p>Local PV, load, price and battery models adapt to the home instead of assuming every site is alike.</p>
+          <code>RLS · ARX · twins</code>
+        </article>
+        <article>
+          <span class="cap-number">04 / PROTECT</span>
+          <h3>Failure-aware by design</h3>
+          <p>Watchdogs, fuse limits and stale-meter protection return hardware to safe autonomous modes.</p>
+          <code>fallbacks · clamps</code>
+        </article>
+        <article>
+          <span class="cap-number">05 / STORE</span>
+          <h3>Keep the history</h3>
+          <p>SQLite telemetry and compressed Parquet rolloff keep detailed energy data under operator control.</p>
+          <code>SQLite · Parquet</code>
+        </article>
+        <article>
+          <span class="cap-number">06 / CONNECT</span>
+          <h3>Open integrations</h3>
+          <p>Use the HTTP API, Home Assistant MQTT discovery and Lua drivers to connect the rest of your home.</p>
+          <code>HTTP · MQTT · Lua</code>
+        </article>
+      </div>
+    </section>
+
+    <section class="section extend" id="extend">
+      <div class="wrap extend-layout">
+        <div class="extend-copy">
+          <p class="section-kicker">Build with it</p>
+          <h2>New hardware should be a driver, not a fork.</h2>
+          <p>FTW drivers are plain Lua files with capability-scoped access to Modbus, MQTT, HTTP, WebSocket and TCP. Edit a driver on the Pi and reload it without rebuilding the Go runtime.</p>
+          <ul class="check-list">
+            <li>Start from an existing inverter, meter or charger driver</li>
+            <li>Test with simulators and the same public host API</li>
+            <li>Contribute the integration back through a pull request</li>
+          </ul>
+          <div class="inline-actions">
+            <a class="text-link" href="https://github.com/srcfl/ftw/blob/master/docs/writing-a-driver.md">Write a driver <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="https://github.com/srcfl/ftw/tree/master/drivers">Browse drivers <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="code-window" role="group" aria-label="Example Lua device driver">
+          <div class="code-title"><span>drivers/my_inverter.lua</span><span>Lua</span></div>
+          <pre><code><span class="code-key">function</span> <span class="code-call">driver_init</span>(config)
+  host.set_make(<span class="code-string">"My Inverter"</span>)
+  host.mqtt_subscribe(config.topic)
+<span class="code-key">end</span>
+
+<span class="code-key">function</span> <span class="code-call">driver_poll</span>()
+  <span class="code-key">local</span> watts = read_power()
+  host.emit(<span class="code-string">"battery"</span>, {
+    power_w = watts,
+    soc = read_soc()
+  })
+  <span class="code-key">return</span> <span class="code-number">1000</span>
+<span class="code-key">end</span></code></pre>
+          <div class="code-footer"><span>hot-editable</span><span>no build step</span><span>PRs welcome</span></div>
         </div>
       </div>
     </section>
 
     <section class="section community" id="community">
-      <div class="wrap">
-        <p class="section-kicker">04 · Community edition</p>
-        <h2>Built in public. Maintained with the people who run it.</h2>
-        <p class="section-intro">
-          FTW Community is complete, self-hosted software under Apache-2.0. Run it, study it,
-          adapt it and send improvements back. Sourceful stewards the project; the community helps decide where it gets better next.
-        </p>
-        <div class="community-grid">
-          <article class="community-card">
-            <span class="support-flag">Community support only</span>
-            <h3>No official support or SLA</h3>
-            <p>The Community edition is provided as-is. Maintainers and other users may help on a best-effort basis, but response times and fixes are not guaranteed.</p>
-            <ul>
-              <li>Ask setup questions in Discord</li>
-              <li>Report reproducible bugs on GitHub</li>
-              <li>Never post secrets or private energy data</li>
-            </ul>
-            <a href="https://github.com/srcfl/ftw/blob/master/SUPPORT.md">Read the support policy →</a>
+      <div class="wrap community-layout">
+        <div class="community-intro">
+          <p class="section-kicker">The community edition</p>
+          <h2>Free software, shared stewardship.</h2>
+          <p>Run FTW at home, study it, modify it and use it commercially under Apache-2.0. Development happens in public and Sourceful Energy maintains the core together with project contributors.</p>
+          <div class="license-line"><span>Apache-2.0</span><span>Public roadmap</span><span>Community PRs</span></div>
+        </div>
+        <div class="community-panels">
+          <article>
+            <span class="panel-tag">Community support</span>
+            <h3>You operate what you run.</h3>
+            <p>FTW Community comes without official support, warranty, response times or service-level commitments. Help is best-effort from other users and maintainers.</p>
+            <div class="panel-links">
+              <a href="https://github.com/srcfl/ftw/issues">Issues <span aria-hidden="true">↗</span></a>
+              <a href="https://discord.gg/25xcBzQaux">Discord <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/srcfl/ftw/blob/master/SUPPORT.md">Support policy <span aria-hidden="true">↗</span></a>
+            </div>
           </article>
-          <article class="community-card">
-            <span class="support-flag">Contributions welcome</span>
-            <h3>Your hardware can improve FTW</h3>
-            <p>Drivers are small Lua files, documentation lives beside the code, and project decisions are recorded in public. The fastest way to make your device work better is often to improve the shared driver.</p>
-            <ul>
-              <li>Add or test a device driver</li>
-              <li>Improve safety, planning or documentation</li>
-              <li>Open an issue before a large change</li>
-            </ul>
-            <a href="https://github.com/srcfl/ftw/blob/master/CONTRIBUTING.md">How to contribute →</a>
+          <article>
+            <span class="panel-tag">Contribute</span>
+            <h3>Make the shared system better.</h3>
+            <p>Add a device, reproduce a hardware edge case, improve the planner or sharpen the docs. Open an issue before a large change, then build in public.</p>
+            <div class="panel-links">
+              <a href="https://github.com/srcfl/ftw/blob/master/CONTRIBUTING.md">Contribution guide <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/srcfl/ftw/pulls">Pull requests <span aria-hidden="true">↗</span></a>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section commercial" id="commercial">
-      <div class="wrap commercial-grid">
+    <section class="section organizations" id="organizations">
+      <div class="wrap organizations-layout">
         <div>
-          <p class="section-kicker">05 · For organizations</p>
-          <h2>Community software. Commercial accountability when you need it.</h2>
-          <p class="section-intro">
-            FTW Community is open source for home and commercial use. Organizations that need an accountable
-            delivery partner can work with Sourceful on a separately scoped, supported deployment.
-          </p>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://www.sourceful.energy/contact">Talk to Sourceful →</a>
-            <a class="btn btn-secondary" href="https://github.com/srcfl/ftw/blob/master/docs/adr/0004-community-and-commercial-model.md">Read the model</a>
-          </div>
-          <p class="license-note">Apache-2.0 already permits commercial use of the Community code. A Sourceful engagement buys additional capabilities, delivery ownership and support, not permission to use open source.</p>
+          <p class="section-kicker">For organizations</p>
+          <h2>Open code. Commercial accountability.</h2>
+          <p class="section-intro">Apache-2.0 already gives you permission to use the Community code. A Sourceful engagement buys delivery ownership, additional capabilities and an accountable support relationship.</p>
+          <a class="btn btn-primary" href="https://www.sourceful.energy/contact">Talk to Sourceful <span aria-hidden="true">→</span></a>
         </div>
-        <div class="commercial-list">
-          <div class="commercial-item"><b>Supported rollout</b><span>Architecture, installation, commissioning, upgrades and operational handover.</span></div>
-          <div class="commercial-item"><b>Integrations and OEM delivery</b><span>Custom hardware support, certification, white-label and product integration.</span></div>
-          <div class="commercial-item"><b>Fleet and managed operations</b><span>Multi-site visibility, provisioning, monitoring and managed service boundaries.</span></div>
-          <div class="commercial-item"><b>Long-term support</b><span>Defined maintenance, response times, security handling and contractual service levels.</span></div>
+        <div class="service-list">
+          <div><span>01</span><p><strong>Supported deployments</strong>Architecture, commissioning, upgrades and operational handover.</p></div>
+          <div><span>02</span><p><strong>Integrations + OEM</strong>Custom hardware, certification, white-label and product delivery.</p></div>
+          <div><span>03</span><p><strong>Fleet operations</strong>Provisioning, observability and managed multi-site boundaries.</p></div>
+          <div><span>04</span><p><strong>Long-term support</strong>Defined maintenance, security handling, response times and SLA.</p></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="install">
-      <div class="wrap">
-        <p class="section-kicker">06 · Get started</p>
-        <h2>From blank SD card to a local energy runtime.</h2>
-        <p class="section-intro">Choose the path that fits your home. Each route leads to the same local setup experience and dashboard.</p>
-        <div class="install-grid">
-          <div class="install-options">
-            <div class="install-option"><b>Raspberry Pi image</b><span>The recommended path for a dedicated FTW controller.</span></div>
-            <div class="install-option"><b>Docker installer</b><span>For an existing Raspberry Pi OS, Debian or Ubuntu host.</span></div>
-            <div class="install-option"><b>Home Assistant add-on</b><span>For Home Assistant OS or supervised installations.</span></div>
-            <div class="install-option"><b>Build from source</b><span>For contributors, driver authors and custom environments.</span></div>
-            <a class="btn btn-secondary" href="https://github.com/srcfl/ftw#quick-start">Open the full installation guide →</a>
+    <section class="project-cta">
+      <div class="wrap project-cta-layout">
+        <div>
+          <p class="section-kicker">FTW Community</p>
+          <h2>Energy infrastructure you can own.</h2>
+        </div>
+        <div>
+          <p>Install it. Read it. Break it safely. Send the fix upstream.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://github.com/srcfl/ftw#quick-start">Get started <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="https://github.com/srcfl/ftw">Star on GitHub <span aria-hidden="true">↗</span></a>
           </div>
-          <pre><span class="comment"># Docker installer on Raspberry Pi OS, Debian or Ubuntu</span>
-<span class="prompt">$</span> curl -fsSL https://raw.githubusercontent.com/srcfl/ftw/master/scripts/install.sh | bash
-
-<span class="comment"># Then open the local setup wizard</span>
-<span class="prompt">$</span> open http://&lt;your-pi&gt;:8080/setup
-
-<span class="comment"># Build with simulators</span>
-<span class="prompt">$</span> git clone https://github.com/srcfl/ftw
-<span class="prompt">$</span> cd ftw && make dev</pre>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap stewardship">
-        <div class="stewardship-copy">
-          <p class="section-kicker">07 · Stewardship</p>
-          <h2>Born in real homes. Maintained as part of Sourceful Energy.</h2>
-          <p>FTW grew out of the practical problem of making devices from different energy vendors behave like one system. The project brings that experience into an open, local-first runtime that homeowners and contributors can inspect and improve.</p>
-          <p>Sourceful Energy maintains the project direction, releases and core architecture together with project contributors.</p>
-        </div>
-        <aside class="sourceful-card">
-          <img class="sourceful-card-logo" src="https://design.sourceful.energy/assets/sourceful-squircle.svg" alt="Sourceful Energy" />
-          <p>Sourceful builds and operates energy coordination systems for homes, installers, energy companies and commercial sites. FTW is the community HEMS within that wider energy platform.</p>
-          <a class="btn btn-primary" href="https://www.sourceful.energy/">Visit Sourceful Energy →</a>
-        </aside>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap footer-row">
+    <div class="wrap footer-main">
       <div class="footer-brand">
-        <img src="https://design.sourceful.energy/assets/sourceful-squircle.svg" alt="Sourceful Energy" />
-        <span>FTW · Apache-2.0 · maintained with project contributors</span>
+        <img src="/favicon.svg" alt="" width="38" height="38">
+        <div><strong>FTW</strong><span>An open-source project maintained by Sourceful Energy and contributors.</span></div>
       </div>
       <div class="footer-links">
-        <a href="https://github.com/srcfl/ftw">GitHub</a>
-        <a href="https://discord.gg/25xcBzQaux">Discord</a>
-        <a href="https://github.com/srcfl/ftw/blob/master/LICENSE">License</a>
-        <a href="https://github.com/srcfl/ftw/blob/master/TRADEMARKS.md">Trademarks</a>
-        <a href="https://www.sourceful.energy/contact">Commercial contact</a>
+        <div><span>Project</span><a href="https://github.com/srcfl/ftw">GitHub</a><a href="https://github.com/srcfl/ftw/releases">Releases</a><a href="https://github.com/srcfl/ftw#documentation">Documentation</a></div>
+        <div><span>Community</span><a href="https://discord.gg/25xcBzQaux">Discord</a><a href="https://github.com/srcfl/ftw/issues">Issues</a><a href="https://github.com/srcfl/ftw/blob/master/CONTRIBUTING.md">Contribute</a></div>
+        <div><span>Terms</span><a href="https://github.com/srcfl/ftw/blob/master/LICENSE">Apache-2.0</a><a href="https://github.com/srcfl/ftw/blob/master/TRADEMARKS.md">Trademarks</a><a href="https://github.com/srcfl/ftw/blob/master/SUPPORT.md">Support</a></div>
       </div>
     </div>
+    <div class="wrap footer-bottom"><span>© Sourceful Labs AB and FTW contributors</span><a href="https://www.sourceful.energy/">sourceful.energy <span aria-hidden="true">↗</span></a></div>
   </footer>
 </body>
 </html>
