@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>FTW | Open-source home energy management</title>
-  <meta name="description" content="FTW is an Apache-2.0, self-hosted home energy management system. Coordinate solar, batteries, grid and EV charging locally with a Go runtime and community-built Lua drivers.">
-  <meta name="keywords" content="FTW, home energy management, HEMS, open source, self-hosted, solar, battery, EV charging, Raspberry Pi, Go, Lua, Home Assistant">
+  <meta name="description" content="FTW is an Apache-2.0, self-hosted home energy management system. Coordinate solar, batteries, grid and EV charging locally with a Go runtime, community-built Lua drivers and a built-in OCPP server for EV chargers.">
+  <meta name="keywords" content="FTW, home energy management, HEMS, open source, self-hosted, solar, battery, EV charging, OCPP, OCPP 1.6J, OCPP 2.0.1, Raspberry Pi, Go, Lua, Home Assistant">
   <meta name="robots" content="index,follow">
   <meta name="author" content="Sourceful Energy and FTW contributors">
   <meta name="theme-color" content="#0a0a0a">
@@ -161,7 +161,7 @@
         <div class="system-column outputs">
           <p class="map-label">Coordinated out</p>
           <div class="map-node"><span>Battery + inverter</span><small>charge / discharge</small></div>
-          <div class="map-node"><span>EV charging</span><small>load / V2X</small></div>
+          <div class="map-node"><span>EV charging</span><small>OCPP / V2X</small></div>
           <div class="map-node"><span>API + Home Assistant</span><small>observe / automate</small></div>
         </div>
       </div>
@@ -210,8 +210,8 @@
         <article>
           <span class="cap-number">06 / CONNECT</span>
           <h3>Open integrations</h3>
-          <p>Use the HTTP API, Home Assistant MQTT discovery and Lua drivers to connect the rest of your home.</p>
-          <code>HTTP · MQTT · Lua</code>
+          <p>Use the HTTP API, Home Assistant MQTT discovery and Lua drivers to connect the rest of your home. OCPP 1.6J and 2.0.1 chargers need no driver at all.</p>
+          <code>HTTP · MQTT · OCPP · Lua</code>
         </article>
       </div>
     </section>
@@ -226,9 +226,11 @@
             <li>Start from an existing inverter, meter or charger driver</li>
             <li>Test with simulators and the same public host API</li>
             <li>Contribute the integration back through a pull request</li>
+            <li>Skip the driver entirely for an EV charger that speaks OCPP</li>
           </ul>
           <div class="inline-actions">
             <a class="text-link" href="https://github.com/srcfl/device-drivers/blob/main/docs/WRITING-A-DRIVER.md">Write a driver <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="https://github.com/srcfl/ftw/blob/master/docs/ocpp.md">OCPP chargers <span aria-hidden="true">↗</span></a>
             <a class="text-link" href="https://github.com/srcfl/device-drivers/tree/main/drivers/lua">Browse drivers <span aria-hidden="true">↗</span></a>
           </div>
         </div>
