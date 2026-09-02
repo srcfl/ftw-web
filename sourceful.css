@@ -180,7 +180,10 @@ h2 { color: var(--ink); font-size: clamp(3.2rem, 5.8vw, 5.8rem); font-weight: 30
 .community-intro h2 { margin-bottom: 28px; }
 .community-intro > p:not(.section-kicker) { max-width: 600px; color: rgba(10, 10, 10, 0.72); font-size: 18px; }
 .license-line { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 34px; }
-.license-line span, .panel-tag { display: inline-flex; padding: 7px 9px; border: 1px solid var(--ink); color: var(--ink); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; }
+.license-line span, .license-line a, .panel-tag { display: inline-flex; padding: 7px 9px; border: 1px solid var(--ink); color: var(--ink); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; }
+.license-line a { gap: 6px; text-decoration: none; }
+.license-line a:hover { background: var(--ink); color: var(--signal); }
+.license-line a span { padding: 0; border: 0; color: inherit; }
 .community-panels { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
 .community-panels article { display: flex; flex-direction: column; padding: 28px; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); background: var(--cream); }
 .community-panels h3 { margin: 52px 0 16px; color: var(--ink); font-size: 27px; font-weight: 500; line-height: 1.1; }
