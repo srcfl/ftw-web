@@ -34,3 +34,12 @@ python3 -m http.server 8000
 ```
 
 Then open http://localhost:8000.
+
+## Product license
+
+FTW code uses AGPL-3.0-only with the narrow Energyplan combination permission.
+Commercial FTW use is allowed under the AGPL terms. The proprietary Energyplan
+worker is free for private household use; commercial worker use, bundling and
+paid services require a separate written Sourceful license. Keep product copy
+consistent with [LICENSING.md](LICENSING.md), which also explains the separate
+rights in website artwork and brands.
