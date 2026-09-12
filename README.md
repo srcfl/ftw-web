@@ -21,10 +21,11 @@ Explain mixed-equipment coordination, simple defaults, local control and
 visible outcomes. Clearly distinguish implemented capabilities from goals
 such as cloud MCP. Do not publish predicted savings as measured results.
 
-Sourceful maintains the product; Fredrik owns its direction. External users
-submit [issues](https://github.com/srcfl/ftw-web/issues), not PRs, including
-copy corrections. See [CONTRIBUTING.md](CONTRIBUTING.md). Keep existing license
-and historical attribution intact. Inspect rendered copy before publishing.
+Sourceful maintains the product; Fredrik owns its direction. PRs are welcome,
+preferably based on [issues](https://github.com/srcfl/ftw-web/issues). Share a
+short Markdown proposal or a focused fix with relevant evidence. Work is
+agentic first; see [CONTRIBUTING.md](CONTRIBUTING.md). Keep existing license
+and attribution intact. Inspect rendered copy before publishing.
 
 ## Local dev
 
