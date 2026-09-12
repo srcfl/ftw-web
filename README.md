@@ -13,6 +13,19 @@ The legacy `home.fortytwowatts.com` host is not part of the website redirect.
 It remains a WebAuthn security identity until the separate passkey migration is
 complete.
 
+## Product direction and contribution policy
+
+Use [FTW's vision](https://github.com/srcfl/ftw/blob/master/VISION.md) and
+[roadmap](https://github.com/srcfl/ftw/blob/master/docs/roadmap.md) when writing product copy.
+Explain mixed-equipment coordination, simple defaults, local control and
+visible outcomes. Clearly distinguish implemented capabilities from goals
+such as cloud MCP. Do not publish predicted savings as measured results.
+
+Sourceful maintains the product; Fredrik owns its direction. External users
+submit [issues](https://github.com/srcfl/ftw-web/issues), not PRs, including
+copy corrections. See [CONTRIBUTING.md](CONTRIBUTING.md). Keep existing license
+and historical attribution intact. Inspect rendered copy before publishing.
+
 ## Local dev
 
 ```bash
