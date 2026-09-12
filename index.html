@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>FTW | Open-source home energy management</title>
-  <meta name="description" content="FTW is an Apache-2.0, self-hosted home energy management system. Coordinate solar, batteries, grid and EV charging locally with a Go runtime and community-built Lua drivers.">
+  <meta name="description" content="FTW is an Apache-2.0, self-hosted home energy management system. Coordinate solar, batteries, grid and EV charging locally with a Go runtime and Sourceful-maintained Lua drivers.">
   <meta name="keywords" content="FTW, home energy management, HEMS, open source, self-hosted, solar, battery, EV charging, Raspberry Pi, Go, Lua, Home Assistant">
   <meta name="robots" content="index,follow">
-  <meta name="author" content="Sourceful Energy and FTW contributors">
+  <meta name="author" content="Sourceful Energy">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="canonical" href="https://ftw.sourceful.energy/">
 
@@ -71,7 +71,7 @@
     <section class="hero" id="top">
       <div class="wrap hero-layout">
         <div class="hero-copy">
-          <p class="project-state"><span class="status-dot" aria-hidden="true"></span>Apache-2.0 · Self-hosted · Community maintained</p>
+          <p class="project-state"><span class="status-dot" aria-hidden="true"></span>Apache-2.0 · Self-hosted · Sourceful maintained</p>
           <h1>Your home energy, coordinated <em>in the open.</em></h1>
           <p class="hero-lede">FTW is a local-first home energy management system for solar, batteries, grid and EV charging. Run it on your own hardware, inspect every decision and teach it new devices in Lua.</p>
           <div class="hero-actions">
@@ -129,7 +129,7 @@
           <a href="https://github.com/srcfl/ftw/blob/master/docs/rpi-image.md"><span>01</span>Raspberry Pi image <b>Recommended</b></a>
           <a href="https://github.com/srcfl/ftw#install-on-linux"><span>02</span>Docker installer <b>Debian / Ubuntu</b></a>
           <a href="https://github.com/srcfl/ftw#install-on-home-assistant"><span>03</span>Home Assistant <b>Add-on</b></a>
-          <a href="https://github.com/srcfl/ftw#local-development"><span>04</span>Build from source <b>Contributors</b></a>
+          <a href="https://github.com/srcfl/ftw#local-development"><span>04</span>Build from source <b>Developers</b></a>
         </div>
       </div>
     </section>
@@ -204,8 +204,8 @@
         <article>
           <span class="cap-number">05 / STORE</span>
           <h3>Keep the history</h3>
-          <p>SQLite telemetry and compressed Parquet rolloff keep detailed energy data under operator control.</p>
-          <code>SQLite · Parquet</code>
+          <p>Detailed energy history stays on the box, with storage and recovery managed by FTW Core.</p>
+          <code>Local history · Core</code>
         </article>
         <article>
           <span class="cap-number">06 / CONNECT</span>
@@ -225,7 +225,7 @@
           <ul class="check-list">
             <li>Start from an existing inverter, meter or charger driver</li>
             <li>Test with simulators and the same public host API</li>
-            <li>Contribute the integration back through a pull request</li>
+            <li>Share device needs and test evidence through an issue</li>
           </ul>
           <div class="inline-actions">
             <a class="text-link" href="https://github.com/srcfl/device-drivers/blob/main/docs/WRITING-A-DRIVER.md">Write a driver <span aria-hidden="true">→</span></a>
@@ -247,7 +247,7 @@
   })
   <span class="code-key">return</span> <span class="code-number">1000</span>
 <span class="code-key">end</span></code></pre>
-          <div class="code-footer"><span>hot-editable</span><span>no build step</span><span>PRs welcome</span></div>
+          <div class="code-footer"><span>hot-editable</span><span>no build step</span><span>Issues welcome</span></div>
         </div>
       </div>
     </section>
@@ -256,9 +256,9 @@
       <div class="wrap community-layout">
         <div class="community-intro">
           <p class="section-kicker">The community edition</p>
-          <h2>Free software, shared stewardship.</h2>
-          <p>Run FTW at home, study it, modify it and use it commercially under Apache-2.0. Development happens in public and Sourceful Energy maintains the core together with project contributors.</p>
-          <div class="license-line"><span>Apache-2.0</span><span>Public roadmap</span><span>Community PRs</span></div>
+          <h2>Open source, maintained by Sourceful.</h2>
+          <p>Run FTW at home, study it, modify it and use it commercially under Apache-2.0. Sourceful Energy develops and maintains FTW. External users help through issues with bugs, needs and evidence. We do not accept external pull requests.</p>
+          <div class="license-line"><span>Apache-2.0</span><span>Public roadmap</span><span>Community issues</span></div>
         </div>
         <div class="community-panels">
           <article>
@@ -274,10 +274,10 @@
           <article>
             <span class="panel-tag">Contribute</span>
             <h3>Make the shared system better.</h3>
-            <p>Add a device, reproduce a hardware edge case, improve the planner or sharpen the docs. Open an issue before a large change, then build in public.</p>
+            <p>Report a device need, reproduce a hardware problem or suggest a clearer flow. Open an issue with what you want to achieve; Sourceful handles implementation, including documentation and drivers.</p>
             <div class="panel-links">
               <a href="https://github.com/srcfl/ftw/blob/master/CONTRIBUTING.md">Contribution guide <span aria-hidden="true">↗</span></a>
-              <a href="https://github.com/srcfl/ftw/pulls">Pull requests <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/srcfl/ftw/issues">Report an issue <span aria-hidden="true">↗</span></a>
             </div>
           </article>
         </div>
@@ -308,7 +308,7 @@
           <h2>Energy infrastructure you can own.</h2>
         </div>
         <div>
-          <p>Install it. Read it. Break it safely. Send the fix upstream.</p>
+          <p>Run it. Explore it. Tell us what would make it better.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://github.com/srcfl/ftw#install-on-linux">Get started <span aria-hidden="true">→</span></a>
             <a class="btn btn-ghost" href="https://github.com/srcfl/ftw">Star on GitHub <span aria-hidden="true">↗</span></a>
@@ -322,7 +322,7 @@
     <div class="wrap footer-main">
       <div class="footer-brand">
         <img src="/favicon.svg" alt="" width="38" height="38">
-        <div><strong>FTW</strong><span>An open-source project maintained by Sourceful Energy and contributors.</span></div>
+        <div><strong>FTW</strong><span>An open-source project maintained by Sourceful Energy.</span></div>
       </div>
       <div class="footer-links">
         <div><span>Project</span><a href="https://github.com/srcfl/ftw">GitHub</a><a href="https://github.com/srcfl/ftw/releases">Releases</a><a href="https://github.com/srcfl/ftw#documentation">Documentation</a></div>
