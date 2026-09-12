@@ -20,3 +20,12 @@ Follow the repository guide and coordinate overlap with open PRs.
 Sourceful reviews and maintains changes. A contribution grants no merge,
 release or deployment authority. Existing license rights and attribution
 remain unchanged. See [FTW's contribution guide](https://github.com/srcfl/ftw/blob/master/CONTRIBUTING.md).
+
+## License statements in contributions
+
+Use [LICENSING.md](LICENSING.md) when describing the product: FTW code uses
+AGPL-3.0-only with the Energyplan permission; the proprietary worker has
+separate Home Use terms. Commercial worker use requires a written Sourceful
+license. Do not describe FTW's AGPL code as noncommercial or extend its
+license to website artwork, brands or third-party assets. Preserve their
+existing rights and notices.
