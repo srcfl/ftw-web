@@ -123,13 +123,14 @@
         </div>
         <div class="release-note" role="note">
           <p><strong>2.x and 3.x will receive no further updates.</strong> Switch to the new 0.x line for current fixes and features. Do not install 3.x beta.</p>
-          <p>Already running FTW? Identify your installation first. You can switch with a new setup now; guided transfer of old settings and history is not ready. Keep your old data and run only one Core against your equipment.</p>
+          <p><strong>Old FTW on a Raspberry Pi? Use a second SD card.</strong> Keep the old card. Prepare the new one and swap cards before running install commands. Guided transfer of old settings and history is not ready.</p>
+          <p>Choose one path below. A refused native install is a stop point; do not try Docker next. Same-host Docker needs a planned switch with old Core stopped and MQTT preserved.</p>
         </div>
         <div class="start-links">
-          <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#choose-your-path"><span>01</span>Switch or update FTW <b>Start here · all install types</b></a>
-          <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#install"><span>02</span>Raspberry Pi / Linux <b>Fresh 64-bit host · native</b></a>
-          <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#docker"><span>03</span>Docker on Linux <b>New 0.x release package</b></a>
-          <a href="https://github.com/srcfl/ftw#install-on-home-assistant"><span>04</span>Home Assistant users <b>New FTW on a separate host</b></a>
+          <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#choose-your-path"><span aria-hidden="true">→</span>Switch or update FTW <b>Start here · all install types</b></a>
+          <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#raspberry-pi-use-a-second-sd-card"><span aria-hidden="true">→</span>Switch an existing Pi <b>New SD card · step by step</b></a>
+          <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#docker"><span aria-hidden="true">→</span>Docker on Linux <b>Separate path · Docker experience needed</b></a>
+          <a href="https://github.com/srcfl/ftw#install-on-home-assistant"><span aria-hidden="true">→</span>Home Assistant users <b>New FTW on a separate host</b></a>
         </div>
       </div>
     </section>
