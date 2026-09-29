@@ -27,6 +27,16 @@ short Markdown proposal or a focused fix with relevant evidence. Work is
 agentic first; see [CONTRIBUTING.md](CONTRIBUTING.md). Keep existing license
 and attribution intact. Inspect rendered copy before publishing.
 
+## Installation copy
+
+[Install and update FTW](https://github.com/srcfl/ftw/blob/master/docs/native-beta.md)
+is the single source for installation commands and update paths. Link to it
+instead of copying version numbers or shell commands into this site.
+2.x and 3.x receive no more updates; recommend the new 0.x line. The old
+Pi image, one-line Docker installer and 3.x Home Assistant beta are not
+current install choices. Explain that a new setup is available now but guided
+transfer of old settings and history is not ready.
+
 ## Local dev
 
 ```bash

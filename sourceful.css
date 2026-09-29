@@ -109,9 +109,9 @@ h1 em { color: var(--signal); font-style: normal; }
 .quickstart-layout { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 36px 72px; }
 .section-kicker { margin-bottom: 20px; color: var(--signal); font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }
 .quickstart h2 { margin: 0; color: var(--cream); font-size: clamp(2rem, 3.4vw, 3.4rem); font-weight: 300; line-height: 1.05; letter-spacing: -0.035em; }
-.install-command { display: grid; grid-template-columns: auto 1fr; align-items: start; gap: 14px; padding: 22px; border: 1px solid var(--line-dark); background: #111; color: var(--cream); overflow: auto; }
-.install-command .prompt { color: var(--signal); font-family: "JetBrains Mono", monospace; }
-.install-command code { font-size: 13px; white-space: nowrap; }
+.release-note { padding: 24px; border: 1px solid var(--line-dark); color: var(--cream); font-size: 16px; }
+.release-note p { margin: 0; }
+.release-note p + p { margin-top: 16px; color: rgba(245, 242, 225, 0.72); }
 .start-links { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line-dark); border-left: 1px solid var(--line-dark); }
 .start-links a { display: grid; gap: 20px; min-height: 126px; padding: 20px; border-right: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark); color: var(--cream); font-weight: 500; text-decoration: none; }
 .start-links a:hover { background: rgba(245, 242, 225, 0.05); }
@@ -269,7 +269,7 @@ footer { padding: 62px 0 26px; background: var(--ink); color: var(--cream); }
   .runtime-footer { align-items: flex-start; flex-direction: column; }
   .quickstart { padding-block: 48px; }
   .quickstart-layout { gap: 30px; }
-  .install-command { padding: 18px; }
+  .release-note { padding: 18px; }
   .start-links { grid-template-columns: 1fr; }
   .start-links a { min-height: 108px; }
   .section { padding: 76px 0; }
