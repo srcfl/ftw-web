@@ -35,7 +35,10 @@ instead of copying version numbers or shell commands into this site.
 2.x and 3.x receive no more updates; recommend the new 0.x line. The old
 Pi image, one-line Docker installer and 3.x Home Assistant beta are not
 current install choices. Explain that a new setup is available now but guided
-transfer of old settings and history is not ready.
+transfer of old settings and history is not ready. For an existing Pi, put the
+physical SD-card swap before install commands. Present same-host Docker as a
+separate option for people who can manage its services, not the next step
+after a failed native install.
 
 ## Local dev
 
