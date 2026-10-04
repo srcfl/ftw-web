@@ -2,7 +2,7 @@
 
 Canonical project landing page for [FTW](https://github.com/srcfl/ftw).
 
-Lean static site. Plain HTML and CSS, no build step.
+Lean static site. Plain HTML, CSS and a small menu script, no build step.
 
 - Canonical target: https://ftw.sourceful.energy
 - Cutover: https://fortytwowatts.com must redirect to the canonical site
@@ -20,6 +20,10 @@ Use [FTW's vision](https://github.com/srcfl/ftw/blob/master/VISION.md) and
 Explain mixed-equipment coordination, simple defaults, local control and
 visible outcomes. Clearly distinguish implemented capabilities from goals
 such as cloud MCP. Do not publish predicted savings as measured results.
+
+Product screenshots come from the public FTW webapp demo. Label them as
+simulated data. They show the interface, not measured savings or a worker
+benchmark. Keep their dimensions in HTML in step with the image files.
 
 Sourceful maintains the product; Fredrik owns its direction. PRs are welcome,
 preferably based on [issues](https://github.com/srcfl/ftw-web/issues). Share a
