@@ -85,7 +85,7 @@
     <section class="hero" id="top">
       <div class="wrap hero-layout">
         <div class="hero-copy">
-          <p class="project-state"><span class="status-dot" aria-hidden="true"></span>Stable 0.140.1 · Your hardware · Sourceful maintained</p>
+          <p class="project-state"><span class="status-dot" aria-hidden="true"></span>Stable · Your hardware · Sourceful maintained</p>
           <h1>Your home energy. <em>Planned together.</em></h1>
           <p class="hero-lede">Make supported solar, batteries and car charging from different brands work together. FTW plans ahead, controls locally and shows what the equipment actually does.</p>
           <div class="hero-actions">
@@ -168,14 +168,14 @@
         </div>
         <div class="release-note" role="note">
           <p><strong>2.x and 3.x will receive no further updates.</strong> Switch to the new 0.x line for current fixes and features. Do not install 3.x beta.</p>
-          <p><strong>Old FTW on a Raspberry Pi? Use a second SD card.</strong> Keep the old card. Prepare the new one and swap cards before running install commands. Guided transfer of old settings and history is not ready.</p>
-          <p>Choose one path below. A refused native install is a stop point; do not try Docker next. Same-host Docker needs a planned switch with old Core stopped and MQTT preserved.</p>
+          <p><strong>Old FTW on a Raspberry Pi? Use a second SD card.</strong> Keep the old card and a full backup. Restore your data, settings and keys on the new host before it controls any equipment.</p>
+          <p>Start with the migration guide. It covers the tested sources and the checks each move still needs. Keep the old installation until you have checked your history and settings. Stop old Core and its autostart before the new one takes control. A refused install or import is a stop point; keep the source and resolve the error.</p>
         </div>
         <div class="start-links">
-          <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#quick-answer"><span aria-hidden="true">→</span>Switch or update FTW <b>Start here · all install types</b></a>
+          <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#quick-answer"><span aria-hidden="true">→</span>Switch or update FTW <b>Start here · keep data and settings</b></a>
           <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#raspberry-pi-use-a-second-sd-card"><span aria-hidden="true">→</span>Switch an existing Pi <b>New SD card · step by step</b></a>
           <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#docker"><span aria-hidden="true">→</span>Docker on Linux <b>Separate path · Docker experience needed</b></a>
-          <a href="https://github.com/srcfl/ftw#install-on-home-assistant"><span aria-hidden="true">→</span>Home Assistant users <b>New FTW on a separate host</b></a>
+          <a href="https://github.com/srcfl/ftw/blob/master/docs/migration.md#start-from-the-installation-you-have"><span aria-hidden="true">→</span>Move data and settings <b>Docker, images and Home Assistant</b></a>
         </div>
       </div>
     </section>
