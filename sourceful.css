@@ -301,3 +301,18 @@ footer { padding: 62px 0 26px; background: var(--ink); color: var(--cream); }
 }
 
 html { scroll-padding-top: 84px; }
+
+/* Text pages: app privacy and support. */
+.doc { padding: 72px 0 104px; }
+.doc .wrap { max-width: 760px; }
+.doc h1 { margin-bottom: 14px; font-size: clamp(2.6rem, 7vw, 4.2rem); line-height: 1; }
+.doc h2 { margin: 52px 0 14px; font-size: 24px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+.doc a { color: var(--ink); text-decoration-color: var(--signal); text-underline-offset: 3px; }
+.doc ul, .doc ol { padding-left: 22px; }
+.doc li + li { margin-top: 8px; }
+.doc .updated { margin-bottom: 32px; color: var(--muted); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.doc-lede { color: var(--ink); font-size: 20px; line-height: 1.45; }
+.doc-terms { margin: 0; border-top: 1px solid var(--line); }
+.doc-terms div { padding: 14px 0; border-bottom: 1px solid var(--line); }
+.doc-terms dt { color: var(--ink); font-weight: 700; }
+.doc-terms dd { margin: 4px 0 0; }

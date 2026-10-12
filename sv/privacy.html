@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Integritet | FTW-appen</title>
+  <meta name="description" content="Vad FTW-appen för iPhone gör med dina data: de stannar i boxen och telefonen, reläet bär bara krypterad trafik, och det finns ingen analys och ingen spårning.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="canonical" href="https://ftw.energy/sv/privacy">
+  <link rel="alternate" hreflang="en" href="https://ftw.energy/privacy">
+  <link rel="alternate" hreflang="sv" href="https://ftw.energy/sv/privacy">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/sourceful.css?v=app-pages-1">
+</head>
+<body>
+  <a class="skip-link" href="#content">Till innehållet</a>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="ftw start">
+        <img src="/favicon.svg" alt="ftw logotyp" width="34" height="34">
+        <span class="brand-name">ftw</span>
+      </a>
+      <nav class="nav-links" aria-label="Huvudmeny">
+        <a href="/sv/support">Support för appen</a>
+        <a href="/sv/privacy" aria-current="page">Integritet</a>
+        <a href="/privacy" hreflang="en" lang="en">English</a>
+        <a class="nav-cta" href="https://github.com/srcfl/ftw-app">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+      <details class="mobile-nav">
+        <summary>Meny</summary>
+        <nav aria-label="Mobilmeny">
+          <a href="/">FTW</a>
+          <a href="/sv/support">Support för appen</a>
+          <a href="/sv/privacy" aria-current="page">Integritet</a>
+          <a href="/privacy" hreflang="en" lang="en">English</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main id="content" class="doc">
+    <div class="wrap">
+      <p class="section-kicker">FTW-appen för iPhone</p>
+      <h1>Integritet</h1>
+      <p class="updated">Uppdaterad 12 oktober 2026</p>
+
+      <p class="doc-lede">Dina energidata stannar i din FTW-box och din telefon. Reläet som kopplar ihop dem bär bara krypterad trafik som det inte kan läsa. Appen har ingen analys och ingen spårning.</p>
+
+      <p>Den här sidan gäller FTW-appen för iPhone och reläet den använder. Sourceful Labs AB i Sverige gör appen och driver reläet. FTW-boxen är programvara som du kör själv. Vad den skickar står i dess <a href="https://github.com/srcfl/ftw">dokumentation</a>.</p>
+
+      <h2>Det som stannar i boxen</h2>
+      <p>Boxen läser av elmätare, solceller, batteri och laddare, sparar historiken och gör planen. Allt det stannar i boxen. Appen frågar boxen efter det den visar och skickar det du väljer till boxen, till exempel ett laddmål.</p>
+
+      <h2>Det appen sparar i telefonen</h2>
+      <ul>
+        <li>Nycklarna som låter telefonen prata med boxen, i iPhones nyckelring. De stannar i telefonen och säkerhetskopieras inte till iCloud.</li>
+        <li>De senaste värdena, priserna och bilens nivå, så att appen kan visa hemmet innan den har anslutit igen. Varje värde behåller tiden då det lästes.</li>
+        <li>En kopia av priserna och bilens nivå som widgetarna läser. Widgetarna läser inget annat.</li>
+      </ul>
+      <p>Radera appen för att ta bort det den sparar. Den som äger boxen kan också dra in en telefons åtkomst från boxen.</p>
+
+      <h2>Lösenordsnycklar</h2>
+      <p>När du parkopplar skapar appen en lösenordsnyckel för app.ftw.energy i din lösenordshanterare, till exempel iCloud-nyckelringen. Lösenordsnyckeln skyddar en kopia av nyckeln som telefonen använder mot boxen. Lösenordshanteraren behåller lösenordsnyckeln, och Sourceful får den aldrig. Appen skickar ingen kopia av dina nycklar till Sourceful.</p>
+
+      <h2>Reläet</h2>
+      <p>Appen når boxen genom Sourcefuls relä på relay.ftw.energy, som körs i Frankfurt i Tyskland hos Amazon Web Services. Appen och boxen krypterar allt från ände till ände (Noise-protokollet) innan det lämnar dem. Reläet har ingen nyckel och kan inte läsa det som går igenom.</p>
+      <p>För att bära en anslutning ser reläet:</p>
+      <ul>
+        <li>telefonens IP-adress, medan den är ansluten;</li>
+        <li>en möteskod som byts varje timme och som bara boxen och telefonen kan räkna fram;</li>
+        <li>när du ansluter, hur länge, och storlek och tidpunkt för krypterade meddelanden.</li>
+      </ul>
+      <p>Reläet sparar ingen trafik. Dess åtkomstlogg innehåller antal, inte adresser eller koder. Om reläet inte lyckas föra vidare en anslutning kan felloggen skriva ner adressen och koden. Den loggen skriver över sig själv och förblir liten. Vi använder det reläet ser bara för att bära din anslutning, som du ber om när du använder appen.</p>
+
+      <h2>Ingen analys, ingen spårning, ingen reklam</h2>
+      <p>Appen innehåller ingen analys, ingen reklam och ingen kod från tredje part. Den spårar dig inte mellan appar eller webbplatser. Den pratar med reläet och inget annat.</p>
+      <p>Kameran läser parkopplingskoden från boxen och inget annat.</p>
+
+      <h2>Apple</h2>
+      <p>Apple driver App Store och TestFlight enligt <a href="https://www.apple.com/se/legal/privacy/">sin egen integritetspolicy</a>. Om du delar analysdata med apputvecklare i iPhones inställningar skickar Apple oss kraschrapporter och användningssiffror som inte pekar ut dig. Om du testar via TestFlight delar Apple ditt namn, din e-postadress, kraschrapporter och den feedback du skickar med oss.</p>
+
+      <h2>FTW Cloud, senare</h2>
+      <p>FTW Cloud blir en separat tjänst som du kan välja att slå på. Den kommer att ha en läsbar kopia av de data du tillåter, för att till exempel kunna skicka aviseringar. Den är inte en del av appen i dag. Den är avstängd om du inte slår på den, och vi uppdaterar den här sidan innan den lanseras.</p>
+
+      <h2>Dina rättigheter</h2>
+      <p>Sourceful Labs AB (org.nr 559382-0458), Kalmar, är personuppgiftsansvarig för det reläet ser. Enligt GDPR kan du fråga vad vi har om dig, få det rättat eller raderat och invända mot hur vi använder det. I praktiken har reläet inget som pekar ut dig. Mejla <a href="mailto:support@sourceful.energy">support@sourceful.energy</a> eller använd <a href="https://www.sourceful.energy/contact">Sourcefuls kontaktsida</a>. Du kan också klaga hos Integritetsskyddsmyndigheten (<a href="https://www.imy.se/">IMY</a>).</p>
+      <p>Appen riktar sig inte till barn.</p>
+
+      <h2>Ändringar</h2>
+      <p>När appen ändrar vad den gör med data ändrar vi först den här sidan och datumet högst upp. Sidans historik finns öppet på <a href="https://github.com/srcfl/ftw-web/commits/main/sv/privacy.html">GitHub</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap footer-bottom"><span>© Sourceful Labs AB och FTW:s bidragsgivare</span><a href="https://www.sourceful.energy/">sourceful.energy <span aria-hidden="true">↗</span></a></div>
+  </footer>
+  <script src="/navigation.js?v=1" defer></script>
+</body>
+</html>

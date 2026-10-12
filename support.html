@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>App support | FTW app</title>
+  <meta name="description" content="Help with the FTW app for iPhone: what you need, how to pair with your FTW box, what the app's messages mean and how to reach Sourceful.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="canonical" href="https://ftw.energy/support">
+  <link rel="alternate" hreflang="en" href="https://ftw.energy/support">
+  <link rel="alternate" hreflang="sv" href="https://ftw.energy/sv/support">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/sourceful.css?v=app-pages-1">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="ftw home">
+        <img src="/favicon.svg" alt="ftw logo" width="34" height="34">
+        <span class="brand-name">ftw</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="/support" aria-current="page">App support</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/sv/support" hreflang="sv" lang="sv">Svenska</a>
+        <a class="nav-cta" href="https://github.com/srcfl/ftw-app">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+      <details class="mobile-nav">
+        <summary>Menu</summary>
+        <nav aria-label="Mobile navigation">
+          <a href="/">FTW</a>
+          <a href="/support" aria-current="page">App support</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/sv/support" hreflang="sv" lang="sv">Svenska</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main id="content" class="doc">
+    <div class="wrap">
+      <p class="section-kicker">FTW app for iPhone</p>
+      <h1>App support</h1>
+
+      <p class="doc-lede">The FTW app shows the FTW box in your home and lets you steer the car's charging. Here is how to set it up, what its messages mean and how to reach us.</p>
+
+      <h2>What you need</h2>
+      <ul>
+        <li>An iPhone with iOS 26 or later.</li>
+        <li>An FTW box at home with the FTW app turned on in its settings. <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md">Install and update FTW</a> explains how to set up a box.</li>
+      </ul>
+      <p>No box yet? On the app's first screen, tap <strong>Try the live demo</strong>. It runs a simulated home inside the app and saves nothing.</p>
+
+      <h2>Pair your phone</h2>
+      <ol>
+        <li>Open your box's local FTW dashboard while you are on your home network.</li>
+        <li>Go to <strong>Settings → FTW app</strong>.</li>
+        <li>Choose <strong>Show pairing code</strong>, then scan the QR code with the FTW app or the iPhone camera.</li>
+        <li>Confirm with Face ID or Touch ID if your phone asks. This creates a passkey for app.ftw.energy.</li>
+      </ol>
+
+      <h2>What the app's messages mean</h2>
+      <dl class="doc-terms">
+        <div><dt>Can't reach your box</dt><dd>The box is off or offline, or your phone has no connection. The app keeps trying by itself; there is no reconnect button. Until then it shows the last readings with their age.</dd></div>
+        <div><dt>FTW is busy</dt><dd>Up to four phones or browsers can show one home at a time. Close FTW on another device, then try again.</dd></div>
+        <div><dt>A reading with a time or age next to it</dt><dd>Every reading shows how old it is. Grey, dated values come from your phone while the app reconnects.</dd></div>
+        <div><dt>Open FTW to see prices</dt><dd>The price widgets show what the app last read from your box. Open the app while it can reach the box, and the widgets catch up.</dd></div>
+        <div><dt>Access ended</dt><dd>The box's owner has withdrawn this phone's access. Ask them for a new pairing code.</dd></div>
+      </dl>
+
+      <h2>Get help</h2>
+      <ul>
+        <li>Report a bug or ask for a feature in <a href="https://github.com/srcfl/ftw-app/issues">GitHub issues for the app</a>. Say which iPhone and iOS version you use.</li>
+        <li>Ask other users in the <a href="https://discord.gg/25xcBzQaux">FTW Discord</a>.</li>
+        <li>Email Sourceful at <a href="mailto:support@sourceful.energy">support@sourceful.energy</a>.</li>
+      </ul>
+      <p>Help from the community and maintainers is best effort, as the <a href="https://github.com/srcfl/ftw/blob/master/SUPPORT.md">FTW support policy</a> describes. Never post a pairing code, a picture of the pairing QR or a key in a public channel.</p>
+
+      <h2>Who makes the app</h2>
+      <p>Sourceful Labs AB (reg. no. 559382-0458), Kalmar, Sweden. <a href="https://www.sourceful.energy/contact">Contact Sourceful</a>.</p>
+      <p>Read how the app handles your data in <a href="/privacy">Privacy</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap footer-bottom"><span>© Sourceful Labs AB and FTW contributors</span><a href="https://www.sourceful.energy/">sourceful.energy <span aria-hidden="true">↗</span></a></div>
+  </footer>
+  <script src="/navigation.js?v=1" defer></script>
+</body>
+</html>
