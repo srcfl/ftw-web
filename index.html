@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>FTW | Local home energy, planned together</title>
-  <meta name="description" content="FTW brings supported solar, batteries and EV charging together on your own hardware. Energyplan plans ahead; FTW Core checks every plan and controls locally. AGPLv3 code with a separately licensed planner.">
+  <meta name="description" content="FTW coordinates home solar, batteries and EV charging with Energyplan, local control, web access and optional Cloud. Open code; separate planner licence.">
   <meta name="keywords" content="FTW, home energy management, HEMS, open source, self-hosted, solar, battery, EV charging, OCPP, OCPP 1.6J, OCPP 2.0.1, Raspberry Pi, Go, Lua, Home Assistant">
   <meta name="robots" content="index,follow">
   <meta name="author" content="Sourceful Energy">
@@ -12,7 +12,7 @@
   <link rel="canonical" href="https://ftw.sourceful.energy/">
 
   <meta property="og:title" content="FTW | One plan for your home energy">
-  <meta property="og:description" content="Solar, battery and charging, planned together. Energyplan proposes a plan; FTW Core checks it and controls locally. Open code with a separately licensed planner.">
+  <meta property="og:description" content="Solar, battery and charging, planned together. Energyplan proposes a plan; FTW Core checks it and controls locally. Web access, optional Cloud and open integrations. Open code with a separately licensed planner.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ftw.sourceful.energy/">
   <meta property="og:image" content="https://ftw.sourceful.energy/favicon.svg">
@@ -24,7 +24,7 @@
   <meta name="twitter:image" content="https://ftw.sourceful.energy/favicon.svg">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/sourceful.css?v=vision-energyplan-1">
+  <link rel="stylesheet" href="/sourceful.css?v=apps-cloud-2">
 
   <script type="application/ld+json">
   {
@@ -61,6 +61,7 @@
         <a href="#planning">Planning</a>
         <a href="#control">Control</a>
         <a href="#devices">Devices</a>
+        <a href="#access">Access</a>
         <a href="#start">Install</a>
         <a href="#extend">Build</a>
         <a class="nav-cta" href="https://github.com/srcfl/ftw">GitHub <span aria-hidden="true">↗</span></a>
@@ -71,6 +72,7 @@
           <a href="#planning">Planning</a>
           <a href="#control">Control</a>
           <a href="#devices">Devices</a>
+          <a href="#access">Apps and access</a>
           <a href="#start">Install FTW</a>
           <a href="#extend">Build with FTW</a>
           <a href="#community">Community</a>
@@ -180,6 +182,19 @@
       </div>
     </section>
 
+    <section class="section access" id="access">
+      <div class="wrap section-head">
+        <p class="section-kicker">Apps and access</p>
+        <h2>Your home, on your terms.</h2>
+        <p class="section-intro">Use the web app on a phone or computer. Keep control at home and choose whether a readable copy of your home's data leaves the box.</p>
+      </div>
+      <div class="wrap capability-grid">
+        <article><span class="cap-number">01 / WEB APP</span><h3>At home and away.</h3><p>Open the local web app at home or pair the installable web client for remote access. The relay carries encrypted traffic and cannot read your home's data. Try the public demo with simulated equipment.</p><a class="text-link" href="https://app.ftw.energy/">Try the web app <span aria-hidden="true">↗</span></a></article>
+        <article><span class="cap-number">02 / OPTIONAL CLOUD</span><h3>A copy you choose to share.</h3><p>The latest beta adds FTW Cloud support. When the owner turns it on, the box sends a signed, readable copy for phone access and alerts. Cloud reads that data and never controls equipment. This differs from the blind relay; local operation remains the default.</p><a class="text-link" href="https://github.com/srcfl/ftw/blob/master/docs/adr/0008-ftw-cloud.md">Read the Cloud design <span aria-hidden="true">↗</span></a></article>
+        <article><span class="cap-number">03 / NATIVE APPS</span><h3>Phone clients in development.</h3><p>Separate iPhone and Android apps use the same pairing and encrypted protocol. They are still in development. Store releases and the web app's full set of features are not available yet.</p><a class="text-link" href="https://github.com/srcfl/ftw-app">Follow native app development <span aria-hidden="true">↗</span></a></article>
+      </div>
+    </section>
+
     <section class="section architecture" id="architecture">
       <div class="wrap section-head">
         <p class="section-kicker">Architecture</p>
@@ -214,6 +229,19 @@
       <div class="wrap architecture-note">
         <p><span>Site convention</span> Above the driver boundary, positive power means energy flowing into the site. Every device speaks the same language.</p>
         <a href="https://github.com/srcfl/ftw/blob/master/docs/architecture.md">Read the architecture <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="section integrations" id="integrations">
+      <div class="wrap section-head">
+        <p class="section-kicker">Daily use</p>
+        <h2>Connect your tools. Keep one controller.</h2>
+        <p class="section-intro">Use Home Assistant through MQTT, the local API or the Modbus TCP proxy. When an external system takes write ownership of a configured endpoint, FTW stops sending competing commands there.</p>
+      </div>
+      <div class="wrap capability-grid">
+        <article><span class="cap-number">01 / INTEGRATIONS</span><h3>Work with the tools you use.</h3><p>Open drivers connect supported equipment. MQTT discovery connects Home Assistant. Local APIs and the Modbus proxy give other systems a defined way to read and control.</p><a class="text-link" href="https://github.com/srcfl/ftw#documentation">Read the integration guides <span aria-hidden="true">↗</span></a></article>
+        <article><span class="cap-number">02 / UPDATES</span><h3>Update from the web app.</h3><p>Native installations can check for a new beta, show download progress and confirm the running version after restart. The update checks installation readiness and stored-data compatibility before it proceeds.</p><a class="text-link" href="https://github.com/srcfl/ftw/blob/master/docs/self-update.md">How updates work <span aria-hidden="true">↗</span></a></article>
+        <article><span class="cap-number">03 / PLANNING</span><h3>Set goals that fit your home.</h3><p>Choose how the household uses solar and stored energy, set a charging goal and departure time, and inspect the plan. The beta shows planning errors and warns when saved charging steps exceed the charger's limit.</p><a class="text-link" href="https://app.ftw.energy/">Explore the demo plan <span aria-hidden="true">↗</span></a></article>
       </div>
     </section>
 
@@ -270,7 +298,7 @@
             <p>FTW Community comes without official support, warranty, response times or service-level commitments. Help is best-effort from other users and maintainers.</p>
             <div class="panel-links">
               <a href="https://github.com/srcfl/ftw/issues">Issues <span aria-hidden="true">↗</span></a>
-              <a href="https://discord.gg/25xcBzQaux">Discord <span aria-hidden="true">↗</span></a>
+              <a href="https://discord.gg/UK2ygPBu8N">Discord <span aria-hidden="true">↗</span></a>
               <a href="https://github.com/srcfl/ftw/blob/master/SUPPORT.md">Support policy <span aria-hidden="true">↗</span></a>
             </div>
           </article>
@@ -304,6 +332,13 @@
       </div>
     </section>
 
+    <section class="section" id="connect">
+      <div class="wrap organizations-layout">
+        <div><p class="section-kicker">FTW Connect · In development</p><h2>Help looking after the system.</h2></div>
+        <div><p class="section-intro">Sourceful is developing remote help and system maintenance for FTW households: understand system health, investigate faults and manage approved updates. Connect has no running service or public subscription yet. Pricing, support and maintenance scope remain open.</p><a class="text-link" href="https://www.sourceful.energy/services#connect">Follow Sourceful services <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
     <section class="project-cta">
       <div class="wrap project-cta-layout">
         <div>
@@ -329,7 +364,7 @@
       </div>
       <div class="footer-links">
         <div><span>Project</span><a href="https://github.com/srcfl/ftw">GitHub</a><a href="https://github.com/srcfl/ftw/releases">Releases</a><a href="https://github.com/srcfl/ftw#documentation">Documentation</a><a href="https://srcfl.github.io/device-drivers/">Device catalog</a><a href="https://github.com/srcfl/ftw/blob/master/docs/roadmap.md">Roadmap</a><a href="https://github.com/srcfl/ftw/blob/master/VISION.md">Vision</a></div>
-        <div><span>Community</span><a href="https://discord.gg/25xcBzQaux">Discord</a><a href="https://github.com/srcfl/ftw/issues">Issues</a><a href="https://github.com/srcfl/ftw/blob/master/CONTRIBUTING.md">Contribute</a></div>
+        <div><span>Community</span><a href="https://discord.gg/UK2ygPBu8N">Discord</a><a href="https://github.com/srcfl/ftw/issues">Issues</a><a href="https://github.com/srcfl/ftw/blob/master/CONTRIBUTING.md">Contribute</a></div>
         <div><span>Terms</span><a href="https://github.com/srcfl/ftw/blob/master/LICENSE">AGPLv3</a><a href="https://github.com/srcfl/ftw/blob/master/TRADEMARKS.md">Trademarks</a><a href="https://github.com/srcfl/ftw/blob/master/SUPPORT.md">Support</a><a href="/support">App support</a><a href="/privacy">App privacy</a></div>
       </div>
     </div>
