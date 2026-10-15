@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Integritet | FTW-appen</title>
-  <meta name="description" content="Vad FTW-appen för iPhone gör med dina data: de stannar i boxen och telefonen, reläet bär bara krypterad trafik, och det finns ingen analys och ingen spårning.">
+  <meta name="description" content="Vad FTW-appen för iPhone och Apple Watch gör med dina data: de stannar i boxen och telefonen, FTW Cloud bär bara krypterad trafik om du inte slår på en läsbar kopia, och det finns ingen analys och ingen spårning.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="canonical" href="https://ftw.energy/sv/privacy">
@@ -42,13 +42,13 @@
 
   <main id="content" class="doc">
     <div class="wrap">
-      <p class="section-kicker">FTW-appen för iPhone</p>
+      <p class="section-kicker">FTW-appen för iPhone och Apple Watch</p>
       <h1>Integritet</h1>
-      <p class="updated">Uppdaterad 12 oktober 2026</p>
+      <p class="updated">Uppdaterad 15 oktober 2026</p>
 
-      <p class="doc-lede">Dina energidata stannar i din FTW-box och din telefon. Reläet som kopplar ihop dem bär bara krypterad trafik som det inte kan läsa. Appen har ingen analys och ingen spårning.</p>
+      <p class="doc-lede">Dina energidata stannar i din FTW-box och din telefon. Appen når boxen genom FTW Cloud, som bär anslutningen krypterad från ände till ände och inte kan läsa den. En läsbar kopia är avstängd om du inte slår på den. Appen har ingen analys och ingen spårning.</p>
 
-      <p>Den här sidan gäller FTW-appen för iPhone och reläet den använder. Sourceful Labs AB i Sverige gör appen och driver reläet. FTW-boxen är programvara som du kör själv. Vad den skickar står i dess <a href="https://github.com/srcfl/ftw">dokumentation</a>.</p>
+      <p>Den här sidan gäller FTW-appen för iPhone och Apple Watch, och FTW Cloud, tjänsten den använder. Sourceful Labs AB i Sverige gör appen och driver FTW Cloud. FTW-boxen är programvara som du kör själv. Vad den skickar står i dess <a href="https://github.com/srcfl/ftw">dokumentation</a>.</p>
 
       <h2>Det som stannar i boxen</h2>
       <p>Boxen läser av elmätare, solceller, batteri och laddare, sparar historiken och gör planen. Allt det stannar i boxen. Appen frågar boxen efter det den visar och skickar det du väljer till boxen, till exempel ett laddmål.</p>
@@ -64,28 +64,37 @@
       <h2>Lösenordsnycklar</h2>
       <p>När du parkopplar skapar appen en lösenordsnyckel för app.ftw.energy i din lösenordshanterare, till exempel iCloud-nyckelringen. Lösenordsnyckeln skyddar en kopia av nyckeln som telefonen använder mot boxen. Lösenordshanteraren behåller lösenordsnyckeln, och Sourceful får den aldrig. Appen skickar ingen kopia av dina nycklar till Sourceful.</p>
 
-      <h2>Reläet</h2>
-      <p>Appen når boxen genom Sourcefuls relä på relay.ftw.energy, som körs i Frankfurt i Tyskland hos Amazon Web Services. Appen och boxen krypterar allt från ände till ände (Noise-protokollet) innan det lämnar dem. Reläet har ingen nyckel och kan inte läsa det som går igenom.</p>
-      <p>För att bära en anslutning ser reläet:</p>
+      <h2>FTW Cloud</h2>
+      <p>Appen och klockan når boxen genom FTW Cloud på cloud.ftw.energy, som körs i Stockholm hos Amazon Web Services. Boxen ansluter till FTW Cloud när du parkopplar en telefon. Appen och boxen krypterar anslutningen från ände till ände (Noise-protokollet) innan den lämnar dem. FTW Cloud har ingen nyckel till den och kan inte läsa eller ändra det som går igenom.</p>
+      <p>För att bära anslutningen ser FTW Cloud:</p>
       <ul>
-        <li>telefonens IP-adress, medan den är ansluten;</li>
-        <li>en möteskod som byts varje timme och som bara boxen och telefonen kan räkna fram;</li>
+        <li>ett fast id för ditt hem, gjort av en nyckel som boxen har;</li>
+        <li>boxens och telefonens IP-adresser, medan de är anslutna;</li>
+        <li>listan över enheter som boxen tillåter, som boxen signerar: varje enhets id, publika nyckel och roll;</li>
         <li>när du ansluter, hur länge, och storlek och tidpunkt för krypterade meddelanden.</li>
       </ul>
-      <p>Reläet sparar ingen trafik. Dess åtkomstlogg innehåller antal, inte adresser eller koder. Om reläet inte lyckas föra vidare en anslutning kan felloggen skriva ner adressen och koden. Den loggen skriver över sig själv och förblir liten. Vi använder det reläet ser bara för att bära din anslutning, som du ber om när du använder appen.</p>
+      <p>På disk sparar FTW Cloud hemmets id, boxens publika nyckel, den signerade enhetslistan, telefonerna som är anmälda för aviseringar och hashar av åtkomstnycklar. Den sparar ingen trafik och loggar inga adresser. Vi använder det den ser bara för att bära din anslutning.</p>
+
+      <h2>Den läsbara kopian, om du slår på den</h2>
+      <p>I appen kan du slå på en läsbar kopia av ditt hem i FTW Cloud. Den är avstängd tills du gör det. Den innehåller det du tillåter, till exempel effekt just nu, bilens laddnivå, priser och händelser som en tappad anslutning. Enheternas namn byts mot koder.</p>
+      <p>FTW Cloud använder kopian för att visa hemmet snabbare, ge klockan ett värde och skicka aviseringar genom Apples pushtjänst. Kopian finns bara i minnet och tas bort en timme efter att boxen har tystnat. Stäng av kopian i appen, så raderar FTW Cloud den.</p>
+      <p>Kopian är inte krypterad från ände till ände. Den som har full kontroll över servern skulle kunna läsa den medan den finns där. Sourceful har inget verktyg för personal att läsa den.</p>
+
+      <h2>Reläet, medan vi flyttar</h2>
+      <p>Tills alla delar av FTW har flyttat till FTW Cloud kan appen också nå boxen genom Sourcefuls äldre relä på relay.ftw.energy, i Frankfurt i Tyskland hos Amazon Web Services. Det bär samma krypterade anslutning. Det ser telefonens IP-adress, en möteskod som byts varje timme och storlek och tidpunkt för meddelanden. Det sparar ingen trafik, och dess åtkomstlogg innehåller antal, inte adresser eller koder. Vi kommer att stänga av det.</p>
 
       <h2>Ingen analys, ingen spårning, ingen reklam</h2>
-      <p>Appen innehåller ingen analys, ingen reklam och ingen kod från tredje part. Den spårar dig inte mellan appar eller webbplatser. Den pratar med reläet och inget annat.</p>
+      <p>Appen innehåller ingen analys, ingen reklam och ingen kod från tredje part. Den spårar dig inte mellan appar eller webbplatser. Den pratar med FTW Cloud, med reläet medan vi flyttar och med Apples pushtjänst, och med inget annat.</p>
       <p>Kameran läser parkopplingskoden från boxen och inget annat.</p>
 
       <h2>Apple</h2>
       <p>Apple driver App Store och TestFlight enligt <a href="https://www.apple.com/se/legal/privacy/">sin egen integritetspolicy</a>. Om du delar analysdata med apputvecklare i iPhones inställningar skickar Apple oss kraschrapporter och användningssiffror som inte pekar ut dig. Om du testar via TestFlight delar Apple ditt namn, din e-postadress, kraschrapporter och den feedback du skickar med oss.</p>
 
-      <h2>FTW Cloud, senare</h2>
-      <p>FTW Cloud blir en separat tjänst som du kan välja att slå på. Den kommer att ha en läsbar kopia av de data du tillåter, för att till exempel kunna skicka aviseringar. Den är inte en del av appen i dag. Den är avstängd om du inte slår på den, och vi uppdaterar den här sidan innan den lanseras.</p>
+      <h2>Assistenter och supportåtkomst, senare</h2>
+      <p>Vi bygger ett sätt att låta en assistent, som ChatGPT eller Claude, eller Sourcefuls support läsa ditt hem genom FTW Cloud, och styra det om du tillåter också det. Det kommer att kräva ditt godkännande i telefonen eller i boxen. Du ser vem som tittade och när, och du kan avsluta det när du vill. Det är inte en del av appen i dag, och vi uppdaterar den här sidan innan det lanseras.</p>
 
       <h2>Dina rättigheter</h2>
-      <p>Sourceful Labs AB (org.nr 559382-0458), Kalmar, är personuppgiftsansvarig för det reläet ser. Enligt GDPR kan du fråga vad vi har om dig, få det rättat eller raderat och invända mot hur vi använder det. I praktiken har reläet inget som pekar ut dig. Mejla <a href="mailto:support@sourceful.energy">support@sourceful.energy</a> eller använd <a href="https://www.sourceful.energy/contact">Sourcefuls kontaktsida</a>. Du kan också klaga hos Integritetsskyddsmyndigheten (<a href="https://www.imy.se/">IMY</a>).</p>
+      <p>Sourceful Labs AB (org.nr 559382-0458), Kalmar, är personuppgiftsansvarig för det FTW Cloud och reläet hanterar. Enligt GDPR kan du fråga vad vi har om dig, få det rättat eller raderat och invända mot hur vi använder det. FTW Cloud har inget namn, ingen e-postadress och ingen gatuadress för dig, men hemmets id och IP-adresser räknas som personuppgifter. Mejla <a href="mailto:support@sourceful.energy">support@sourceful.energy</a> eller använd <a href="https://www.sourceful.energy/contact">Sourcefuls kontaktsida</a>. Du kan också klaga hos Integritetsskyddsmyndigheten (<a href="https://www.imy.se/">IMY</a>).</p>
       <p>Appen riktar sig inte till barn.</p>
 
       <h2>Ändringar</h2>
