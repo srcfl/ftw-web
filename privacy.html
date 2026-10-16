@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Privacy | FTW app</title>
-  <meta name="description" content="What the FTW app for iPhone does with your data: it stays on your box and your phone, the relay carries only encrypted traffic, and there is no analytics or tracking.">
+  <meta name="description" content="What the FTW app for iPhone and Apple Watch does with your data: it stays on your box and your phone, FTW Cloud carries only encrypted traffic unless you turn on a readable copy, and there is no analytics or tracking.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="canonical" href="https://ftw.energy/privacy">
@@ -42,13 +42,13 @@
 
   <main id="content" class="doc">
     <div class="wrap">
-      <p class="section-kicker">FTW app for iPhone</p>
+      <p class="section-kicker">FTW app for iPhone and Apple Watch</p>
       <h1>Privacy</h1>
-      <p class="updated">Updated 12 October 2026</p>
+      <p class="updated">Updated 16 October 2026</p>
 
-      <p class="doc-lede">Your energy data stays on your FTW box and your phone. The relay that connects them carries only encrypted traffic it cannot read. The app has no analytics and no tracking.</p>
+      <p class="doc-lede">Your energy data stays on your FTW box and your phone. The app reaches your box through FTW Cloud, which carries the connection encrypted end to end and cannot read it. A readable copy is off unless you turn it on. The app has no analytics and no tracking.</p>
 
-      <p>This page covers the FTW app for iPhone and the relay it uses. Sourceful Labs AB, Sweden, makes the app and runs the relay. The FTW box is software you run yourself; its <a href="https://github.com/srcfl/ftw">documentation</a> describes what it sends.</p>
+      <p>This page covers the FTW app for iPhone and Apple Watch, and FTW Cloud, the service it uses. Sourceful Labs AB, Sweden, makes the app and runs FTW Cloud. The FTW box is software you run yourself; its <a href="https://github.com/srcfl/ftw">documentation</a> describes what it sends.</p>
 
       <h2>What stays on your box</h2>
       <p>Your box reads your meters, solar, battery and charger, keeps the history and makes the plan. That record stays on the box. The app asks the box for what it shows and sends the box what you choose, such as a charging goal.</p>
@@ -64,28 +64,37 @@
       <h2>Passkeys</h2>
       <p>When you pair, the app creates a passkey for app.ftw.energy in your password manager, for example iCloud Keychain. The passkey guards a copy of the key this phone uses with your box. Your password manager keeps the passkey; Sourceful never receives it. The app sends no copy of your keys to Sourceful.</p>
 
-      <h2>The relay</h2>
-      <p>The app reaches your box through Sourceful's relay at relay.ftw.energy, which runs in Frankfurt, Germany, on Amazon Web Services. The app and the box encrypt everything end to end (Noise protocol) before it leaves them. The relay has no key and cannot read what it carries.</p>
-      <p>To carry a connection the relay sees:</p>
+      <h2>FTW Cloud</h2>
+      <p>The app and the watch reach your box through FTW Cloud at cloud.ftw.energy, which runs in Stockholm, Sweden, on Amazon Web Services. Your box connects to FTW Cloud once you pair a phone. The app and the box encrypt the connection end to end (Noise protocol) before it leaves them. FTW Cloud has no key for it and cannot read or change what it carries.</p>
+      <p>To carry the connection FTW Cloud sees:</p>
       <ul>
-        <li>your phone's IP address, while it is connected;</li>
-        <li>a meeting code that changes every hour and that only your box and phone can work out;</li>
+        <li>a fixed id for your home, made from a key your box holds;</li>
+        <li>the IP addresses of your box and your phone, while they are connected;</li>
+        <li>the list of devices your box allows, which the box signs: each device's id, public key and role;</li>
         <li>when you connect, for how long, and the size and timing of encrypted messages.</li>
       </ul>
-      <p>The relay keeps none of the traffic. Its access log holds counts, not addresses or codes. If the relay fails to pass on a connection, its error log may record the address and code; that log replaces itself and stays small. We use what the relay sees only to carry your connection, which you ask for when you use the app.</p>
+      <p>On disk FTW Cloud keeps your home id, your box's public key, the signed device list, the phones registered for notifications and the hashes of access tokens. It keeps none of the traffic and logs no addresses. We use what it sees only to carry your connection.</p>
+
+      <h2>The readable copy, if you turn it on</h2>
+      <p>In the app you can turn on a readable copy of your home in FTW Cloud. It is off until you do. It holds what you allow, such as live power readings, the car's charge level, prices and events like a lost connection. Device names are replaced by codes.</p>
+      <p>FTW Cloud uses the copy to show your home faster, to give your watch a reading, and to send you notifications through Apple's push service. It holds the copy in memory only and drops it an hour after your box goes quiet. Turn the copy off in the app and FTW Cloud deletes it.</p>
+      <p>The copy is not encrypted end to end. Someone in full control of the server could read it while it is held. Sourceful has no tool for staff to read it.</p>
+
+      <h2>The relay, while we move</h2>
+      <p>Until every part of FTW has moved to FTW Cloud, the app can also reach your box through Sourceful's older relay at relay.ftw.energy, in Frankfurt, Germany, on Amazon Web Services. It carries the same end-to-end encrypted connection. It sees your phone's IP address, a meeting code that changes every hour, and the size and timing of messages. It keeps none of the traffic, and its access log holds counts, not addresses or codes. We will switch it off.</p>
 
       <h2>No analytics, no tracking, no ads</h2>
-      <p>The app contains no analytics, no advertising and no code from third parties. It does not track you across apps or websites. It talks to the relay and nothing else.</p>
+      <p>The app contains no analytics, no advertising and no code from third parties. It does not track you across apps or websites. It talks to FTW Cloud, to the relay while we move, and to Apple's push service, and to nothing else.</p>
       <p>The camera reads the pairing code from your box and nothing else.</p>
 
       <h2>Apple</h2>
       <p>Apple runs the App Store and TestFlight under <a href="https://www.apple.com/legal/privacy/">its own privacy policy</a>. If you share analytics with app developers in your iPhone settings, Apple sends us crash reports and usage numbers that do not name you. If you test through TestFlight, Apple shares your name, email address, crash reports and any feedback you send with us.</p>
 
-      <h2>FTW Cloud, later</h2>
-      <p>FTW Cloud will be a separate service that you can choose to turn on. It will hold a readable copy of the data you allow, so that it can, for example, send notifications. It is not part of the app today. It will stay off unless you turn it on, and we will update this page before it ships.</p>
+      <h2>Assistants and support access, later</h2>
+      <p>We are building a way for you to let an assistant, such as ChatGPT or Claude, or Sourceful support read your home through FTW Cloud, and act on it if you allow that too. It will need your approval on your phone or on your box. You will see who looked and when, and you can end it at any time. It is not part of the app today, and we will update this page before it ships.</p>
 
       <h2>Your rights</h2>
-      <p>Sourceful Labs AB (reg. no. 559382-0458), Kalmar, Sweden, is responsible for the data the relay sees. Under the GDPR you can ask what we hold about you, have it corrected or deleted, and object to how we use it. In practice the relay holds nothing that names you. To ask, email <a href="mailto:support@sourceful.energy">support@sourceful.energy</a> or use <a href="https://www.sourceful.energy/contact">Sourceful's contact page</a>. You can also complain to the Swedish Authority for Privacy Protection (<a href="https://www.imy.se/en/">IMY</a>).</p>
+      <p>Sourceful Labs AB (reg. no. 559382-0458), Kalmar, Sweden, is responsible for the data FTW Cloud and the relay handle. Under the GDPR you can ask what we hold about you, have it corrected or deleted, and object to how we use it. FTW Cloud holds no name, email address or street address for you, but your home id and IP addresses count as personal data. To ask, email <a href="mailto:support@sourceful.energy">support@sourceful.energy</a> or use <a href="https://www.sourceful.energy/contact">Sourceful's contact page</a>. You can also complain to the Swedish Authority for Privacy Protection (<a href="https://www.imy.se/en/">IMY</a>).</p>
       <p>The app is not aimed at children.</p>
 
       <h2>Changes</h2>
