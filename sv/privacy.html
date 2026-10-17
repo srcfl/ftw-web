@@ -44,7 +44,7 @@
     <div class="wrap">
       <p class="section-kicker">FTW-appen för iPhone och Apple Watch</p>
       <h1>Integritet</h1>
-      <p class="updated">Uppdaterad 16 oktober 2026</p>
+      <p class="updated">Uppdaterad 17 oktober 2026</p>
 
       <p class="doc-lede">Dina energidata stannar i din FTW-box och din telefon. Appen når boxen genom FTW Cloud, som bär anslutningen krypterad från ände till ände och inte kan läsa den. En läsbar kopia är avstängd om du inte slår på den. Appen har ingen analys och ingen spårning.</p>
 
@@ -73,7 +73,7 @@
         <li>listan över enheter som boxen tillåter, som boxen signerar: varje enhets id, publika nyckel och roll;</li>
         <li>när du ansluter, hur länge, och storlek och tidpunkt för krypterade meddelanden.</li>
       </ul>
-      <p>På disk sparar FTW Cloud hemmets id, boxens publika nyckel, den signerade enhetslistan, telefonerna som är anmälda för aviseringar och hashar av åtkomstnycklar. Den sparar ingen trafik och loggar inga adresser. Vi använder det den ser bara för att bära din anslutning.</p>
+      <p>På disk sparar FTW Cloud hemmets id, boxens publika nyckel, den signerade enhetslistan, telefonerna som är anmälda för aviseringar och hashar av åtkomstnycklar; för assistenter du godkänner sparar den också det som avsnittet Assistenter räknar upp. Den sparar ingen trafik och loggar inga adresser. Vi använder det den ser bara för att bära din anslutning.</p>
 
       <h2>Den läsbara kopian, om du slår på den</h2>
       <p>I appen kan du slå på en läsbar kopia av ditt hem i FTW Cloud. Den är avstängd tills du gör det. Den innehåller det du tillåter, till exempel effekt just nu, bilens laddnivå, priser och händelser som en tappad anslutning. Enheternas namn byts mot koder.</p>
@@ -90,8 +90,13 @@
       <h2>Apple</h2>
       <p>Apple driver App Store och TestFlight enligt <a href="https://www.apple.com/se/legal/privacy/">sin egen integritetspolicy</a>. Om du delar analysdata med apputvecklare i iPhones inställningar skickar Apple oss kraschrapporter och användningssiffror som inte pekar ut dig. Om du testar via TestFlight delar Apple ditt namn, din e-postadress, kraschrapporter och den feedback du skickar med oss.</p>
 
-      <h2>Assistenter och supportåtkomst, senare</h2>
-      <p>Vi bygger ett sätt att låta en assistent, som ChatGPT eller Claude, eller Sourcefuls support läsa ditt hem genom FTW Cloud, och styra det om du tillåter också det. Det kommer att kräva ditt godkännande i telefonen eller i boxen. Du ser vem som tittade och när, och du kan avsluta det när du vill. Det är inte en del av appen i dag, och vi uppdaterar den här sidan innan det lanseras.</p>
+      <h2>Assistenter</h2>
+      <p>Du kan låta en assistent, som Claude, ChatGPT eller Cursor, läsa ditt hem genom FTW Cloud på cloud.ftw.energy/mcp, och styra det om du tillåter också det. Inget når en assistent förrän du godkänner den, i telefonen med Face ID eller på boxens egen sida med husets lösenord. Den läser som standard; styrning är ett eget val. Styrning gäller några minuter åt gången, inom gränser som boxen sätter, och boxen frågar dig före varje bestående ändring. Åtkomsten gäller så länge du väljer, från en dag upp till ett år, och du kan förnya eller avsluta den när du vill.</p>
+      <p>Den här anslutningen är inte krypterad hela vägen mellan dig och boxen. Assistenten körs utanför ditt hem, så FTW Cloud öppnar den krypterade anslutningen till boxen åt den. FTW Cloud gör en nyckel för varje assistent du godkänner och förvarar den förseglad med Amazons nyckeltjänst (AWS KMS), som bara den delen av FTW Cloud får använda. FTW Cloud läser assistentens frågor och boxens svar medan den skickar dem vidare, håller dem bara i minnet och sparar inget av dem. När en förfrågan misslyckas loggar den verktygets namn, inte det som lästes.</p>
+      <p>För varje assistent sparar FTW Cloud dess namn och webbadress som assistenten själv anger dem, den publika delen av dess nyckel, vilket hem den når, vad den får göra och till när, och hashar av dess åtkomstnycklar. Boxen sparar i 90 dagar vad varje assistent läste och gjorde.</p>
+      <p>Även med den läsbara kopian avslagen skickar FTW Cloud en kort avisering till dina telefoner genom Apples pushtjänst när en assistent får åtkomst, ber om en ändring eller snart förlorar åtkomsten. Aviseringen namnger assistenten bara om den läsbara kopian är på.</p>
+      <p>Det du låter en assistent läsa går till företaget som driver den, till exempel Anthropic, OpenAI eller Anysphere (Cursor), under det företagets egen integritetspolicy. Sourceful styr inte vad det gör med det.</p>
+      <p>Åtkomst för Sourcefuls support, som du ska kunna slå på för ett supportärende, finns inte än. Vi uppdaterar den här sidan innan den gör det.</p>
 
       <h2>Dina rättigheter</h2>
       <p>Sourceful Labs AB (org.nr 559382-0458), Kalmar, är personuppgiftsansvarig för det FTW Cloud och reläet hanterar. Enligt GDPR kan du fråga vad vi har om dig, få det rättat eller raderat och invända mot hur vi använder det. FTW Cloud har inget namn, ingen e-postadress och ingen gatuadress för dig, men hemmets id och IP-adresser räknas som personuppgifter. Mejla <a href="mailto:support@sourceful.energy">support@sourceful.energy</a> eller använd <a href="https://www.sourceful.energy/contact">Sourcefuls kontaktsida</a>. Du kan också klaga hos Integritetsskyddsmyndigheten (<a href="https://www.imy.se/">IMY</a>).</p>
