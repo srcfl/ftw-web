@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Integritet | FTW-appen</title>
-  <meta name="description" content="Vad FTW-appen för iPhone och Apple Watch gör med dina data: de stannar i boxen och telefonen, FTW Cloud bär bara krypterad trafik om du inte slår på en läsbar kopia, och det finns ingen analys och ingen spårning.">
+  <meta name="description" content="Så hanterar FTW dina uppgifter: lokal historik, krypterad Cloud-anslutning, valbar läsbar kopia och planerad projektstatistik med 48 timmars lagring.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="canonical" href="https://ftw.energy/sv/privacy">
@@ -83,8 +83,8 @@
       <h2>Det äldre reläet</h2>
       <p>Det separata reläet på relay.ftw.energy har avvecklats. Aktuella anslutningar går genom FTW Cloud. Äldre appar eller boxar kan behöva uppdateras.</p>
 
-      <h2>Ingen analys, ingen spårning, ingen reklam</h2>
-      <p>Appen innehåller ingen analys, ingen reklam och ingen kod från tredje part. Den spårar dig inte mellan appar eller webbplatser. Den pratar med FTW Cloud och Apples pushtjänst. Den planerade boxstatistiken beskrivs separat nedan.</p>
+      <h2>Ingen reklam eller spårning mellan tjänster</h2>
+      <p>Appen visar ingen reklam och spårar dig inte mellan appar eller webbplatser. Den pratar med FTW Cloud och Apples pushtjänst. Den planerade boxstatistiken beskrivs separat nedan.</p>
       <p>Kameran läser parkopplingskoden från boxen och inget annat.</p>
 
       <h2>Apple</h2>
@@ -99,10 +99,12 @@
       <p>Åtkomst för Sourcefuls support, som du ska kunna slå på för ett supportärende, finns inte än. Vi uppdaterar den här sidan innan den gör det.</p>
 
       <h2 id="statistics">Projektstatistik och nya Cloud-villkor</h2>
-      <p><strong>Timinsamlingen är inte aktiv.</strong> Sourceful granskar den nya omfattningen och dess rättsliga grund före start. Nästa Cloud-villkor, <code>ftw-cloud-2026-10-v2</code>, omfattar projektstatistik för alla som använder FTW Cloud. Statistiken har ingen egen avstängningsknapp inom Cloud. Du behöver läsa och godta de nya villkoren; tidigare Cloud- eller statistikval godtar dem inte. Om du inte vill bidra kan du använda FTW lokalt utan Cloud.</p>
+      <p><strong>Timinsamlingen är inte aktiv.</strong> Sourceful granskar den nya omfattningen och dess rättsliga grund före start. Nästa Cloud-villkor, <code>ftw-cloud-2026-10-v3</code>, omfattar projektstatistik för alla som använder FTW Cloud. Statistiken har ingen egen avstängningsknapp inom Cloud. Du behöver läsa och godta de nya villkoren; tidigare Cloud- eller statistikval godtar dem inte. Om du inte vill bidra kan du använda FTW lokalt utan Cloud.</p>
       <p>Du som använder FTW lokalt kan bidra utan att aktivera app, assistenter eller fjärråtkomst. Boxen frågar först, med Ja som föreslaget val och Nej bredvid. Ingen ny rapport skickas före ditt svar. Ett nej lämnar lokal mätning, planering och styrning igång. Du kan senare stoppa lokal delning.</p>
-      <p>Statistikpolicyn är <code>ftw-project-stats-2026-10-v2</code>. Efter granskning och aktivering skickar boxen registrerad energi per avslutad timme: nätimport och export, solproduktion, laddning och urladdning av batterier och bilar. Den skickar också inställd batterikapacitet, effektgränser för batterier och laddare samt solkapacitet. Värden avrundas till 10 Wh eller W. Inga namn, adresser, koordinater, enhets-id:n eller fordons-id:n ingår. Inställda gränser bevisar inte fysisk styrning, och saknade mätvärden blir inte noll. Timmar före ditt nya svar laddas inte upp.</p>
-      <p>Sourceful använder uppgifterna för att förbättra FTW:s planering och publicera gruppsummor, inte för reklam eller beslut om ett hushåll. Rapporterna är inte anonyma: FTW Cloud kopplar ett slumpmässigt statistik-id till ditt hem för att kunna radera dem. Den föreslagna lagringstiden är 13 månader och ingår i granskningen. Den som har full kontroll över servern kan läsa dem; Sourceful har inget verktyg för personal att läsa ett enskilt hems timrapporter. Vi anger den granskade rättsliga grunden här före start. Att godta villkor avgör inte i sig den rättsliga grunden.</p>
+      <p>Statistikpolicyn är <code>ftw-project-stats-2026-10-v3</code>. Efter granskning och aktivering skickar boxen registrerad energi per avslutad timme: nätimport och export, solproduktion, laddning och urladdning av batterier och bilar. Den skickar också inställd batterikapacitet, effektgränser för batterier och laddare samt solkapacitet. Värden avrundas till 10 Wh eller W. Inga namn, adresser, koordinater, enhets-id:n eller fordons-id:n ingår. Inställda gränser bevisar inte fysisk styrning, och saknade mätvärden blir inte noll. Timmar före ditt nya svar laddas inte upp.</p>
+      <p>Sourceful använder uppgifterna för att förbättra FTW:s planering och publicera gruppsummor, inte för reklam eller beslut om ett hushåll. Rapporterna är inte anonyma: FTW Cloud kopplar ett slumpmässigt statistik-id till ditt hem för att kunna radera dem. Lagringstiden är 48 timmar från den registrerade timmen. </p>
+      <p>Den som har full kontroll över servern kan läsa dem. Personalen har ingen webbsida för att läsa hushållens rapporter. En namngiven operatör kan ta ut ett hems statistik offline för en verifierad begäran om dataskyddsrättigheter; det kräver att Cloud-tjänsten stoppas. En verifierad begäran om dataskyddsrättigheter kan också begränsa rapporteringen och Cloud-åtkomsten medan ärendet hanteras. </p>
+      <p>Vi anger den granskade rättsliga grunden här före start. Att godta villkor avgör inte i sig den rättsliga grunden.</p>
       <p>Publika energivärden kräver minst 20 bidragande hem, och inget hem får stå för mer än 30 procent av summan. Stats-sidan får bara gruppvärden. Jämförelser över tid kan ändå skapa risk för återidentifiering. För att sluta bidra lämnar du FTW Cloud eller stoppar lokal statistikdelning. Cloud raderar opublicerade rapporter när boxens begäran når tjänsten; om boxen är offline sker det när den ansluter igen. Redan publicerade gruppsummor finns kvar. När du lämnar Cloud upphör också appens och assistenternas fjärråtkomst.</p>
       <p>Den separata, anonyma dagsrapporten beskriver version, drivertyper, grov batteristorlek, elområde och tid sedan installation. Den innehåller inget beständigt box-id. Cloud räknar ihop rapporterna per dygn och sparar ingen enskild rapport eller källadress. Publika dagsvärden och varje etikett kräver minst 10 rapporter. Snittet per dygn uppskattar aktiva rapporterande installationer, inte unika personer eller totalt antal installationer genom tiderna. Uppdaterad Core kräver dina aktuella Cloud-villkor eller ditt lokala statistiksvar före sändning; äldre versioner använder sin befintliga inställning för dagsrapporten.</p>
 
