@@ -44,7 +44,7 @@
     <div class="wrap">
       <p class="section-kicker">FTW app for iPhone and Apple Watch</p>
       <h1>Privacy</h1>
-      <p class="updated">Updated 16 October 2026</p>
+      <p class="updated">Updated 17 October 2026</p>
 
       <p class="doc-lede">Your energy data stays on your FTW box and your phone. The app reaches your box through FTW Cloud, which carries the connection encrypted end to end and cannot read it. A readable copy is off unless you turn it on. The app has no analytics and no tracking.</p>
 
@@ -73,7 +73,7 @@
         <li>the list of devices your box allows, which the box signs: each device's id, public key and role;</li>
         <li>when you connect, for how long, and the size and timing of encrypted messages.</li>
       </ul>
-      <p>On disk FTW Cloud keeps your home id, your box's public key, the signed device list, the phones registered for notifications and the hashes of access tokens. It keeps none of the traffic and logs no addresses. We use what it sees only to carry your connection.</p>
+      <p>On disk FTW Cloud keeps your home id, your box's public key, the signed device list, the phones registered for notifications and the hashes of access tokens; for assistants you approve, it also keeps what the Assistants section lists. It keeps none of the traffic and logs no addresses. We use what it sees only to carry your connection.</p>
 
       <h2>The readable copy, if you turn it on</h2>
       <p>In the app you can turn on a readable copy of your home in FTW Cloud. It is off until you do. It holds what you allow, such as live power readings, the car's charge level, prices and events like a lost connection. Device names are replaced by codes.</p>
@@ -90,8 +90,13 @@
       <h2>Apple</h2>
       <p>Apple runs the App Store and TestFlight under <a href="https://www.apple.com/legal/privacy/">its own privacy policy</a>. If you share analytics with app developers in your iPhone settings, Apple sends us crash reports and usage numbers that do not name you. If you test through TestFlight, Apple shares your name, email address, crash reports and any feedback you send with us.</p>
 
-      <h2>Assistants and support access, later</h2>
-      <p>We are building a way for you to let an assistant, such as ChatGPT or Claude, or Sourceful support read your home through FTW Cloud, and act on it if you allow that too. It will need your approval on your phone or on your box. You will see who looked and when, and you can end it at any time. It is not part of the app today, and we will update this page before it ships.</p>
+      <h2>Assistants</h2>
+      <p>You can let an assistant, such as Claude, ChatGPT or Cursor, read your home through FTW Cloud at cloud.ftw.energy/mcp, and act on it if you allow that too. Nothing reaches an assistant until you approve it, on your phone with Face ID or on your box's own page with the house password. It reads by default; control is a separate choice. Control lasts minutes at a time, within limits your box sets, and your box asks you before any lasting change. Access ends after 30 days unless you renew it, and you can end it at any time.</p>
+      <p>This connection is not end to end between you and your box. The assistant runs outside your home, so FTW Cloud opens the encrypted connection to your box for it. FTW Cloud makes a key for each assistant you approve and keeps it sealed by Amazon's key service (AWS KMS), which only that part of FTW Cloud may use. FTW Cloud reads the assistant's questions and your box's answers while it passes them on, holds them in memory only, and keeps none of them. When a request fails, it logs the tool's name, not what was read.</p>
+      <p>For each assistant, FTW Cloud keeps its name and web address as the assistant gives them, the public half of its key, which home it may reach, what it may do and until when, and hashes of its access tokens. Your box keeps a record of what each assistant read and did for 90 days.</p>
+      <p>Even with the readable copy off, FTW Cloud sends your phones a short notice through Apple's push service when an assistant gets access, asks for a change or is about to lose access. The notice names the assistant only if the readable copy is on.</p>
+      <p>What you let an assistant read goes to the company that runs it, such as Anthropic, OpenAI or Anysphere (Cursor), under that company's own privacy policy. Sourceful does not control what it does with it.</p>
+      <p>Access for Sourceful support, which you will be able to turn on for a support case, is not available yet. We will update this page before it is.</p>
 
       <h2>Your rights</h2>
       <p>Sourceful Labs AB (reg. no. 559382-0458), Kalmar, Sweden, is responsible for the data FTW Cloud and the relay handle. Under the GDPR you can ask what we hold about you, have it corrected or deleted, and object to how we use it. FTW Cloud holds no name, email address or street address for you, but your home id and IP addresses count as personal data. To ask, email <a href="mailto:support@sourceful.energy">support@sourceful.energy</a> or use <a href="https://www.sourceful.energy/contact">Sourceful's contact page</a>. You can also complain to the Swedish Authority for Privacy Protection (<a href="https://www.imy.se/en/">IMY</a>).</p>
