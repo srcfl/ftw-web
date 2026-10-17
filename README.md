@@ -38,9 +38,11 @@ is the single source for installation commands and update paths. Link to it
 instead of copying version numbers or shell commands into this site.
 2.x and 3.x receive no more updates; recommend the new 0.x line. The old
 Pi image, one-line Docker installer and 3.x Home Assistant beta are not
-current install choices. Explain that a new setup is available now but guided
-transfer of old settings and history is not ready. For an existing Pi, put the
-physical SD-card swap before install commands. Present same-host Docker as a
+current install choices. For existing users, link to the [migration guide](https://github.com/srcfl/ftw/blob/master/docs/migration.md)
+and make a full backup and preserved data the default. State the tested
+sources and remaining checks; do not claim all old layouts are ready. For
+an existing Pi, put the full backup and physical SD-card swap before install
+commands, then restore data before the new Core controls equipment. Present same-host Docker as a
 separate option for people who can manage its services, not the next step
 after a failed native install.
 
@@ -60,3 +62,7 @@ worker is free for private household use; commercial worker use, bundling and
 paid services require a separate written Sourceful license. Keep product copy
 consistent with [LICENSING.md](LICENSING.md), which also explains the separate
 rights in website artwork and brands.
+
+Stable copy stays in a draft until the exact stable is published, its migration
+requirements pass and the linked Core guide is on master. The site does not
+select a release version or offer a fresh setup as recovery from an import error.
