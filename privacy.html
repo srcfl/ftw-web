@@ -80,11 +80,11 @@
       <p>FTW Cloud uses the copy to show your home faster, to give your watch a reading, and to send you notifications through Apple's push service. It holds the copy in memory only and drops it an hour after your box goes quiet. Turn the copy off in the app and FTW Cloud deletes it.</p>
       <p>The copy is not encrypted end to end. Someone in full control of the server could read it while it is held. Sourceful has no tool for staff to read it.</p>
 
-      <h2>The relay, while we move</h2>
-      <p>Until every part of FTW has moved to FTW Cloud, the app can also reach your box through Sourceful's older relay at relay.ftw.energy, in Frankfurt, Germany, on Amazon Web Services. It carries the same end-to-end encrypted connection. It sees your phone's IP address, a meeting code that changes every hour, and the size and timing of messages. It keeps none of the traffic, and its access log holds counts, not addresses or codes. We will switch it off.</p>
+      <h2>The retired relay</h2>
+      <p>The separate relay at relay.ftw.energy is retired. Current connections use FTW Cloud. Older apps or boxes may need an update.</p>
 
       <h2>No analytics, no tracking, no ads</h2>
-      <p>The app contains no analytics, no advertising and no code from third parties. It does not track you across apps or websites. It talks to FTW Cloud, to the relay while we move, and to Apple's push service, and to nothing else.</p>
+      <p>The app contains no analytics, no advertising and no code from third parties. It does not track you across apps or websites. It talks to FTW Cloud and Apple's push service. Optional box statistics are described separately below.</p>
       <p>The camera reads the pairing code from your box and nothing else.</p>
 
       <h2>Apple</h2>
@@ -97,6 +97,13 @@
       <p>Even with the readable copy off, FTW Cloud sends your phones a short notice through Apple's push service when an assistant gets access, asks for a change or is about to lose access. The notice names the assistant only if the readable copy is on.</p>
       <p>What you let an assistant read goes to the company that runs it, such as Anthropic, OpenAI or Anysphere (Cursor), under that company's own privacy policy. Sourceful does not control what it does with it.</p>
       <p>Access for Sourceful support, which you will be able to turn on for a support case, is not available yet. We will update this page before it is.</p>
+
+      <h2 id="statistics">Optional project statistics</h2>
+      <p>Project statistics are a separate choice, off by default. The app works the same if you decline. The new policy <code>ftw-project-stats-2026-10-v1</code> needs a fresh choice; an earlier consent does not enable it. Hourly collection waits until Sourceful has completed its review and enabled the policy.</p>
+      <p>If you then choose to contribute, your box sends recorded energy for each closed hour: grid import and export, solar generation, battery and vehicle charge and discharge. It also sends configured battery capacity, battery and charger power limits, and solar capacity. Values are rounded to 10 Wh or W. No names, addresses, coordinates, device ids or vehicle ids are included. Configured limits do not prove physical control, and missing readings are not zero.</p>
+      <p>Sourceful uses these values to improve FTW planning and publish group totals, not for advertising or decisions about a household. Reports are not anonymous: FTW Cloud links a random statistics id to your Cloud home so it can delete them. They are kept for 13 months. Someone with full control of the server can read them; Sourceful provides no staff tool for reading one home's hourly reports.</p>
+      <p>Public energy cells need at least 20 contributing homes, with no home above 30 percent of a sum. The stats page receives only group values. Comparing totals over time can still create a risk of identifying a contributor. You can switch this off in the same setting. Cloud deletes unpublished reports when it receives your box's withdrawal; if the box is offline, this happens when it reconnects. Already published group totals remain.</p>
+      <p>The separate anonymous daily report describes the version, driver types, coarse battery size, price zone and time since installation. It contains no stable box id. Cloud reduces reports to daily totals and stores no individual report or source address. Public daily cells and each label need at least 10 reports. The daily average can estimate reporting active installations; it is not unique people or all-time installations. The box setting controls whether the daily report is sent.</p>
 
       <h2>Your rights</h2>
       <p>Sourceful Labs AB (reg. no. 559382-0458), Kalmar, Sweden, is responsible for the data FTW Cloud and the relay handle. Under the GDPR you can ask what we hold about you, have it corrected or deleted, and object to how we use it. FTW Cloud holds no name, email address or street address for you, but your home id and IP addresses count as personal data. To ask, email <a href="mailto:support@sourceful.energy">support@sourceful.energy</a> or use <a href="https://www.sourceful.energy/contact">Sourceful's contact page</a>. You can also complain to the Swedish Authority for Privacy Protection (<a href="https://www.imy.se/en/">IMY</a>).</p>
