@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Privacy | FTW app</title>
+  <title>Privacy | FTW apps, Cloud and ChatGPT</title>
   <meta name="description" content="How FTW handles your data: local records, encrypted Cloud connections, the optional readable copy, and the planned project statistics with 48-hour retention.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#0a0a0a">
-  <link rel="canonical" href="https://ftw.energy/privacy">
-  <link rel="alternate" hreflang="en" href="https://ftw.energy/privacy">
-  <link rel="alternate" hreflang="sv" href="https://ftw.energy/sv/privacy">
+  <link rel="canonical" href="https://ftw.sourceful.energy/privacy">
+  <link rel="alternate" hreflang="en" href="https://ftw.sourceful.energy/privacy">
+  <link rel="alternate" hreflang="sv" href="https://ftw.sourceful.energy/sv/privacy">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/sourceful.css?v=app-pages-1">
 </head>
@@ -42,13 +42,13 @@
 
   <main id="content" class="doc">
     <div class="wrap">
-      <p class="section-kicker">FTW app for iPhone and Apple Watch</p>
+      <p class="section-kicker">FTW apps, Cloud and ChatGPT</p>
       <h1>Privacy</h1>
-      <p class="updated">Updated 17 October 2026</p>
+      <p class="updated">Updated 18 October 2026</p>
 
       <p class="doc-lede">Your box keeps the energy record; your phone keeps a recent copy. The app reaches your box through FTW Cloud, which carries the connection encrypted end to end and cannot read it. A readable copy is off unless you turn it on. The app does not track you across apps or sites. The planned project statistics are described below.</p>
 
-      <p>This page covers the FTW app for iPhone and Apple Watch, and FTW Cloud, the service it uses. Sourceful Labs AB, Sweden, makes the app and runs FTW Cloud. The FTW box is software you run yourself; its <a href="https://github.com/srcfl/ftw">documentation</a> describes what it sends.</p>
+      <p>This page covers the FTW app for iPhone and Apple Watch, FTW Cloud, and the FTW plugin for ChatGPT, including its MCP connection. Sourceful Labs AB, Sweden, makes the app and runs FTW Cloud. The FTW box is software you run yourself; its <a href="https://github.com/srcfl/ftw">documentation</a> describes what it sends.</p>
 
       <h2>What stays on your box</h2>
       <p>Your box reads your meters, solar, battery and charger, keeps the history and makes the plan. That record stays on the box. The app asks the box for what it shows and sends the box what you choose, such as a charging goal.</p>
@@ -90,12 +90,15 @@
       <h2>Apple</h2>
       <p>Apple runs the App Store and TestFlight under <a href="https://www.apple.com/legal/privacy/">its own privacy policy</a>. If you share analytics with app developers in your iPhone settings, Apple sends us crash reports and usage numbers that do not name you. If you test through TestFlight, Apple shares your name, email address, crash reports and any feedback you send with us.</p>
 
-      <h2>Assistants</h2>
+      <h2 id="assistants">Assistants and the ChatGPT plugin</h2>
       <p>You can let an assistant, such as Claude, ChatGPT or Cursor, read your home through FTW Cloud at cloud.ftw.energy/mcp, and act on it if you allow that too. Nothing reaches an assistant until you approve it, on your phone with Face ID or on your box's own page with the house password. It reads by default; control is a separate choice. Control lasts minutes at a time, within limits your box sets, and your box asks you before any lasting change. Access lasts as long as you choose, from a day up to a year, and you can renew it or end it at any time.</p>
       <p>This connection is not end to end between you and your box. The assistant runs outside your home, so FTW Cloud opens the encrypted connection to your box for it. FTW Cloud makes a key for each assistant you approve and keeps it sealed by Amazon's key service (AWS KMS), which only that part of FTW Cloud may use. FTW Cloud reads the assistant's questions and your box's answers while it passes them on, holds them in memory only, and keeps none of them. When a request fails, it logs the tool's name, not what was read.</p>
       <p>For each assistant, FTW Cloud keeps its name and web address as the assistant gives them, the public half of its key, which home it may reach, what it may do and until when, and hashes of its access tokens. Your box keeps a record of what each assistant read and did for 90 days.</p>
       <p>Even with the readable copy off, FTW Cloud sends your phones a short notice through Apple's push service when an assistant gets access, asks for a change or is about to lose access. The notice names the assistant only if the readable copy is on.</p>
       <p>What you let an assistant read goes to the company that runs it, such as Anthropic, OpenAI or Anysphere (Cursor), under that company's own privacy policy. Sourceful does not control what it does with it.</p>
+      <p>The FTW plugin sends OpenAI the answers to the tools you use, such as current power, battery and car state, past power readings, plans, device health, and redacted logs and settings. FTW Cloud receives the tool name and arguments needed for the request; the plugin does not ask for your full conversation history. OpenAI handles what it receives under <a href="https://openai.com/policies/privacy-policy/">its own privacy policy</a> and your account settings. Its retention and deletion controls are separate from FTW's. Ending access in FTW does not delete an earlier ChatGPT conversation.</p>
+      <p>The public plugin uses named tools and does not offer arbitrary API reads or backup exports. Other, separately authorized technical assistant connections can read exact technical identifiers, network addresses and exports; some backups contain saved credentials. Grant and use only the access needed for your task.</p>
+      <p>Read <a href="/chatgpt">FTW for ChatGPT</a>, its <a href="/chatgpt-terms">terms</a> and <a href="/chatgpt#support">support information</a>.</p>
       <p>Access for Sourceful support, which you will be able to turn on for a support case, is not available yet. We will update this page before it is.</p>
 
       <h2 id="statistics">Project statistics and the new Cloud terms</h2>
