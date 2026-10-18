@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Integritet | FTW-appen</title>
+  <title>Integritet | FTW-appar, Cloud och ChatGPT</title>
   <meta name="description" content="Så hanterar FTW dina uppgifter: lokal historik, krypterad Cloud-anslutning, valbar läsbar kopia och planerad projektstatistik med 48 timmars lagring.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#0a0a0a">
-  <link rel="canonical" href="https://ftw.energy/sv/privacy">
-  <link rel="alternate" hreflang="en" href="https://ftw.energy/privacy">
-  <link rel="alternate" hreflang="sv" href="https://ftw.energy/sv/privacy">
+  <link rel="canonical" href="https://ftw.sourceful.energy/sv/privacy">
+  <link rel="alternate" hreflang="en" href="https://ftw.sourceful.energy/privacy">
+  <link rel="alternate" hreflang="sv" href="https://ftw.sourceful.energy/sv/privacy">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/sourceful.css?v=app-pages-1">
 </head>
@@ -42,13 +42,13 @@
 
   <main id="content" class="doc">
     <div class="wrap">
-      <p class="section-kicker">FTW-appen för iPhone och Apple Watch</p>
+      <p class="section-kicker">FTW-appar, Cloud och ChatGPT</p>
       <h1>Integritet</h1>
-      <p class="updated">Uppdaterad 17 oktober 2026</p>
+      <p class="updated">Uppdaterad 18 oktober 2026</p>
 
       <p class="doc-lede">Boxen sparar energihistoriken och telefonen en aktuell kopia. Appen når boxen genom FTW Cloud, som bär anslutningen krypterad från ände till ände och inte kan läsa den. En läsbar kopia är avstängd om du inte slår på den. Appen spårar dig inte mellan appar eller sajter. Den planerade projektstatistiken beskrivs nedan.</p>
 
-      <p>Den här sidan gäller FTW-appen för iPhone och Apple Watch, och FTW Cloud, tjänsten den använder. Sourceful Labs AB i Sverige gör appen och driver FTW Cloud. FTW-boxen är programvara som du kör själv. Vad den skickar står i dess <a href="https://github.com/srcfl/ftw">dokumentation</a>.</p>
+      <p>Den här sidan gäller FTW-appen för iPhone och Apple Watch, FTW Cloud och FTW-pluginet för ChatGPT, inklusive dess MCP-anslutning. Sourceful Labs AB i Sverige gör appen och driver FTW Cloud. FTW-boxen är programvara som du kör själv. Vad den skickar står i dess <a href="https://github.com/srcfl/ftw">dokumentation</a>.</p>
 
       <h2>Det som stannar i boxen</h2>
       <p>Boxen läser av elmätare, solceller, batteri och laddare, sparar historiken och gör planen. Allt det stannar i boxen. Appen frågar boxen efter det den visar och skickar det du väljer till boxen, till exempel ett laddmål.</p>
@@ -90,12 +90,15 @@
       <h2>Apple</h2>
       <p>Apple driver App Store och TestFlight enligt <a href="https://www.apple.com/se/legal/privacy/">sin egen integritetspolicy</a>. Om du delar analysdata med apputvecklare i iPhones inställningar skickar Apple oss kraschrapporter och användningssiffror som inte pekar ut dig. Om du testar via TestFlight delar Apple ditt namn, din e-postadress, kraschrapporter och den feedback du skickar med oss.</p>
 
-      <h2>Assistenter</h2>
+      <h2 id="assistants">Assistenter och ChatGPT-pluginet</h2>
       <p>Du kan låta en assistent, som Claude, ChatGPT eller Cursor, läsa ditt hem genom FTW Cloud på cloud.ftw.energy/mcp, och styra det om du tillåter också det. Inget når en assistent förrän du godkänner den, i telefonen med Face ID eller på boxens egen sida med husets lösenord. Den läser som standard; styrning är ett eget val. Styrning gäller några minuter åt gången, inom gränser som boxen sätter, och boxen frågar dig före varje bestående ändring. Åtkomsten gäller så länge du väljer, från en dag upp till ett år, och du kan förnya eller avsluta den när du vill.</p>
       <p>Den här anslutningen är inte krypterad hela vägen mellan dig och boxen. Assistenten körs utanför ditt hem, så FTW Cloud öppnar den krypterade anslutningen till boxen åt den. FTW Cloud gör en nyckel för varje assistent du godkänner och förvarar den förseglad med Amazons nyckeltjänst (AWS KMS), som bara den delen av FTW Cloud får använda. FTW Cloud läser assistentens frågor och boxens svar medan den skickar dem vidare, håller dem bara i minnet och sparar inget av dem. När en förfrågan misslyckas loggar den verktygets namn, inte det som lästes.</p>
       <p>För varje assistent sparar FTW Cloud dess namn och webbadress som assistenten själv anger dem, den publika delen av dess nyckel, vilket hem den når, vad den får göra och till när, och hashar av dess åtkomstnycklar. Boxen sparar i 90 dagar vad varje assistent läste och gjorde.</p>
       <p>Även med den läsbara kopian avslagen skickar FTW Cloud en kort avisering till dina telefoner genom Apples pushtjänst när en assistent får åtkomst, ber om en ändring eller snart förlorar åtkomsten. Aviseringen namnger assistenten bara om den läsbara kopian är på.</p>
       <p>Det du låter en assistent läsa går till företaget som driver den, till exempel Anthropic, OpenAI eller Anysphere (Cursor), under det företagets egen integritetspolicy. Sourceful styr inte vad det gör med det.</p>
+      <p>FTW-pluginet skickar svar från de verktyg du använder till OpenAI, till exempel aktuell effekt, batteriets och bilens laddnivå, tidigare effektvärden, planer, enhetsstatus samt loggar och inställningar där boxen har dolt känsliga uppgifter. FTW Cloud tar emot verktygets namn och de argument frågan kräver; pluginet begär inte hela din samtalshistorik. OpenAI hanterar mottagna uppgifter enligt <a href="https://openai.com/policies/privacy-policy/">sin egen integritetspolicy</a> och dina kontoinställningar. OpenAI hanterar lagring och radering separat från FTW. Att avsluta åtkomst i FTW raderar inte ett tidigare samtal i ChatGPT.</p>
+      <p>Det offentliga pluginet har namngivna verktyg och ger inte fri API-läsning eller export av säkerhetskopior. Andra tekniska assistentanslutningar som du godkänner separat kan läsa exakta tekniska identifierare, nätadresser och exporter; vissa säkerhetskopior innehåller sparade inloggningsuppgifter. Ge och använd bara den åtkomst uppgiften kräver.</p>
+      <p>Läs <a href="/sv/chatgpt">FTW för ChatGPT</a>, dess <a href="/sv/chatgpt-terms">villkor</a> och <a href="/sv/chatgpt#support">supportinformation</a>.</p>
       <p>Åtkomst för Sourcefuls support, som du ska kunna slå på för ett supportärende, finns inte än. Vi uppdaterar den här sidan innan den gör det.</p>
 
       <h2 id="statistics">Projektstatistik och nya Cloud-villkor</h2>
