@@ -17,13 +17,21 @@ complete.
 
 Use [FTW's vision](https://github.com/srcfl/ftw/blob/master/VISION.md) and
 [roadmap](https://github.com/srcfl/ftw/blob/master/docs/roadmap.md) when writing product copy.
-Explain mixed-equipment coordination, simple defaults, local control and
-visible outcomes. Clearly distinguish implemented capabilities from goals
-such as cloud MCP. Do not publish predicted savings as measured results.
+Explain FTW as a fast local energy core for people, agents and other software.
+Show the current iPhone beta, webapp, Home Assistant app and ChatGPT integration.
+Keep preview integrations and planned features distinct from public releases.
+Do not publish predicted savings as measured results.
 
-Product screenshots come from the public FTW webapp demo. Label them as
-simulated data. They show the interface, not measured savings or a worker
-benchmark. Keep their dimensions in HTML in step with the image files.
+Product screenshots show the complete app viewport, without cropping or
+changing the interface. Use the public webapp demo and the iOS app's built-in
+demo. Label simulated homes. These show the interface, not measured savings
+or a worker benchmark. Keep HTML dimensions in step with the image files.
+
+Current images: `assets/ftw-webapp-now.webp` comes from the public demo at
+430 × 932 CSS pixels; `assets/ftw-ios-now.webp` comes from the iPhone 17 Pro
+simulator, built from `srcfl/ftw-app` commit `4448968`. Both use simulated data.
+`home.css` holds homepage styles; the shared stylesheet also serves the
+support, privacy and ChatGPT pages.
 
 Sourceful maintains the product; Fredrik owns its direction. PRs are welcome,
 preferably based on [issues](https://github.com/srcfl/ftw-web/issues). Share a
@@ -43,6 +51,14 @@ transfer of old settings and history is not ready. For an existing Pi, put the
 physical SD-card swap before install commands. Present same-host Docker as a
 separate option for people who can manage its services, not the next step
 after a failed native install.
+
+## Public entry points
+
+- iPhone beta: https://testflight.apple.com/join/E4Japad7
+- Webapp and interactive demo: https://app.ftw.energy/
+- Home Assistant app: https://github.com/srcfl/ftw/blob/master/docs/home-assistant-app.md
+- ChatGPT integration and its availability: `/chatgpt`
+- Anonymous project statistics: https://stats.ftw.energy/
 
 ## Local dev
 
