@@ -3,28 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>FTW | Local home energy, planned together</title>
-  <meta name="description" content="FTW coordinates home solar, batteries and EV charging with Energyplan, local control, web access and optional Cloud. Open code; separate planner licence.">
-  <meta name="keywords" content="FTW, home energy management, HEMS, open source, self-hosted, solar, battery, EV charging, OCPP, OCPP 1.6J, OCPP 2.0.1, Raspberry Pi, Go, Lua, Home Assistant">
+  <title>FTW | Local energy. Ready for AI.</title>
+  <meta name="description" content="A fast, local energy core for solar, batteries and EV charging. Use FTW from iPhone, the web, Home Assistant or your AI assistant. Try the beta.">
+  <meta name="keywords" content="FTW, home energy management, HEMS, open source, self-hosted, solar, battery, EV charging, OCPP, OCPP 1.6J, OCPP 2.0.1, Raspberry Pi, Go, Lua, Home Assistant, iPhone, iOS, webapp, AI, MCP, ChatGPT">
   <meta name="robots" content="index,follow">
   <meta name="author" content="Sourceful Energy">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="canonical" href="https://ftw.sourceful.energy/">
 
-  <meta property="og:title" content="FTW | One plan for your home energy">
-  <meta property="og:description" content="Solar, battery and charging, planned together. Energyplan proposes a plan; FTW Core checks it and controls locally. Web access, optional Cloud and open integrations. Open code with a separately licensed planner.">
+  <meta property="og:title" content="FTW | Local energy. Ready for AI.">
+  <meta property="og:description" content="Your home energy, connected. Local planning and control, a native iPhone app, an installable webapp, Home Assistant and access for AI assistants.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ftw.sourceful.energy/">
   <meta property="og:image" content="https://ftw.sourceful.energy/favicon.svg">
   <meta property="og:site_name" content="FTW">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="FTW | Local home energy, planned together">
-  <meta name="twitter:description" content="Your home energy, planned together and controlled locally. Run FTW on your own hardware and see what your equipment does.">
+  <meta name="twitter:title" content="FTW | Local energy. Ready for AI.">
+  <meta name="twitter:description" content="A fast, local energy core. iPhone, webapp, Home Assistant and AI access. Try the FTW beta.">
   <meta name="twitter:image" content="https://ftw.sourceful.energy/favicon.svg">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/sourceful.css?v=apps-cloud-2">
+  <link rel="stylesheet" href="/home.css?v=energy-core-1">
 
   <script type="application/ld+json">
   {
@@ -38,7 +39,7 @@
     "downloadUrl": "https://github.com/srcfl/ftw/releases",
     "softwareHelp": "https://github.com/srcfl/ftw/blob/master/SUPPORT.md",
     "license": "https://github.com/srcfl/ftw/blob/master/LICENSE",
-    "description": "Local home energy management with AGPLv3 code and a separately licensed Energyplan worker. Core validates plans and controls supported equipment.",
+    "description": "A local energy core for people, apps and AI agents. Core measures, plans and controls supported equipment, with AGPLv3 code and a separately licensed Energyplan worker.",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
     "maintainer": {
       "@type": "Organization",
@@ -48,38 +49,18 @@
   }
   </script>
 </head>
-<body>
+<body class="home">
   <a class="skip-link" href="#content">Skip to content</a>
-
   <header class="site-header">
     <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="ftw home">
-        <img src="/favicon.svg" alt="ftw logo" width="34" height="34">
-        <span class="brand-name">ftw</span>
-      </a>
+      <a class="brand" href="#top" aria-label="FTW home"><img src="/favicon.svg" alt="" width="34" height="34"><span class="brand-name">ftw</span></a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#planning">Planning</a>
-        <a href="#control">Control</a>
-        <a href="#devices">Devices</a>
-        <a href="#access">Access</a>
-        <a href="#start">Install</a>
-        <a href="#extend">Build</a>
+        <a href="#core">The core</a><a href="#ai">AI</a><a href="#apps">Apps</a><a href="#start">Get started</a>
         <a class="nav-cta" href="https://github.com/srcfl/ftw">GitHub <span aria-hidden="true">↗</span></a>
       </nav>
-      <details class="mobile-nav">
-        <summary>Menu</summary>
-        <nav aria-label="Mobile navigation">
-          <a href="#planning">Planning</a>
-          <a href="#control">Control</a>
-          <a href="#devices">Devices</a>
-          <a href="#access">Apps and access</a>
-          <a href="#start">Install FTW</a>
-          <a href="#extend">Build with FTW</a>
-          <a href="#community">Community</a>
-          <a href="https://github.com/srcfl/ftw#documentation">Documentation</a>
-          <a href="https://github.com/srcfl/ftw/blob/master/docs/roadmap.md">Roadmap</a>
-        </nav>
-      </details>
+      <details class="mobile-nav"><summary>Menu</summary><nav aria-label="Mobile navigation">
+        <a href="#core">The FTW core</a><a href="#ai">AI and ChatGPT</a><a href="#apps">iPhone and webapp</a><a href="#start">Install FTW</a><a href="#community">Community</a><a href="https://stats.ftw.energy/">Project statistics</a>
+      </nav></details>
     </div>
   </header>
 
@@ -87,289 +68,118 @@
     <section class="hero" id="top">
       <div class="wrap hero-layout">
         <div class="hero-copy">
-          <p class="project-state"><span class="status-dot" aria-hidden="true"></span>Current beta · Your hardware · Sourceful maintained</p>
-          <h1>Your home energy. <em>Planned together.</em></h1>
-          <p class="hero-lede">Make supported solar, batteries and car charging from different brands work together. FTW plans ahead, controls locally and shows what the equipment actually does.</p>
+          <p class="project-state"><span class="status-dot" aria-hidden="true"></span>FTW · Public beta</p>
+          <h1>Local energy.<br><em>Ready for AI.</em></h1>
+          <p class="hero-lede">A fast, local core for your home's energy. FTW brings solar, batteries and car charging together. Use it from your iPhone, the web, Home Assistant or an AI assistant.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://app.ftw.energy/">Try the demo <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-ghost" href="#start">Install FTW <span aria-hidden="true">→</span></a>
+            <a class="btn btn-primary" href="https://app.ftw.energy/">Try the webapp <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-ghost" href="#start">Get FTW <span aria-hidden="true">↓</span></a>
           </div>
-          <dl class="project-facts">
-            <div><dt>Planning</dt><dd>Energyplan</dd></div>
-            <div><dt>Control</dt><dd>Local Core</dd></div>
-            <div><dt>Runs on</dt><dd>Pi + Linux</dd></div>
-            <div><dt>Status</dt><dd>Early beta</dd></div>
-          </dl>
+          <p class="hero-footnote">Have an iPhone? <a href="https://testflight.apple.com/join/E4Japad7">Join the iOS beta on TestFlight <span aria-hidden="true">↗</span></a></p>
+          <div class="hero-facts"><span>Runs at home</span><span>Open source</span><span>Built for people and agents</span></div>
         </div>
-        <figure class="product-shot">
-          <img src="/assets/ftw-demo-flow.jpg" alt="FTW webapp showing solar, battery, home, grid and charger power in a simulated home" width="544" height="760" fetchpriority="high">
-          <figcaption>FTW webapp · Simulated home<br><a href="https://app.ftw.energy/">Explore the interactive demo <span aria-hidden="true">↗</span></a></figcaption>
-        </figure>
+        <div class="app-pair" aria-label="The FTW iPhone app and webapp">
+          <figure>
+            <a href="https://testflight.apple.com/join/E4Japad7" aria-label="Try FTW for iPhone on TestFlight"><img src="/assets/ftw-ios-now.webp" alt="Full FTW iPhone screen showing energy flow and the next twelve hours in a simulated home" width="1206" height="2622" fetchpriority="high"></a>
+            <figcaption><span>01 / iPHONE</span>Native. Fast. With you.</figcaption>
+          </figure>
+          <figure>
+            <a href="https://app.ftw.energy/" aria-label="Try the FTW webapp"><img src="/assets/ftw-webapp-now.webp" alt="Full FTW webapp screen showing solar, battery, home, grid and car power in the live demo" width="860" height="1864" fetchpriority="high"></a>
+            <figcaption><span>02 / WEBAPP</span>Open it. See your home.</figcaption>
+          </figure>
+          <p class="image-note">Real app screens · Simulated homes</p>
+        </div>
+      </div>
+      <div class="wrap product-routes" aria-label="Ways to use FTW">
+        <a href="https://testflight.apple.com/join/E4Japad7"><span>iPhone</span>Join the beta <b aria-hidden="true">↗</b></a>
+        <a href="https://app.ftw.energy/"><span>Webapp</span>Try the live demo <b aria-hidden="true">↗</b></a>
+        <a href="#home-assistant"><span>Home Assistant</span>Run FTW in HA <b aria-hidden="true">↓</b></a>
+        <a href="#ai"><span>ChatGPT + MCP</span>Connect an assistant <b aria-hidden="true">↓</b></a>
       </div>
     </section>
 
-    <section class="section planning" id="planning">
-      <div class="wrap section-head">
-        <p class="section-kicker">Energyplan</p>
-        <h2>A plan for the whole home.</h2>
-        <p class="section-intro">When should the battery charge? What energy does the car need before departure? Energyplan weighs these needs together with electricity prices, tariffs, solar and household forecasts, battery state and efficiency.</p>
+    <section class="section core-story" id="core">
+      <div class="wrap story-heading">
+        <p class="section-kicker">01 / The energy core</p>
+        <div><h2>One system.<br>Your choice of interface.</h2><p class="section-intro">Your meter, solar, battery and charger each report their own readings. FTW reads them together, plans ahead and controls on the equipment's own network. The core runs on your hardware and keeps working when an app or assistant disconnects.</p></div>
       </div>
-      <div class="wrap planning-layout">
+      <div class="wrap core-steps">
+        <article><span class="cap-number">MEASURE</span><h3>See what is happening.</h3><p>Live power, stored energy and device health. Fresh readings, estimates and missing data stay distinct.</p></article>
+        <article><span class="cap-number">PLAN</span><h3>Work towards your goals.</h3><p>Energyplan combines prices, solar, household forecasts and charging needs into one local plan.</p></article>
+        <article><span class="cap-number">CONTROL</span><h3>Check the result.</h3><p>Core checks commands against site and equipment limits, then checks the readings for the response.</p></article>
+      </div>
+      <div class="wrap core-links"><a href="https://srcfl.github.io/device-drivers/">Find your equipment <span aria-hidden="true">↗</span></a><a href="https://github.com/srcfl/ftw/blob/master/VISION.md">Read the product vision <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="section ai-story" id="ai">
+      <div class="wrap ai-layout">
         <div>
-          <h3>Your needs shape the plan.</h3>
-          <ul class="check-list">
-            <li>Set charging goals and departure times. The planner reports missing energy when a goal cannot fit.</li>
-            <li>Use solar and stored energy across the coming hours, within equipment and site limits.</li>
-            <li>Update the plan as readings and forecasts change. Keep forecast caution separate from hard battery limits.</li>
+          <p class="section-kicker">02 / An energy primitive for AI</p>
+          <h2>Your home energy.<br>In the conversation.</h2>
+          <p class="ai-lede">Ask why the battery is charging. Understand tonight's plan. Get help connecting your equipment. FTW gives an authorized assistant the context to answer.</p>
+          <p>The FTW plugin brings that access to ChatGPT. MCP gives agents a structured way to work with the core. You choose who gets access and can revoke it. Core checks every request and keeps control at home.</p>
+          <a class="btn btn-primary" href="/chatgpt">Explore FTW for ChatGPT <span aria-hidden="true">→</span></a>
+          <p class="availability">ChatGPT plugin preview · Public directory listing pending</p>
+        </div>
+        <div class="agent-examples">
+          <p class="example-label">A FEW THINGS TO ASK</p>
+          <ul>
+            <li>“Why is the battery charging now?”</li>
+            <li>“What happened to our energy use today?”</li>
+            <li>“Will the car be ready by morning?”</li>
+            <li>“Help me set up FTW with my equipment.”</li>
           </ul>
-          <p class="product-note">Energyplan runs as a compiled local worker. It proposes a plan; FTW Core checks every proposal and keeps its own fallback. The worker never sends commands to hardware.</p>
-          <a class="text-link" href="https://github.com/srcfl/ftw/blob/master/docs/energyplan-contract.md">How planning and Core work together <span aria-hidden="true">↗</span></a>
+          <div class="agent-contract"><h3>A core you can build on.</h3><p>State, history, goals and plans through APIs and MCP. Connect your own agent or automation, with scoped access and Core's validation.</p><a href="https://github.com/srcfl/ftw/blob/master/docs/adr/0011-agent-led-setup.md">Agent-led setup and access <span aria-hidden="true">↗</span></a></div>
         </div>
-        <figure class="plan-shot">
-          <img src="/assets/ftw-demo-schedule.jpg" alt="Simulated FTW plan showing the battery charging from spare solar, then supplying the home in later slots" width="544" height="640" loading="lazy">
-          <figcaption>FTW webapp · Simulated plan. These example values are not measured savings or a planner benchmark.</figcaption>
-        </figure>
+      </div>
+      <div class="wrap ai-privacy">Assistant access is explicit. FTW Cloud and your assistant provider can read the data you grant them. <a href="/privacy#assistants">How access and privacy work <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="section apps-story" id="apps">
+      <div class="wrap story-heading">
+        <p class="section-kicker">03 / Built to feel immediate</p>
+        <div><h2>Open the app.<br>There's your home.</h2><p class="section-intro">The apps show saved readings straight away, then catch up with the box. Every reading keeps its age. Watch the flow, change a charging goal and see what FTW does next.</p></div>
+      </div>
+      <div class="wrap app-details">
+        <article><p class="cap-number">FTW FOR iPHONE · iOS 26+</p><h3>A native app for everyday use.</h3><p>Live energy, car charging and electricity prices. Check the plan, set a charging goal or choose Charge now. Keep prices close with widgets.</p><a class="text-link" href="https://testflight.apple.com/join/E4Japad7">Get the iOS beta on TestFlight <span aria-hidden="true">↗</span></a><p class="small-note">Includes a simulated home to explore before you connect a box.</p></article>
+        <article><p class="cap-number">FTW WEBAPP · PHONE + COMPUTER</p><h3>Your energy, in the browser.</h3><p>Live flow, plans, history and access to your box. Install the webapp on your home screen and open it like an app. Pair it with FTW to use your own home's data.</p><a class="text-link" href="https://app.ftw.energy/">Open the webapp and try the demo <span aria-hidden="true">↗</span></a><p class="small-note">The public demo uses simulated equipment. No box needed.</p></article>
       </div>
     </section>
 
-    <section class="section control" id="control">
-      <div class="wrap section-head">
-        <p class="section-kicker">Are we in control?</p>
-        <h2>See what the equipment actually did.</h2>
-        <p class="section-intro">A command reply does not prove that power changed. The current beta shows whether a controlled device follows FTW, is waiting, is limited or needs attention.</p>
-      </div>
-      <div class="wrap evidence-grid">
-        <article><span class="cap-number">01 / REQUEST</span><h3>What FTW asked for</h3><p>Keep the target and the command result visible. Core checks each command against the current site and equipment limits.</p></article>
-        <article><span class="cap-number">02 / RESPONSE</span><h3>What the device reports</h3><p>Fresh readings show whether the device follows. Old or missing readings stay distinct from a measured response.</p></article>
-        <article><span class="cap-number">03 / CONFIRMATION</span><h3>What a separate meter confirms</h3><p>When independent measurements support it, Core confirms the physical change. The available proof depends on the device and its readings.</p></article>
-      </div>
-      <div class="wrap architecture-note">
-        <p>Core keeps safety and control on the box. Stale required site-meter data stops dispatch; an unavailable planner leaves Core's local fallback.</p>
-        <a href="https://github.com/srcfl/ftw/blob/master/CHANGELOG.md">What changed in the beta <span aria-hidden="true">↗</span></a>
-      </div>
-    </section>
-
-    <section class="section capabilities" id="devices">
-      <div class="wrap section-head">
-        <p class="section-kicker">Your equipment</p>
-        <h2>Different brands. One site.</h2>
-        <p class="section-intro">Check your model, firmware and the functions that have been verified. A catalog entry alone does not prove that FTW can control a device.</p>
-      </div>
-      <div class="wrap capability-grid">
-        <article><span class="cap-number">01 / SOLAR + BATTERY</span><h3>Use what you already have</h3><p>Lua drivers connect supported meters, inverters and batteries. Each device keeps its own limits and capabilities.</p><a class="text-link" href="https://srcfl.github.io/device-drivers/">Check the device catalog <span aria-hidden="true">↗</span></a></article>
-        <article><span class="cap-number">02 / SITE METER</span><h3>Start with the site limits</h3><p>Active control needs a working site meter and a confirmed main fuse rating. FTW checks those limits against current measurements.</p><a class="text-link" href="#start">Prepare your setup <span aria-hidden="true">→</span></a></article>
-        <article><span class="cap-number">03 / CAR CHARGING</span><h3>Plan around departure</h3><p>Use charging goals and Charge now. OCPP 1.6J and 2.0.1 chargers connect to FTW's built-in server without a Lua driver. Verify the functions your charger supports.</p><a class="text-link" href="https://github.com/srcfl/ftw/blob/master/docs/ocpp.md">OCPP charger setup <span aria-hidden="true">↗</span></a></article>
-      </div>
-    </section>
-
-    <section class="quickstart" id="start">
-      <div class="wrap quickstart-layout">
+    <section class="section plan-story" id="planning">
+      <div class="wrap plan-layout">
+        <div><p class="section-kicker">04 / Planning that stays local</p><h2>The whole home.<br>Planned together.</h2></div>
         <div>
-          <p class="section-kicker">Get running</p>
-          <h2>Install the new FTW 0.x beta.</h2>
-        </div>
-        <div class="release-note" role="note">
-          <p><strong>2.x and 3.x will receive no further updates.</strong> Switch to the new 0.x line for current fixes and features. Do not install 3.x beta.</p>
-          <p><strong>Old FTW on a Raspberry Pi? Use a second SD card.</strong> Keep the old card. Prepare the new one and swap cards before running install commands. Guided transfer of old settings and history is not ready.</p>
-          <p>Choose one path below. A refused native install is a stop point; do not try Docker next. Same-host Docker needs a planned switch with old Core stopped and MQTT preserved.</p>
-        </div>
-        <div class="start-links">
-          <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#choose-your-path"><span aria-hidden="true">→</span>Switch or update FTW <b>Start here · all install types</b></a>
-          <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#raspberry-pi-use-a-second-sd-card"><span aria-hidden="true">→</span>Switch an existing Pi <b>New SD card · step by step</b></a>
-          <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#docker"><span aria-hidden="true">→</span>Docker on Linux <b>Separate path · Docker experience needed</b></a>
-          <a href="https://github.com/srcfl/ftw#install-on-home-assistant"><span aria-hidden="true">→</span>Home Assistant users <b>New FTW on a separate host</b></a>
+          <p class="section-intro">Prices change. The car plugs in. The forecast changes. FTW updates the plan around your goals and the energy available.</p>
+          <ul class="check-list"><li>Charge the car towards the level and time you set.</li><li>Plan battery use around prices, solar and household needs.</li><li>Coordinate supported equipment from different brands.</li></ul>
+          <p class="product-note">Energyplan runs locally. Core checks each proposed plan before it reaches a device. Site limits and fresh meter readings govern control.</p>
+          <a class="text-link" href="https://srcfl.github.io/device-drivers/">Check your equipment in the device catalog <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
 
-    <section class="section access" id="access">
-      <div class="wrap section-head">
-        <p class="section-kicker">Apps and access</p>
-        <h2>Your home, on your terms.</h2>
-        <p class="section-intro">Use the web app on a phone or computer. Keep control at home and choose whether a readable copy of your home's data leaves the box.</p>
+    <section class="section get-started" id="start">
+      <div class="wrap story-heading"><p class="section-kicker">05 / Try the beta</p><div><h2>Start where you are.</h2><p class="section-intro">Explore a demo, run FTW inside Home Assistant or install it on your own Linux host. Then connect the apps and assistants you want to use.</p></div></div>
+      <div class="wrap install-options">
+        <article id="home-assistant"><span class="cap-number">HOME ASSISTANT OS</span><h3>FTW, directly in HA.</h3><p>Install the <strong>FTW (0.x beta)</strong> app from the Sourceful repository. Run the core on your Home Assistant hardware and open its interface from HA.</p><a class="btn btn-primary" href="https://github.com/srcfl/ftw/blob/master/docs/home-assistant-app.md">Install in Home Assistant <span aria-hidden="true">↗</span></a><p class="small-note">Beta / pilot · Home Assistant OS · aarch64 and amd64</p></article>
+        <article><span class="cap-number">RASPBERRY PI + LINUX</span><h3>Your hardware. Your core.</h3><p>Run FTW on a Raspberry Pi or a supported 64-bit Linux host. The install guide covers native, Docker and the checks your site needs.</p><a class="btn btn-ghost" href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#choose-your-path">Install FTW on Linux <span aria-hidden="true">↗</span></a><p class="small-note">Raspberry Pi OS, Debian and Ubuntu</p></article>
       </div>
-      <div class="wrap capability-grid">
-        <article><span class="cap-number">01 / WEB APP</span><h3>At home and away.</h3><p>Open the local web app at home or pair the installable web client for remote access. The relay carries encrypted traffic and cannot read your home's data. Try the public demo with simulated equipment.</p><a class="text-link" href="https://app.ftw.energy/">Try the web app <span aria-hidden="true">↗</span></a></article>
-        <article><span class="cap-number">02 / OPTIONAL CLOUD</span><h3>A copy you choose to share.</h3><p>The latest beta adds FTW Cloud support. When the owner turns it on, the box sends a signed, readable copy for phone access and alerts. Cloud reads that data and never controls equipment. This differs from the blind relay; local operation remains the default.</p><a class="text-link" href="https://github.com/srcfl/ftw/blob/master/docs/adr/0008-ftw-cloud.md">Read the Cloud design <span aria-hidden="true">↗</span></a></article>
-        <article><span class="cap-number">03 / NATIVE APPS</span><h3>Phone clients in development.</h3><p>Separate iPhone and Android apps use the same pairing and encrypted protocol. They are still in development. Store releases and the web app's full set of features are not available yet.</p><a class="text-link" href="https://github.com/srcfl/ftw-app">Follow native app development <span aria-hidden="true">↗</span></a></article>
-      </div>
+      <div class="wrap install-notes"><p>Already running FTW? <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md">Follow the switch or update guide</a>. The retired 2.x and 3.x lines receive no more updates.</p><details><summary>Moving an older installation?</summary><p>Keep a full backup and your old data. On a Raspberry Pi, keep the old SD card and use a second card. Guided transfer of old settings and history is not ready. Stop old Core and its autostart before another Core controls the same equipment. If an install refuses the old layout, follow the guide before trying another path.</p></details></div>
     </section>
 
-    <section class="section architecture" id="architecture">
-      <div class="wrap section-head">
-        <p class="section-kicker">Architecture</p>
-        <h2>One local system across mixed hardware.</h2>
-        <p class="section-intro">FTW Core owns measurements, state, safety and device commands. Energyplan supplies forecasts and proposed plans through a defined contract. Both run on your own host. The implementation uses Go, Lua drivers and compiled Energyplan workers.</p>
-      </div>
-      <div class="wrap system-map" role="img" aria-label="Signals from the grid meter, prices, weather and devices flow into the local FTW runtime, which coordinates batteries, inverters, EV charging, APIs and Home Assistant.">
-        <div class="system-column inputs">
-          <p class="map-label">Signals in</p>
-          <div class="map-node"><span>Grid meter</span><small>site boundary</small></div>
-          <div class="map-node"><span>Prices + weather</span><small>optional inputs</small></div>
-          <div class="map-node"><span>Device telemetry</span><small>local network</small></div>
-        </div>
-        <div class="map-connector" aria-hidden="true"><span>→</span></div>
-        <div class="system-core">
-          <div class="core-heading"><img src="/favicon.svg" alt="" width="38" height="38"><div><strong>FTW</strong><small>your host</small></div></div>
-          <ol>
-            <li><span>01</span>Read meters and devices</li>
-            <li><span>02</span>Energyplan proposes a plan</li>
-            <li><span>03</span>Core validates the plan</li>
-            <li><span>04</span>Control using fresh readings</li>
-          </ol>
-        </div>
-        <div class="map-connector" aria-hidden="true"><span>→</span></div>
-        <div class="system-column outputs">
-          <p class="map-label">Coordinated out</p>
-          <div class="map-node"><span>Battery + inverter</span><small>charge / discharge</small></div>
-          <div class="map-node"><span>EV charging</span><small>goals / OCPP</small></div>
-          <div class="map-node"><span>API + Home Assistant</span><small>observe / automate</small></div>
-        </div>
-      </div>
-      <div class="wrap architecture-note">
-        <p><span>Site convention</span> Above the driver boundary, positive power means energy flowing into the site. Every device speaks the same language.</p>
-        <a href="https://github.com/srcfl/ftw/blob/master/docs/architecture.md">Read the architecture <span aria-hidden="true">↗</span></a>
-      </div>
-    </section>
-
-    <section class="section integrations" id="integrations">
-      <div class="wrap section-head">
-        <p class="section-kicker">Daily use</p>
-        <h2>Connect your tools. Keep one controller.</h2>
-        <p class="section-intro">Use Home Assistant through MQTT, the local API or the Modbus TCP proxy. When an external system takes write ownership of a configured endpoint, FTW stops sending competing commands there.</p>
-      </div>
-      <div class="wrap capability-grid">
-        <article><span class="cap-number">01 / INTEGRATIONS</span><h3>Work with the tools you use.</h3><p>Open drivers connect supported equipment. MQTT discovery connects Home Assistant. Local APIs and the Modbus proxy give other systems a defined way to read and control.</p><a class="text-link" href="https://github.com/srcfl/ftw#documentation">Read the integration guides <span aria-hidden="true">↗</span></a></article>
-        <article><span class="cap-number">02 / UPDATES</span><h3>Update from the web app.</h3><p>Native installations can check for a new beta, show download progress and confirm the running version after restart. The update checks installation readiness and stored-data compatibility before it proceeds.</p><a class="text-link" href="https://github.com/srcfl/ftw/blob/master/docs/self-update.md">How updates work <span aria-hidden="true">↗</span></a></article>
-        <article><span class="cap-number">03 / PLANNING</span><h3>Set goals that fit your home.</h3><p>Choose how the household uses solar and stored energy, set a charging goal and departure time, and inspect the plan. The beta shows planning errors and warns when saved charging steps exceed the charger's limit.</p><a class="text-link" href="https://app.ftw.energy/">Explore the demo plan <span aria-hidden="true">↗</span></a></article>
-      </div>
-    </section>
-
-    <section class="section extend" id="extend">
-      <div class="wrap extend-layout">
-        <div class="extend-copy">
-          <p class="section-kicker">Build with it</p>
-          <h2>New hardware should be a driver, not a fork.</h2>
-          <p>FTW drivers are plain Lua files with capability-scoped access to Modbus, MQTT, HTTP, WebSocket and TCP. Edit a driver on the Pi and reload it without rebuilding the Go runtime.</p>
-          <ul class="check-list">
-            <li>Start from an existing inverter, meter or charger driver</li>
-            <li>Test with simulators and the same public host API</li>
-            <li>Share device needs and test evidence through an issue</li>
-            <li>Skip the driver for an EV charger that speaks OCPP</li>
-          </ul>
-          <div class="inline-actions">
-            <a class="text-link" href="https://github.com/srcfl/device-drivers/blob/main/docs/WRITING-A-DRIVER.md">Write a driver <span aria-hidden="true">→</span></a>
-            <a class="text-link" href="https://github.com/srcfl/ftw/blob/master/docs/ocpp.md">OCPP chargers <span aria-hidden="true">↗</span></a>
-            <a class="text-link" href="https://srcfl.github.io/device-drivers/">Browse the device catalog <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-        <div class="code-window" role="group" aria-label="Example Lua device driver">
-          <div class="code-title"><span>drivers/lua/my_inverter.lua</span><span>Lua</span></div>
-          <pre><code><span class="code-key">function</span> <span class="code-call">driver_init</span>(config)
-  host.set_make(<span class="code-string">"My Inverter"</span>)
-  host.mqtt_subscribe(config.topic)
-<span class="code-key">end</span>
-
-<span class="code-key">function</span> <span class="code-call">driver_poll</span>()
-  <span class="code-key">local</span> watts = read_power()
-  host.emit(<span class="code-string">"battery"</span>, {
-    power_w = watts,
-    soc = read_soc()
-  })
-  <span class="code-key">return</span> <span class="code-number">1000</span>
-<span class="code-key">end</span></code></pre>
-          <div class="code-footer"><span>hot-editable</span><span>no build step</span><span>Issues welcome</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section community" id="community">
-      <div class="wrap community-layout">
-        <div class="community-intro">
-          <p class="section-kicker">The community edition</p>
-          <h2>Open source, maintained by Sourceful.</h2>
-          <p>Run FTW at home, study it and modify it. FTW's open-source code uses AGPLv3 with a narrow Energyplan exception. Share covered source when the license requires it. The proprietary Energyplan worker permits unmodified use with FTW only for your own private household. Free, noncommercial redistribution with FTW is allowed only for that household use, with its license and notices. Other use or distribution, including commercial use and operation for others, requires a separate written Sourceful license. Sourceful Energy develops and maintains FTW. Contributions are welcome: start with an issue, share a short Markdown proposal or send a focused PR with relevant test evidence.</p>
-          <div class="license-line"><a href="https://github.com/srcfl/ftw/blob/master/LICENSE">AGPLv3 <span aria-hidden="true">↗</span></a><a href="https://github.com/srcfl/ftw/blob/master/docs/roadmap.md">Public roadmap <span aria-hidden="true">↗</span></a><span>Community issues</span></div>
-        </div>
-        <div class="community-panels">
-          <article>
-            <span class="panel-tag">Community support</span>
-            <h3>You operate what you run.</h3>
-            <p>FTW Community comes without official support, warranty, response times or service-level commitments. Help is best-effort from other users and maintainers.</p>
-            <div class="panel-links">
-              <a href="https://github.com/srcfl/ftw/issues">Issues <span aria-hidden="true">↗</span></a>
-              <a href="https://discord.gg/UK2ygPBu8N">Discord <span aria-hidden="true">↗</span></a>
-              <a href="https://github.com/srcfl/ftw/blob/master/SUPPORT.md">Support policy <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-          <article>
-            <span class="panel-tag">Contribute</span>
-            <h3>Make the shared system better.</h3>
-            <p>Report a need, share a Markdown proposal or send a tested fix. Prefer an issue as the starting point. Our agentic-first approach uses clear problems and reproducible results that people and agents can review. Hardware claims need hardware evidence.</p>
-            <div class="panel-links">
-              <a href="https://github.com/srcfl/ftw/blob/master/CONTRIBUTING.md">Contribution guide <span aria-hidden="true">↗</span></a>
-              <a href="https://github.com/srcfl/ftw/issues">Report an issue <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section organizations" id="organizations">
-      <div class="wrap organizations-layout">
-        <div>
-          <p class="section-kicker">For organizations</p>
-          <h2>Open code. Commercial accountability.</h2>
-          <p class="section-intro">AGPLv3 permits commercial use of the covered FTW code under its source-sharing terms. Commercial Energyplan use, OEM bundles and paid services involving the worker require a separate Sourceful license. Sourceful also offers deployment, maintenance and support.</p>
-          <a class="btn btn-primary" href="https://www.sourceful.energy/contact">Talk to Sourceful <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="service-list">
-          <div><span>01</span><p><strong>Supported deployments</strong>Architecture, commissioning, upgrades and operational handover.</p></div>
-          <div><span>02</span><p><strong>Integrations + OEM</strong>Custom hardware, certification, white-label and product delivery.</p></div>
-          <div><span>03</span><p><strong>Fleet operations</strong>Provisioning, observability and managed multi-site boundaries.</p></div>
-          <div><span>04</span><p><strong>Long-term support</strong>Defined maintenance, security handling, response times and SLA.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="connect">
-      <div class="wrap organizations-layout">
-        <div><p class="section-kicker">FTW Connect · In development</p><h2>Help looking after the system.</h2></div>
-        <div><p class="section-intro">Sourceful is developing remote help and system maintenance for FTW households: understand system health, investigate faults and manage approved updates. Connect has no running service or public subscription yet. Pricing, support and maintenance scope remain open.</p><a class="text-link" href="https://www.sourceful.energy/services#connect">Follow Sourceful services <span aria-hidden="true">↗</span></a></div>
-      </div>
-    </section>
-
-    <section class="project-cta">
-      <div class="wrap project-cta-layout">
-        <div>
-          <p class="section-kicker">FTW Community</p>
-          <h2>Energy infrastructure you can own.</h2>
-        </div>
-        <div>
-          <p>Run it. Explore it. Tell us what would make it better.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#start">Get started <span aria-hidden="true">→</span></a>
-            <a class="btn btn-ghost" href="https://github.com/srcfl/ftw">Star on GitHub <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-      </div>
+    <section class="section community-story" id="community">
+      <div class="wrap community-row"><div><p class="section-kicker">Open code · Sourceful maintained</p><h2>Use it. Adapt it.<br>Help make it better.</h2></div><div><p>FTW is open-source software. Connect your own software, adapt Lua drivers and contribute a tested fix. Sourceful develops and maintains the project with the community.</p><div class="community-actions"><a class="btn btn-primary" href="https://github.com/srcfl/ftw">Explore FTW on GitHub <span aria-hidden="true">↗</span></a><a href="https://discord.gg/UK2ygPBu8N">Join the Discord <span aria-hidden="true">↗</span></a><a href="https://stats.ftw.energy/">Anonymous project statistics <span aria-hidden="true">↗</span></a></div><p class="small-note">FTW code uses AGPLv3 with the Energyplan permission. The separate Energyplan worker is licensed for private household use. Commercial worker use needs a Sourceful license. <a href="https://github.com/srcfl/ftw/blob/master/LICENSING.md">Licensing</a> · <a href="https://github.com/srcfl/ftw/blob/master/SUPPORT.md">Community and commercial support</a></p></div></div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap footer-main">
-      <div class="footer-brand">
-        <img src="/favicon.svg" alt="" width="38" height="38">
-        <div><strong>FTW</strong><span>An open-source project maintained by Sourceful Energy.</span></div>
-      </div>
-      <div class="footer-links">
-        <div><span>Project</span><a href="https://github.com/srcfl/ftw">GitHub</a><a href="https://github.com/srcfl/ftw/releases">Releases</a><a href="https://github.com/srcfl/ftw#documentation">Documentation</a><a href="https://stats.ftw.energy/">Anonymous statistics</a><a href="https://srcfl.github.io/device-drivers/">Device catalog</a><a href="https://github.com/srcfl/ftw/blob/master/docs/roadmap.md">Roadmap</a><a href="https://github.com/srcfl/ftw/blob/master/VISION.md">Vision</a></div>
-        <div><span>Community</span><a href="https://discord.gg/UK2ygPBu8N">Discord</a><a href="https://github.com/srcfl/ftw/issues">Issues</a><a href="https://github.com/srcfl/ftw/blob/master/CONTRIBUTING.md">Contribute</a></div>
-        <div><span>Terms</span><a href="https://github.com/srcfl/ftw/blob/master/LICENSE">AGPLv3</a><a href="https://github.com/srcfl/ftw/blob/master/TRADEMARKS.md">Trademarks</a><a href="https://github.com/srcfl/ftw/blob/master/SUPPORT.md">Support</a><a href="/support">App support</a><a href="/privacy">App privacy</a></div>
-      </div>
+  <footer><div class="wrap footer-main">
+    <div class="footer-brand"><img src="/favicon.svg" alt="" width="38" height="38"><div><strong>FTW</strong><span>A local energy core.<br>Built for people and agents.</span></div></div>
+    <div class="footer-links">
+      <div><span>Use FTW</span><a href="https://testflight.apple.com/join/E4Japad7">iPhone beta</a><a href="https://app.ftw.energy/">Webapp</a><a href="#home-assistant">Home Assistant</a><a href="/chatgpt">ChatGPT plugin</a><a href="#start">Install the core</a></div>
+      <div><span>Project</span><a href="https://github.com/srcfl/ftw">GitHub</a><a href="https://github.com/srcfl/ftw/releases">Releases</a><a href="https://srcfl.github.io/device-drivers/">Device catalog</a><a href="https://github.com/srcfl/ftw/blob/master/docs/roadmap.md">Roadmap</a><a href="https://stats.ftw.energy/">Anonymous statistics</a><a href="https://discord.gg/UK2ygPBu8N">Discord</a></div>
+      <div><span>Help + terms</span><a href="https://github.com/srcfl/ftw#documentation">Documentation</a><a href="https://github.com/srcfl/ftw/blob/master/CONTRIBUTING.md">Contribute</a><a href="/support">App support</a><a href="/privacy">Privacy</a><a href="/chatgpt-terms">Plugin terms</a><a href="https://github.com/srcfl/ftw/blob/master/LICENSING.md">Licensing</a><a href="https://github.com/srcfl/ftw/blob/master/TRADEMARKS.md">Trademarks</a></div>
     </div>
-    <div class="wrap footer-bottom"><span>© Sourceful Labs AB and FTW contributors</span><a href="https://www.sourceful.energy/">sourceful.energy <span aria-hidden="true">↗</span></a></div>
-  </footer>
+  </div><div class="wrap footer-bottom"><span>© Sourceful Labs AB and FTW contributors</span><a href="https://www.sourceful.energy/">sourceful.energy <span aria-hidden="true">↗</span></a></div></footer>
   <script src="/navigation.js?v=1" defer></script>
 </body>
 </html>
