@@ -14,7 +14,8 @@ export const concepts = [
         "src": "assets/ring-quiet.webp",
         "thumb": "assets/ring-quiet-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ]
   },
@@ -34,7 +35,8 @@ export const concepts = [
         "src": "assets/ring-flow-v2.webp",
         "thumb": "assets/ring-flow-v2-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ]
   },
@@ -53,7 +55,8 @@ export const concepts = [
         "src": "assets/ring-layers.webp",
         "thumb": "assets/ring-layers-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ]
   },
@@ -72,7 +75,8 @@ export const concepts = [
         "src": "assets/ftw-focus.webp",
         "thumb": "assets/ftw-focus-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ]
   },
@@ -92,7 +96,8 @@ export const concepts = [
         "src": "assets/ftw-streams-v2.webp",
         "thumb": "assets/ftw-streams-v2-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ]
   },
@@ -111,7 +116,8 @@ export const concepts = [
         "src": "assets/ftw-ahead-v2.webp",
         "thumb": "assets/ftw-ahead-v2-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ]
   },
@@ -128,7 +134,8 @@ export const concepts = [
         "src": "assets/today-web.webp",
         "thumb": "assets/today-web-thumb.webp",
         "width": 830,
-        "height": 1800
+        "height": 1800,
+        "language": "en"
       }
     ],
     "code": "F01"
@@ -146,7 +153,8 @@ export const concepts = [
         "src": "assets/today-ios.webp",
         "thumb": "assets/today-ios-thumb.webp",
         "width": 828,
-        "height": 1800
+        "height": 1800,
+        "language": "en"
       }
     ],
     "code": "F02"
@@ -159,13 +167,14 @@ export const concepts = [
       "community",
       "ring"
     ],
-    "note": "User proposal · Original reference image",
+    "note": "Community reference · English translation of the supplied image · Example data",
     "media": [
       {
-        "src": "assets/community-ring.webp",
-        "thumb": "assets/community-ring-thumb.webp",
-        "width": 634,
-        "height": 596
+        "src": "assets/en/community-ring-0-en.webp",
+        "thumb": "assets/en/community-ring-0-en-thumb.webp",
+        "width": 1294,
+        "height": 1216,
+        "language": "en"
       }
     ],
     "code": "F03"
@@ -178,65 +187,72 @@ export const concepts = [
       "flow",
       "robot"
     ],
-    "note": "iOS prototype · Example home · Video 1 min 36 s",
+    "note": "iOS prototype study · English artwork · Example home",
     "media": [
       {
-        "src": "assets/fluid-app.webp",
-        "thumb": "assets/fluid-app-thumb.webp",
-        "width": 828,
-        "height": 1800
+        "src": "assets/en/fluid-app-0-en.webp",
+        "thumb": "assets/en/fluid-app-0-en-thumb.webp",
+        "width": 851,
+        "height": 1849,
+        "language": "en"
       },
       {
-        "src": "assets/fluid-car-before.webp",
-        "thumb": "assets/fluid-car-before-thumb.webp",
-        "width": 828,
-        "height": 1800,
-        "caption": "Car"
+        "src": "assets/en/fluid-app-1-en.webp",
+        "thumb": "assets/en/fluid-app-1-en-thumb.webp",
+        "width": 851,
+        "height": 1849,
+        "caption": "Car",
+        "language": "en"
       },
       {
-        "src": "assets/fluid-box.webp",
-        "thumb": "assets/fluid-box-thumb.webp",
-        "width": 828,
-        "height": 1800,
-        "caption": "Your home"
+        "src": "assets/en/fluid-app-2-en.webp",
+        "thumb": "assets/en/fluid-app-2-en-thumb.webp",
+        "width": 851,
+        "height": 1849,
+        "caption": "Your home",
+        "language": "en"
       },
       {
-        "src": "assets/fluid-history.webp",
-        "thumb": "assets/fluid-history-thumb.webp",
-        "width": 828,
-        "height": 1800,
-        "caption": "History"
+        "src": "assets/en/fluid-app-3-en.webp",
+        "thumb": "assets/en/fluid-app-3-en-thumb.webp",
+        "width": 851,
+        "height": 1849,
+        "caption": "History",
+        "language": "en"
       },
       {
-        "src": "assets/fluid-prices.webp",
-        "thumb": "assets/fluid-prices-thumb.webp",
-        "width": 828,
-        "height": 1800,
-        "caption": "Electricity prices"
+        "src": "assets/en/fluid-app-4-en.webp",
+        "thumb": "assets/en/fluid-app-4-en-thumb.webp",
+        "width": 851,
+        "height": 1849,
+        "caption": "Electricity prices",
+        "language": "en"
       },
       {
-        "src": "assets/fluid-plan.webp",
-        "thumb": "assets/fluid-plan-thumb.webp",
-        "width": 828,
-        "height": 1800,
-        "caption": "Plan"
+        "src": "assets/en/fluid-app-5-en.webp",
+        "thumb": "assets/en/fluid-app-5-en-thumb.webp",
+        "width": 851,
+        "height": 1849,
+        "caption": "Plan",
+        "language": "en"
       },
       {
-        "src": "assets/fluid-grid.webp",
-        "thumb": "assets/fluid-grid-thumb.webp",
-        "width": 828,
-        "height": 1800,
-        "caption": "Grid connection"
+        "src": "assets/en/fluid-app-6-en.webp",
+        "thumb": "assets/en/fluid-app-6-en-thumb.webp",
+        "width": 851,
+        "height": 1849,
+        "caption": "Grid connection",
+        "language": "en"
       },
       {
-        "src": "assets/fluid-battery.webp",
-        "thumb": "assets/fluid-battery-thumb.webp",
-        "width": 828,
-        "height": 1800,
-        "caption": "Home battery"
+        "src": "assets/en/fluid-app-7-en.webp",
+        "thumb": "assets/en/fluid-app-7-en-thumb.webp",
+        "width": 851,
+        "height": 1849,
+        "caption": "Home battery",
+        "language": "en"
       }
     ],
-    "video": "assets/fluid-app.mp4",
     "code": "F04"
   },
   {
@@ -252,7 +268,8 @@ export const concepts = [
         "src": "assets/robot-a.webp",
         "thumb": "assets/robot-a-thumb.webp",
         "width": 1254,
-        "height": 1254
+        "height": 1254,
+        "language": "en"
       }
     ],
     "code": "F05"
@@ -270,7 +287,8 @@ export const concepts = [
         "src": "assets/robot-b.webp",
         "thumb": "assets/robot-b-thumb.webp",
         "width": 1254,
-        "height": 1254
+        "height": 1254,
+        "language": "en"
       }
     ],
     "video": "assets/robot-b.mp4",
@@ -289,7 +307,8 @@ export const concepts = [
         "src": "assets/robot-c.webp",
         "thumb": "assets/robot-c-thumb.webp",
         "width": 1254,
-        "height": 1254
+        "height": 1254,
+        "language": "en"
       }
     ],
     "code": "F07"
@@ -305,10 +324,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/cards-b.webp",
-        "thumb": "assets/cards-b-thumb.webp",
+        "src": "assets/en/cards-b-0-en.webp",
+        "thumb": "assets/en/cards-b-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F08"
@@ -324,10 +344,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/cards-c.webp",
-        "thumb": "assets/cards-c-thumb.webp",
+        "src": "assets/en/cards-c-0-en.webp",
+        "thumb": "assets/en/cards-c-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F09"
@@ -342,10 +363,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-01.webp",
-        "thumb": "assets/study-01-thumb.webp",
+        "src": "assets/en/study-01-0-en.webp",
+        "thumb": "assets/en/study-01-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F10"
@@ -360,10 +382,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-02.webp",
-        "thumb": "assets/study-02-thumb.webp",
+        "src": "assets/en/study-02-0-en.webp",
+        "thumb": "assets/en/study-02-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F11"
@@ -378,10 +401,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-03.webp",
-        "thumb": "assets/study-03-thumb.webp",
+        "src": "assets/en/study-03-0-en.webp",
+        "thumb": "assets/en/study-03-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F12"
@@ -396,10 +420,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-04.webp",
-        "thumb": "assets/study-04-thumb.webp",
+        "src": "assets/en/study-04-0-en.webp",
+        "thumb": "assets/en/study-04-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F13"
@@ -414,10 +439,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-05.webp",
-        "thumb": "assets/study-05-thumb.webp",
+        "src": "assets/en/study-05-0-en.webp",
+        "thumb": "assets/en/study-05-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F14"
@@ -432,10 +458,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-06.webp",
-        "thumb": "assets/study-06-thumb.webp",
+        "src": "assets/en/study-06-0-en.webp",
+        "thumb": "assets/en/study-06-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F15"
@@ -450,10 +477,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-07.webp",
-        "thumb": "assets/study-07-thumb.webp",
+        "src": "assets/en/study-07-0-en.webp",
+        "thumb": "assets/en/study-07-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F16"
@@ -468,10 +496,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-08.webp",
-        "thumb": "assets/study-08-thumb.webp",
+        "src": "assets/en/study-08-0-en.webp",
+        "thumb": "assets/en/study-08-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F17"
@@ -486,10 +515,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-09.webp",
-        "thumb": "assets/study-09-thumb.webp",
+        "src": "assets/en/study-09-0-en.webp",
+        "thumb": "assets/en/study-09-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F18"
@@ -504,10 +534,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-10.webp",
-        "thumb": "assets/study-10-thumb.webp",
+        "src": "assets/en/study-10-0-en.webp",
+        "thumb": "assets/en/study-10-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F19"
@@ -522,10 +553,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-11.webp",
-        "thumb": "assets/study-11-thumb.webp",
+        "src": "assets/en/study-11-0-en.webp",
+        "thumb": "assets/en/study-11-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F20"
@@ -540,10 +572,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-12.webp",
-        "thumb": "assets/study-12-thumb.webp",
+        "src": "assets/en/study-12-0-en.webp",
+        "thumb": "assets/en/study-12-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F21"
@@ -559,10 +592,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-13.webp",
-        "thumb": "assets/study-13-thumb.webp",
+        "src": "assets/en/study-13-0-en.webp",
+        "thumb": "assets/en/study-13-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F22"
@@ -577,10 +611,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-14.webp",
-        "thumb": "assets/study-14-thumb.webp",
+        "src": "assets/en/study-14-0-en.webp",
+        "thumb": "assets/en/study-14-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F23"
@@ -595,10 +630,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-15.webp",
-        "thumb": "assets/study-15-thumb.webp",
+        "src": "assets/en/study-15-0-en.webp",
+        "thumb": "assets/en/study-15-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F24"
@@ -613,10 +649,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-16.webp",
-        "thumb": "assets/study-16-thumb.webp",
+        "src": "assets/en/study-16-0-en.webp",
+        "thumb": "assets/en/study-16-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F25"
@@ -631,10 +668,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-17.webp",
-        "thumb": "assets/study-17-thumb.webp",
+        "src": "assets/en/study-17-0-en.webp",
+        "thumb": "assets/en/study-17-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F26"
@@ -649,10 +687,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-18.webp",
-        "thumb": "assets/study-18-thumb.webp",
+        "src": "assets/en/study-18-0-en.webp",
+        "thumb": "assets/en/study-18-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F27"
@@ -667,10 +706,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-19.webp",
-        "thumb": "assets/study-19-thumb.webp",
+        "src": "assets/en/study-19-0-en.webp",
+        "thumb": "assets/en/study-19-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F28"
@@ -685,10 +725,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-20.webp",
-        "thumb": "assets/study-20-thumb.webp",
+        "src": "assets/en/study-20-0-en.webp",
+        "thumb": "assets/en/study-20-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F29"
@@ -703,10 +744,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-21.webp",
-        "thumb": "assets/study-21-thumb.webp",
+        "src": "assets/en/study-21-0-en.webp",
+        "thumb": "assets/en/study-21-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F30"
@@ -722,10 +764,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-22.webp",
-        "thumb": "assets/study-22-thumb.webp",
+        "src": "assets/en/study-22-0-en.webp",
+        "thumb": "assets/en/study-22-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F31"
@@ -741,10 +784,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-23.webp",
-        "thumb": "assets/study-23-thumb.webp",
+        "src": "assets/en/study-23-0-en.webp",
+        "thumb": "assets/en/study-23-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F32"
@@ -760,10 +804,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-24.webp",
-        "thumb": "assets/study-24-thumb.webp",
+        "src": "assets/en/study-24-0-en.webp",
+        "thumb": "assets/en/study-24-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F33"
@@ -779,10 +824,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-25.webp",
-        "thumb": "assets/study-25-thumb.webp",
+        "src": "assets/en/study-25-0-en.webp",
+        "thumb": "assets/en/study-25-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F34"
@@ -798,10 +844,11 @@ export const concepts = [
     "note": "Design study · Example data",
     "media": [
       {
-        "src": "assets/study-26.webp",
-        "thumb": "assets/study-26-thumb.webp",
+        "src": "assets/en/study-26-0-en.webp",
+        "thumb": "assets/en/study-26-0-en-thumb.webp",
         "width": 1536,
-        "height": 1024
+        "height": 1024,
+        "language": "en"
       }
     ],
     "code": "F35"
@@ -817,19 +864,20 @@ export const concepts = [
     "note": "Early iOS study · Example data",
     "media": [
       {
-        "src": "assets/elastic-fields-0.webp",
-        "thumb": "assets/elastic-fields-0-thumb.webp",
-        "width": 828,
-        "height": 1800
+        "src": "assets/en/elastic-fields-0-en.webp",
+        "thumb": "assets/en/elastic-fields-0-en-thumb.webp",
+        "width": 851,
+        "height": 1849,
+        "language": "en"
       },
       {
-        "src": "assets/elastic-fields-1.webp",
-        "thumb": "assets/elastic-fields-1-thumb.webp",
-        "width": 828,
-        "height": 1800
+        "src": "assets/en/elastic-fields-1-en.webp",
+        "thumb": "assets/en/elastic-fields-1-en-thumb.webp",
+        "width": 851,
+        "height": 1849,
+        "language": "en"
       }
     ],
-    "video": "assets/elastic-fields.mp4",
     "code": "F36"
   },
   {
@@ -843,13 +891,13 @@ export const concepts = [
     "note": "Early iOS study · Example data",
     "media": [
       {
-        "src": "assets/finger-flow-0.webp",
-        "thumb": "assets/finger-flow-0-thumb.webp",
-        "width": 828,
-        "height": 1800
+        "src": "assets/en/finger-flow-0-en.webp",
+        "thumb": "assets/en/finger-flow-0-en-thumb.webp",
+        "width": 851,
+        "height": 1849,
+        "language": "en"
       }
     ],
-    "video": "assets/finger-flow.mp4",
     "code": "F37"
   },
   {
@@ -863,19 +911,20 @@ export const concepts = [
     "note": "Early iOS study · Example data",
     "media": [
       {
-        "src": "assets/site-flow-0.webp",
-        "thumb": "assets/site-flow-0-thumb.webp",
-        "width": 828,
-        "height": 1800
+        "src": "assets/en/site-flow-0-en.webp",
+        "thumb": "assets/en/site-flow-0-en-thumb.webp",
+        "width": 851,
+        "height": 1849,
+        "language": "en"
       },
       {
-        "src": "assets/site-flow-1.webp",
-        "thumb": "assets/site-flow-1-thumb.webp",
-        "width": 828,
-        "height": 1800
+        "src": "assets/en/site-flow-1-en.webp",
+        "thumb": "assets/en/site-flow-1-en-thumb.webp",
+        "width": 851,
+        "height": 1849,
+        "language": "en"
       }
     ],
-    "video": "assets/site-flow.mp4",
     "code": "F38"
   },
   {
@@ -889,10 +938,11 @@ export const concepts = [
     "note": "Early iOS study · Example data",
     "media": [
       {
-        "src": "assets/fused-fields-0.webp",
-        "thumb": "assets/fused-fields-0-thumb.webp",
-        "width": 828,
-        "height": 1800
+        "src": "assets/en/fused-fields-0-en.webp",
+        "thumb": "assets/en/fused-fields-0-en-thumb.webp",
+        "width": 851,
+        "height": 1849,
+        "language": "en"
       }
     ],
     "code": "F39"
