@@ -64,7 +64,7 @@ for (const key of ['car','home','battery','solar']) {
 }
 const routeCursor=svg('line',{y1:235,y2:430,stroke:'currentColor','stroke-opacity':'.35'},routeFlow);
 const originPositions = { solar: [82, 66], battery: [318, 66], car: [318, 354], grid: [82, 354], home: [200, 210] };
-const fluidPositions = { solar: [90, 35], home: [312, 100], car: [83, 249], battery: [296, 258], grid: [240, 373] };
+const fluidPositions = { solar: [90, 35], home: [312, 100], car: [83, 249], battery: [296, 306], grid: [88, 373] };
 function cubic(a, b, c, d, t) { const u = 1 - t; return [u*u*u*a[0] + 3*u*u*t*b[0] + 3*u*t*t*c[0] + t*t*t*d[0], u*u*u*a[1] + 3*u*u*t*b[1] + 3*u*t*t*c[1] + t*t*t*d[1]]; }
 function drawStreams(p, elapsed) {
   const center = theme === 'fluid' ? [200, 180] : [200, 212];
@@ -100,7 +100,7 @@ function drawRing(p) {
 function labelValues(p, centers) {
   const pos = theme === 'fluid' ? { ...fluidPositions } : originPositions;
   if (centers && S.route === 'now') {
-    ['car','home','battery','grid'].forEach((key,i) => { if (sinks(p)[i] > .15) pos[key] = [Math.max(58,Math.min(345,centers[i].x)),Math.max(90,Math.min(365,centers[i].y))]; });
+    ['car','home','battery','grid'].forEach((key,i) => { if (sinks(p)[i] > .15) pos[key] = [Math.max(62,Math.min(337,centers[i].x)),Math.max(90,Math.min(365,centers[i].y))]; });
   }
   for (const [key,el] of Object.entries(labels)) {
     const value = p[key], status = key === 'battery' ? value < -.04 ? 'Charging · 68%' : value > .04 ? 'Discharging · 68%' : 'Idle · 68%' : key === 'grid' ? value > .04 ? 'Importing' : value < -.04 ? 'Exporting' : 'Balanced' : key === 'car' ? value > .04 ? `${S.goal}% by 07:00` : 'Waiting · 62%' : key === 'solar' ? value > .04 ? 'Generating' : 'Sun is down' : 'Using now';
@@ -123,7 +123,7 @@ function frame(now) {
     const g=fieldLayout(sinks(p),400,430,S.phase,S.touch?{...S.touch,strength:S.strength}:null);
     const [left,home,battery,rest]=g.polygons;
     [rest,battery,home,left].forEach((poly,i)=>fieldPaths[i].setAttribute('d',path(poly)));centers=g.centers;
-    robot.targetX=Math.max(85,Math.min(315,g.seam(210)));robot.targetY=210;
+    robot.targetX=Math.max(85,Math.min(315,g.seam(125)));robot.targetY=125;
   }else{robot.targetX=200;robot.targetY=215;}
   routeFlow.setAttribute('display',S.route==='now'?'none':'');routeCursor.setAttribute('x1',S.hour/23*400);routeCursor.setAttribute('x2',S.hour/23*400);
   $('#fields').setAttribute('display',theme==='fluid'&&S.route==='now'?'':'none');
