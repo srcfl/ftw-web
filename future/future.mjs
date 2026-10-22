@@ -1,5 +1,5 @@
-import { concepts } from './catalog.mjs?v=playground-2';
-import { families, familyFor, hasDemo, kindFor } from './families.mjs?v=playground-2';
+import { concepts } from './catalog.mjs?v=fluid-3';
+import { families, demoIds, familyFor, hasDemo, kindFor } from './families.mjs?v=fluid-3';
 
 const $ = selector => document.querySelector(selector);
 const byId = new Map(concepts.map(c => [c.id, c]));
@@ -107,7 +107,7 @@ function showMedia(index, syncUrl = true) {
     stage.innerHTML = `<img src="/future/${m.src}" alt="${escape(c.name + (m.caption ? ' · ' + m.caption : ''))}" width="${m.width}" height="${m.height}">`;
   }
   $('#media-options').innerHTML = (hasDemo(c.id) ? `<button class="media-option demo-option" type="button" data-media="demo" aria-pressed="${index === 'demo'}">↗ Try it</button>` : '') + (c.media.length > 1 || c.video || hasDemo(c.id) ? c.media.map((m, i) => `<button class="media-option" type="button" data-media="${i}" aria-pressed="${index === i}" aria-label="${escape(m.caption || 'Image ' + (i + 1))}"><img src="/future/${m.thumb}" alt="" width="60" height="50"></button>`).join('') + (c.video ? `<button class="media-option film-option" type="button" data-media="${c.media.length}" aria-pressed="${index === c.media.length}">▶ Video</button>` : '') : '');
-  $('#viewer-note').textContent = index === 'demo' ? 'An interactive interpretation of this direction. Example data only. Try the scenarios, scrub the graph and tap a device. In fluid studies, drag the surfaces or the robot.' : c.note;
+  $('#viewer-note').textContent = index === 'demo' && c.id === 'robot-b' ? 'An interactive character study. Drag or flick the robot, try Float, Follow and Rest, or use the arrow keys to give it a nudge.' : index === 'demo' && c.id === 'study-08' ? 'An interactive storage study. Drag the battery level to fill or drain, then try solar and evening power. Example data only.' : index === 'demo' ? 'An interactive interpretation of this direction. Example data only. Try the scenarios, scrub the graph and tap a device. Drag a field to change the example balance. The surfaces and streams move together. Try the robot too; it follows you into the details.' : c.note;
   if (syncUrl) updateUrl();
 }
 let returnFocus, compareFocus;
@@ -210,6 +210,7 @@ function openHash() {
 window.addEventListener('hashchange', openHash);
 document.addEventListener('visibilitychange', () => { if (!document.hidden) void loadVotes(); else $('#media-stage video')?.pause(); });
 $('#proposal-count').textContent = concepts.length;
+$('#interactive-count').textContent = demoIds.length;
 renderFilters(); renderBoard(); renderSelection();
 const comparisonIds = [...new Set((params.get('compare') || '').split(','))].filter(id => byId.has(id));
 if (comparisonIds.length === 2) { state.selected = comparisonIds; renderSelection(); openComparison(false); } else openHash();

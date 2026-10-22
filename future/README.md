@@ -17,16 +17,26 @@ and current interfaces. Visitors can filter, search, choose interactive studies,
 and compare two designs. The comparison URL preserves both IDs; family and
 interactive filters also have shareable URLs.
 
-Seven proposals open interactive interpretations built from three shared
-visual directions: rings, fluid fields and the current FTW theme. The demos
+Sixteen proposals open interactive studies, including all ten fluid-field
+proposals, a home-battery reservoir and a separate Robot B playground. The demos
 in `demos/` run locally in an iframe with example data. Scenarios and direct
 graph scrubbing change a balanced home energy model. One signed grid
 connection imports or exports; solar supplies energy; home demand, car and
 home battery remain distinct. L1/L2/L3 appear only in grid details. Fluid
-regions preserve their relative areas as they deform, and the same robot
-moves between views. Pointer and keyboard controls, pause, reduced motion
-and visibility handling keep the studies usable. Closing a study removes
+regions preserve their relative areas as they deform. Fields and streams use
+the same material deformation, with spring motion and momentum on release.
+Dragging a participant changes the example allocation; stream width and
+particle direction follow the same balanced powers. The same robot moves
+between overview, app sections and device details. Pointer and keyboard
+controls, pause, reduced motion and visibility handling keep the studies usable. Closing a study removes
 its iframe and stops its animation. Nothing connects to a real home.
+
+The distribution studies add day playback, charging priorities, a larger car
+view and day/night appearance. The storage study lets visitors drag the
+battery level or switch between solar charging and evening use. Robot B has
+Float, Follow and Rest behaviours. These remain example interactions, not
+planning or hardware-control logic. Reduced motion starts without ambient
+movement; direct pointer and keyboard controls still work.
 
 Earlier app films contain Swedish, so the gallery replaces them with the
 English interactive studies. The language-free robot film remains available.
@@ -42,7 +52,8 @@ viewport. Mark mockups, demo data and user references clearly.
 Each entry has a name, description, tags and at least one image. Optional
 `video` is a local MP4 path. `media` can include more images with captions.
 Set each image’s `language` to `en` after reviewing its text. Add the proposal
-to exactly one family in `families.mjs`; interactive IDs also go in `demoIds`.
+to exactly one family in `families.mjs`. Add interactive variants in
+`demos/variants.mjs`; the canvas derives its playable IDs from that registry.
 The API reads the same catalog, so new entries need no separate allowlist.
 
 ## Votes
@@ -75,7 +86,8 @@ release, bind the intended voting database in the production environment.
 
 Run `node --test tests/future-*.test.mjs`. The tests check shared votes,
 changes/removal, invalid requests, catalog assets, complete family membership,
-English artwork coverage, energy balance and fluid proportions under touch.
+English artwork coverage, energy balance during gestures, fluid proportions
+under two-axis deformation, spring settling at 30/60/120 Hz and stream reversal.
 Review the canvas at phone and desktop widths. Check graph and surface drags,
 robot movement, device details, motion controls and comparison deep links.
 Check a real vote, reload and a second browser session on the deployed preview.
