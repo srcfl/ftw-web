@@ -458,7 +458,10 @@ document.querySelectorAll('[data-route]').forEach(button=>button.addEventListene
   document.querySelectorAll('[data-route]').forEach(b=>b.setAttribute('aria-pressed',b===button));wake();
 }));
 document.addEventListener('visibilitychange',()=>{
-  if(document.hidden){cancelAnimationFrame(raf);raf=0;}else wake();
+  if(document.hidden){
+    if(S.pointer!==null)end({pointerId:S.pointer},true);
+    cancelAnimationFrame(raf);raf=0;
+  }else wake();
 });
 new IntersectionObserver(entries=>{
   S.visible=entries[0].isIntersecting;
