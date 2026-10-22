@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FTW · Interactive concept</title><link rel="stylesheet" href="demo.css?v=1"><script type="module" src="demo.mjs?v=1"></script></head>
+<body><main class="phone" id="phone">
+  <header><div><span class="eyebrow">Interactive concept · Example data</span><h1 id="demo-title">Home energy</h1></div><button id="motion" type="button" aria-label="Pause motion">Ⅱ</button></header>
+  <div class="scenarios" role="group" aria-label="Example energy scenario"><button data-scenario="sun" aria-pressed="true">Solar day</button><button data-scenario="evening" aria-pressed="false">Evening</button><button data-scenario="night" aria-pressed="false">Night charging</button></div>
+  <section class="scene" id="scene" aria-label="Interactive home energy flow">
+    <svg id="energy" viewBox="0 0 400 430" preserveAspectRatio="none" aria-hidden="true"><defs>
+      <radialGradient id="sunlight"><stop stop-color="#ffce57" stop-opacity=".75"/><stop offset="1" stop-color="#ffce57" stop-opacity="0"/></radialGradient>
+      <linearGradient id="car-fill" x1="0" x2="1" y2=".6"><stop stop-color="#d5c5ff"/><stop offset=".6" stop-color="#a08ae3"/><stop offset="1" stop-color="#7864be"/></linearGradient>
+      <linearGradient id="home-fill" x1="0" x2="1" y2="1"><stop stop-color="#f4efe3"/><stop offset=".8" stop-color="#c9c5bb"/><stop offset="1" stop-color="#aba79f"/></linearGradient>
+      <linearGradient id="battery-fill" x1="0" x2="1" y2="1"><stop stop-color="#cefcf0"/><stop offset=".7" stop-color="#94ded5"/><stop offset="1" stop-color="#6cbcb7"/></linearGradient>
+      <linearGradient id="grid-fill" x1="0" x2="1" y2="1"><stop stop-color="#d7ebbd"/><stop offset="1" stop-color="#a5bd8e"/></linearGradient>
+      <filter id="soft-edge" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="1" dy="4" stdDeviation="5" flood-color="#171222" flood-opacity=".14"/></filter>
+      <filter id="glow"><feGaussianBlur stdDeviation="4"/></filter>
+    </defs><g id="fields"></g><ellipse id="sunwash" fill="url(#sunlight)" cx="180" cy="0" rx="270" ry="300"/><g id="streams"></g><g id="ring"></g><g id="particles"></g></svg>
+    <div id="labels"></div>
+    <button class="robot" id="robot" aria-label="Move the robot. Use arrow keys or drag."><img src="robot.webp" alt="" draggable="false"><span class="eyes"><i></i><i></i></span></button>
+    <p class="touch-hint" id="touch-hint">Drag the energy. Tap a device.</p>
+  </section>
+  <section class="timeline" aria-label="Explore the example day"><div class="time-heading"><strong id="time">14:00</strong><span id="time-caption">Solar powers the home</span></div><svg id="timeline" viewBox="0 0 400 85" role="slider" tabindex="0" aria-label="Explore forecast hour" aria-valuemin="0" aria-valuemax="23" aria-valuenow="14"><g id="curves"></g><line id="cursor" y1="0" y2="78" stroke="currentColor" stroke-opacity=".7"/><circle id="cursor-dot" r="4" fill="currentColor"/><text x="5" y="83">00</text><text x="100" y="83">06</text><text x="200" y="83">12</text><text x="300" y="83">18</text><text x="380" y="83">24</text></svg><div class="graph-key" aria-label="Graph colours"><span>● Solar</span><span>● Home</span><span>● Battery</span><span>● Car</span></div><p>Drag across the graph to explore the day.</p></section>
+  <nav aria-label="Example app sections"><button data-route="now" aria-pressed="true">Now</button><button data-route="plan" aria-pressed="false">Plan</button><button data-route="history" aria-pressed="false">History</button></nav>
+  <section id="detail" class="detail" hidden aria-labelledby="detail-title"><button id="back" class="back" type="button">← Back to the flow</button><p class="eyebrow" id="detail-kicker"></p><h2 id="detail-title"></h2><strong class="detail-number" id="detail-number"></strong><p id="detail-description"></p><div id="detail-extra"></div></section>
+</main></body></html>

@@ -5,10 +5,31 @@ studies and anonymous thumbs up/down. It uses the website's static hosting
 and one Pages Worker route, `/future/api/votes`. There is no upload flow;
 new ideas come through Discord.
 
-The canvas UI, proposal names and descriptions are in English. Earlier
-artwork retains its original text. Six new English mockups explore the
-user's ring design and the current FTW theme. `design-prompts.json` records
-their built-in imagegen prompts and output paths in `assets/`.
+All visible copy and artwork is in English. `assets/en/` contains translated
+editions of 43 earlier images; the originals stay in `assets/` for reference.
+`artwork-localization.json` records source hashes, prompts and English outputs.
+The current-interface screenshots remain unchanged. `design-prompts.json`
+records the six newer ring and FTW-theme proposals.
+
+Six families in `families.mjs` group the 45 proposals without changing their
+IDs or votes. Cards distinguish app directions, interaction ideas, characters
+and current interfaces. Visitors can filter, search, choose interactive studies,
+and compare two designs. The comparison URL preserves both IDs; family and
+interactive filters also have shareable URLs.
+
+Seven proposals open interactive interpretations built from three shared
+visual directions: rings, fluid fields and the current FTW theme. The demos
+in `demos/` run locally in an iframe with example data. Scenarios and direct
+graph scrubbing change a balanced home energy model. One signed grid
+connection imports or exports; solar supplies energy; home demand, car and
+home battery remain distinct. L1/L2/L3 appear only in grid details. Fluid
+regions preserve their relative areas as they deform, and the same robot
+moves between views. Pointer and keyboard controls, pause, reduced motion
+and visibility handling keep the studies usable. Closing a study removes
+its iframe and stops its animation. Nothing connects to a real home.
+
+Earlier app films contain Swedish, so the gallery replaces them with the
+English interactive studies. The language-free robot film remains available.
 
 ## Add a proposal
 
@@ -20,6 +41,8 @@ viewport. Mark mockups, demo data and user references clearly.
 
 Each entry has a name, description, tags and at least one image. Optional
 `video` is a local MP4 path. `media` can include more images with captions.
+Set each image’s `language` to `en` after reviewing its text. Add the proposal
+to exactly one family in `families.mjs`; interactive IDs also go in `demoIds`.
 The API reads the same catalog, so new entries need no separate allowlist.
 
 ## Votes
@@ -50,10 +73,12 @@ deploy to production without the owner's go-ahead. The existing Pages Git
 integration publishes preview branches automatically. Before a production
 release, bind the intended voting database in the production environment.
 
-Run `node --test tests/future-votes.test.mjs`. The tests use SQLite to check
-shared counts, vote changes/removal, invalid requests and catalog assets.
-Review the canvas in a browser at phone and desktop widths. Check a real
-vote, reload and a second browser session on the deployed preview.
+Run `node --test tests/future-*.test.mjs`. The tests check shared votes,
+changes/removal, invalid requests, catalog assets, complete family membership,
+English artwork coverage, energy balance and fluid proportions under touch.
+Review the canvas at phone and desktop widths. Check graph and surface drags,
+robot movement, device details, motion controls and comparison deep links.
+Check a real vote, reload and a second browser session on the deployed preview.
 
 Images retain the earlier concept names. The two current-interface images
 come from the homepage's demo screenshots. The ring image is the user
