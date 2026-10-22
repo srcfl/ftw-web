@@ -1,3 +1,5 @@
+import { clamp, materialMap, pointInPolygon } from './motion.mjs?v=fluid-3';
+
 // Example site powers: battery and grid are positive into the site.
 export const scenarios = {
   sun: { solar: 6, home: 1.2, car: 1.8, battery: -2.4, hour: 14 },
@@ -35,53 +37,97 @@ export function polygonCenter(points) {
   }
   return Math.abs(a) > 1e-6 ? { x: x / (3 * a), y: y / (3 * a) } : { x: 0, y: 0 };
 }
-export function fieldLayout(values, w, h, time = 0, touch = null) {
-  const total = values.reduce((a, b) => a + b, 0) || 1;
-  const f = values.map(v => v / total), area = w * h, c = f[0] * w;
-  const amp = Math.min(c, w - c) * 0.36;
-  const waves = Array.from({ length: 97 }, (_, i) => {
-    const y = h * i / 96;
-    return -amp * Math.cos(2 * Math.PI * y / h + time * 0.12) +
-      (touch ? amp * 0.8 * touch.strength * Math.exp(-Math.pow((y - touch.y) / 95, 2)) * ((touch.x - c) / w) : 0);
-  });
-  const mean = (waves.reduce((a, b) => a + b, 0) - (waves[0] + waves[96]) / 2) / 96;
-  const seam = y => {
-    const u = Math.max(0, Math.min(96, y / h * 96)), i = Math.min(95, Math.floor(u));
-    return c + waves[i] * (1 - (u - i)) + waves[i + 1] * (u - i) - mean;
-  };
-  const left = [[0, 0]];
-  for (let i = 0; i <= 96; i++) left.push([seam(h * i / 96), h * i / 96]);
-  left.push([0, h]);
-  const rest = [[seam(0), 0], [w, 0], [w, h]];
-  for (let i = 96; i >= 0; i--) rest.push([seam(h * i / 96), h * i / 96]);
-  function prefix(b) {
-    const cross = [];
-    for (let i = 0; i <= 64; i++) {
-      const u = i / 64, y = h * (b + 0.07 * Math.sin(Math.PI * u) * Math.sin(Math.PI * b) * Math.cos(time * 0.09));
-      cross.push([seam(y) + (w - seam(y)) * u, y]);
+export function fieldLayout(values, w, h, time = 0, grab = null) {
+  const total = values.reduce((a,b)=>a+b,0) || 1;
+  const f = values.map(v=>v/total), area=w*h;
+  const map = materialMap(w,h,grab);
+  function seamAt(c,y) {
+    const amplitude=Math.min(c,w-c)*.32;
+    return c-amplitude*Math.cos(2*Math.PI*y/h+time*.16);
+  }
+  function shapes(c) {
+    const left=[[0,0]], rest=[[seamAt(c,0),0],[w,0],[w,h]];
+    for(let i=0;i<=64;i++)left.push([seamAt(c,h*i/64),h*i/64]);
+    left.push([0,h]);
+    for(let i=64;i>=0;i--)rest.push([seamAt(c,h*i/64),h*i/64]);
+    return {left,rest};
+  }
+  let lo=0,hi=w,c=w*f[0];
+  if(f[0]>.000001&&f[0]<.999999) {
+    for(let i=0;i<15;i++) {
+      c=(lo+hi)/2;
+      if(polygonArea(shapes(c).left.map(map))<f[0]*area)lo=c;else hi=c;
     }
-    const p = [[seam(0), 0], [w, 0], ...cross.slice().reverse()];
-    for (let i = 48; i >= 0; i--) { const y = h * b * i / 48; p.push([seam(y), y]); }
-    return { p, cross };
+  }
+  const base=shapes(c), left=base.left.map(map), rest=base.rest.map(map);
+  function prefix(level) {
+    if(level<=0)return {base:[],p:[],level:0};
+    if(level>=1)return {base:base.rest,p:rest,level:1};
+    const cross=[];
+    for(let i=0;i<=48;i++) {
+      const u=i/48, y=h*(level+.1*Math.sin(Math.PI*u)*Math.sin(Math.PI*level)*Math.cos(time*.15));
+      cross.push([seamAt(c,y)+(w-seamAt(c,y))*u,y]);
+    }
+    const points=[[seamAt(c,0),0],[w,0],...cross.slice().reverse()];
+    for(let i=48;i>=0;i--) {const y=h*level*i/48;points.push([seamAt(c,y),y]);}
+    return {base:points,p:points.map(map),level};
   }
   function solve(amount) {
-    let lo = 0, hi = 1, r;
-    for (let i = 0; i < 20; i++) { const b = (lo + hi) / 2; r = prefix(b); if (polygonArea(r.p) < amount * area) lo = b; else hi = b; }
+    const remaining=polygonArea(rest)/area;
+    if(amount<.000001)return prefix(0);
+    if(amount>=remaining-.00003)return prefix(1);
+    let lo=0,hi=1,r;
+    for(let i=0;i<15;i++) {
+      r=prefix((lo+hi)/2);
+      if(polygonArea(r.p)<amount*area)lo=r.level;else hi=r.level;
+    }
     return r;
   }
-  const a = solve(f[1]), b = solve(f[1] + f[2]);
-  // Prefix shapes share their boundary exactly; draw rest, battery, home, car.
-  const polygons = [left, a.p, b.p, rest];
-  const centers = polygons.map(polygonCenter), areas = polygons.map(polygonArea);
-  const difference = (big, small) => {
-    const remaining = areas[big] - areas[small];
-    return remaining > .01 ? {
-      x: (centers[big].x * areas[big] - centers[small].x * areas[small]) / remaining,
-      y: (centers[big].y * areas[big] - centers[small].y * areas[small]) / remaining
-    } : centers[big];
-  };
-  return { f, area, seam, polygons, centers: [centers[0], centers[1], difference(2, 1), difference(3, 2)] };
+  const a=solve(f[1]),b=solve(f[1]+f[2]);
+  const polygons=[left,a.p,b.p,rest], basePolygons=[base.left,a.base,b.base,base.rest];
+  function regionCenters(polys) {
+    const centers=polys.map(polygonCenter),areas=polys.map(polygonArea);
+    const difference=(big,small)=> {
+      const remaining=areas[big]-areas[small];
+      return remaining>.1?{x:(centers[big].x*areas[big]-centers[small].x*areas[small])/remaining,y:(centers[big].y*areas[big]-centers[small].y*areas[small])/remaining}:centers[big];
+    };
+    return [centers[0],centers[1],difference(2,1),difference(3,2)];
+  }
+  const baseJunction=[seamAt(c,h*a.level),h*a.level];
+  return { f,area,baseSeam:y=>seamAt(c,y),polygons,centers:regionCenters(polygons),baseCenters:regionCenters(basePolygons),map,baseJunction,robotAnchor:map([seamAt(c,h*.28),h*.28]) };
 }
+
+export function hitField(layout, point) {
+  if(pointInPolygon(point,layout.polygons[0]))return 'car';
+  if(pointInPolygon(point,layout.polygons[1]))return 'home';
+  if(pointInPolygon(point,layout.polygons[2]))return 'battery';
+  return 'grid';
+}
+
+// A gesture edits only this example. Grid power is always derived from the
+// rest of the home, so changing a surface cannot invent or lose energy.
+export function allocateDrag(base, key, dx, dy) {
+  const next={...base};
+  if(key==='car')next.car=clamp(base.car+dx*.018-dy*.006,0,7.4);
+  if(key==='home')next.home=clamp(base.home-dx*.008+dy*.012,.4,4.5);
+  if(key==='solar')next.solar=clamp(base.solar+dy*.022,0,9);
+  if(key==='battery')next.battery=clamp(base.battery+dy*.024+dx*.008,-5,5);
+  if(key==='grid') {
+    const requested=base.grid+dy*.026;
+    next.battery=clamp(base.home+base.car-base.solar-requested,-5,5);
+  }
+  return balance(next);
+}
+
+export function storedLevel(hour) {
+  const anchors=[[0,68],[6,36],[10,42],[16,88],[22,40],[24,35]];
+  for(let i=1;i<anchors.length;i++)if(hour<=anchors[i][0]) {
+    const [a,b]=[anchors[i-1],anchors[i]],t=clamp((hour-a[0])/(b[0]-a[0]),0,1);
+    return a[1]+(b[1]-a[1])*(t*t*(3-2*t));
+  }
+  return 35;
+}
+
 export function smoothCurve(points) {
   if (!points.length) return '';
   let d = `M${points[0][0]},${points[0][1]}`;

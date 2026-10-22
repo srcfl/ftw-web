@@ -34,7 +34,7 @@ button:focus-visible,svg:focus-visible {
   border-radius:25px;
   color:#f8f7f4
 }
-.phone.fluid {
+.phone.soft {
   background:#f7f4ec;
   color:#292821
 }
@@ -86,7 +86,7 @@ header button {
   background:#f9f5e8;
   color:#141410
 }
-.fluid .scenarios [aria-pressed=true] {
+.soft .scenarios [aria-pressed=true] {
   background:#34332c;
   color:#fff
 }
@@ -196,23 +196,13 @@ header button {
   box-shadow:0 0 7px #ffdc8880;
   transform:rotate(9deg)
 }
-.touch-hint {
-  position:absolute;
-  bottom:2px;
-  left:0;
-  right:0;
-  text-align:center;
-  font-size:10px;
-  opacity:.55;
-  pointer-events:none
-}
 .timeline {
   position:relative;
   z-index:3;
   padding:10px 20px 4px;
   background:#080d17
 }
-.fluid .timeline {
+.soft .timeline {
   background:#f7f4ec
 }
 .time-heading {
@@ -255,7 +245,7 @@ nav {
   z-index:4;
   background:#080d17
 }
-.fluid nav {
+.soft nav {
   background:#f7f4ec
 }
 nav button {
@@ -271,7 +261,7 @@ nav button[aria-pressed=true] {
   background:#ffffff12;
   opacity:1
 }
-.fluid nav button[aria-pressed=true] {
+.soft nav button[aria-pressed=true] {
   background:#e3e0d7
 }
 .detail {
@@ -282,7 +272,7 @@ nav button[aria-pressed=true] {
   padding:26px 24px;
   overflow:auto
 }
-.fluid .detail {
+.soft .detail {
   background:#f7f4ec
 }
 .back {
@@ -398,10 +388,6 @@ nav button[aria-pressed=true] {
   opacity:.65;
   line-height:1.5
 }
-.scene #fields path {
-  stroke:#ffffff42;
-  stroke-width:.8
-}
 .classic .scene #sunwash {
   opacity:.06
 }
@@ -484,9 +470,6 @@ nav button[aria-pressed=true] {
 .fluid .scene-label[data-device=grid] {
   margin-left:12px
 }
-.route-mode .touch-hint {
-  display:none
-}
 .ring .scene,.classic .scene {
   flex:none;
   aspect-ratio:400/430;
@@ -536,10 +519,194 @@ nav button[aria-pressed=true] {
   max-width:116px
 }
 
-.fluid .scene-label {
+/* Shared material, finger and robot motion. */
+.phone.soft {
+  --soft-paper:#f7f4ec;
+  --soft-ink:#33322b;
+  background:var(--soft-paper);
+  color:var(--soft-ink);
+}
+.soft .timeline,.soft nav,.soft .detail {
+  background:var(--soft-paper);
+}
+.soft .scene-label {
+  color:var(--soft-ink);
   touch-action:none;
   cursor:grab;
 }
-.fluid .scene-label:active {
+.soft .scene-label:active {
   cursor:grabbing;
 }
+.fluid .scene-label[data-device=battery],.fluid .scene-label[data-device=grid] {
+  margin-left:0;
+}
+.scene #fields path {
+  stroke:none;
+}
+#field-edges,#sunwash,#touch-glow,#streams,#particles,#ring,#reservoir {
+  pointer-events:none;
+}
+#fields {
+  transition:filter 1.2s,opacity 1.2s;
+}
+.robot-layer {
+  position:absolute;
+  inset:0;
+  z-index:7;
+  pointer-events:none;
+  overflow:hidden;
+}
+.robot {
+  pointer-events:auto;
+  width:var(--robot-size,88px);
+  height:var(--robot-size,88px);
+  will-change:transform;
+  transition:filter .25s;
+}
+.robot:active {
+  filter:drop-shadow(0 15px 10px #24152c38);
+}
+.robot img {
+  user-select:none;
+  -webkit-user-drag:none;
+}
+.study-tools {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  padding:0 20px 10px;
+  gap:6px;
+  z-index:4;
+}
+.study-tools button {
+  border:1px solid #8a887c40;
+  border-radius:22px;
+  background:transparent;
+  padding:7px 11px;
+  font-size:10px;
+}
+.study-tools button[aria-pressed=true] {
+  background:#33332c;
+  color:#fff;
+}
+.study-tools>span {
+  font-size:9px;
+  opacity:.5;
+  margin-left:4px;
+}
+.gesture-help {
+  position:absolute;
+  bottom:3px;
+  left:12px;
+  right:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  min-height:24px;
+  z-index:3;
+  pointer-events:none;
+}
+.gesture-help p {
+  position:static;
+  font-size:9px;
+  opacity:.65;
+  margin:0;
+}
+.gesture-help button {
+  border:0;
+  background:#ffffff60;
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:9px;
+  pointer-events:auto;
+}
+.is-grabbing #energy,.is-grabbing .scene-label {
+  cursor:grabbing;
+}
+.detail {
+  overscroll-behavior:contain;
+}
+.detail-open .scene {
+  pointer-events:none;
+}
+.detail-open #detail-title {
+  max-width:7ch;
+}
+.closer .scene-label[data-device=car] strong,.closer .scene-label[data-device=home] strong {
+  font-size:32px;
+}
+.character .scene-label {
+  display:none;
+}
+.character #fields {
+  opacity:.19;
+}
+.character #sunwash {
+  opacity:.15;
+}
+.character .scene {
+  min-height:400px;
+}
+.character-caption {
+  position:absolute;
+  bottom:48px;
+  left:0;
+  right:0;
+  text-align:center;
+  font-size:25px;
+  line-height:1.25;
+  font-weight:500;
+  letter-spacing:-.035em;
+  pointer-events:none;
+}
+.character .study-tools {
+  padding-top:15px;
+}
+.character .gesture-help {
+  bottom:18px;
+}
+.reservoir .scene-label[data-device=battery] {
+  text-align:center;
+}
+.reservoir .scene-label[data-device=battery] strong {
+  font-size:38px;
+}
+.phone[data-palette=dusk],.phone.night {
+  --soft-paper:#171b27;
+  --soft-ink:#f0eff7;
+}
+.phone[data-palette=dusk] #fields,.phone.night #fields {
+  filter:brightness(.44) saturate(.85);
+}
+.phone[data-palette=dusk] .graph-key span,.phone.night .graph-key span {
+  filter:brightness(1.35);
+}
+.phone[data-palette=mist] #fields {
+  filter:saturate(.7);
+}
+.phone[data-palette=warm] {
+  background:#18140f;
+}
+.phone[data-palette=warm] .timeline,.phone[data-palette=warm] nav,.phone[data-palette=warm] .detail {
+  background:#18140f;
+}
+.phone[data-palette=mint] #home-fill stop:first-child {
+  stop-color:#eef3e5;
+}
+@media(max-width:350px) {
+  h1 {font-size:21px;}
+  .study-tools>span {font-size:8px;}
+  .scene-label {max-width:112px;}
+  .scene-label small {font-size:9px;}
+  .closer .scene-label[data-device=car] strong,.closer .scene-label[data-device=home] strong {font-size:27px;}
+}
+@media(prefers-reduced-motion:reduce) {
+  #fields,.robot {transition:none;}
+}
+
+.phone.soft[data-painted=true],.soft[data-painted=true] .timeline,.soft[data-painted=true] nav {transition:background 1s,color 1s;}
+.soft[data-painted=true] .scene-label {transition:color 1s,background .2s;}
+
+.route-mode .gesture-help {display:none;}
+.phone.night nav button[aria-pressed=true],.phone[data-palette=dusk] nav button[aria-pressed=true] {background:#ffffff1c;color:#fff;}

@@ -1,5 +1,5 @@
-import { concepts } from './catalog.mjs?v=playground-2';
-import { families, familyFor, hasDemo, kindFor } from './families.mjs?v=playground-2';
+import { concepts } from './catalog.mjs?v=fluid-3';
+import { families, demoIds, demoFor, familyFor, hasDemo, kindFor } from './families.mjs?v=fluid-3';
 
 const $ = selector => document.querySelector(selector);
 const byId = new Map(concepts.map(c => [c.id, c]));
@@ -107,7 +107,15 @@ function showMedia(index, syncUrl = true) {
     stage.innerHTML = `<img src="/future/${m.src}" alt="${escape(c.name + (m.caption ? ' · ' + m.caption : ''))}" width="${m.width}" height="${m.height}">`;
   }
   $('#media-options').innerHTML = (hasDemo(c.id) ? `<button class="media-option demo-option" type="button" data-media="demo" aria-pressed="${index === 'demo'}">↗ Try it</button>` : '') + (c.media.length > 1 || c.video || hasDemo(c.id) ? c.media.map((m, i) => `<button class="media-option" type="button" data-media="${i}" aria-pressed="${index === i}" aria-label="${escape(m.caption || 'Image ' + (i + 1))}"><img src="/future/${m.thumb}" alt="" width="60" height="50"></button>`).join('') + (c.video ? `<button class="media-option film-option" type="button" data-media="${c.media.length}" aria-pressed="${index === c.media.length}">▶ Video</button>` : '') : '');
-  $('#viewer-note').textContent = index === 'demo' ? 'An interactive interpretation of this direction. Example data only. Try the scenarios, scrub the graph and tap a device. In fluid studies, drag the surfaces or the robot.' : c.note;
+  const demo = demoFor(c.id);
+  let note = c.note;
+  if (index === 'demo') {
+    if (demo.theme === 'character') note = 'An interactive character study. Drag or flick the robot, try Float, Follow and Rest, or use the arrow keys to give it a nudge.';
+    else if (demo.theme === 'reservoir') note = 'An interactive storage study. Drag the battery level to fill or drain, then try solar and evening power. Example data only.';
+    else if (demo.theme === 'fluid') note = 'An interactive interpretation of this direction. Example data only. Drag a field to change the example balance. Surfaces and streams move together. Scrub either graph, tap a device or play with the robot; it follows you into the details.';
+    else note = 'An interactive interpretation of this direction. Example data only. Change the scenario, drag a participant or scrub the graph. Tap a device to open its details.';
+  }
+  $('#viewer-note').textContent = note;
   if (syncUrl) updateUrl();
 }
 let returnFocus, compareFocus;
@@ -210,6 +218,7 @@ function openHash() {
 window.addEventListener('hashchange', openHash);
 document.addEventListener('visibilitychange', () => { if (!document.hidden) void loadVotes(); else $('#media-stage video')?.pause(); });
 $('#proposal-count').textContent = concepts.length;
+$('#interactive-count').textContent = demoIds.length;
 renderFilters(); renderBoard(); renderSelection();
 const comparisonIds = [...new Set((params.get('compare') || '').split(','))].filter(id => byId.has(id));
 if (comparisonIds.length === 2) { state.selected = comparisonIds; renderSelection(); openComparison(false); } else openHash();
