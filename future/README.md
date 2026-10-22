@@ -25,9 +25,10 @@ The API reads the same catalog, so new entries need no separate allowlist.
 ## Votes
 
 Create the schema in `schema.sql` in a D1 database and bind it as
-`FUTURE_DB` in the Pages environment being deployed. The initial preview
-uses the separate EU database `ftw-future-votes`
-(`c079f4c6-f3bb-4ffa-91ee-d60784600bf9`). Production has no binding yet.
+`FUTURE_DB` in the Pages environment being deployed. Production and preview
+share the EU database `ftw-future-votes`
+(`c079f4c6-f3bb-4ffa-91ee-d60784600bf9`). When testing a preview, remove only
+the test browser's own votes through the UI or vote API.
 
 The random, HttpOnly cookie identifies a browser on this host for a year.
 The database stores only that random ID, a proposal ID and a vote. It stores
