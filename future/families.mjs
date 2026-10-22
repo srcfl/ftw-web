@@ -9,6 +9,7 @@ export const families = [
   { id: 'robots', name: 'Robot characters', description: 'Character studies for a companion that follows the interface. Vote on the robot itself here.', ids: ['robot-a','robot-b','robot-c'] }
 ];
 export const demoIds = Object.keys(demoConfigs);
+export const demoFor = id => demoConfigs[id];
 export const familyFor = id => families.find(f => f.ids.includes(id));
 export const hasDemo = id => demoIds.includes(id);
 export const kindFor = id => ['today-web','today-ios'].includes(id) ? 'Current interface' : id.startsWith('robot-') ? 'Character study' : id.startsWith('study-') ? 'Interaction idea' : 'App direction';
