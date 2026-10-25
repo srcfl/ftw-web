@@ -1,4 +1,4 @@
-import { concepts } from './catalog.mjs?v=fluid-3';
+import { legacyConcepts as concepts } from './legacy-catalog.mjs?v=050';
 import { families, demoIds, demoFor, familyFor, hasDemo, kindFor } from './families.mjs?v=fluid-3';
 
 const $ = selector => document.querySelector(selector);
@@ -55,7 +55,7 @@ function renderVotes() {
   document.querySelectorAll('[data-votes]').forEach(el => { el.innerHTML = voteButtons(byId.get(el.dataset.votes)); });
   restore?.parent?.querySelector(`[data-vote="${restore.value}"]`)?.focus({ preventScroll: true });
   if (state.ready) {
-    const total = Object.values(state.votes).reduce((sum, v) => sum + v.up + v.down, 0);
+    const total = concepts.reduce((sum, c) => sum + (state.votes[c.id]?.up || 0) + (state.votes[c.id]?.down || 0), 0);
     $('#vote-status').classList.remove('error');
     $('#vote-status').textContent = `${total} ${total === 1 ? 'vote' : 'votes'} · No sign-in needed`;
   }

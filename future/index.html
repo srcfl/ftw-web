@@ -1,75 +1,350 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>The future of FTW · An open design canvas</title>
-  <meta name="description" content="Which direction would you like FTW to take? Explore energy flows, robots and new ways to use the energy app. Vote on the designs and share your thoughts.">
-  <meta name="theme-color" content="#fafaf7">
-  <link rel="canonical" href="https://ftw.sourceful.energy/future/">
-  <meta property="og:title" content="The future of FTW">
-  <meta property="og:description" content="An open design canvas. Explore the ideas and vote for what you would like to see in FTW.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ftw.sourceful.energy/future/">
-  <meta property="og:image" content="https://ftw.sourceful.energy/future/assets/ring-flow-v2.webp">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="/future/future.css?v=fluid-3">
-  <script src="/future/future.mjs?v=fluid-3" type="module"></script>
-</head>
-<body>
-  <a class="skip" href="#canvas">Skip to the designs</a>
-  <header class="topbar">
-    <a class="brand" href="/" aria-label="Back to FTW"><img src="/favicon.svg" alt="" width="30" height="30"><strong>ftw</strong><span>/ future</span></a>
-    <div class="top-actions"><a href="https://discord.gg/UK2ygPBu8N" target="_blank" rel="noopener">Discuss the designs ↗</a><button class="button share-board" type="button">Share canvas ↗</button></div>
-  </header>
-  <main>
-    <section class="intro" aria-labelledby="title">
-      <div class="intro-title"><p class="eyebrow"><span class="orange-dot"></span> An open design canvas · FTW</p><h1 id="title">The future<br>of <span>FTW.</span></h1></div>
-      <div class="intro-copy"><p class="lead">What should <br>energy feel like?</p><p>From today’s app to fluid energy fields and a small robot that follows along. Let’s explore the next FTW together.</p><p>Try an idea. Compare two directions. Vote for what you would want to use.</p><a class="text-link" href="#canvas">Explore <span id="proposal-count">all</span> designs ↓</a></div>
-      <div class="intro-foot"><span>Open for discussion. Your votes help shape what comes next.</span><span>Concepts and example data · All studies in English</span></div>
-    </section>
-    <section class="playground" aria-labelledby="playground-title">
-      <div class="section-heading"><div><p class="eyebrow">Try the interaction</p><h2 id="playground-title">Three directions. Your hands.</h2></div><p>Change the time. Follow the energy. Get a feel for the idea before you vote.</p></div>
-      <div class="try-grid">
-        <button type="button" class="try-card try-ring" data-open="ring-flow"><span class="try-number">01 / ENERGY RINGS</span><span class="try-art ring-art" aria-hidden="true"><i></i><b>1.2<span>kW · Home</span></b></span><strong>Read the whole home.</strong><span>A ring that changes with the day.</span><em>Try Ring / Flow ↗</em></button>
-        <button type="button" class="try-card try-fluid" data-open="fluid-app"><span class="try-number">02 / FLUID FIELDS</span><span class="try-art fluid-art" aria-hidden="true"><i></i><i></i><i></i></span><strong>Take hold of the flow.</strong><span>Soft surfaces. Energy in proportion.</span><em>Try the living flow ↗</em></button>
-        <button type="button" class="try-card try-ftw" data-open="ftw-ahead"><span class="try-number">03 / TODAY’S FTW, NEXT</span><span class="try-art ftw-art" aria-hidden="true"><b>Everything on track.</b><i></i><span>Solar → Home → Stored for later</span></span><strong>Keep what feels familiar.</strong><span>Clear controls, with time you can touch.</span><em>Try FTW / Ahead ↗</em></button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>FTW 0.5.0 · Design review</title>
+    <meta
+      name="description"
+      content="Explore the current FTW app, compare eight new design directions and share what you would keep or change."
+    />
+    <meta name="theme-color" content="#f7f6f1" />
+    <link rel="canonical" href="https://ftw.sourceful.energy/future/" />
+    <meta property="og:title" content="FTW 0.5.0 · What comes next?" />
+    <meta
+      property="og:description"
+      content="Real app screens. Eight new directions. Your feedback."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://ftw.sourceful.energy/future/assets/ftw-050/now-dark.png"
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap"
+    />
+    <link rel="stylesheet" href="/future/review.css?v=050-1" />
+    <script type="module" src="/future/review.mjs?v=050-1"></script>
+  </head>
+  <body>
+    <a class="skip" href="#current">Skip to the app screens</a>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Back to FTW"
+        ><img src="/favicon.svg" alt="" width="28" height="28" /><strong
+          >ftw</strong
+        ><span>/ design review</span></a
+      >
+      <nav aria-label="Page sections">
+        <a href="#current">Current app</a><a href="#ideas">Variants</a
+        ><a href="#feedback">Feedback</a>
+      </nav>
+      <button class="button small" type="button" id="share-review">
+        Copy review link ↗
+      </button>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="title">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="version-dot"></span> FTW app · 0.5.0
+          </p>
+          <h1 id="title">FTW today.<br />What comes <br /><em>next?</em></h1>
+          <p class="lead">
+            Start with the app we just released. Then help shape the next
+            version.
+          </p>
+          <p>
+            Explore the real screens, compare eight design variants, and tell us
+            what you would keep or change.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#current">Explore 0.5.0 ↓</a
+            ><a class="text-link" href="#ideas">See the variants ↗</a>
+          </div>
+          <p class="hero-note">
+            Real screenshots and proposed designs, clearly labelled. All screens
+            use example data.
+          </p>
+        </div>
+        <figure class="hero-screen">
+          <span class="screen-label">CURRENT APP / 0.5.0</span
+          ><img
+            src="/future/assets/ftw-050/now-dark.png"
+            width="1206"
+            height="2622"
+            alt="FTW 0.5.0 Now screen, showing the actual released energy ring and four tabs"
+          />
+          <figcaption>Now · iPhone · Demo home</figcaption>
+        </figure>
+        <div class="hero-side" aria-hidden="true">
+          THE NEXT VERSION STARTS WITH WHAT YOU USE TODAY.
+        </div>
+      </section>
+      <section
+        class="current-section"
+        id="current"
+        aria-labelledby="current-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 / The current app</p>
+            <h2 id="current-title">This is 0.5.0.</h2>
+          </div>
+          <p>
+            Actual app screenshots from the release source, captured in an
+            iPhone simulator. Browse the screens before comparing the proposals.
+          </p>
+        </div>
+        <div class="gallery-controls">
+          <div
+            class="screen-tabs"
+            id="screen-tabs"
+            role="group"
+            aria-label="App screen"
+          ></div>
+          <div
+            class="appearance"
+            role="group"
+            aria-label="Screenshot appearance"
+          >
+            <button type="button" data-appearance="dark" aria-pressed="true">
+              Dark</button
+            ><button type="button" data-appearance="light" aria-pressed="false">
+              Light
+            </button>
+          </div>
+        </div>
+        <div class="current-layout">
+          <div class="current-image-wrap">
+            <button
+              class="current-image"
+              id="enlarge-current"
+              type="button"
+              aria-label="Enlarge the current app screenshot"
+            >
+              <img
+                id="current-image"
+                src="/future/assets/ftw-050/now-dark.png"
+                width="1206"
+                height="2622"
+                alt="FTW 0.5.0 Now · Dark"
+              /><span>Enlarge ↗</span>
+            </button>
+          </div>
+          <div class="current-info">
+            <p class="eyebrow current-kicker">RELEASED DESIGN</p>
+            <h3 id="screen-title">Now</h3>
+            <p id="screen-description"></p>
+            <dl class="release-facts">
+              <div>
+                <dt>Version</dt>
+                <dd>0.5.0 (16)</dd>
+              </div>
+              <div>
+                <dt>Captured</dt>
+                <dd>25 October 2026</dd>
+              </div>
+              <div>
+                <dt>Data</dt>
+                <dd>Built-in demo home</dd>
+              </div>
+            </dl>
+            <a
+              class="source-link"
+              href="https://github.com/srcfl/ftw-app/tree/70f4e02dd58d158955014ead2846e5229e2fe386"
+              target="_blank"
+              rel="noopener"
+              >Screens captured from release source ↗</a
+            >
+            <div class="current-feedback">
+              <p>How does the current design work for you?</p>
+              <div data-votes="ftw-050"></div>
+              <button class="button" type="button" data-feedback="ftw-050">
+                Give feedback on 0.5.0 ↗
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="ideas-section" id="ideas" aria-labelledby="ideas-title">
+        <span id="canvas" class="anchor-alias"></span>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 / Possible next steps</p>
+            <h2 id="ideas-title">Eight ways forward.</h2>
+          </div>
+          <p>
+            These are proposed layouts, not features in 0.5.0. Compare each with
+            the same screen in the current app, then vote or suggest a change.
+          </p>
+        </div>
+        <div class="ideas-toolbar">
+          <div
+            id="filters"
+            class="filters"
+            role="group"
+            aria-label="Filter variants by screen"
+          ></div>
+          <label class="sort-label"
+            >Sort
+            <select id="sort">
+              <option value="curated">Selected order</option>
+              <option value="popular">Most thumbs up</option>
+            </select></label
+          >
+        </div>
+        <div class="ideas-meta">
+          <span id="showing" role="status"></span
+          ><span id="vote-status" role="status">Loading votes…</span>
+        </div>
+        <div class="board" id="board"></div>
+        <p class="voting-note">
+          No sign-in needed to vote. Your browser remembers your choice. Tap a
+          selected thumb to remove your vote.
+        </p>
+        <noscript
+          ><p>Enable JavaScript to compare the proposals and vote.</p></noscript
+        >
+      </section>
+      <section
+        class="feedback-section"
+        id="feedback"
+        aria-labelledby="feedback-title"
+      >
+        <div>
+          <p class="eyebrow">03 / Your feedback</p>
+          <h2 id="feedback-title">What would you<br />keep or change?</h2>
+        </div>
+        <div>
+          <p>
+            Tell us what works, what gets in the way, or what you would try
+            instead. An idea of your own is welcome too.
+          </p>
+          <p>
+            Write your feedback here, copy it with the design’s name and link,
+            then post it on Discord.
+          </p>
+          <div class="feedback-actions">
+            <button
+              class="button primary"
+              type="button"
+              data-feedback="general"
+            >
+              Suggest an idea ↗</button
+            ><a
+              class="text-link"
+              href="https://discord.gg/UK2ygPBu8N"
+              target="_blank"
+              rel="noopener"
+              >Open FTW Discord ↗</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a href="/">← FTW</a><span>FTW · Sourceful Energy · Design review</span
+      ><a href="/future/archive/">Earlier explorations</a
+      ><a href="/privacy">Privacy</a>
+    </footer>
+    <dialog id="viewer" aria-labelledby="viewer-title">
+      <header class="dialog-bar">
+        <div>
+          <span class="eyebrow" id="viewer-code"></span>
+          <h2 id="viewer-title"></h2>
+        </div>
+        <button
+          class="icon-button"
+          type="button"
+          id="close-viewer"
+          aria-label="Close design"
+        >
+          ×
+        </button>
+      </header>
+      <div class="viewer-toolbar">
+        <div role="group" aria-label="View mode">
+          <button type="button" data-view="compare" aria-pressed="true">
+            Compare with 0.5.0</button
+          ><button type="button" data-view="single" aria-pressed="false">
+            View proposal</button
+          ><button type="button" data-view="current" aria-pressed="false">
+            Current app
+          </button>
+        </div>
+        <button class="text-link" id="share-design" type="button">
+          Copy design link ↗
+        </button>
       </div>
-      <p class="playground-note"><span id="interactive-count">16</span> interactive studies. Try the fluid surfaces, stored energy and robot. All use example data. <a href="/future/?family=fluid&amp;interactive=1#canvas">Try all 10 fluid studies ↗</a></p>
-    </section>
-    <section class="canvas-section" id="canvas" aria-label="Design proposals">
-      <div class="family-intro"><div><p class="eyebrow">The design library</p><h2 id="family-title">Explore the directions</h2><p id="family-description"></p></div><span class="library-guide">01 Explore · 02 Compare · 03 Vote</span></div>
-      <div class="toolbar">
-        <div class="filters" id="filters" role="group" aria-label="Design families"></div>
-        <div class="view-controls">
-          <label class="interactive-toggle"><input type="checkbox" id="interactive-only"> Interactive only</label>
-          <label class="search"><span aria-hidden="true">⌕</span><input type="search" id="search" placeholder="Find a design" aria-label="Search designs"></label>
-          <label class="sort-label"><span class="sr-only">Sort designs</span><select id="sort"><option value="curated">Selected order</option><option value="popular">Most thumbs up</option><option value="mine">My votes first</option></select></label>
-          <div class="zoom" role="group" aria-label="Design size"><button type="button" id="zoom-out" aria-label="Show smaller designs">−</button><span id="zoom-label" aria-live="polite">100 %</span><button type="button" id="zoom-in" aria-label="Show larger designs">+</button></div>
+      <div class="viewer-images" id="viewer-images"></div>
+      <div class="viewer-bottom">
+        <div>
+          <p id="viewer-question"></p>
+          <p class="media-note" id="viewer-note"></p>
+        </div>
+        <div class="viewer-actions">
+          <div id="viewer-votes"></div>
+          <button class="button primary" type="button" id="viewer-feedback">
+            Suggest a change ↗
+          </button>
         </div>
       </div>
-      <div class="canvas-meta"><span id="showing" role="status"></span><span id="vote-status" role="status">Loading votes…</span></div>
-      <div class="board" id="board"></div>
-      <p class="empty" id="empty" hidden>No matching designs. Try a different word or choose All.</p>
-      <noscript><p class="empty">Enable JavaScript to explore the designs and vote.</p></noscript>
-      <div class="voting-note"><span>About voting</span><p>Vote on each design and change your mind whenever you like. Click your selected thumb again to remove the vote. An anonymous cookie remembers your votes in this browser. No sign-in needed.</p></div>
-    </section>
-    <section class="contribute"><p class="eyebrow">Keep the conversation going</p><h2>Have another idea?</h2><div><p>Share a sketch, image or thought on Discord. Mention the design’s name or number. We can add more ideas here as we go.</p><a class="button button-orange" href="https://discord.gg/UK2ygPBu8N" target="_blank" rel="noopener">Share your idea on Discord ↗</a></div></section>
-  </main>
-  <footer><a href="/">← Back to FTW</a><span>FTW · Sourceful Energy · Design exploration 2026</span><a href="/privacy">Privacy</a></footer>
-  <dialog id="viewer" aria-labelledby="viewer-title">
-    <div class="viewer-bar"><span id="viewer-code" class="eyebrow"></span><div><button type="button" class="button" id="share-concept">Share design ↗</button><button type="button" class="icon-button" id="close-viewer" aria-label="Close design">×</button></div></div>
-    <div class="viewer-content"><div class="viewer-media"><div id="media-stage"></div><div id="media-options" aria-label="Interactive study, images and video"></div></div><aside class="viewer-info"><p class="eyebrow" id="viewer-tag"></p><h2 id="viewer-title"></h2><p id="viewer-description"></p><div id="viewer-votes"></div><button type="button" class="button" id="viewer-compare" aria-pressed="false">Add to comparison</button><p class="media-note" id="viewer-note"></p><a class="text-link" href="https://discord.gg/UK2ygPBu8N" target="_blank" rel="noopener">Discuss this design on Discord ↗</a><div class="viewer-navigation"><button type="button" class="button" id="previous">← Previous</button><button type="button" class="button" id="next">Next →</button></div></aside></div>
-  </dialog>
-  <dialog id="comparison" aria-labelledby="comparison-title">
-    <div class="viewer-bar"><h2 id="comparison-title">Compare directions</h2><div><button class="button" type="button" id="share-comparison">Share comparison ↗</button><button class="icon-button" type="button" id="close-comparison" aria-label="Close comparison">×</button></div></div>
-    <p class="comparison-prompt">Which would you want to use every day? Vote on each, then share what you like on Discord.</p>
-    <div class="comparison-grid" id="comparison-grid"></div>
-  </dialog>
-  <div class="compare-tray" id="compare-tray" hidden><div><span id="compare-count"></span><strong id="compare-names"></strong></div><button class="button button-orange" type="button" id="open-comparison" disabled>Choose one more</button><button class="icon-button" type="button" id="clear-comparison" aria-label="Clear comparison">×</button></div>
-  <div id="toast" role="status" class="toast" hidden></div>
-</body>
+    </dialog>
+    <dialog id="feedback-dialog" aria-labelledby="feedback-dialog-title">
+      <header class="dialog-bar">
+        <div>
+          <p class="eyebrow">Feedback & ideas</p>
+          <h2 id="feedback-dialog-title">Your feedback</h2>
+        </div>
+        <button
+          class="icon-button"
+          type="button"
+          id="close-feedback"
+          aria-label="Close feedback"
+        >
+          ×
+        </button>
+      </header>
+      <div class="feedback-form">
+        <div class="feedback-context" id="feedback-context"></div>
+        <label for="feedback-text">Your feedback or idea</label
+        ><textarea
+          id="feedback-text"
+          rows="7"
+          maxlength="4000"
+          placeholder="What works? What would you change? Is there another direction we should try?"
+        ></textarea>
+        <div class="feedback-help">
+          <span>Copy your feedback, then post it on Discord.</span
+          ><span id="feedback-count">0 / 4000</span>
+        </div>
+        <div class="copy-preview" id="feedback-link-preview"></div>
+        <button
+          class="button primary"
+          type="button"
+          id="copy-feedback"
+          disabled
+        >
+          1. Copy feedback + design link</button
+        ><a
+          class="button"
+          href="https://discord.gg/UK2ygPBu8N"
+          target="_blank"
+          rel="noopener"
+          id="open-discord"
+          >2. Open Discord and paste ↗</a
+        >
+        <textarea
+          id="prepared-feedback"
+          aria-label="Prepared feedback to copy manually"
+          readonly
+          hidden
+        ></textarea>
+        <p class="form-status" id="copy-status" role="status"></p>
+      </div>
+    </dialog>
+    <div class="toast" id="toast" role="status" hidden></div>
+  </body>
 </html>
