@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
-import { concepts } from '../future/catalog.mjs';
+import { legacyConcepts as concepts } from '../future/legacy-catalog.mjs';
 import { families, demoIds, familyFor } from '../future/families.mjs';
 import { scenarios, balance, hourProfile, mix, sinks, fieldLayout, polygonArea } from '../future/demos/model.mjs';
 

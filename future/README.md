@@ -1,98 +1,90 @@
-# The future of FTW
+# FTW design review
 
-`/future/` is a public design canvas with named concepts, images, motion
-studies and anonymous thumbs up/down. It uses the website's static hosting
-and one Pages Worker route, `/future/api/votes`. There is no upload flow;
-new ideas come through Discord.
+`/future/` starts with the FTW 0.5.0 (16) app, then shows eight named design
+proposals for Now, Plan and Car. Visitors can browse seven real app screens
+in dark and light appearance, enlarge them, and compare a proposal with its
+matching app screen. All public copy is in English.
 
-All visible copy and artwork is in English. `assets/en/` contains translated
-editions of 43 earlier images; the originals stay in `assets/` for reference.
-`artwork-localization.json` records source hashes, prompts and English outputs.
-The current-interface screenshots remain unchanged. `design-prompts.json`
-records the six newer ring and FTW-theme proposals.
+The 14 full PNG screenshots come from a simulator build of release source
+`70f4e02dd58d158955014ead2846e5229e2fe386`, using the built-in demo home.
+They retain the full viewport and have no image edits. The release workflow
+uploaded 0.5.0 (16) from that commit. `capture-provenance.json` records the
+source, workflow runs, device, date and image hashes. This does not establish
+App Store approval or behaviour on physical hardware.
 
-Six families in `families.mjs` group the 45 proposals without changing their
-IDs or votes. Cards distinguish app directions, interaction ideas, characters
-and current interfaces. Visitors can filter, search, choose interactive studies,
-and compare two designs. The comparison URL preserves both IDs; family and
-interactive filters also have shareable URLs.
+The eight proposals are generated mockups, labelled separately from the
+current app. `review-prompts-050.json` records their prompts, reference images
+and final assets. Demo readings can differ between screenshots and proposals.
 
-Sixteen proposals open interactive studies, including all ten fluid-field
-proposals, a home-battery reservoir and a separate Robot B playground. The demos
-in `demos/` run locally in an iframe with example data. Scenarios and direct
-graph scrubbing change a balanced home energy model. One signed grid
-connection imports or exports; solar supplies energy; home demand, car and
-home battery remain distinct. L1/L2/L3 appear only in grid details. Fluid
-regions preserve their relative areas as they deform. Fields and streams use
-the same material deformation, with spring motion and momentum on release.
-Dragging a participant changes the example allocation; stream width and
-particle direction follow the same balanced powers. The same robot moves
-between overview, app sections and device details. Pointer and keyboard
-controls, pause, reduced motion and visibility handling keep the studies usable. Closing a study removes
-its iframe and stops its animation. Nothing connects to a real home.
+## Feedback
 
-The distribution studies add day playback, charging priorities, a larger car
-view and day/night appearance. The storage study lets visitors drag the
-battery level or switch between solar charging and evening use. Robot B has
-Float, Follow and Rest behaviours. These remain example interactions, not
-planning or hardware-control logic. Reduced motion starts without ambient
-movement; direct pointer and keyboard controls still work.
+Each design has anonymous thumbs up/down and a feedback button. The current
+app also accepts feedback on the selected screen and appearance. Visitors can
+write a general idea without choosing a design. The site copies the text,
+design name and direct link; the visitor then pastes it into FTW Discord.
+Nothing posts to Discord automatically. Text drafts stay in memory for the
+open page. There is no upload form or website account.
 
-Earlier app films contain Swedish, so the gallery replaces them with the
-English interactive studies. The language-free robot film remains available.
+`review-data.mjs` defines the screen list and feedback text. `review.mjs` handles
+the gallery, comparisons, links, drafts and votes. `review.css` styles the page.
 
 ## Add a proposal
 
-Add full images and smaller previews to `assets/`, then add an entry to
-`catalog.mjs`. Keep the `id` and `code` of existing entries unchanged so
-votes and shared links keep working. Use a new ID for a changed design
-that needs its own votes. Full app screenshots must retain the complete
-viewport. Mark mockups, demo data and user references clearly.
+Add the complete image and a smaller preview to `assets/review-050/`, then add
+an entry to `currentConcepts` in `catalog.mjs`. Set `type: 'proposal'`, a new
+stable `id` and `code`, a name, description, review question, screen and
+appearance. `media` contains the local source and preview paths, dimensions,
+language and caption. Keep full app viewports and label mockups and demo data.
+Record the prompt and reference in `review-prompts-050.json`.
 
-Each entry has a name, description, tags and at least one image. Optional
-`video` is a local MP4 path. `media` can include more images with captions.
-Set each image’s `language` to `en` after reviewing its text. Add the proposal
-to exactly one family in `families.mjs`. Add interactive variants in
-`demos/variants.mjs`; the canvas derives its playable IDs from that registry.
-The API reads the same catalog, so new entries need no separate allowlist.
+Keep existing IDs and codes unchanged so votes and shared links remain valid.
+A changed design that needs its own votes needs a new ID. The API imports
+the combined catalog, so new entries need no separate allowlist.
+
+## Earlier explorations
+
+`/future/archive/` retains the earlier 45 concepts, their votes and 16
+interactive studies. `legacy-catalog.mjs`, `families.mjs`, `future.mjs`,
+`future.css` and `demos/` serve that archive. Old design links at `/future/#id`
+redirect to the matching archived design. The archive links back to this
+review. The new review counts only its nine entries in its vote total.
+
+Archived fluid studies use a balanced example home model with one signed
+grid connection, solar supply, home demand, car and home battery. They keep
+L1/L2/L3 in grid details. Pointer and keyboard controls, pause, reduced motion
+and visibility handling keep them usable. No study connects to a real home.
+Earlier translated artwork and its provenance remain in `assets/en/` and
+`artwork-localization.json`. Older Swedish app films stay outside the gallery.
 
 ## Votes
 
-Create the schema in `schema.sql` in a D1 database and bind it as
-`FUTURE_DB` in the Pages environment being deployed. Production and preview
-share the EU database `ftw-future-votes`
-(`c079f4c6-f3bb-4ffa-91ee-d60784600bf9`). When testing a preview, remove only
-the test browser's own votes through the UI or vote API.
+The static site uses one Pages Worker route, `/future/api/votes`, and a D1
+binding named `FUTURE_DB`. Production and preview share the EU database
+`ftw-future-votes` (`c079f4c6-f3bb-4ffa-91ee-d60784600bf9`). The schema lives
+in `schema.sql`. This review needs no schema change or vote reset.
 
-The random, HttpOnly cookie identifies a browser on this host for a year.
-The database stores only that random ID, a proposal ID and a vote. It stores
-no IP address, name or email. A unique key allows one current vote per
-browser and proposal. Votes can change or be removed. This is informal
-feedback, not a verified one-person ballot: clearing cookies or using
-another browser allows another vote.
+A random HttpOnly cookie identifies a browser on this host for a year. The
+database stores only that random ID, a design ID and a vote. It stores no IP
+address, name or email. Each browser can change or remove its vote for each
+design. This is informal feedback: clearing cookies or using another browser
+allows another vote.
 
-The API checks the request origin, accepted proposal IDs and values, and
-limits the body to 512 bytes. SQL uses bound parameters. Updates and the
-returned counts run in one D1 batch. The UI shows failures without claiming
-that a vote was saved. Only the API route invokes the Worker; other pages
-and assets retain static routing through `_routes.json`.
+The API checks the origin, accepted IDs and values, and limits the body to
+512 bytes. SQL uses bound parameters. Updates and returned counts run in one
+D1 batch. The UI reports failures without claiming to have saved a vote.
+`_routes.json` keeps other pages and assets on static routing.
 
 ## Review and deploy
 
-Use an isolated branch and its Pages preview. Do not merge to `main` or
-deploy to production without the owner's go-ahead. The existing Pages Git
-integration publishes preview branches automatically. Before a production
-release, bind the intended voting database in the production environment.
+Use an isolated branch and its Pages preview. The Pages Git integration
+publishes preview branches automatically. Production needs the owner's
+go-ahead; a request to deploy the change provides it. Confirm the intended
+database binding before publishing. Test only with your own votes, then
+remove those test votes through the UI or API.
 
-Run `node --test tests/future-*.test.mjs`. The tests check shared votes,
-changes/removal, invalid requests, catalog assets, complete family membership,
-English artwork coverage, energy balance during gestures, fluid proportions
-under two-axis deformation, spring settling at 30/60/120 Hz and stream reversal.
-Review the canvas at phone and desktop widths. Check graph and surface drags,
-robot movement, device details, motion controls and comparison deep links.
-Check a real vote, reload and a second browser session on the deployed preview.
-
-Images retain the earlier concept names. The two current-interface images
-come from the homepage's demo screenshots. The ring image is the user
-reference supplied on 22 October 2026. Robot and app studies come from the
-16–17 October design exploration; they are ideas, not release promises.
+Run `node --test tests/future-*.test.mjs`. These checks cover capture hashes,
+complete screens, proposal references, feedback links, vote changes and
+removal, archive IDs and the existing motion studies. Review desktop and
+phone layouts, gallery controls, comparison modes, feedback copy, shared
+links and old archive links in a browser. Verify shared votes in two sessions
+on the deployed preview.

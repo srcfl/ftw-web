@@ -61,6 +61,26 @@ test('the vote endpoint rejects invalid IDs, values, JSON, large bodies and othe
   db.close();
 });
 
+test('current release and proposal votes coexist with archived votes across visitors', async () => {
+  const { db, call } = fixture();
+  const a = cookie(await call());
+  const b = cookie(await call());
+  await call('POST', { id: 'robot-b', value: 1 }, a);
+  await call('POST', { id: 'ftw-050', value: 1 }, a);
+  await call('POST', { id: 'v050-soft-orbit', value: -1 }, a);
+  await call('POST', { id: 'v050-soft-orbit', value: 1 }, b);
+  const snapshot = (await (await call('GET', undefined, b)).json()).votes;
+  assert.deepEqual(snapshot['v050-soft-orbit'], { up: 1, down: 1, mine: 1 });
+  assert.deepEqual(snapshot['ftw-050'], { up: 1, down: 0, mine: 0 });
+  await call('POST', { id: 'v050-soft-orbit', value: 0 }, a);
+  await call('POST', { id: 'ftw-050', value: -1 }, a);
+  const result = (await (await call('GET', undefined, a)).json()).votes;
+  assert.deepEqual(result['v050-soft-orbit'], { up: 1, down: 0, mine: 0 });
+  assert.deepEqual(result['ftw-050'], { up: 0, down: 1, mine: -1 });
+  assert.deepEqual(result['robot-b'], { up: 1, down: 0, mine: 1 });
+  db.close();
+});
+
 test('unavailable storage reports failure; unrelated routes keep serving static files', async () => {
   const { db, env } = fixture();
   assert.equal((await worker.fetch(new Request('https://design.test/future/api/votes'), {})).status, 503);
