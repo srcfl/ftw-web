@@ -88,7 +88,23 @@ D1 database bound as `SIGNUPS_DB`, kept apart from the anonymous
 share the EU database `ftw-signups`
 (`32851378-602c-4b71-b3ea-69e85acff569`); its schema is `signups.sql`.
 Without the binding the endpoint answers 503 and the forms say sign-up is
-closed. Test only with your own address, then delete that row. Each row records the consent
+closed. Test only with your own address, then delete that row.
+
+A new address on either list posts one line to the incoming webhook in the
+`SIGNUP_WEBHOOK_URL` secret, if it is set: the list, the country and both
+totals, never the address. Slack and Discord webhooks both work. A repeat
+sign-up sends nothing, and a failing webhook never breaks the form. Set the
+secret in the Pages project `ftw` under Settings → Variables and Secrets,
+for Production (and Preview if you want notices from previews); it applies
+from the next deployment.
+
+Read the lists with:
+
+```bash
+cf d1 query 32851378-602c-4b71-b3ea-69e85acff569 --sql "SELECT list, email, country, created_at FROM signups ORDER BY created_at"
+```
+
+Keep the addresses out of chat channels and documents. Each row records the consent
 version that `privacy.html#email` describes; change both together. Name the
 email service in the privacy notice before the first send.
 

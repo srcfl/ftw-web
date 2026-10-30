@@ -4,20 +4,31 @@ import { DatabaseSync } from 'node:sqlite';
 import { readFileSync } from 'node:fs';
 import worker from '../_worker.js';
 
-function fixture({ bound = true } = {}) {
+function fixture({ bound = true, webhook } = {}) {
   const db = new DatabaseSync(':memory:');
   db.exec(readFileSync(new URL('../signups.sql', import.meta.url), 'utf8'));
+  // Shaped like D1: run() reports changes in meta, all() returns results.
   const binding = {
     prepare(sql) {
-      return { bind(...params) { return { async run() { db.prepare(sql).run(...params); return { success: true }; } }; } };
+      const statement = params => ({
+        async run() { const { changes } = db.prepare(sql).run(...params); return { success: true, meta: { changes } }; },
+        async all() { return { results: db.prepare(sql).all(...params) }; }
+      });
+      return { bind: (...params) => statement(params), ...statement([]) };
     }
   };
-  const env = { ASSETS: { fetch: () => new Response('static') }, ...(bound ? { SIGNUPS_DB: binding } : {}) };
-  const call = (body, { method = 'POST', origin = 'https://ftw.test', type = 'application/json' } = {}) => worker.fetch(new Request('https://ftw.test/api/signup', {
-    method,
-    headers: { Origin: origin, 'Content-Type': type },
-    ...(method === 'POST' ? { body: typeof body === 'string' ? body : JSON.stringify(body) } : {})
-  }), env);
+  const env = { ASSETS: { fetch: () => new Response('static') }, ...(bound ? { SIGNUPS_DB: binding } : {}), ...(webhook ? { SIGNUP_WEBHOOK_URL: webhook } : {}) };
+  const later = [];
+  const ctx = { waitUntil: promise => later.push(promise) };
+  const call = async (body, { method = 'POST', origin = 'https://ftw.test', type = 'application/json' } = {}) => {
+    const response = await worker.fetch(new Request('https://ftw.test/api/signup', {
+      method,
+      headers: { Origin: origin, 'Content-Type': type },
+      ...(method === 'POST' ? { body: typeof body === 'string' ? body : JSON.stringify(body) } : {})
+    }), env, ctx);
+    await Promise.all(later.splice(0));
+    return response;
+  };
   const rows = () => db.prepare('SELECT email, list, country, consent FROM signups ORDER BY list, email').all().map(r => ({ ...r }));
   return { call, rows };
 }
@@ -82,6 +93,61 @@ test('without its database the endpoint says sign-up is unavailable and claims n
   const response = await call({ email: 'a@example.com', list: 'news' });
   assert.equal(response.status, 503);
   assert.deepEqual(await response.json(), { error: 'signup_unavailable' });
+});
+
+// Replaces fetch for one test and records what the worker sends.
+async function withWebhook(status, run) {
+  const sent = [];
+  const original = globalThis.fetch;
+  globalThis.fetch = async (url, init) => { sent.push({ url, body: JSON.parse(init.body) }); return new Response(null, { status }); };
+  try { await run(sent); } finally { globalThis.fetch = original; }
+}
+
+test('a new address sends one notice with the list, country and totals, but never the address', async () => {
+  await withWebhook(200, async sent => {
+    const { call } = fixture({ webhook: 'https://hooks.test/abc' });
+    await call({ email: 'first@example.com', list: 'news' });
+    await call({ email: 'second@example.com', list: 'gateway', country: 'SE' });
+    assert.equal(sent.length, 2);
+    assert.equal(sent[0].url, 'https://hooks.test/abc');
+    assert.equal(sent[1].body.text, 'New sign-up: FTW box waitlist (SE) · Waitlist 1 · Newsletter 1');
+    assert.equal(sent[1].body.content, sent[1].body.text, 'Slack reads text, Discord reads content');
+    assert.ok(sent.every(notice => !JSON.stringify(notice.body).includes('@')));
+  });
+});
+
+test('a repeat sign-up updates the row quietly', async () => {
+  await withWebhook(200, async sent => {
+    const { call, rows } = fixture({ webhook: 'https://hooks.test/abc' });
+    await call({ email: 'a@example.com', list: 'gateway' });
+    const again = await call({ email: 'A@example.com', list: 'gateway', country: 'FI' });
+    assert.deepEqual(await again.json(), { ok: true });
+    assert.equal(sent.length, 1);
+    assert.equal(rows()[0].country, 'FI');
+  });
+});
+
+test('a failing webhook still stores the address and answers ok', async () => {
+  await withWebhook(500, async sent => {
+    const { call, rows } = fixture({ webhook: 'https://hooks.test/abc' });
+    const errors = console.error;
+    console.error = () => {};
+    try {
+      const response = await call({ email: 'a@example.com', list: 'news' });
+      assert.deepEqual(await response.json(), { ok: true });
+    } finally { console.error = errors; }
+    assert.equal(sent.length, 1);
+    assert.equal(rows().length, 1);
+  });
+});
+
+test('without a webhook nothing is sent', async () => {
+  await withWebhook(200, async sent => {
+    const { call, rows } = fixture();
+    await call({ email: 'a@example.com', list: 'news' });
+    assert.equal(sent.length, 0);
+    assert.equal(rows().length, 1);
+  });
 });
 
 test('other paths still reach the static site', async () => {
