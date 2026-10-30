@@ -34,7 +34,11 @@ test('the car gets the same energy in both runs, and the plan has it ready by 07
 
 test('both runs end with the battery about equally full, so the saving is not borrowed from storage', () => {
   assert.ok(Math.abs(withPlan.stored - withoutPlan.stored) < 0.1);
-  assert.ok(Math.abs(withPlan.stored / battery.capacity - 0.95) < 0.01, 'the fine print says about 95 % full');
+  for (const run of Object.values(runs)) {
+    assert.ok(Math.abs(run.stored / battery.capacity - 0.5) < 0.05, 'the fine print says it ends about half full');
+  }
+  assert.equal(battery.start / battery.capacity, 0.5, 'the fine print says it starts half full');
+  assert.match(page, new RegExp(`a ${battery.capacity} kWh battery`));
 });
 
 test('the numbers on the page come from the model', () => {

@@ -8,8 +8,7 @@
   <meta name="keywords" content="FTW, home energy management, HEMS, energy planner, Energyplan, save on electricity, EV charging, home battery, solar, open source, Raspberry Pi, Home Assistant, iPhone, MCP, Claude, ChatGPT, Grok, Cursor, Codex">
   <meta name="robots" content="index,follow">
   <meta name="author" content="Sourceful Energy">
-  <meta name="theme-color" content="#05080f">
-  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0a0a0a">
   <link rel="canonical" href="https://ftw.sourceful.energy/">
 
   <meta property="og:title" content="FTW | Your home's energy, planned to cost less">
@@ -24,10 +23,8 @@
   <meta name="twitter:image" content="https://ftw.sourceful.energy/assets/ftw-ios-now-live.webp">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="/home.css?v=phosphor-1">
+  <link rel="stylesheet" href="/sourceful.css?v=apps-cloud-2">
+  <link rel="stylesheet" href="/home.css?v=editorial-1">
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
 
   <script type="application/ld+json">
@@ -48,79 +45,80 @@
   }
   </script>
 </head>
-<body>
+<body class="home">
   <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header">
     <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="FTW home"><img src="/favicon.svg" alt="" width="30" height="30"><span>ftw</span></a>
+      <a class="brand" href="#top" aria-label="FTW home"><img src="/favicon.svg" alt="" width="34" height="34"><span class="brand-name">ftw</span></a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#savings">Savings</a><a href="#planner">Planner</a><a href="#ai">AI</a><a href="#app">App</a><a href="#start">Get FTW</a><a href="#community">Community</a>
         <a class="nav-cta" href="https://app.ftw.energy/">Try the demo <span aria-hidden="true">↗</span></a>
       </nav>
       <details class="mobile-nav"><summary>Menu</summary><nav aria-label="Mobile navigation">
-        <a href="#savings">How FTW saves</a><a href="#planner">The energy planner</a><a href="#ai">Claude, ChatGPT, Grok</a><a href="#app">iPhone app</a><a href="#start">Get FTW or a box</a><a href="#news">News</a><a href="#community">Discord</a><a href="https://app.ftw.energy/">Try the demo ↗</a>
+        <a href="#savings">How FTW saves</a><a href="#planner">The energy planner</a><a href="#ai">Claude, ChatGPT, Grok</a><a href="#app">iPhone app</a><a href="#start">Get FTW or a box</a><a href="#news">News</a><a href="#community">Discord</a>
       </nav></details>
     </div>
   </header>
 
   <main id="content">
     <section class="hero" id="top">
-      <div class="hero-glow" aria-hidden="true"></div>
       <div class="wrap hero-layout">
         <div class="hero-copy">
-          <p class="kicker"><span class="dot" aria-hidden="true"></span>FTW · Open source · Public beta</p>
-          <h1>Your home's energy, <em>planned to cost less.</em></h1>
-          <p class="lede">FTW runs on a small computer in your home. It plans your battery, car and solar around prices and the weather, then runs them. Follow it live on your phone. Ask your AI why.</p>
-          <div class="actions">
+          <p class="project-state"><span class="status-dot" aria-hidden="true"></span>FTW · Open source · Public beta</p>
+          <h1>Your home's energy, planned to cost <em>less.</em></h1>
+          <p class="hero-lede">FTW runs on a small computer in your home. It plans your battery, car and solar around prices and the weather, then runs them. Follow it live on your phone. Ask your AI why.</p>
+          <div class="hero-actions">
             <a class="btn btn-primary" href="https://app.ftw.energy/">Try the live demo <span aria-hidden="true">↗</span></a>
-            <a class="btn" href="#start">Get FTW <span aria-hidden="true">↓</span></a>
+            <a class="btn btn-ghost" href="#start">Get FTW <span aria-hidden="true">↓</span></a>
           </div>
-          <p class="hero-note">iPhone? <a href="https://testflight.apple.com/join/E4Japad7">Join the beta on TestFlight ↗</a></p>
-          <ul class="hero-facts">
-            <li><b>Local</b>Plans and controls at home, also offline</li>
-            <li><b>Mixed brands</b>One plan for meter, solar, battery and car</li>
-            <li><b>Open</b>AGPLv3 code, Lua drivers, MCP for agents</li>
-          </ul>
+          <dl class="project-facts">
+            <div><dt>Runs</dt><dd>At home, offline too</dd></div>
+            <div><dt>Plans</dt><dd>Battery, car, solar</dd></div>
+            <div><dt>Code</dt><dd>Open, AGPLv3</dd></div>
+            <div><dt>Works with</dt><dd>Claude, ChatGPT, Grok</dd></div>
+          </dl>
         </div>
-        <figure class="hero-phone">
-          <div class="phone">
-            <video class="screen" src="/assets/ftw-ios-now-live.mp4" poster="/assets/ftw-ios-now-live.webp" width="600" height="1304" autoplay muted loop playsinline aria-label="The FTW iPhone app's Now screen: a ring of light shows solar, battery, grid and car power around the home's use in a simulated home"></video>
-          </div>
-          <figcaption>Recorded from the FTW iPhone app · Simulated home</figcaption>
+        <figure class="hero-shot">
+          <video src="/assets/ftw-ios-now-live.mp4" poster="/assets/ftw-ios-now-live.webp" width="600" height="1304" autoplay muted loop playsinline aria-label="The FTW iPhone app's Now screen: a ring of light shows solar, battery, grid and car power around the home's use in a simulated home"></video>
+          <figcaption>FTW for iPhone · Recorded from the app · Simulated home</figcaption>
         </figure>
       </div>
-      <div class="wrap works-with" aria-label="Ways to use FTW">
-        <span class="label">Use it from</span>
-        <a href="#app">iPhone</a><a href="https://app.ftw.energy/">Web</a><a href="#home-assistant">Home Assistant</a><a href="#ai" data-assistant="claude">Claude</a><a href="#ai" data-assistant="chatgpt">ChatGPT</a><a href="#ai" data-assistant="grok">Grok</a><a href="#ai" data-assistant="cursor">Cursor</a><a href="#ai" data-assistant="codex">Codex</a>
+      <div class="wrap routes" aria-label="Ways to use FTW">
+        <a href="https://testflight.apple.com/join/E4Japad7"><span>iPhone</span>Join the beta <b aria-hidden="true">↗</b></a>
+        <a href="https://app.ftw.energy/"><span>Webapp</span>Try the live demo <b aria-hidden="true">↗</b></a>
+        <a href="#home-assistant"><span>Home Assistant</span>Run FTW in HA <b aria-hidden="true">↓</b></a>
+        <a href="#ai"><span>Claude · ChatGPT · Grok</span>Connect an assistant <b aria-hidden="true">↓</b></a>
       </div>
     </section>
 
-    <section class="section" id="savings">
+    <section class="spread spread-paper" id="savings">
       <div class="wrap">
-        <div class="head">
-          <p class="kicker">01 · Savings</p>
-          <h2>Same energy. <em>Cheaper hours.</em></h2>
-          <p class="intro">Power can cost twice as much at six in the evening as at three in the morning. FTW moves what can wait to the cheap hours and uses your own sun first. You set the goals. FTW picks the times.</p>
+        <div class="lead">
+          <div class="rail"><p class="section-kicker">01 · Savings</p><p class="meta">Example day · Simulated home · Swedish prices</p></div>
+          <div class="body">
+            <h2>Same energy. <em>Cheaper</em> hours.</h2>
+            <p class="section-intro">Power can cost twice as much at six in the evening as at three in the morning. FTW moves what can wait to the cheap hours and uses your own sun first. You set the goals. FTW picks the times.</p>
+          </div>
         </div>
 
-        <div class="example reveal">
+        <div class="example">
           <div class="example-top">
             <div class="toggle" role="radiogroup" aria-label="Compare the example day">
               <button type="button" role="radio" aria-checked="true" data-mode="without">Charge at plug-in</button>
               <button type="button" role="radio" aria-checked="false" data-mode="with">With the FTW plan</button>
             </div>
-            <p class="example-tag">Example day · Simulated home</p>
+            <p class="meta">Example day · Simulated home</p>
           </div>
           <div class="example-body">
             <div class="day-chart" id="day-chart" role="img" aria-label="An example day from 16:00 to 16:00. Without a plan the car charges at 17:00 and 18:00, when power costs most. With the FTW plan it charges from 01:00 to 05:00, when power costs least.">
-              <noscript><p class="small">The chart needs JavaScript. In short: without a plan, the car charges at 17:00 and 18:00, the most expensive hours. With the FTW plan, it charges from 01:00 to 05:00, the cheapest.</p></noscript>
+              <noscript><p class="small-note">The chart needs JavaScript. In short: without a plan, the car charges at 17:00 and 18:00, the most expensive hours. With the FTW plan, it charges from 01:00 to 05:00, the cheapest.</p></noscript>
             </div>
             <div class="readout" aria-live="polite">
-              <p class="readout-label">This day costs</p>
-              <p class="readout-cost"><span id="cost">77.77</span> <small>kr</small></p>
-              <p class="readout-line">Average price paid <b id="avg">2.23</b> kr/kWh</p>
-              <p class="readout-saved" id="saved" hidden>Saves <b>27.37 kr</b>, 35 %</p>
-              <p class="readout-story" id="story">The car charges as soon as it plugs in, at the day's peak. The battery is empty before the evening ends.</p>
+              <p class="meta">This day costs</p>
+              <p class="readout-cost"><span id="cost">64.66</span> <small>kr</small></p>
+              <p class="readout-line">Average price paid <b id="avg">2.22</b> kr/kWh</p>
+              <p class="readout-saved" id="saved" hidden>Saves <b>26.31 kr</b>, 41 %</p>
+              <p class="readout-story" id="story">The car charges as soon as it plugs in, at the day's peak. The battery runs empty early in the evening and waits for the sun.</p>
             </div>
           </div>
           <ul class="legend" aria-label="Chart key">
@@ -128,78 +126,79 @@
           </ul>
         </div>
 
-        <div class="savers">
-          <article class="reveal"><span class="sw" style="--c: var(--car)"></span><h3>The car charges when power is cheap.</h3><p>Plug in and set 80 % by 07:00. FTW picks the cheapest hours before then. In the example, that alone saves most of the money.</p></article>
-          <article class="reveal"><span class="sw" style="--c: var(--stores)"></span><h3>The battery buys low and covers the peaks.</h3><p>It stores cheap night power or spare sun, and gives it back when prices climb. Losses count, so it only cycles when the gap pays.</p></article>
-          <article class="reveal"><span class="sw" style="--c: var(--solar)"></span><h3>Your sun stays at home.</h3><p>FTW uses your solar in the house, the car and the battery before it sells it cheap and buys it back dear.</p></article>
-          <article class="reveal"><span class="sw" style="--c: var(--grid)"></span><h3>No hour runs over your limit.</h3><p>Set a main fuse and an hourly import limit. FTW keeps every hour under it, so a peak fee or a tripped fuse does not eat the gain.</p></article>
+        <div class="ledger">
+          <div><p class="meta"><i class="k-car"></i>Car</p><div><h3>It charges when power is cheap.</h3><p>Plug in and set 80 % by 07:00. FTW picks the cheapest hours before then. In the example, that alone saves most of the money.</p></div></div>
+          <div><p class="meta"><i class="k-stores"></i>Battery</p><div><h3>It buys low and covers the peaks.</h3><p>A 20 kWh battery covers the house all evening, stores cheap night power or spare sun, and gives it back when prices climb. Losses count, so it only cycles when the gap pays.</p></div></div>
+          <div><p class="meta"><i class="k-sun"></i>Sun</p><div><h3>Your solar stays at home.</h3><p>FTW uses it in the house, the car and the battery before it sells it cheap and buys it back dear.</p></div></div>
+          <div><p class="meta"><i class="k-buy"></i>Limits</p><div><h3>No hour runs over your limit.</h3><p>Set a main fuse and an hourly import limit. FTW keeps every hour under it, so a peak fee or a tripped fuse does not eat the gain.</p></div></div>
         </div>
-        <p class="fine">The example uses made-up but typical Swedish prices, a 10 kWh battery, an 11 kW charger and a car that needs 22 kWh by 07:00. Buying adds 90 öre/kWh in tax and fees; selling earns the spot price. Both runs end with the battery about 95 % full. It is not a measured result: what you save depends on your tariff, equipment and habits. In the app, History shows what each of your days cost.</p>
+        <p class="fine">The example uses made-up but typical Swedish prices, a 20 kWh battery, an 11 kW charger and a car that needs 22 kWh by 07:00. Buying adds 90 öre/kWh in tax and fees; selling earns the spot price. Both runs start with the battery half full and end with it about half full. It is not a measured result: what you save depends on your tariff, equipment and habits. In the app, History shows what each of your days cost.</p>
       </div>
     </section>
 
-    <section class="section section-raised" id="planner">
+    <section class="spread spread-cream" id="planner">
       <div class="wrap">
-        <div class="head">
-          <p class="kicker">02 · The energy planner</p>
-          <h2>One plan for the whole home. <em>Remade all the time.</em></h2>
-          <p class="intro">Energyplan, FTW's planner, looks ahead in 15-minute steps. It weighs prices, your solar forecast, how your home uses power and when the car must be ready. When anything changes, it plans again. Core checks every step before a device moves.</p>
+        <div class="lead">
+          <div class="rail"><p class="section-kicker">02 · The energy planner</p><p class="meta">Energyplan · Core · 15-minute steps</p></div>
+          <div class="body">
+            <h2>One plan for the whole <em>home.</em></h2>
+            <p class="section-intro">Energyplan, FTW's planner, looks ahead in 15-minute steps. It weighs prices, your solar forecast, how your home uses power and when the car must be ready. When anything changes, it plans again. Core checks every step before a device moves.</p>
+          </div>
         </div>
-        <div class="pipeline reveal">
+        <div class="pipeline">
           <div class="stage">
-            <p class="stage-label">In</p>
-            <ul class="inputs">
-              <li><i style="--c: var(--ink)"></i>Prices, hour by hour</li>
-              <li><i style="--c: var(--solar)"></i>Solar forecast for your roof</li>
-              <li><i style="--c: var(--ink2)"></i>Your home's usual use</li>
-              <li><i style="--c: var(--car)"></i>Car goals, like 80 % by 07:00</li>
-              <li><i style="--c: var(--grid)"></i>Main fuse and hourly limit</li>
+            <p class="meta"><span>1</span>In</p>
+            <ul class="check-list">
+              <li>Prices, hour by hour</li>
+              <li>Solar forecast for your roof</li>
+              <li>Your home's usual use</li>
+              <li>Car goals, like 80 % by 07:00</li>
+              <li>Main fuse and hourly limit</li>
             </ul>
           </div>
-          <div class="wire" aria-hidden="true"></div>
           <div class="stage stage-plan">
-            <p class="stage-label">Energyplan</p>
-            <svg class="dial" id="dial" viewBox="0 0 240 240" role="img" aria-label="The example day's plan on one dial, the way the app draws it: a tick per quarter hour, long when power costs more. Cyan where the battery stores, white where it gives, violet dots where the car charges."></svg>
-            <p class="small">The example day, drawn like the app's plan dial.</p>
+            <p class="meta"><span>2</span>Energyplan</p>
+            <svg class="dial" id="dial" viewBox="0 0 240 240" role="img" aria-label="The example day's plan on one dial, the way the app draws it: a tick per quarter hour, long when power costs more. Orange where the battery stores, cream where it gives, dots where the car charges."></svg>
+            <p class="small-note">The example day as the app's plan dial. Ticks: price. Orange: the battery stores. Cream: it gives. Dots: the car charges.</p>
           </div>
-          <div class="wire" aria-hidden="true"></div>
           <div class="stage">
-            <p class="stage-label">Core checks</p>
-            <ul class="checks">
+            <p class="meta"><span>3</span>Core checks</p>
+            <ul class="check-list">
               <li>Fuse and hourly limit hold</li>
               <li>Battery stays in its range</li>
               <li>Meter readings are fresh</li>
               <li>Each device can do it</li>
             </ul>
-            <p class="small">Stale meter data stops control. No plan reaches a device unchecked.</p>
+            <p class="small-note">Stale meter data stops control. No plan reaches a device unchecked.</p>
           </div>
-          <div class="wire" aria-hidden="true"></div>
           <div class="stage">
-            <p class="stage-label">Out</p>
-            <p class="receipt" aria-label="Every command shows its receipt: sent, accepted, measured, confirmed"><span>SENT</span><span>ACCEPTED</span><span>MEASURED</span><span>CONFIRMED</span></p>
-            <p class="small">Trust what you read, not what you sent. FTW checks that each device did what it was asked.</p>
+            <p class="meta"><span>4</span>Out</p>
+            <p class="receipt" aria-label="Every command shows its receipt: sent, accepted, measured, confirmed"><span>Sent</span><span>Accepted</span><span>Measured</span><span>Confirmed</span></p>
+            <p class="small-note">Trust what you read, not what you sent. FTW checks that each device did what it was asked.</p>
           </div>
         </div>
-        <div class="planner-points">
-          <article class="reveal"><h3>Learns your home.</h3><p>Solar and usage forecasts start from day one and improve with your own readings. No roof drawings needed.</p></article>
-          <article class="reveal"><h3>Plans again on every change.</h3><p>New prices, a cloud, the car plugged in or a new goal. The plan follows within minutes.</p></article>
-          <article class="reveal"><h3>Says when it can't.</h3><p>If the fuse or the hour limit puts a car goal out of reach, the plan shows how much is missing. It does not pretend.</p></article>
-          <article class="reveal"><h3>You choose the style.</h3><p>From Careful to Bold: how much FTW should trust the forecast. Charge now is one tap; the rest of the home adapts.</p></article>
+        <div class="points">
+          <div><h3>Learns your home.</h3><p>Solar and usage forecasts start from day one and improve with your own readings. No roof drawings needed.</p></div>
+          <div><h3>Plans again on every change.</h3><p>New prices, a cloud, the car plugged in or a new goal. The plan follows within minutes.</p></div>
+          <div><h3>Says when it can't.</h3><p>If the fuse or the hour limit puts a car goal out of reach, the plan shows how much is missing.</p></div>
+          <div><h3>You choose the style.</h3><p>From Careful to Bold: how much FTW should trust the forecast. Charge now is one tap; the rest of the home adapts.</p></div>
         </div>
-        <p class="links"><a href="https://github.com/srcfl/ftw/blob/master/VISION.md">Read the product vision ↗</a><a href="https://srcfl.github.io/device-drivers/">Check your equipment ↗</a></p>
+        <p class="links"><a class="text-link" href="https://github.com/srcfl/ftw/blob/master/VISION.md">Read the product vision ↗</a><a class="text-link" href="https://srcfl.github.io/device-drivers/">Check your equipment ↗</a></p>
       </div>
     </section>
 
-    <section class="section" id="ai">
+    <section class="spread spread-ink" id="ai">
       <div class="wrap">
-        <div class="head">
-          <p class="kicker">03 · AI</p>
-          <h2>Ask your home anything. <em>In the assistant you already use.</em></h2>
-          <p class="intro">The FTW plugin connects Claude, ChatGPT, Grok, Cursor and Codex to your home through one MCP address. Ask why the battery is charging, whether the car will be ready, or get help setting up a new box.</p>
+        <div class="lead">
+          <div class="rail"><p class="section-kicker">03 · AI</p><p class="meta">MCP · FTW plugin · Your approval</p></div>
+          <div class="body">
+            <h2>Ask your home, in the assistant you already <em>use.</em></h2>
+            <p class="section-intro">The FTW plugin connects Claude, ChatGPT, Grok, Cursor and Codex to your home through one MCP address. Ask why the battery is charging, whether the car will be ready, or get help setting up a new box.</p>
+          </div>
         </div>
         <div class="ai-layout">
-          <div class="connect reveal">
-            <p class="stage-label">One address for every assistant</p>
+          <div class="connect">
+            <p class="meta">MCP address, the same for every assistant</p>
             <div class="address"><code id="mcp-url">https://cloud.ftw.energy/mcp?profile=public</code><button type="button" class="copy" data-copy="#mcp-url">Copy</button></div>
             <div class="tabs" role="tablist" aria-label="Choose your assistant">
               <button type="button" role="tab" id="tab-claude" aria-controls="panel-claude" aria-selected="true">Claude</button>
@@ -210,103 +209,105 @@
               <button type="button" role="tab" id="tab-codex" aria-controls="panel-codex" aria-selected="false" tabindex="-1">Codex</button>
             </div>
             <div class="panel" role="tabpanel" id="panel-claude" aria-labelledby="tab-claude"><ol><li>In Claude on the web, desktop or phone, open <b>Settings → Connectors</b>.</li><li>Choose <b>Add custom connector</b> and paste the address. Leave the client ID empty.</li><li>Sign in to FTW Cloud, then approve Claude in FTW.</li></ol></div>
-            <div class="panel" role="tabpanel" id="panel-chatgpt" aria-labelledby="tab-chatgpt" hidden><ol><li>FTW is waiting for its listing in ChatGPT's plugin directory.</li><li>Until then, add the address as a custom MCP server on the <b>Plugins</b> page. Some workspaces need developer mode turned on first.</li><li>Sign in to FTW Cloud, then approve ChatGPT in FTW.</li></ol><p class="small"><a href="/chatgpt">More about FTW for ChatGPT →</a></p></div>
+            <div class="panel" role="tabpanel" id="panel-chatgpt" aria-labelledby="tab-chatgpt" hidden><ol><li>FTW is waiting for its listing in ChatGPT's plugin directory.</li><li>Until then, add the address as a custom MCP server on the <b>Plugins</b> page. Some workspaces need developer mode turned on first.</li><li>Sign in to FTW Cloud, then approve ChatGPT in FTW.</li></ol><p class="small-note"><a href="/chatgpt">More about FTW for ChatGPT →</a></p></div>
             <div class="panel" role="tabpanel" id="panel-grok" aria-labelledby="tab-grok" hidden><ol><li>Ask Grok to connect FTW at the address.</li><li>Approve the connect card Grok shows you.</li><li>Sign in to FTW Cloud, then approve Grok in FTW.</li></ol></div>
             <div class="panel" role="tabpanel" id="panel-cursor" aria-labelledby="tab-cursor" hidden><ol><li>Add the address as an MCP server in Cursor's settings.</li><li>Or copy the <a href="https://github.com/srcfl/ftw-plugin">plugin</a> to <code>~/.cursor/plugins/local/ftw</code> and reload the window.</li><li>Sign in to FTW Cloud, then approve Cursor in FTW.</li></ol></div>
             <div class="panel" role="tabpanel" id="panel-claude-code" aria-labelledby="tab-claude-code" hidden><ol><li>Add the plugin, with its setup and energy skills:<div class="cmd"><code id="cc-1">/plugin marketplace add srcfl/ftw-plugin</code><button type="button" class="copy" data-copy="#cc-1">Copy</button></div><div class="cmd"><code id="cc-2">/plugin install ftw@ftw</code><button type="button" class="copy" data-copy="#cc-2">Copy</button></div></li><li>Or the server alone:<div class="cmd"><code id="cc-3">claude mcp add --transport http -s user ftw "https://cloud.ftw.energy/mcp?profile=public"</code><button type="button" class="copy" data-copy="#cc-3">Copy</button></div></li><li>Approve Claude Code in FTW.</li></ol></div>
             <div class="panel" role="tabpanel" id="panel-codex" aria-labelledby="tab-codex" hidden><ol><li>Add the plugin:<div class="cmd"><code id="cx-1">codex plugin marketplace add srcfl/ftw-plugin</code><button type="button" class="copy" data-copy="#cx-1">Copy</button></div><div class="cmd"><code id="cx-2">codex plugin add ftw@ftw</code><button type="button" class="copy" data-copy="#cx-2">Copy</button></div></li><li>Or the server alone: <code>codex mcp add ftw --url "https://cloud.ftw.energy/mcp?profile=public"</code>, then <code>codex mcp login ftw</code>.</li><li>Approve Codex in FTW.</li></ol></div>
-            <p class="small">Needs a current FTW beta with FTW Cloud turned on. No box yet? The setup guide in the plugin helps you install FTW first.</p>
+            <p class="small-note">Needs a current FTW beta with FTW Cloud turned on. No box yet? The setup guide in the plugin helps you install FTW first.</p>
           </div>
 
-          <div class="chat reveal" id="chat" aria-label="An example conversation with an assistant connected to FTW">
-            <p class="chat-tag">Example · From the example day above</p>
-            <div class="msg msg-user">Why is the battery charging now? Power isn't free at three in the morning.</div>
-            <div class="msg msg-tool"><span>FTW</span> read plan · read prices · read live</div>
-            <div class="msg msg-bot">This is the night's cheapest hour, 1.26 kr/kWh. FTW stores 3.6 kWh now and uses it from 06:00 to 09:00, when the price climbs to 2.35. After losses that still saves money. The car charges from 01:00 to 05:00 and will have its 22 kWh by 07:00.</div>
-            <div class="msg msg-user">Can you start charging the car now instead?</div>
-            <div class="msg msg-bot">I can, if you allow control. FTW will ask you to approve it on your phone. It lasts minutes, stays under your fuse, and the plan takes over again after.</div>
+          <div class="transcript" id="chat" aria-label="An example conversation with an assistant connected to FTW">
+            <p class="meta">Example · From the example day above</p>
+            <div class="turn"><span>You</span><p>Why is the battery charging now? Power isn't free at three in the morning.</p></div>
+            <div class="turn turn-tool"><span>FTW</span><p>read plan · read prices · read live</p></div>
+            <div class="turn"><span>Assistant</span><p>This is the night's cheapest hour, 1.26 kr/kWh. FTW stores 3.6 kWh now and uses it from 06:00 to 09:00, when the price climbs to 2.35. After losses that still saves money. The car charges from 01:00 to 05:00 and will have its 22 kWh by 07:00.</p></div>
+            <div class="turn"><span>You</span><p>Can you start charging the car now instead?</p></div>
+            <div class="turn"><span>Assistant</span><p>I can, if you allow control. FTW will ask you to approve it on your phone. It lasts minutes, stays under your fuse, and the plan takes over again after.</p></div>
           </div>
         </div>
-        <div class="trust">
-          <article class="reveal"><h3>You approve each assistant.</h3><p>On your phone with Face ID, or on your box's own page with the house password. End access any time.</p></article>
-          <article class="reveal"><h3>Reading is not control.</h3><p>Assistants read by default. Control is a separate grant that lasts minutes, within limits your box sets. Lasting changes wait for you.</p></article>
-          <article class="reveal"><h3>The box decides.</h3><p>Core checks every request. If the assistant, FTW Cloud or the internet goes away, your home keeps running.</p></article>
+        <div class="service-list">
+          <div><span>01</span><p><strong>You approve each assistant.</strong>On your phone with Face ID, or on your box's own page with the house password. End access any time.</p></div>
+          <div><span>02</span><p><strong>Reading is not control.</strong>Assistants read by default. Control is a separate grant that lasts minutes, within limits your box sets. Lasting changes wait for you.</p></div>
+          <div><span>03</span><p><strong>The box decides.</strong>Core checks every request. If the assistant, FTW Cloud or the internet goes away, your home keeps running.</p></div>
         </div>
         <p class="fine">FTW Cloud and the company that runs your assistant can read what you let the assistant read. <a href="/privacy#assistants">How access and privacy work</a> · <a href="/plugin-terms">Plugin terms</a> · <a href="https://github.com/srcfl/ftw-plugin">Plugin source</a> · Build your own: <a href="https://github.com/srcfl/ftw/blob/master/docs/adr/0011-agent-led-setup.md">agent access in Core ↗</a></p>
       </div>
     </section>
 
-    <section class="section section-raised" id="app">
+    <section class="spread spread-paper" id="app">
       <div class="wrap app-layout">
-        <div class="tour reveal" id="tour">
-          <div class="phone">
+        <div class="tour" id="tour">
+          <div class="screens">
             <video class="screen is-on" data-slide="0" src="/assets/ftw-ios-now-live.mp4" poster="/assets/ftw-ios-now-live.webp" width="600" height="1304" muted loop playsinline preload="none" aria-hidden="true"></video>
             <img class="screen" data-slide="1" src="/assets/ftw-ios-plan.webp" alt="" width="600" height="1305" loading="lazy">
             <img class="screen" data-slide="2" src="/assets/ftw-ios-car.webp" alt="" width="600" height="1305" loading="lazy">
             <img class="screen" data-slide="3" src="/assets/ftw-ios-history.webp" alt="" width="600" height="1305" loading="lazy">
             <img class="screen" data-slide="4" src="/assets/ftw-ios-price.webp" alt="" width="600" height="1305" loading="lazy">
           </div>
-          <p class="tour-note">Real app screens · Simulated home</p>
+          <p class="meta">Real app screens · Simulated home</p>
         </div>
         <div class="app-copy">
-          <p class="kicker">04 · The app</p>
+          <p class="section-kicker">04 · The app</p>
           <h2>Light means <em>live.</em></h2>
-          <p class="intro">The FTW iPhone app opens on your home at once, from its own copy. Only what is live right now glows. The past and the plan hold still, so you never mistake an old number for a new one.</p>
+          <p class="section-intro">The FTW iPhone app opens on your home at once, from its own copy. Only what is live right now glows. The past and the plan hold still, so you never mistake an old number for a new one.</p>
           <ol class="tour-steps" aria-label="App screens">
-            <li><button type="button" data-slide="0" aria-pressed="true"><b>Now</b>A ring of light shows where power flows, this second.</button></li>
-            <li><button type="button" data-slide="1" aria-pressed="false"><b>Plan</b>The next 24 hours on one dial: price, sun, battery and car.</button></li>
-            <li><button type="button" data-slide="2" aria-pressed="false"><b>Car</b>Set a level and a time. Or tap Charge now.</button></li>
-            <li><button type="button" data-slide="3" aria-pressed="false"><b>History</b>What each day made, used and cost.</button></li>
-            <li><button type="button" data-slide="4" aria-pressed="false"><b>Price</b>Hour by hour, with the cheapest window marked.</button></li>
+            <li><button type="button" data-slide="0" aria-pressed="true"><span>Now</span>A ring of light shows where power flows, this second.</button></li>
+            <li><button type="button" data-slide="1" aria-pressed="false"><span>Plan</span>The next 24 hours on one dial: price, sun, battery and car.</button></li>
+            <li><button type="button" data-slide="2" aria-pressed="false"><span>Car</span>Set a level and a time. Or tap Charge now.</button></li>
+            <li><button type="button" data-slide="3" aria-pressed="false"><span>History</span>What each day made, used and cost.</button></li>
+            <li><button type="button" data-slide="4" aria-pressed="false"><span>Price</span>Hour by hour, with the cheapest window marked.</button></li>
           </ol>
-          <div class="actions">
+          <div class="hero-actions">
             <a class="btn btn-primary" href="https://testflight.apple.com/join/E4Japad7">Get the iPhone beta <span aria-hidden="true">↗</span></a>
-            <a class="btn" href="https://app.ftw.energy/">Open the webapp <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-ghost" href="https://app.ftw.energy/">Open the webapp <span aria-hidden="true">↗</span></a>
           </div>
-          <p class="small">iOS 26 or later, with widgets and a Live Activity. The app and the webapp both include a simulated home, so you can look around before you have a box.</p>
+          <p class="small-note">iOS 26 or later, with widgets and a Live Activity. The app and the webapp both include a simulated home, so you can look around before you have a box.</p>
         </div>
       </div>
     </section>
 
-    <section class="section" id="start">
+    <section class="spread spread-cream" id="start">
       <div class="wrap">
-        <div class="head">
-          <p class="kicker">05 · Get FTW</p>
-          <h2>Run it on what you have. <em>Or get a box.</em></h2>
-          <p class="intro">FTW is free, open-source software. Put it on Home Assistant or a Raspberry Pi today, then add the app and an assistant when you want them.</p>
+        <div class="lead">
+          <div class="rail"><p class="section-kicker">05 · Get FTW</p><p class="meta">Free software · Home Assistant · Raspberry Pi</p></div>
+          <div class="body">
+            <h2>Run it on what you have. Or get a <em>box.</em></h2>
+            <p class="section-intro">FTW is free, open-source software. Put it on Home Assistant or a Raspberry Pi today, then add the app and an assistant when you want them.</p>
+          </div>
         </div>
         <div class="paths">
-          <article class="path path-box reveal" id="box">
-            <p class="stage-label">Waitlist · FTW box</p>
+          <article id="box">
+            <span class="panel-tag">Waitlist</span>
             <h3>A box, ready to go.</h3>
             <p>We have a stock of Sourceful Energy Gateways, built on the Raspberry Pi 4. We plan to sell them set up for FTW. Join the waitlist and we'll email you first when orders open, with the price and shipping.</p>
             <form class="signup" data-list="gateway" novalidate>
-              <label class="sr-only" for="gw-email">Email</label>
+              <label class="meta" for="gw-email">Email</label>
               <input id="gw-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
-              <label class="sr-only" for="gw-country">Country</label>
+              <label class="meta" for="gw-country">Country, if you like</label>
               <select id="gw-country" name="country">
-                <option value="">Country (optional)</option>
+                <option value="">Choose</option>
                 <option value="SE">Sweden</option><option value="NO">Norway</option><option value="DK">Denmark</option><option value="FI">Finland</option><option value="DE">Germany</option><option value="NL">Netherlands</option><option value="EU">Elsewhere in the EU</option><option value="XX">Outside the EU</option>
               </select>
               <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
               <button class="btn btn-primary" type="submit">Join the waitlist</button>
               <p class="form-status" role="status"></p>
             </form>
-            <p class="small">No payment now. We use your address for this waitlist only. <a href="/privacy#email">Privacy</a></p>
+            <p class="small-note">No payment now. We use your address for this waitlist only. <a href="/privacy#email">Privacy</a></p>
           </article>
-          <article class="path reveal" id="home-assistant">
-            <p class="stage-label">Home Assistant OS</p>
+          <article id="home-assistant">
+            <span class="cap-number">HOME ASSISTANT OS</span>
             <h3>FTW, inside Home Assistant.</h3>
-            <p>Install the <b>FTW (0.x beta)</b> app from the Sourceful repository. The core runs on your HA hardware and its page opens from HA.</p>
-            <a class="btn" href="https://github.com/srcfl/ftw/blob/master/docs/home-assistant-app.md">Install in Home Assistant <span aria-hidden="true">↗</span></a>
-            <p class="small">Beta · aarch64 and amd64</p>
+            <p>Install the <strong>FTW (0.x beta)</strong> app from the Sourceful repository. The core runs on your HA hardware and its page opens from HA.</p>
+            <a class="btn btn-ghost" href="https://github.com/srcfl/ftw/blob/master/docs/home-assistant-app.md">Install in Home Assistant <span aria-hidden="true">↗</span></a>
+            <p class="small-note">Beta · aarch64 and amd64</p>
           </article>
-          <article class="path reveal">
-            <p class="stage-label">Raspberry Pi + Linux</p>
+          <article>
+            <span class="cap-number">RASPBERRY PI + LINUX</span>
             <h3>Your hardware. Your core.</h3>
             <p>Run FTW on a Raspberry Pi or another 64-bit Linux computer. The guide covers native and Docker installs and the checks your site needs.</p>
-            <a class="btn" href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#choose-your-path">Install on Linux <span aria-hidden="true">↗</span></a>
-            <p class="small">Raspberry Pi OS, Debian and Ubuntu</p>
+            <a class="btn btn-ghost" href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#choose-your-path">Install on Linux <span aria-hidden="true">↗</span></a>
+            <p class="small-note">Raspberry Pi OS, Debian and Ubuntu</p>
           </article>
         </div>
         <div class="install-notes">
@@ -316,67 +317,68 @@
       </div>
     </section>
 
-    <section class="section section-raised" id="news">
+    <section class="spread spread-paper" id="news">
       <div class="wrap news-layout">
         <div>
-          <p class="kicker">06 · News</p>
-          <h2>What's new.</h2>
+          <p class="section-kicker">06 · News</p>
+          <h2>What's <em>new.</em></h2>
           <ul class="news">
-            <li class="reveal"><time datetime="2026-10-29">29 Oct</time><div><b>iPhone 0.6</b> shows what each day cost in History, and the whole plan in lanes with a marked scale. <a href="https://testflight.apple.com/join/E4Japad7">TestFlight ↗</a></div></li>
-            <li class="reveal"><time datetime="2026-10-26">26 Oct</time><div><b>The FTW plugin</b> now works in Claude, ChatGPT, Grok, Cursor and Codex, through one MCP address. <a href="#ai">Connect yours ↓</a></div></li>
-            <li class="reveal"><time datetime="2026-10-25">25 Oct</time><div><b>Energyplan 0.6</b> keeps every clock hour under your hourly import limit, and shows a car goal it cannot reach as short. <a href="https://github.com/srcfl/ftw/releases/tag/v0.157.0-beta.1">Release notes ↗</a></div></li>
-            <li class="reveal"><time datetime="2026-10-25">25 Oct</time><div><b>No terminal needed</b> to connect an assistant: set a house password on the box's Access page and approve it there. <a href="https://github.com/srcfl/ftw/releases/tag/v0.157.0-beta.1">Release notes ↗</a></div></li>
+            <li><time datetime="2026-10-29">29 Oct</time><p><strong>iPhone 0.6</strong> shows what each day cost in History, and the whole plan in lanes with a marked scale. <a href="https://testflight.apple.com/join/E4Japad7">TestFlight ↗</a></p></li>
+            <li><time datetime="2026-10-26">26 Oct</time><p><strong>The FTW plugin</strong> now works in Claude, ChatGPT, Grok, Cursor and Codex, through one MCP address. <a href="#ai">Connect yours ↓</a></p></li>
+            <li><time datetime="2026-10-25">25 Oct</time><p><strong>Energyplan 0.6</strong> keeps every clock hour under your hourly import limit, and shows a car goal it cannot reach as short. <a href="https://github.com/srcfl/ftw/releases/tag/v0.157.0-beta.1">Release notes ↗</a></p></li>
+            <li><time datetime="2026-10-25">25 Oct</time><p><strong>No terminal needed</strong> to connect an assistant: set a house password on the box's Access page and approve it there. <a href="https://github.com/srcfl/ftw/releases/tag/v0.157.0-beta.1">Release notes ↗</a></p></li>
           </ul>
-          <p class="links"><a href="https://github.com/srcfl/ftw/releases">All releases ↗</a><a href="https://github.com/srcfl/ftw/blob/master/docs/roadmap.md">Roadmap ↗</a></p>
+          <p class="links"><a class="text-link" href="https://github.com/srcfl/ftw/releases">All releases ↗</a><a class="text-link" href="https://github.com/srcfl/ftw/blob/master/docs/roadmap.md">Roadmap ↗</a></p>
         </div>
-        <div class="newsletter reveal">
+        <div class="newsletter">
+          <p class="meta">Newsletter</p>
           <h3>Get the news by email.</h3>
           <p>A short note when something new ships: features, betas and the box. Leave any time.</p>
           <form class="signup" data-list="news" novalidate>
-            <label class="sr-only" for="news-email">Email</label>
+            <label class="meta" for="news-email">Email</label>
             <input id="news-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
             <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
             <button class="btn btn-primary" type="submit">Sign up</button>
             <p class="form-status" role="status"></p>
           </form>
-          <p class="small">We use your address for FTW news only. <a href="/privacy#email">Privacy</a></p>
+          <p class="small-note">We use your address for FTW news only. <a href="/privacy#email">Privacy</a></p>
         </div>
       </div>
     </section>
 
     <section class="section community" id="community">
-      <div class="wrap">
-        <div class="discord reveal">
-          <div>
-            <p class="kicker">07 · Community</p>
-            <h2>Talk to the people <em>who build FTW.</em></h2>
-            <p class="intro">Ask for help, share your setup and tell us what to build next. Owners and developers are in the same Discord, in English and Swedish.</p>
-            <div class="actions">
-              <a class="btn btn-primary" href="https://discord.gg/UK2ygPBu8N">Join the Discord <span aria-hidden="true">↗</span></a>
-              <a class="btn" href="https://discord.gg/25xcBzQaux" hreflang="sv">På svenska <span aria-hidden="true">↗</span></a>
-            </div>
+      <div class="wrap community-layout">
+        <div class="community-intro">
+          <p class="section-kicker">07 · Community</p>
+          <h2>Talk to the people who build FTW.</h2>
+          <p>Ask for help, share your setup and tell us what to build next. Owners and developers are in the same Discord, in English and Swedish.</p>
+          <div class="hero-actions">
+            <a class="btn btn-ink" href="https://discord.gg/UK2ygPBu8N">Join the Discord <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-ghost" href="https://discord.gg/25xcBzQaux" hreflang="sv">På svenska <span aria-hidden="true">↗</span></a>
           </div>
-          <ul class="community-links">
-            <li><a href="https://github.com/srcfl/ftw"><b>GitHub</b>Code, issues and releases ↗</a></li>
-            <li><a href="https://srcfl.github.io/device-drivers/"><b>Device catalog</b>Find your equipment ↗</a></li>
-            <li><a href="https://github.com/srcfl/ftw/blob/master/CONTRIBUTING.md"><b>Contribute</b>Fix a driver, send a PR ↗</a></li>
-            <li><a href="https://stats.ftw.energy/"><b>Project statistics</b>Anonymous totals, public ↗</a></li>
-          </ul>
         </div>
-        <p class="fine">FTW code uses AGPLv3 with the Energyplan permission. The separate Energyplan worker is free for private household use; commercial worker use needs a Sourceful license. <a href="https://github.com/srcfl/ftw/blob/master/LICENSING.md">Licensing</a> · <a href="https://github.com/srcfl/ftw/blob/master/SUPPORT.md">Community and commercial support</a></p>
+        <div>
+          <ul class="community-links">
+            <li><a href="https://github.com/srcfl/ftw"><strong>GitHub</strong><span>Code, issues and releases ↗</span></a></li>
+            <li><a href="https://srcfl.github.io/device-drivers/"><strong>Device catalog</strong><span>Find your equipment ↗</span></a></li>
+            <li><a href="https://github.com/srcfl/ftw/blob/master/CONTRIBUTING.md"><strong>Contribute</strong><span>Fix a driver, send a PR ↗</span></a></li>
+            <li><a href="https://stats.ftw.energy/"><strong>Project statistics</strong><span>Anonymous totals, public ↗</span></a></li>
+          </ul>
+          <p class="small-note">FTW code uses AGPLv3 with the Energyplan permission. The separate Energyplan worker is free for private household use; commercial worker use needs a Sourceful license. <a href="https://github.com/srcfl/ftw/blob/master/LICENSING.md">Licensing</a> · <a href="https://github.com/srcfl/ftw/blob/master/SUPPORT.md">Community and commercial support</a></p>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="wrap footer-main">
-    <div class="footer-brand"><img src="/favicon.svg" alt="" width="36" height="36"><div><strong>FTW</strong><span>Your home's energy, planned at home.<br>Built for people and agents.</span></div></div>
+  <footer><div class="wrap footer-main">
+    <div class="footer-brand"><img src="/favicon.svg" alt="" width="38" height="38"><div><strong>FTW</strong><span>Your home's energy, planned at home.<br>Built for people and agents.</span></div></div>
     <div class="footer-links">
       <div><span>Use FTW</span><a href="https://testflight.apple.com/join/E4Japad7">iPhone beta</a><a href="https://app.ftw.energy/">Webapp</a><a href="#home-assistant">Home Assistant</a><a href="#ai">AI assistants</a><a href="#box">Box waitlist</a></div>
       <div><span>Project</span><a href="https://github.com/srcfl/ftw">GitHub</a><a href="https://github.com/srcfl/ftw/releases">Releases</a><a href="https://srcfl.github.io/device-drivers/">Device catalog</a><a href="https://github.com/srcfl/ftw/blob/master/docs/roadmap.md">Roadmap</a><a href="/future/">The future of FTW</a><a href="https://discord.gg/UK2ygPBu8N">Discord</a></div>
       <div><span>Help + terms</span><a href="https://github.com/srcfl/ftw#documentation">Documentation</a><a href="/support">App support</a><a href="/privacy">Privacy</a><a href="/plugin-terms">Plugin terms</a><a href="https://github.com/srcfl/ftw/blob/master/LICENSING.md">Licensing</a><a href="https://github.com/srcfl/ftw/blob/master/TRADEMARKS.md">Trademarks</a></div>
     </div>
-  </div><div class="wrap footer-bottom"><span>© Sourceful Labs AB and FTW contributors</span><a href="https://www.sourceful.energy/">sourceful.energy ↗</a></div></footer>
+  </div><div class="wrap footer-bottom"><span>© Sourceful Labs AB and FTW contributors</span><a class="sourceful-mark" href="https://www.sourceful.energy/"><img src="https://design.sourceful.energy/assets/sourceful-squircle.svg" alt="Sourceful Energy" height="22"></a></div></footer>
   <script src="/navigation.js?v=1" defer></script>
-  <script type="module" src="/home.js?v=phosphor-1"></script>
+  <script type="module" src="/home.js?v=editorial-1"></script>
 </body>
 </html>
