@@ -80,9 +80,11 @@ The home page's two forms post to `/api/signup` in `_worker.js`. It accepts
 same-origin JSON only, checks the address, list and country, ignores a filled
 hidden field and answers the same for a new and a known address. Rows go to a
 D1 database bound as `SIGNUPS_DB`, kept apart from the anonymous
-`FUTURE_DB` votes because it holds email addresses. Create it in the EU
-jurisdiction and apply `signups.sql`. Without the binding the endpoint
-answers 503 and the forms say sign-up is closed. Each row records the consent
+`FUTURE_DB` votes because it holds email addresses. Production and preview
+share the EU database `ftw-signups`
+(`32851378-602c-4b71-b3ea-69e85acff569`); its schema is `signups.sql`.
+Without the binding the endpoint answers 503 and the forms say sign-up is
+closed. Test only with your own address, then delete that row. Each row records the consent
 version that `privacy.html#email` describes; change both together. Name the
 email service in the privacy notice before the first send.
 
