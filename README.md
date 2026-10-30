@@ -38,15 +38,16 @@ wide. `assets/ftw-ios-now-live.mp4` and its poster record Now with
 `-FTWDemo YES`; `ftw-ios-plan`, `-car`, `-history` and `-price.webp` add
 `-FTWTab plan|car|history|price`. All use simulated data.
 
-The home page follows Sourceful's design system
-(https://design.sourceful.energy/DESIGN.md): paper, cream and ink spreads,
-Satoshi with JetBrains Mono micro-labels, Signal Orange as the one accent,
-square corners and hairlines, no glows or gradients. Charts stretch the
-orange scale rather than add colours; the app's own palette stays inside its
-screenshots. `sourceful.css` holds the shared header, buttons and footer for
-every page; `home.css` adds the home page's spreads. `home.js` runs the
-example day, the plan dial, the assistant tabs, the app tour and the sign-up
-forms, and respects Reduce Motion.
+The home page uses the iPhone app's dark palette and its colour per kind of
+energy (`ftw-app`, `Theme.xcassets`), set in Satoshi with JetBrains Mono
+labels. The layout borrows from Sourceful's editorial design
+(https://design.sourceful.energy/DESIGN.md): a label rail beside the text,
+ruled lists, square corners and hairlines. Keep it free of generic template
+marks: no glows, gradients, rounded cards, pill buttons, scroll fades or
+grey second halves in headings. Motion must show something, such as the
+example day, the plan dial, the receipt or the app tour. `home.css` holds the
+home page's styles and `home.js` runs it, respecting Reduce Motion. The
+other pages keep `sourceful.css`.
 
 Sourceful maintains the product; Fredrik owns its direction. PRs are welcome,
 preferably based on [issues](https://github.com/srcfl/ftw-web/issues). Share a

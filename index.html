@@ -8,7 +8,8 @@
   <meta name="keywords" content="FTW, home energy management, HEMS, energy planner, Energyplan, save on electricity, EV charging, home battery, solar, open source, Raspberry Pi, Home Assistant, iPhone, MCP, Claude, ChatGPT, Grok, Cursor, Codex">
   <meta name="robots" content="index,follow">
   <meta name="author" content="Sourceful Energy">
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="theme-color" content="#05080f">
+  <meta name="color-scheme" content="dark">
   <link rel="canonical" href="https://ftw.sourceful.energy/">
 
   <meta property="og:title" content="FTW | Your home's energy, planned to cost less">
@@ -23,8 +24,12 @@
   <meta name="twitter:image" content="https://ftw.sourceful.energy/assets/ftw-ios-now-live.webp">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/sourceful.css?v=apps-cloud-2">
-  <link rel="stylesheet" href="/home.css?v=editorial-1">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/home.css?v=dark-2">
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
 
   <script type="application/ld+json">
@@ -64,8 +69,8 @@
     <section class="hero" id="top">
       <div class="wrap hero-layout">
         <div class="hero-copy">
-          <p class="project-state"><span class="status-dot" aria-hidden="true"></span>FTW · Open source · Public beta</p>
-          <h1>Your home's energy, planned to cost <em>less.</em></h1>
+          <p class="project-state">FTW · Open source · Public beta</p>
+          <h1>Your home's energy, planned to cost less.</h1>
           <p class="hero-lede">FTW runs on a small computer in your home. It plans your battery, car and solar around prices and the weather, then runs them. Follow it live on your phone. Ask your AI why.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://app.ftw.energy/">Try the live demo <span aria-hidden="true">↗</span></a>
@@ -91,10 +96,10 @@
       </div>
     </section>
 
-    <section class="spread spread-paper" id="savings">
+    <section class="spread spread-ground" id="savings">
       <div class="wrap">
         <div class="lead">
-          <div class="rail"><p class="section-kicker">01 · Savings</p><p class="meta">Example day · Simulated home · Swedish prices</p></div>
+          <div class="rail"><p class="section-kicker">01 · Savings</p><p class="meta">Example day · Simulated home · Swedish prices</p><p class="glyphs" id="price-glyphs" role="img" aria-label="The example day's prices from 16:00, as block bars: high in the evening, lowest around 03:00, high again in the morning"></p></div>
           <div class="body">
             <h2>Same energy. <em>Cheaper</em> hours.</h2>
             <p class="section-intro">Power can cost twice as much at six in the evening as at three in the morning. FTW moves what can wait to the cheap hours and uses your own sun first. You set the goals. FTW picks the times.</p>
@@ -136,7 +141,7 @@
       </div>
     </section>
 
-    <section class="spread spread-cream" id="planner">
+    <section class="spread spread-raised" id="planner">
       <div class="wrap">
         <div class="lead">
           <div class="rail"><p class="section-kicker">02 · The energy planner</p><p class="meta">Energyplan · Core · 15-minute steps</p></div>
@@ -158,8 +163,8 @@
           </div>
           <div class="stage stage-plan">
             <p class="meta"><span>2</span>Energyplan</p>
-            <svg class="dial" id="dial" viewBox="0 0 240 240" role="img" aria-label="The example day's plan on one dial, the way the app draws it: a tick per quarter hour, long when power costs more. Orange where the battery stores, cream where it gives, dots where the car charges."></svg>
-            <p class="small-note">The example day as the app's plan dial. Ticks: price. Orange: the battery stores. Cream: it gives. Dots: the car charges.</p>
+            <svg class="dial" id="dial" viewBox="0 0 240 240" role="img" aria-label="The example day's plan on one dial, the way the app draws it: a tick per quarter hour, long when power costs more. Cyan where the battery stores, white where it gives, violet dots where the car charges."></svg>
+            <p class="small-note">The example day as the app draws its plan. Tick length: price. Cyan: the battery stores. White: it gives. Violet dots: the car charges.</p>
           </div>
           <div class="stage">
             <p class="meta"><span>3</span>Core checks</p>
@@ -187,7 +192,7 @@
       </div>
     </section>
 
-    <section class="spread spread-ink" id="ai">
+    <section class="spread spread-ground" id="ai">
       <div class="wrap">
         <div class="lead">
           <div class="rail"><p class="section-kicker">03 · AI</p><p class="meta">MCP · FTW plugin · Your approval</p></div>
@@ -235,7 +240,7 @@
       </div>
     </section>
 
-    <section class="spread spread-paper" id="app">
+    <section class="spread spread-raised" id="app">
       <div class="wrap app-layout">
         <div class="tour" id="tour">
           <div class="screens">
@@ -267,7 +272,7 @@
       </div>
     </section>
 
-    <section class="spread spread-cream" id="start">
+    <section class="spread spread-ground" id="start">
       <div class="wrap">
         <div class="lead">
           <div class="rail"><p class="section-kicker">05 · Get FTW</p><p class="meta">Free software · Home Assistant · Raspberry Pi</p></div>
@@ -317,7 +322,7 @@
       </div>
     </section>
 
-    <section class="spread spread-paper" id="news">
+    <section class="spread spread-raised" id="news">
       <div class="wrap news-layout">
         <div>
           <p class="section-kicker">06 · News</p>
@@ -346,14 +351,14 @@
       </div>
     </section>
 
-    <section class="section community" id="community">
+    <section class="spread spread-ground community" id="community">
       <div class="wrap community-layout">
         <div class="community-intro">
           <p class="section-kicker">07 · Community</p>
-          <h2>Talk to the people who build FTW.</h2>
+          <h2>Talk to the people who <em>build</em> FTW.</h2>
           <p>Ask for help, share your setup and tell us what to build next. Owners and developers are in the same Discord, in English and Swedish.</p>
           <div class="hero-actions">
-            <a class="btn btn-ink" href="https://discord.gg/UK2ygPBu8N">Join the Discord <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-primary" href="https://discord.gg/UK2ygPBu8N">Join the Discord <span aria-hidden="true">↗</span></a>
             <a class="btn btn-ghost" href="https://discord.gg/25xcBzQaux" hreflang="sv">På svenska <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -379,6 +384,6 @@
     </div>
   </div><div class="wrap footer-bottom"><span>© Sourceful Labs AB and FTW contributors</span><a class="sourceful-mark" href="https://www.sourceful.energy/"><img src="https://design.sourceful.energy/assets/sourceful-squircle.svg" alt="Sourceful Energy" height="22"></a></div></footer>
   <script src="/navigation.js?v=1" defer></script>
-  <script type="module" src="/home.js?v=editorial-1"></script>
+  <script type="module" src="/home.js?v=dark-2"></script>
 </body>
 </html>
