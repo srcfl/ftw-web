@@ -33,10 +33,18 @@ demo. Label simulated homes. These show the interface, not measured savings
 or a worker benchmark. Keep HTML dimensions in step with the image files.
 
 Current images come from the iPhone app's built-in demo on an iPhone 17 Pro
-simulator (iOS 26.5), built from `srcfl/ftw-app` commit `95af454`, at 600 px
-wide. `assets/ftw-ios-now-live.mp4` and its poster record Now with
-`-FTWDemo YES`; `ftw-ios-plan`, `-car`, `-history` and `-price.webp` add
-`-FTWTab plan|car|history|price`. All use simulated data.
+simulator (iOS 26.5), at 600 px wide. `ftw-ios-plan`, `-car`, `-history` and
+`-price.webp` come from `srcfl/ftw-app` commit `95af454` with `-FTWDemo YES
+-FTWTab plan|car|history|price`. `ftw-ios-now-ring.webp` is a frame of Now
+with the steady-flow ring from `srcfl/ftw-app#132`. All use simulated data.
+
+Now on the home page is not a recording. `phone.mjs` draws it live in a
+drawn iPhone 17 Pro, in the app's points, with the app's ring rules ported to
+`ring.mjs` from `Flow.swift` and `FlowDiagram.swift` (`srcfl/ftw-app`
+`44efeac`). Its simulated home in `demo-home.mjs` is the savings example's
+plan at four moments of the day, and `tests/ring.test.mjs` holds both to the
+app's rules and the example. Label it as drawn and simulated. When the app's
+ring changes, port the change and its tests.
 
 The home page uses the iPhone app's dark palette and its colour per kind of
 energy (`ftw-app`, `Theme.xcassets`), set in Satoshi with JetBrains Mono
@@ -44,10 +52,14 @@ labels. The layout borrows from Sourceful's editorial design
 (https://design.sourceful.energy/DESIGN.md): a label rail beside the text,
 ruled lists, square corners and hairlines. Keep it free of generic template
 marks: no glows, gradients, rounded cards, pill buttons, scroll fades or
-grey second halves in headings. Motion must show something, such as the
-example day, the plan dial, the receipt or the app tour. `home.css` holds the
-home page's styles and `home.js` runs it, respecting Reduce Motion. The
-other pages keep `sourceful.css`.
+grey second halves in headings. Light belongs to the app's ring: inside the
+iPhone, and as thin arcs of the same flow round the phone, running in toward
+it for power coming into the home and out for power leaving, with the phone's
+reading. Motion must show something, such as the ring, the example day, the
+plan dial, the receipt or the app tour. `home.css` holds the home page's
+styles and `home.js` runs it, respecting Reduce Motion: the ring holds still
+with a chevron for direction and the arcs stop. The other pages keep
+`sourceful.css`.
 
 Sourceful maintains the product; Fredrik owns its direction. PRs are welcome,
 preferably based on [issues](https://github.com/srcfl/ftw-web/issues). Share a
