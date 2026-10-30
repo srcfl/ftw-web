@@ -2,7 +2,7 @@
 
 Canonical project landing page for [FTW](https://github.com/srcfl/ftw).
 
-Lean static site. Plain HTML, CSS and a small menu script, no build step.
+Lean static site. Plain HTML, CSS and small scripts, no build step.
 
 - Canonical target: https://ftw.sourceful.energy
 - Cutover: https://fortytwowatts.com must redirect to the canonical site
@@ -20,18 +20,30 @@ Use [FTW's vision](https://github.com/srcfl/ftw/blob/master/VISION.md) and
 Explain FTW as a fast local energy core for people, agents and other software.
 Show the current iPhone beta, webapp, Home Assistant app and ChatGPT integration.
 Keep preview integrations and planned features distinct from public releases.
-Do not publish predicted savings as measured results.
+Do not publish predicted savings as measured results. The savings example on
+the home page comes from `savings-model.mjs`: one simulated home with made-up
+prices, compared with the same home under ordinary self-consumption control,
+as the vision asks. Both runs end with the same stored energy. Label it as an
+example, and let `tests/savings-model.test.mjs` keep the page's numbers in
+step with the model.
 
 Product screenshots show the complete app viewport, without cropping or
 changing the interface. Use the public webapp demo and the iOS app's built-in
 demo. Label simulated homes. These show the interface, not measured savings
 or a worker benchmark. Keep HTML dimensions in step with the image files.
 
-Current images: `assets/ftw-webapp-now.webp` comes from the public demo at
-430 × 932 CSS pixels; `assets/ftw-ios-now.webp` comes from the iPhone 17 Pro
-simulator, built from `srcfl/ftw-app` commit `4448968`. Both use simulated data.
-`home.css` holds homepage styles; the shared stylesheet also serves the
-support, privacy and ChatGPT pages.
+Current images come from the iPhone app's built-in demo on an iPhone 17 Pro
+simulator (iOS 26.5), built from `srcfl/ftw-app` commit `95af454`, at 600 px
+wide. `assets/ftw-ios-now-live.mp4` and its poster record Now with
+`-FTWDemo YES`; `ftw-ios-plan`, `-car`, `-history` and `-price.webp` add
+`-FTWTab plan|car|history|price`. All use simulated data.
+
+The home page uses the app's look, Phosphor: a dark ground, ink for the
+interface and one colour per kind of energy, from `ftw-app`'s
+`Theme.xcassets`. `home.css` holds its styles and `home.js` runs the example
+day, the plan dial, the assistant tabs, the app tour and the sign-up forms,
+and respects Reduce Motion. The shared `sourceful.css` serves the support,
+privacy, plugin and ChatGPT pages.
 
 Sourceful maintains the product; Fredrik owns its direction. PRs are welcome,
 preferably based on [issues](https://github.com/srcfl/ftw-web/issues). Share a
@@ -59,6 +71,20 @@ after a failed native install.
 - Home Assistant app: https://github.com/srcfl/ftw/blob/master/docs/home-assistant-app.md
 - ChatGPT integration and its availability: `/chatgpt`
 - Anonymous project statistics: https://stats.ftw.energy/
+- FTW plugin for assistants: https://github.com/srcfl/ftw-plugin
+- Discord: https://discord.gg/UK2ygPBu8N (Swedish channel: https://discord.gg/25xcBzQaux)
+
+## News and box waitlist sign-ups
+
+The home page's two forms post to `/api/signup` in `_worker.js`. It accepts
+same-origin JSON only, checks the address, list and country, ignores a filled
+hidden field and answers the same for a new and a known address. Rows go to a
+D1 database bound as `SIGNUPS_DB`, kept apart from the anonymous
+`FUTURE_DB` votes because it holds email addresses. Create it in the EU
+jurisdiction and apply `signups.sql`. Without the binding the endpoint
+answers 503 and the forms say sign-up is closed. Each row records the consent
+version that `privacy.html#email` describes; change both together. Name the
+email service in the privacy notice before the first send.
 
 ## Local dev
 
@@ -66,7 +92,12 @@ after a failed native install.
 python3 -m http.server 8000
 ```
 
-Then open http://localhost:8000.
+Then open http://localhost:8000. The static server does not run `_worker.js`,
+so the sign-up forms report that sign-up is closed.
+
+```bash
+node --test tests/*.test.mjs
+```
 
 ## Product license
 
