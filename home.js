@@ -1,4 +1,5 @@
 import { hours, withoutPlan, withPlan } from '/savings-model.mjs';
+import { mountNow, mountFlow } from '/phone.mjs';
 
 const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = (selector, root = document) => root.querySelector(selector);
@@ -18,8 +19,12 @@ function whenSeen(element, callback, threshold = 0.35) {
 // The receipt and the example conversation play once they are on screen.
 $$('.receipt, .transcript').forEach(element => whenSeen(element, () => element.classList.add('in'), 0.3));
 
-// The hero holds still under Reduce Motion, as the app does.
-if (still) $$('video[autoplay]').forEach(video => { video.removeAttribute('autoplay'); video.pause(); });
+// The app's Now, drawn live in the hero, with its flow running behind the phone.
+const heroScreen = $('.hero [data-now]');
+if (heroScreen) {
+  mountNow(heroScreen);
+  mountFlow($('.hero'), heroScreen);
+}
 
 /* The example day */
 const runs = { without: withoutPlan, with: withPlan };
@@ -225,25 +230,25 @@ $$('.copy').forEach(button => button.addEventListener('click', async () => {
   setTimeout(() => { button.textContent = 'Copy'; button.classList.remove('done'); }, 1800);
 }));
 
-/* The app tour: real screens, one at a time */
+/* The app tour: Now drawn live, then the app's own screens, one at a time */
 const tour = $('#tour');
 if (tour) {
-  const screens = $$('.screen', tour);
+  const slides = $$('.slide', tour);
   const steps = $$('.tour-steps button');
-  const video = screens[0];
   const seconds = 5;
   let current = 0, timer = 0, seen = false;
   steps[0].parentElement.parentElement.style.setProperty('--slide', `${seconds}s`);
+  mountNow($('[data-now]', tour));
+  mountFlow($('#app'), $('.screen', tour));
   function go(n) {
     current = n;
-    screens.forEach(screen => screen.classList.toggle('is-on', Number(screen.dataset.slide) === n));
+    slides.forEach(slide => slide.classList.toggle('is-on', Number(slide.dataset.slide) === n));
     steps.forEach(step => step.setAttribute('aria-pressed', String(Number(step.dataset.slide) === n)));
-    if (n === 0 && seen && !still) video.play().catch(() => {}); else video.pause();
     clearTimeout(timer);
-    if (seen && !still) timer = setTimeout(() => go((current + 1) % screens.length), seconds * 1000);
+    if (seen && !still) timer = setTimeout(() => go((current + 1) % slides.length), seconds * 1000);
   }
   steps.forEach(step => step.addEventListener('click', () => go(Number(step.dataset.slide))));
-  whenSeen(tour, () => { seen = true; video.preload = 'auto'; go(0); }, 0.4);
+  whenSeen(tour, () => { seen = true; go(0); }, 0.4);
 }
 
 /* Waitlist and news sign-up */

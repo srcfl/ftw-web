@@ -16,12 +16,12 @@
   <meta property="og:description" content="A local energy planner for your battery, car and solar. Live on iPhone, open source, and ready for Claude, ChatGPT and Grok.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ftw.sourceful.energy/">
-  <meta property="og:image" content="https://ftw.sourceful.energy/assets/ftw-ios-now-live.webp">
+  <meta property="og:image" content="https://ftw.sourceful.energy/assets/ftw-ios-now-ring.webp">
   <meta property="og:site_name" content="FTW">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FTW | Your home's energy, planned to cost less">
   <meta name="twitter:description" content="A local energy planner for your battery, car and solar. Live on iPhone, open source, ready for AI.">
-  <meta name="twitter:image" content="https://ftw.sourceful.energy/assets/ftw-ios-now-live.webp">
+  <meta name="twitter:image" content="https://ftw.sourceful.energy/assets/ftw-ios-now-ring.webp">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://api.fontshare.com">
@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="/home.css?v=dark-2">
+  <link rel="stylesheet" href="/home.css?v=ring-1">
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
 
   <script type="application/ld+json">
@@ -84,8 +84,11 @@
           </dl>
         </div>
         <figure class="hero-shot">
-          <video src="/assets/ftw-ios-now-live.mp4" poster="/assets/ftw-ios-now-live.webp" width="600" height="1304" autoplay muted loop playsinline aria-label="The FTW iPhone app's Now screen: a ring of light shows solar, battery, grid and car power around the home's use in a simulated home"></video>
-          <figcaption>FTW for iPhone · Recorded from the app · Simulated home</figcaption>
+          <div class="iphone" role="img" aria-label="The FTW iPhone app's Now screen for a simulated home. Solar, battery, grid and car sit round a ring; lines of light run toward the home for power coming in and away from it for power going out.">
+            <span class="key key-action"></span><span class="key key-up"></span><span class="key key-down"></span><span class="key key-side"></span><span class="key key-camera"></span>
+            <div class="bezel"><div class="screen" data-now><img src="/assets/ftw-ios-now-ring.webp" alt="" width="600" height="1304"></div><span class="island"></span></div>
+          </div>
+          <figcaption>FTW for iPhone · Now · Drawn live with the app's ring · Simulated home</figcaption>
         </figure>
       </div>
       <div class="wrap routes" aria-label="Ways to use FTW">
@@ -243,14 +246,17 @@
     <section class="spread spread-raised" id="app">
       <div class="wrap app-layout">
         <div class="tour" id="tour">
-          <div class="screens">
-            <video class="screen is-on" data-slide="0" src="/assets/ftw-ios-now-live.mp4" poster="/assets/ftw-ios-now-live.webp" width="600" height="1304" muted loop playsinline preload="none" aria-hidden="true"></video>
-            <img class="screen" data-slide="1" src="/assets/ftw-ios-plan.webp" alt="" width="600" height="1305" loading="lazy">
-            <img class="screen" data-slide="2" src="/assets/ftw-ios-car.webp" alt="" width="600" height="1305" loading="lazy">
-            <img class="screen" data-slide="3" src="/assets/ftw-ios-history.webp" alt="" width="600" height="1305" loading="lazy">
-            <img class="screen" data-slide="4" src="/assets/ftw-ios-price.webp" alt="" width="600" height="1305" loading="lazy">
+          <div class="iphone" aria-hidden="true">
+            <span class="key key-action"></span><span class="key key-up"></span><span class="key key-down"></span><span class="key key-side"></span><span class="key key-camera"></span>
+            <div class="bezel"><div class="screen">
+              <div class="slide is-on" data-slide="0" data-now><img src="/assets/ftw-ios-now-ring.webp" alt="" width="600" height="1304" loading="lazy"></div>
+              <img class="slide" data-slide="1" src="/assets/ftw-ios-plan.webp" alt="" width="600" height="1305" loading="lazy">
+              <img class="slide" data-slide="2" src="/assets/ftw-ios-car.webp" alt="" width="600" height="1305" loading="lazy">
+              <img class="slide" data-slide="3" src="/assets/ftw-ios-history.webp" alt="" width="600" height="1305" loading="lazy">
+              <img class="slide" data-slide="4" src="/assets/ftw-ios-price.webp" alt="" width="600" height="1305" loading="lazy">
+            </div><span class="island"></span></div>
           </div>
-          <p class="meta">Real app screens · Simulated home</p>
+          <p class="meta">Now drawn live · Other screens from the app · Simulated home</p>
         </div>
         <div class="app-copy">
           <p class="section-kicker">04 · The app</p>
@@ -384,6 +390,6 @@
     </div>
   </div><div class="wrap footer-bottom"><span>© Sourceful Labs AB and FTW contributors</span><a class="sourceful-mark" href="https://www.sourceful.energy/"><img src="https://design.sourceful.energy/assets/sourceful-squircle.svg" alt="Sourceful Energy" height="22"></a></div></footer>
   <script src="/navigation.js?v=1" defer></script>
-  <script type="module" src="/home.js?v=dark-2"></script>
+  <script type="module" src="/home.js?v=ring-1"></script>
 </body>
 </html>
