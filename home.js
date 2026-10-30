@@ -15,7 +15,8 @@ function whenSeen(element, callback, threshold = 0.35) {
   observer.observe(element);
 }
 
-$$('.reveal, .receipt, .chat').forEach(element => whenSeen(element, () => element.classList.add('in'), 0.2));
+// The receipt and the example conversation play once they are on screen.
+$$('.receipt, .transcript').forEach(element => whenSeen(element, () => element.classList.add('in'), 0.3));
 
 // The hero holds still under Reduce Motion, as the app does.
 if (still) $$('video[autoplay]').forEach(video => { video.removeAttribute('autoplay'); video.pause(); });
@@ -24,7 +25,7 @@ if (still) $$('video[autoplay]').forEach(video => { video.removeAttribute('autop
 const runs = { without: withoutPlan, with: withPlan };
 const stories = {
   without: 'The car charges as soon as it plugs in, at the day’s peak. The battery runs empty early in the evening and waits for the sun.',
-  with: 'The car charges from 01:00 to 05:00, the cheapest hours. The battery covers the evening peak, tops up at 03:00 and covers the morning.'
+  with: 'The car charges from 01:00 to 05:00, the cheapest hours. The battery covers the house all evening, tops up at 03:00 and covers the morning.'
 };
 const chart = $('#day-chart');
 if (chart) {
@@ -99,7 +100,7 @@ if (chart) {
       carCells[i].classList.toggle('off', !row.car);
       const flow = row.battery;
       batteryCells[i].style.setProperty('--c', flow > 0 ? 'var(--stores)' : 'var(--gives)');
-      batteryCells[i].style.setProperty('--o', Math.abs(flow) > 0.05 ? 0.35 + 0.65 * Math.min(1, Math.abs(flow) / 3.6) : 0);
+      batteryCells[i].style.setProperty('--o', Math.abs(flow) > 0.05 ? 0.4 + 0.6 * Math.min(1, Math.abs(flow) / 3.6) : 0);
       batteryCells[i].classList.toggle('off', Math.abs(flow) <= 0.05);
     });
     count({ cost: run.cost, avg: run.cost / run.bought });
@@ -126,7 +127,13 @@ if (chart) {
 const dial = $('#dial');
 if (dial) {
   const ns = 'http://www.w3.org/2000/svg';
-  const svg = (tag, attrs) => { const node = document.createElementNS(ns, tag); for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v); return node; };
+  // Colours and faces go through style, so the panel's custom properties apply in every browser.
+  const styled = new Set(['stroke', 'fill', 'font-family']);
+  const svg = (tag, attrs) => {
+    const node = document.createElementNS(ns, tag);
+    for (const [k, v] of Object.entries(attrs)) styled.has(k) ? node.style.setProperty(k, v) : node.setAttribute(k, v);
+    return node;
+  };
   const center = 120, rim = 104;
   // Midnight at the bottom, noon at the top.
   const angle = hour => ((hour / 24) * 360 + 180) * (Math.PI / 180);
@@ -249,7 +256,11 @@ $$('form.signup').forEach(form => form.addEventListener('submit', async event =>
   }
   const button = $('button[type="submit"]', form);
   button.disabled = true;
-  status.textContent = 'Sending…';
+  // Sourceful's braille indicator while the request runs; it holds still under Reduce Motion.
+  const frames = '⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏';
+  let frame = 0;
+  status.textContent = `${frames[0]} Sending`;
+  const spin = still ? 0 : setInterval(() => { status.textContent = `${frames[++frame % frames.length]} Sending`; }, 80);
   try {
     const response = await fetch('/api/signup', {
       method: 'POST',
@@ -271,6 +282,7 @@ $$('form.signup').forEach(form => form.addEventListener('submit', async event =>
     status.textContent = 'Could not reach FTW. Check your connection and try again.';
     status.classList.add('err');
   } finally {
+    clearInterval(spin);
     button.disabled = false;
   }
 }));

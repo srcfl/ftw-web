@@ -10,8 +10,9 @@ export const fees = 90;
 // The house's own use and the sun, kWh in each hour.
 export const load = [0.9, 1.4, 1.6, 1.4, 1.2, 1.0, 0.8, 0.6, 0.5, 0.45, 0.45, 0.45, 0.5, 0.6, 1.1, 1.5, 1.2, 0.8, 0.7, 0.7, 0.8, 0.7, 0.7, 0.8];
 export const solar = [0.3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.1, 0.5, 1.3, 2.1, 2.6, 2.8, 2.5, 1.8, 1.0];
-// A 10 kWh battery, 5 kW, kept above 1 kWh, 95 % each way. A car that needs 22 kWh by 07:00 on an 11 kW charger.
-export const battery = { capacity: 10, floor: 1, power: 5, efficiency: 0.95, start: 3 };
+// A 20 kWh battery, 10 kW, kept above 2 kWh, 95 % each way, half full at the start.
+// A car that needs 22 kWh by 07:00 on an 11 kW charger.
+export const battery = { capacity: 20, floor: 2, power: 10, efficiency: 0.95, start: 10 };
 export const car = { need: 22, power: 11, plugIn: 17, readyBy: 7 };
 
 const at = h => hours.indexOf(h);
@@ -20,13 +21,14 @@ const at = h => hours.indexOf(h);
 const atPlugIn = hours.map((h, i) => (i === at(17) || i === at(18) ? 11 : 0));
 const selfConsumption = (h, need) => -need;
 
-// The plan: the car in the cheapest hours before 07:00, the battery held for the evening peak,
-// topped up in the night's cheapest hour for the morning peak, then filled by the sun.
+// The plan: the car in the cheapest hours before 07:00, the battery held for the evening peak
+// and covering the house through it, topped up in the night's cheapest hour for the morning
+// peak, then filled by the sun.
 const planned = hours.map(h => ([1, 2, 3, 4].includes(h) ? 5.5 : 0));
 const plan = (h, need) => {
   if (h === 16) return 0;
   if (h === 3) return 3.6;
-  if (h >= 20 || h <= 5) return 0;
+  if (h <= 5) return 0;
   return -need;
 };
 
