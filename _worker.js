@@ -23,7 +23,7 @@ function responseVotes(rows) {
   return { votes };
 }
 
-async function boundedJSON(request) {
+async function boundedJSON(request, limit = 512) {
   const reader = request.body?.getReader();
   if (!reader) throw new Error('invalid_body');
   const chunks = [];
@@ -32,7 +32,7 @@ async function boundedJSON(request) {
     const { value, done } = await reader.read();
     if (done) break;
     length += value.byteLength;
-    if (length > 512) { await reader.cancel(); throw new Error('body_too_large'); }
+    if (length > limit) { await reader.cancel(); throw new Error('body_too_large'); }
     chunks.push(value);
   }
   const bytes = new Uint8Array(length);
@@ -41,9 +41,42 @@ async function boundedJSON(request) {
   return JSON.parse(new TextDecoder().decode(bytes));
 }
 
+// The consent each list records. privacy.html describes both.
+const lists = { news: 'news-2026-10-30', gateway: 'gateway-2026-10-30' };
+const countries = new Set(['SE', 'NO', 'DK', 'FI', 'DE', 'NL', 'EU', 'XX']);
+const emailPattern = /^[^\s@<>()\[\],;:"]+@[^\s@<>()\[\],;:"]+\.[^\s@<>()\[\],;:"]{2,}$/;
+
+async function signup(request, env, url) {
+  if (request.method !== 'POST') return json({ error: 'method_not_allowed' }, 405, { Allow: 'POST' });
+  if (request.headers.get('Origin') !== url.origin) return json({ error: 'origin_not_allowed' }, 403);
+  if (!request.headers.get('Content-Type')?.toLowerCase().startsWith('application/json')) return json({ error: 'invalid_content_type' }, 415);
+  let body;
+  try { body = await boundedJSON(request, 1024); }
+  catch { return json({ error: 'invalid_body' }, 400); }
+  const email = typeof body?.email === 'string' ? body.email.trim().toLowerCase() : '';
+  const country = typeof body?.country === 'string' && body.country ? body.country : null;
+  if (!Object.hasOwn(lists, body?.list ?? '')) return json({ error: 'invalid_list' }, 400);
+  if (email.length > 254 || !emailPattern.test(email)) return json({ error: 'invalid_email' }, 400);
+  if (country !== null && !countries.has(country)) return json({ error: 'invalid_country' }, 400);
+  // A filled hidden field means a form-filling bot. Answer as if it worked and store nothing.
+  if (body.website) return json({ ok: true });
+  if (!env.SIGNUPS_DB) return json({ error: 'signup_unavailable' }, 503);
+  try {
+    await env.SIGNUPS_DB.prepare(`INSERT INTO signups (email, list, country, consent) VALUES (?, ?, ?, ?)
+      ON CONFLICT(email, list) DO UPDATE SET country = COALESCE(excluded.country, signups.country), consent = excluded.consent`)
+      .bind(email, body.list, country, lists[body.list]).run();
+  } catch (error) {
+    console.error(JSON.stringify({ event: 'signup_failed', name: error.name }));
+    return json({ error: 'signup_unavailable' }, 503);
+  }
+  // The same answer for a new and a known address, so the form does not reveal who signed up.
+  return json({ ok: true });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname.replace(/\/$/, '') === '/api/signup') return signup(request, env, url);
     if (url.pathname.replace(/\/$/, '') !== '/future/api/votes') return env.ASSETS.fetch(request);
     if (!['GET', 'POST'].includes(request.method)) return json({ error: 'method_not_allowed' }, 405, { Allow: 'GET, POST' });
     if (!env.FUTURE_DB) return json({ error: 'voting_unavailable' }, 503);
