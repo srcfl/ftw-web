@@ -123,6 +123,14 @@ if (chart) {
   whenSeen(chart, () => setTimeout(() => { if (!touched) show('with'); }, still ? 0 : 1400), 0.5);
 }
 
+// The example day's prices as the app's eight block levels.
+const glyphs = $('#price-glyphs');
+if (glyphs) {
+  const prices = withoutPlan.rows.map(row => row.price);
+  const low = Math.min(...prices), high = Math.max(...prices);
+  glyphs.textContent = prices.map(price => '▁▂▃▄▅▆▇█'[Math.round(((price - low) / (high - low)) * 7)]).join('');
+}
+
 /* The plan dial: the example day, drawn the way the app draws it */
 const dial = $('#dial');
 if (dial) {
