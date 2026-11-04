@@ -94,15 +94,20 @@ after a failed native install.
 
 The home page's two forms post to `/api/signup` in `_worker.js`. It accepts
 same-origin JSON only, checks the address, list and country, ignores a filled
-hidden field and answers the same for a new and a known address. Rows go to a
-D1 database bound as `SIGNUPS_DB`, kept apart from the anonymous
-`FUTURE_DB` votes because it holds email addresses. Production and preview
-share the EU database `ftw-signups`
-(`32851378-602c-4b71-b3ea-69e85acff569`); its schema is `signups.sql`.
-Without the binding the endpoint answers 503 and the forms say sign-up is
-closed. Test only with your own address, then delete that row. Each row records the consent
-version that `privacy.html#email` describes; change both together. Name the
-email service in the privacy notice before the first send.
+hidden field and answers the same for a new and a known address. It then hands
+the sign-up to Utskick ([srcfl/utskick](https://github.com/srcfl/utskick)), our
+newsletter sender, through the service binding `UTSKICK`, which calls Utskick's
+`subscribe()` over RPC; the call never leaves Cloudflare and the method cannot
+be reached from the internet. The site's `news` and `gateway` lists are
+`ftw-news` and `ftw-box` there. The site passes the visitor's IP address as
+`ip`, so Utskick limits sign-ups to 10 a minute per visitor; Utskick keeps no
+IP address. It keeps the lists in its own EU D1 database and sends through
+Amazon SES in Frankfurt. Bind `UTSKICK` in
+production only: a preview deployment with the binding would sign people up for
+real. Without the binding the endpoint answers 503 and the forms say sign-up is
+closed. Test only with your own address, then unsubscribe with the link in the
+first email. Each sign-up records the consent version that `privacy.html#email`
+describes; change both together.
 
 ## Local dev
 
