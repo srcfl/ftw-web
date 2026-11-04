@@ -43,6 +43,8 @@ async function boundedJSON(request, limit = 512) {
 
 // The consent each list records. privacy.html describes both.
 const lists = { news: 'news-2026-10-30', gateway: 'gateway-2026-10-30' };
+// The same lists by their names in Utskick.
+const utskickLists = { news: 'ftw-news', gateway: 'ftw-box' };
 const countries = new Set(['SE', 'NO', 'DK', 'FI', 'DE', 'NL', 'EU', 'XX']);
 const emailPattern = /^[^\s@<>()\[\],;:"]+@[^\s@<>()\[\],;:"]+\.[^\s@<>()\[\],;:"]{2,}$/;
 
@@ -60,11 +62,13 @@ async function signup(request, env, url) {
   if (country !== null && !countries.has(country)) return json({ error: 'invalid_country' }, 400);
   // A filled hidden field means a form-filling bot. Answer as if it worked and store nothing.
   if (body.website) return json({ ok: true });
-  if (!env.SIGNUPS_DB) return json({ error: 'signup_unavailable' }, 503);
+  if (!env.UTSKICK) return json({ error: 'signup_unavailable' }, 503);
   try {
-    await env.SIGNUPS_DB.prepare(`INSERT INTO signups (email, list, country, consent) VALUES (?, ?, ?, ?)
-      ON CONFLICT(email, list) DO UPDATE SET country = COALESCE(excluded.country, signups.country), consent = excluded.consent`)
-      .bind(email, body.list, country, lists[body.list]).run();
+    // Utskick (srcfl/utskick) keeps the lists and sends the email. The call goes over a service
+    // binding and never leaves Cloudflare. With the visitor's IP address, Utskick limits sign-ups
+    // per visitor instead of for the whole site; it does not store the address.
+    await env.UTSKICK.subscribe({ email, list: utskickLists[body.list], country, consent: lists[body.list], source: 'ftw-web',
+      ip: request.headers.get('CF-Connecting-IP') });
   } catch (error) {
     console.error(JSON.stringify({ event: 'signup_failed', name: error.name }));
     return json({ error: 'signup_unavailable' }, 503);
