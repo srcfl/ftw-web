@@ -3,8 +3,7 @@ export const review = {
   build: 16,
   source: "70f4e02dd58d158955014ead2846e5229e2fe386",
   sourceUrl:
-    "https://github.com/srcfl/ftw-app/tree/70f4e02dd58d158955014ead2846e5229e2fe386",
-  releaseRun: "https://github.com/srcfl/ftw-app/actions/runs/40186014332",
+    "https://github.com/srcfl/ftw-app-source-archive/tree/70f4e02dd58d158955014ead2846e5229e2fe386",
   captured: "2026-10-25",
   discord: "https://discord.gg/UK2ygPBu8N",
 };
