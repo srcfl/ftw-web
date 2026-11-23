@@ -18,7 +18,8 @@ complete.
 Use [FTW's vision](https://github.com/srcfl/ftw/blob/master/VISION.md) and
 [roadmap](https://github.com/srcfl/ftw/blob/master/docs/roadmap.md) when writing product copy.
 Explain FTW as a fast local energy core for people, agents and other software.
-Show the current iPhone beta, webapp, Home Assistant app and ChatGPT integration.
+Show the iPhone app in the App Store, webapp, Home Assistant app and ChatGPT integration.
+Send people who want app betas to Discord; the site does not publish a TestFlight link.
 Keep preview integrations and planned features distinct from public releases.
 Do not publish predicted savings as measured results. The savings example on
 the home page comes from `savings-model.mjs`: one simulated home with made-up
@@ -82,7 +83,8 @@ after a failed native install.
 
 ## Public entry points
 
-- iPhone beta: https://testflight.apple.com/join/E4Japad7
+- iPhone and Apple Watch app, FTW Energy: https://apps.apple.com/app/ftw-energy/id6822024949
+  (Swedish pages use `/se/app/ftw-energy/id6822024949`). App betas go through Discord.
 - Webapp and interactive demo: https://app.ftw.energy/
 - Home Assistant app: https://github.com/srcfl/ftw/blob/master/docs/home-assistant-app.md
 - ChatGPT integration and its availability: `/chatgpt`
