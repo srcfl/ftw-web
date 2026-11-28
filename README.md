@@ -84,7 +84,9 @@ worker: keep each source out of `include` in `_routes.json`.
 `tests/install-redirect.test.mjs` checks both. Say what FTW runs on and what
 a home needs, link the device catalog, and say the iPhone app needs FTW
 running at home and Android is coming. The box waitlist is one row after the
-paths. Do not call FTW stable until the stable release is out.
+paths. Name the Home Assistant app as its store shows it, **FTW (beta)**
+(srcfl/home-assistant-addons#56), on the home page and both support pages.
+Do not call FTW stable until the stable release is out.
 
 [Install and update FTW](https://github.com/srcfl/ftw/blob/master/docs/native-beta.md)
 is the single source for every other command and for update paths. Link to it

@@ -58,6 +58,19 @@ test('the Home Assistant button adds the srcfl/home-assistant-addons repository'
   assert.equal(link[0].searchParams.get('repository_url'), 'https://github.com/srcfl/home-assistant-addons');
 });
 
+test('the site names the Home Assistant app FTW (beta), as its store does', () => {
+  const ha = read('index.html').match(/<article id="home-assistant">([\s\S]*?)<\/article>/);
+  assert.ok(ha, 'the page has the Home Assistant path');
+  assert.match(ha[1], /<strong>FTW \(beta\)<\/strong>/);
+  assert.match(ha[1], /opens inside Home Assistant/);
+  for (const page of ['index.html', 'support.html', 'sv/support.html']) {
+    assert.doesNotMatch(read(page), /0\.x beta/, `${page} still uses the old app name`);
+  }
+  for (const page of ['support.html', 'sv/support.html']) {
+    assert.match(read(page), /<strong>FTW \(beta\)<\/strong> (in|i) Home Assistant/, `${page} names the app`);
+  }
+});
+
 test('the Linux path links the short first-install page', () => {
   const linux = read('index.html').match(/<article id="linux">([\s\S]*?)<\/article>/);
   assert.ok(linux, 'the page has the Linux path');
