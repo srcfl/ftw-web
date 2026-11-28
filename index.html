@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="/home.css?v=ring-1">
+  <link rel="stylesheet" href="/home.css?v=get-ftw-2">
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
 
   <script type="application/ld+json">
@@ -274,8 +274,8 @@
             <a class="btn btn-primary" href="https://apps.apple.com/app/ftw-energy/id6822024949">Get it in the App Store <span aria-hidden="true">↗</span></a>
             <a class="btn btn-ghost" href="https://app.ftw.energy/">Open the webapp <span aria-hidden="true">↗</span></a>
           </div>
-          <p class="small-note">Free. iOS 26 or later, with an Apple Watch app, widgets and a Live Activity. The app and the webapp both include a simulated home, so you can look around before you have a box.</p>
-          <p class="small-note">Want new versions first? Ask in <a href="https://discord.gg/UK2ygPBu8N">Discord</a> to join the beta.</p>
+          <p class="small-note">Free. iOS 26 or later, with an Apple Watch app, widgets and a Live Activity. To show your home, it needs <a href="#start">FTW running there</a>. Until then, the app and the webapp show a simulated home. Android is coming.</p>
+          <p class="small-note">Want new app versions first? Ask in <a href="https://discord.gg/UK2ygPBu8N">Discord</a> to join the app beta.</p>
         </div>
       </div>
     </section>
@@ -283,48 +283,50 @@
     <section class="spread spread-ground" id="start">
       <div class="wrap">
         <div class="lead">
-          <div class="rail"><p class="section-kicker">05 · Get FTW</p><p class="meta">Free software · Home Assistant · Raspberry Pi</p></div>
+          <div class="rail"><p class="section-kicker">05 · Get FTW</p><p class="meta">Free software · Home Assistant · Linux</p></div>
           <div class="body">
-            <h2>Run it on what you have. Or get a <em>box.</em></h2>
-            <p class="section-intro">FTW's core is free, open-source software. Put it on Home Assistant or a Raspberry Pi today, then add the app and an assistant when you want them.</p>
+            <h2>Run it on what you <em>have.</em></h2>
+            <p class="section-intro">Runs on Home Assistant or any 64-bit Linux computer: a Raspberry Pi 3 or newer, a mini PC, an old laptop.</p>
+            <p class="need">You need supported equipment on your home network and a computer that stays on. Look for yours in the <a href="https://srcfl.github.io/device-drivers/">device catalog</a>.</p>
           </div>
         </div>
         <div class="paths">
-          <article id="box">
-            <span class="panel-tag">Waitlist</span>
-            <h3>A box, ready to go.</h3>
-            <p>We have a stock of Sourceful Energy Gateways, built on the Raspberry Pi 4. We plan to sell them set up for FTW. Join the waitlist and we'll email you first when orders open, with the price and shipping.</p>
-            <form class="signup" data-list="gateway" novalidate>
-              <label class="meta" for="gw-email">Email</label>
+          <article id="home-assistant">
+            <span class="cap-number">Path 01</span>
+            <h3>Home Assistant</h3>
+            <p>The button adds the FTW repository to your Home Assistant. Install <strong>FTW (beta)</strong> and start it. It opens inside Home Assistant, from <strong>Open Web UI</strong> or the sidebar.</p>
+            <a class="btn btn-primary" href="https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsrcfl%2Fhome-assistant-addons">Add to Home Assistant <span aria-hidden="true">↗</span></a>
+            <p class="small-note">Needs Home Assistant OS. <a href="https://github.com/srcfl/ftw/blob/master/docs/home-assistant-app.md">Step by step</a></p>
+          </article>
+          <article id="linux">
+            <span class="cap-number">Path 02</span>
+            <h3>A Linux computer</h3>
+            <p>Run this line on the computer, then open the address it prints.</p>
+            <div class="cmd"><code id="install-line"><span>curl -fsSL</span> <span>https://ftw.energy/install.sh</span> <span>| bash -s --</span> <span>--fresh-host</span></code><button type="button" class="copy" data-copy="#install-line">Copy</button></div>
+            <p class="small-note">It installs the current release on a computer with no FTW yet. 64-bit Raspberry Pi OS, Debian or Ubuntu. <a href="https://github.com/srcfl/ftw/blob/master/docs/install.md">Step by step</a></p>
+          </article>
+        </div>
+        <div class="service-list start-next">
+          <div><span>The app</span><p><strong>Then add the iPhone app.</strong>FTW Energy shows your home live once FTW runs there. Free in the <a href="https://apps.apple.com/app/ftw-energy/id6822024949">App Store</a>. Android is coming.</p></div>
+          <div id="box"><span>A box</span><div class="waitlist">
+            <p><strong>Rather have a box, set up for FTW? Join the waitlist.</strong></p>
+            <form class="signup signup-line" data-list="gateway" novalidate>
+              <label class="visually-hidden" for="gw-email">Email</label>
               <input id="gw-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
-              <label class="meta" for="gw-country">Country, if you like</label>
+              <label class="visually-hidden" for="gw-country">Country, if you like</label>
               <select id="gw-country" name="country">
-                <option value="">Choose</option>
+                <option value="">Country, if you like</option>
                 <option value="SE">Sweden</option><option value="NO">Norway</option><option value="DK">Denmark</option><option value="FI">Finland</option><option value="DE">Germany</option><option value="NL">Netherlands</option><option value="EU">Elsewhere in the EU</option><option value="XX">Outside the EU</option>
               </select>
               <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
               <button class="btn btn-primary" type="submit">Join the waitlist</button>
               <p class="form-status" role="status"></p>
             </form>
-            <p class="small-note">No payment now. We use your address for this waitlist only. <a href="/privacy#email">Privacy</a></p>
-          </article>
-          <article id="home-assistant">
-            <span class="cap-number">HOME ASSISTANT OS</span>
-            <h3>FTW, inside Home Assistant.</h3>
-            <p>Install the <strong>FTW (0.x beta)</strong> app from the Sourceful repository. The core runs on your HA hardware and its page opens from HA.</p>
-            <a class="btn btn-ghost" href="https://github.com/srcfl/ftw/blob/master/docs/home-assistant-app.md">Install in Home Assistant <span aria-hidden="true">↗</span></a>
-            <p class="small-note">Beta · aarch64 and amd64</p>
-          </article>
-          <article>
-            <span class="cap-number">RASPBERRY PI + LINUX</span>
-            <h3>Your hardware. Your core.</h3>
-            <p>Run FTW on a Raspberry Pi or another 64-bit Linux computer. The guide covers native and Docker installs and the checks your site needs.</p>
-            <a class="btn btn-ghost" href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md#choose-your-path">Install on Linux <span aria-hidden="true">↗</span></a>
-            <p class="small-note">Raspberry Pi OS, Debian and Ubuntu</p>
-          </article>
+            <p class="small-note">We'll email you when orders open. No payment now. We use your address for this waitlist only. <a href="/privacy#email">Privacy</a></p>
+          </div></div>
         </div>
         <div class="install-notes">
-          <p>Already running FTW? <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md">Follow the switch or update guide</a>. The retired 2.x and 3.x lines get no more updates. Check that your meter, inverter, battery and charger are in the <a href="https://srcfl.github.io/device-drivers/">device catalog</a>.</p>
+          <p>Already running FTW? <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md">Follow the switch or update guide</a>. The retired 2.x and 3.x lines get no more updates.</p>
           <details><summary>Moving an older installation?</summary><p>Keep a full backup and your old data. On a Raspberry Pi, keep the old SD card and use a second card. Guided transfer of old settings and history is not ready. Stop old Core and its autostart before another Core controls the same equipment. If an install refuses the old layout, follow the guide before you try another path.</p></details>
         </div>
       </div>
@@ -366,7 +368,7 @@
           <p class="section-kicker">07 · Community</p>
           <h2>Talk to the people who <em>build</em> FTW.</h2>
           <p>Ask for help, share your setup and tell us what to build next. Owners and developers are in the same Discord, in English and Swedish.</p>
-          <p>Want to try new versions of the app before they reach the App Store? Say so in the Discord and we'll add you to the beta.</p>
+          <p>Want to try new versions of the app before they reach the App Store? Say so in the Discord and we'll add you to the app beta.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://discord.gg/UK2ygPBu8N">Join the Discord <span aria-hidden="true">↗</span></a>
             <a class="btn btn-ghost" href="https://discord.gg/25xcBzQaux" hreflang="sv">På svenska <span aria-hidden="true">↗</span></a>
