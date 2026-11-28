@@ -4,7 +4,7 @@ Canonical project landing page for [FTW](https://github.com/srcfl/ftw).
 
 Lean static site. Plain HTML, CSS and small scripts, no build step.
 
-- Canonical target: https://ftw.sourceful.energy
+- Canonical target: https://ftw.energy
 - Cutover: https://fortytwowatts.com must redirect to the canonical site
 - Hosting: Cloudflare Pages
 - Design system: https://design.sourceful.energy/DESIGN.md
