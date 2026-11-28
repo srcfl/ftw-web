@@ -70,9 +70,25 @@ and attribution intact. Inspect rendered copy before publishing.
 
 ## Installation copy
 
+Section 05 of the home page gives two paths first: the Home Assistant button
+and one line for a Linux computer:
+
+```bash
+curl -fsSL https://ftw.energy/install.sh | bash -s -- --fresh-host
+```
+
+`_redirects` sends `/install.sh` to `scripts/install.sh` on FTW's `master`
+with a 302, and the installer picks the release, so the site never names a
+version. Cloudflare Pages applies `_redirects` only to requests that skip the
+worker: keep each source out of `include` in `_routes.json`.
+`tests/install-redirect.test.mjs` checks both. Say what FTW runs on and what
+a home needs, link the device catalog, and say the iPhone app needs FTW
+running at home and Android is coming. The box waitlist is one row after the
+paths. Do not call FTW stable until the stable release is out.
+
 [Install and update FTW](https://github.com/srcfl/ftw/blob/master/docs/native-beta.md)
-is the single source for installation commands and update paths. Link to it
-instead of copying version numbers or shell commands into this site.
+is the single source for every other command and for update paths. Link to it
+instead of copying version numbers or other shell commands into this site.
 2.x and 3.x receive no more updates; recommend the new 0.x line. The old
 Pi image, one-line Docker installer and 3.x Home Assistant beta are not
 current install choices. Explain that a new setup is available now but guided
@@ -87,6 +103,8 @@ after a failed native install.
   (Swedish pages use `/se/app/ftw-energy/id6822024949`). App betas go through Discord.
 - Webapp and interactive demo: https://app.ftw.energy/
 - Home Assistant app: https://github.com/srcfl/ftw/blob/master/docs/home-assistant-app.md
+  (the button uses https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsrcfl%2Fhome-assistant-addons)
+- Linux installer: https://ftw.energy/install.sh (a redirect; see Installation copy)
 - ChatGPT integration and its availability: `/chatgpt`
 - Anonymous project statistics: https://stats.ftw.energy/
 - FTW plugin for assistants: https://github.com/srcfl/ftw-plugin
@@ -117,8 +135,9 @@ describes; change both together.
 python3 -m http.server 8000
 ```
 
-Then open http://localhost:8000. The static server does not run `_worker.js`,
-so the sign-up forms report that sign-up is closed.
+Then open http://localhost:8000. The static server runs neither `_worker.js`
+nor `_redirects`, so the sign-up forms report that sign-up is closed and
+`/install.sh` answers 404.
 
 ```bash
 node --test tests/*.test.mjs

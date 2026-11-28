@@ -1,0 +1,6 @@
+# Cloudflare Pages applies these rules to static requests only. Keep each
+# source out of the "include" list in _routes.json, or _worker.js serves it
+# and the rule is skipped. tests/install-redirect.test.mjs checks both.
+
+# The one-line install on the home page. The installer picks the release.
+/install.sh https://raw.githubusercontent.com/srcfl/ftw/master/scripts/install.sh 302
