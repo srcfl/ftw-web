@@ -58,6 +58,24 @@ test('the Home Assistant button adds the srcfl/home-assistant-addons repository'
   assert.equal(link[0].searchParams.get('repository_url'), 'https://github.com/srcfl/home-assistant-addons');
 });
 
+test('the Linux path links the short first-install page', () => {
+  const linux = read('index.html').match(/<article id="linux">([\s\S]*?)<\/article>/);
+  assert.ok(linux, 'the page has the Linux path');
+  assert.match(linux[1], /<a href="https:\/\/github\.com\/srcfl\/ftw\/blob\/master\/docs\/install\.md">Step by step<\/a>/);
+});
+
+test('the waitlist row asks for a country, optional, from the list the worker accepts', () => {
+  const form = read('index.html').match(/<form class="signup[^"]*" data-list="gateway"[\s\S]*?<\/form>/)[0];
+  const select = form.match(/<select id="gw-country" name="country">([\s\S]*?)<\/select>/);
+  assert.ok(select, 'the waitlist has a country select');
+  assert.doesNotMatch(select[0], /required/);
+  assert.match(form, /<label[^>]* for="gw-country">/);
+  const values = [...select[1].matchAll(/<option value="(\w*)">/g)].map(m => m[1]);
+  assert.equal(values[0], '', 'the first choice sends no country');
+  const accepted = read('_worker.js').match(/const countries = new Set\(\[([^\]]*)\]\)/)[1].match(/'(\w+)'/g).map(v => v.slice(1, -1));
+  assert.deepEqual(values.slice(1).sort(), accepted.sort());
+});
+
 test('each sign-up form still has the fields home.js reads', () => {
   const page = read('index.html');
   const forms = [...page.matchAll(/<form class="signup[^"]*" data-list="(\w+)"[\s\S]*?<\/form>/g)];

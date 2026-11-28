@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="/home.css?v=get-ftw-1">
+  <link rel="stylesheet" href="/home.css?v=get-ftw-2">
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
 
   <script type="application/ld+json">
@@ -303,7 +303,7 @@
             <h3>A Linux computer</h3>
             <p>Run this line on the computer, then open the address it prints.</p>
             <div class="cmd"><code id="install-line"><span>curl -fsSL</span> <span>https://ftw.energy/install.sh</span> <span>| bash -s --</span> <span>--fresh-host</span></code><button type="button" class="copy" data-copy="#install-line">Copy</button></div>
-            <p class="small-note">It installs the current release on a computer with no FTW yet. 64-bit Raspberry Pi OS, Debian or Ubuntu. <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md">Step by step</a></p>
+            <p class="small-note">It installs the current release on a computer with no FTW yet. 64-bit Raspberry Pi OS, Debian or Ubuntu. <a href="https://github.com/srcfl/ftw/blob/master/docs/install.md">Step by step</a></p>
           </article>
         </div>
         <div class="service-list start-next">
@@ -313,6 +313,11 @@
             <form class="signup signup-line" data-list="gateway" novalidate>
               <label class="visually-hidden" for="gw-email">Email</label>
               <input id="gw-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              <label class="visually-hidden" for="gw-country">Country, if you like</label>
+              <select id="gw-country" name="country">
+                <option value="">Country, if you like</option>
+                <option value="SE">Sweden</option><option value="NO">Norway</option><option value="DK">Denmark</option><option value="FI">Finland</option><option value="DE">Germany</option><option value="NL">Netherlands</option><option value="EU">Elsewhere in the EU</option><option value="XX">Outside the EU</option>
+              </select>
               <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
               <button class="btn btn-primary" type="submit">Join the waitlist</button>
               <p class="form-status" role="status"></p>
