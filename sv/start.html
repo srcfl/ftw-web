@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kom igång | FTW</title>
+  <meta name="description" content="Det här behöver du för att köra FTW, och fyra sätt att börja: Home Assistant, en Linux-dator, en färdig box eller en AI-assistent. Lägg sedan till telefonen.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="canonical" href="https://ftw.energy/sv/start">
+  <link rel="alternate" hreflang="en" href="https://ftw.energy/start">
+  <link rel="alternate" hreflang="sv" href="https://ftw.energy/sv/start">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/sourceful.css?v=start-1">
+</head>
+<body>
+  <a class="skip-link" href="#content">Till innehållet</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="FTW start"><img src="/favicon.svg" alt="" width="34" height="34"><span class="brand-name">ftw</span></a>
+      <nav class="nav-links" aria-label="Huvudmeny">
+        <a href="/sv/start" aria-current="page">Kom igång</a>
+        <a href="https://srcfl.github.io/device-drivers/" hreflang="en">Enhetskatalogen</a>
+        <a href="/start" hreflang="en" lang="en">English</a>
+        <a class="nav-cta" href="https://app.ftw.energy/">Prova demon <span aria-hidden="true">↗</span></a>
+      </nav>
+      <details class="mobile-nav"><summary>Meny</summary><nav aria-label="Mobilmeny">
+        <a href="/">FTW</a>
+        <a href="/sv/start" aria-current="page">Kom igång</a>
+        <a href="https://srcfl.github.io/device-drivers/" hreflang="en">Enhetskatalogen</a>
+        <a href="/start" hreflang="en" lang="en">English</a>
+      </nav></details>
+    </div>
+  </header>
+
+  <main id="content" class="doc"><div class="wrap">
+    <p class="section-kicker">FTW · Öppen beta</p>
+    <h1>Kom igång med FTW</h1>
+    <p class="doc-lede">FTW körs på en dator i ditt hem. Den planerar batteriet, bilen och solcellerna efter elpriset och vädret, och styr dem sedan. Här står vad du behöver och fyra sätt att börja.</p>
+
+    <h2 id="need">Det här behöver du</h2>
+    <ul>
+      <li><strong>En dator hemma som alltid är på.</strong> Home Assistant, eller en 64-bitars Linux-dator med systemd: en Raspberry Pi 3 eller nyare, en minidator eller en gammal bärbar dator.</li>
+      <li><strong>Utrustning som FTW stöder</strong>, på hemmanätverket: växelriktare, batteri, laddbox eller elmätare. Sök efter din på märke i <a href="https://srcfl.github.io/device-drivers/" hreflang="en">enhetskatalogen</a> (på engelska). <!-- Läst ur katalogens siffror, byggd från device-drivers 77cfcda den 28 nov 2026. --><span data-catalog>6 av 91</span> drivrutiner är bekräftade på riktig hårdvara hittills.</li>
+    </ul>
+    <p class="note"><strong>FTW är i öppen beta.</strong> Det finns ingen stabil version än, och FTW ändras ofta. Berätta i <a href="https://discord.gg/25xcBzQaux">Discord på svenska</a> vad som fungerar och vad som går sönder.</p>
+
+    <h2 id="ways">Fyra sätt att börja</h2>
+
+    <section class="way" id="home-assistant" aria-labelledby="ha-title">
+      <h3 id="ha-title"><span>1</span> Home Assistant</h3>
+      <ol>
+        <li>Välj knappen. Den lägger till FTW i din Home Assistant.<br><a class="btn btn-primary" href="https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsrcfl%2Fhome-assistant-addons">Lägg till i Home Assistant <span aria-hidden="true">↗</span></a></li>
+        <li>Installera <strong>FTW (beta)</strong>.</li>
+        <li>Välj <strong>Starta</strong> (Start).</li>
+        <li>Välj <strong>Öppna webbgränssnittet</strong> (Open Web UI). FTW öppnas inne i Home Assistant. Vill du ha FTW i sidofältet slår du på <strong>Visa i sidofältet</strong> (Show in sidebar).</li>
+      </ol>
+      <p class="note">Kräver Home Assistant OS. <a href="https://github.com/srcfl/ftw/blob/master/docs/home-assistant-app.md" hreflang="en">Steg för steg</a> (på engelska)</p>
+    </section>
+
+    <section class="way" id="linux" aria-labelledby="linux-title">
+      <h3 id="linux-title"><span>2</span> En Linux-dator</h3>
+      <p>En 64-bitars Linux-dator med systemd: en Raspberry Pi 3 eller nyare med Raspberry Pi OS Lite (64-bit), en minidator eller en gammal bärbar dator.</p>
+      <ol>
+        <li>Kör den här raden på datorn:
+          <div class="cmd"><code id="install-line"><span>curl -fsSL</span> <span>https://ftw.energy/install.sh</span> <span>| bash -s --</span> <span>--fresh-host</span></code><button type="button" class="copy" data-copy="#install-line" hidden>Kopiera</button></div></li>
+        <li>Öppna adressen som raden skriver ut, till exempel <code>http://192.168.1.23:8080/setup</code>, i en webbläsare på samma nätverk.</li>
+      </ol>
+      <p class="note">Raden installerar den senaste versionen på en dator som inte har FTW. <a href="https://github.com/srcfl/ftw/blob/master/docs/install.md" hreflang="en">Steg för steg</a> (på engelska). Kör du redan FTW? <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md" hreflang="en">Byt eller uppdatera</a> (på engelska).</p>
+    </section>
+
+    <section class="way" id="box" aria-labelledby="box-title">
+      <h3 id="box-title"><span>3</span> En färdig box</h3>
+      <p>En liten dator som är förberedd för FTW och klar att koppla in. Den säljs inte än. <a href="/#box" hreflang="en">Skriv upp dig på väntelistan</a> (på engelska), så mejlar vi när beställningarna öppnar.</p>
+    </section>
+
+    <section class="way" id="assistant" aria-labelledby="assistant-title">
+      <h3 id="assistant-title"><span>4</span> Börja med en AI-assistent</h3>
+      <p>Claude eller ChatGPT kan sätta upp hemmet tillsammans med dig, när FTW väl körs på din dator.</p>
+      <ol>
+        <li>Installera FTW först, på sätt <a href="#home-assistant">1</a> eller <a href="#linux">2</a>.</li>
+        <li>Välj <strong>Set up with ChatGPT or Claude instead</strong> på boxens första sida. Redan igång? Anslut senare under <strong>Settings → Access</strong>.</li>
+        <li>Lägg till FTW i assistenten med den här adressen:
+          <div class="cmd"><code id="mcp-url">https://cloud.ftw.energy/mcp?profile=public</code><button type="button" class="copy" data-copy="#mcp-url" hidden>Kopiera</button></div>
+          <ul>
+            <li><strong>Claude:</strong> öppna <strong>Settings → Connectors</strong> i Claude på webben, datorn eller telefonen. Välj <strong>Add custom connector</strong>, klistra in adressen och lämna klient-id tomt.</li>
+            <li><strong>ChatGPT:</strong> FTW finns inte i ChatGPT:s katalog för plugin än; den väntar på OpenAI:s granskning. Till dess lägger du till adressen som en egen MCP-server på sidan <strong>Plugins</strong> i ChatGPT. I vissa arbetsytor måste utvecklarläget (developer mode) vara på först. <a href="/sv/chatgpt">Mer om FTW för ChatGPT</a></li>
+          </ul></li>
+        <li>Assistenten öppnar en sida hos FTW Cloud med en kod. Skriv koden på boxen under <strong>Settings → Access</strong>, eller godkänn i FTW-appen.</li>
+        <li>Be assistenten att sätta upp ditt hem. Den läser bara det du tillåter. Styrning och installation är separata behörigheter, och boxen kontrollerar varje steg.</li>
+      </ol>
+      <p class="note">Behöver du hjälp med själva installationen? Ge valfri assistent den här sidan, <code>https://ftw.energy/sv/start</code>, och be den guida dig. Grok, Cursor, Claude Code och Codex ansluts på samma sätt: <a href="/#ai" hreflang="en">se stegen</a> (på engelska). <a href="/sv/privacy#assistants">Så fungerar åtkomst och integritet</a></p>
+    </section>
+
+    <h2 id="phone">Lägg till telefonen</h2>
+    <ul>
+      <li><strong>iPhone:</strong> FTW-appen, <a href="https://apps.apple.com/se/app/ftw-energy/id6822024949">FTW Energy i App Store</a>. Gratis, iOS 26 eller senare. Öppna <strong>Settings → FTW app</strong> på boxen, välj <strong>Show pairing code</strong> och skanna koden med appen. <a href="/sv/support">Support för appen</a></li>
+      <li><strong>Android:</strong> en tidig testversion. Fråga efter den i <a href="https://discord.gg/25xcBzQaux">Discord på svenska</a>.</li>
+      <li><strong>Ingen FTW än?</strong> <a href="https://app.ftw.energy/">Prova demon</a>. Den visar ett simulerat hem, och det gör appen också tills du parkopplar den.</li>
+    </ul>
+
+    <h2 id="help">Få hjälp</h2>
+    <ul>
+      <li>Fråga andra ägare och dem som bygger FTW i <a href="https://discord.gg/25xcBzQaux">Discord på svenska</a>, eller i <a href="https://discord.gg/UK2ygPBu8N" hreflang="en">FTW:s Discord</a> på engelska.</li>
+      <li>Mejla <a href="mailto:support@sourceful.energy">support@sourceful.energy</a>. Hjälpen ges efter förmåga, enligt <a href="https://github.com/srcfl/ftw/blob/master/SUPPORT.md" hreflang="en">supportpolicyn</a> (på engelska).</li>
+    </ul>
+  </div></main>
+
+  <footer><div class="wrap footer-bottom"><span>© Sourceful Labs AB and FTW contributors</span><a href="https://www.sourceful.energy/">sourceful.energy <span aria-hidden="true">↗</span></a></div></footer>
+  <script src="/navigation.js?v=1" defer></script>
+  <script src="/copy.js?v=1" defer></script>
+</body>
+</html>

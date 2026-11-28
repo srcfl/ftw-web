@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="/home.css?v=get-ftw-2">
+  <link rel="stylesheet" href="/home.css?v=start-1">
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
 
   <script type="application/ld+json">
@@ -73,9 +73,10 @@
           <p class="project-state">FTW · Open-source core · Now in the App Store</p>
           <h1>Your home's energy, planned to cost less.</h1>
           <p class="hero-lede">FTW runs on a small computer in your home. It plans your battery, car and solar around prices and the weather, then runs them. Follow it live on your phone. Ask your AI why.</p>
+          <p class="hero-need"><span>You need</span>Home Assistant or a 64-bit Linux computer that stays on, and <a href="/start#need">equipment FTW supports</a>.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://app.ftw.energy/">Try the live demo <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-ghost" href="#start">Get FTW <span aria-hidden="true">↓</span></a>
+            <a class="btn btn-ghost" href="/start">Get FTW <span aria-hidden="true">→</span></a>
           </div>
           <dl class="project-facts">
             <div><dt>Runs</dt><dd>At home, offline too</dd></div>
@@ -87,17 +88,17 @@
         <figure class="hero-shot">
           <div class="iphone" role="img" aria-label="The FTW iPhone app's Now screen for a simulated home. Solar, battery, grid and car sit round a ring; lines of light run toward the home for power coming in and away from it for power going out.">
             <span class="key key-action"></span><span class="key key-up"></span><span class="key key-down"></span><span class="key key-side"></span><span class="key key-camera"></span>
-            <div class="bezel"><div class="screen" data-now><img src="/assets/ftw-ios-now-ring.webp" alt="" width="600" height="1304"></div><span class="island"></span></div>
+            <div class="bezel"><div class="screen" data-now><img src="/assets/ftw-ios-now-ring.webp" alt="FTW app, Now screen" width="600" height="1304"></div><span class="island"></span></div>
           </div>
           <figcaption>FTW for iPhone · Now · Drawn live with the app's ring · Simulated home</figcaption>
         </figure>
       </div>
-      <div class="wrap routes" aria-label="Ways to use FTW">
-        <a href="https://apps.apple.com/app/ftw-energy/id6822024949"><span>iPhone</span>Get it in the App Store <b aria-hidden="true">↗</b></a>
-        <a href="https://app.ftw.energy/"><span>Webapp</span>Try the live demo <b aria-hidden="true">↗</b></a>
-        <a href="#home-assistant"><span>Home Assistant</span>Run FTW in HA <b aria-hidden="true">↓</b></a>
-        <a href="#ai"><span>Claude · ChatGPT · Grok</span>Connect an assistant <b aria-hidden="true">↓</b></a>
-      </div>
+      <nav class="wrap routes" aria-label="Ways to start">
+        <a href="/start#home-assistant"><span>Home Assistant</span>Add FTW (beta) <b aria-hidden="true">→</b></a>
+        <a href="/start#linux"><span>Linux computer</span>Run one install line <b aria-hidden="true">→</b></a>
+        <a href="/start#assistant"><span>Claude · ChatGPT</span>Set up with an assistant <b aria-hidden="true">→</b></a>
+        <a href="/start#phone"><span>iPhone · Android</span>Add your phone <b aria-hidden="true">→</b></a>
+      </nav>
     </section>
 
     <section class="spread spread-ground" id="savings">
@@ -223,7 +224,7 @@
             <div class="panel" role="tabpanel" id="panel-cursor" aria-labelledby="tab-cursor" hidden><ol><li>Add the address as an MCP server in Cursor's settings.</li><li>Or copy the <a href="https://github.com/srcfl/ftw-plugin">plugin</a> to <code>~/.cursor/plugins/local/ftw</code> and reload the window.</li><li>Sign in to FTW Cloud, then approve Cursor in FTW.</li></ol></div>
             <div class="panel" role="tabpanel" id="panel-claude-code" aria-labelledby="tab-claude-code" hidden><ol><li>Add the plugin, with its setup and energy skills:<div class="cmd"><code id="cc-1">/plugin marketplace add srcfl/ftw-plugin</code><button type="button" class="copy" data-copy="#cc-1">Copy</button></div><div class="cmd"><code id="cc-2">/plugin install ftw@ftw</code><button type="button" class="copy" data-copy="#cc-2">Copy</button></div></li><li>Or the server alone:<div class="cmd"><code id="cc-3">claude mcp add --transport http -s user ftw "https://cloud.ftw.energy/mcp?profile=public"</code><button type="button" class="copy" data-copy="#cc-3">Copy</button></div></li><li>Approve Claude Code in FTW.</li></ol></div>
             <div class="panel" role="tabpanel" id="panel-codex" aria-labelledby="tab-codex" hidden><ol><li>Add the plugin:<div class="cmd"><code id="cx-1">codex plugin marketplace add srcfl/ftw-plugin</code><button type="button" class="copy" data-copy="#cx-1">Copy</button></div><div class="cmd"><code id="cx-2">codex plugin add ftw@ftw</code><button type="button" class="copy" data-copy="#cx-2">Copy</button></div></li><li>Or the server alone: <code>codex mcp add ftw --url "https://cloud.ftw.energy/mcp?profile=public"</code>, then <code>codex mcp login ftw</code>.</li><li>Approve Codex in FTW.</li></ol></div>
-            <p class="small-note">Needs a current FTW beta with FTW Cloud turned on. No box yet? The setup guide in the plugin helps you install FTW first.</p>
+            <p class="small-note">Needs a current FTW beta with FTW Cloud turned on. No FTW yet? <a href="/start#assistant">Install it first, then connect</a>.</p>
           </div>
 
           <div class="transcript" id="chat" aria-label="An example conversation with an assistant connected to FTW">
@@ -250,11 +251,11 @@
           <div class="iphone" aria-hidden="true">
             <span class="key key-action"></span><span class="key key-up"></span><span class="key key-down"></span><span class="key key-side"></span><span class="key key-camera"></span>
             <div class="bezel"><div class="screen">
-              <div class="slide is-on" data-slide="0" data-now><img src="/assets/ftw-ios-now-ring.webp" alt="" width="600" height="1304" loading="lazy"></div>
-              <img class="slide" data-slide="1" src="/assets/ftw-ios-plan.webp" alt="" width="600" height="1305" loading="lazy">
-              <img class="slide" data-slide="2" src="/assets/ftw-ios-car.webp" alt="" width="600" height="1305" loading="lazy">
-              <img class="slide" data-slide="3" src="/assets/ftw-ios-history.webp" alt="" width="600" height="1305" loading="lazy">
-              <img class="slide" data-slide="4" src="/assets/ftw-ios-price.webp" alt="" width="600" height="1305" loading="lazy">
+              <div class="slide is-on" data-slide="0" data-now><img src="/assets/ftw-ios-now-ring.webp" alt="FTW app, Now screen" width="600" height="1304" loading="lazy"></div>
+              <img class="slide" data-slide="1" src="/assets/ftw-ios-plan.webp" alt="FTW app, Plan screen" width="600" height="1305" loading="lazy">
+              <img class="slide" data-slide="2" src="/assets/ftw-ios-car.webp" alt="FTW app, Car screen" width="600" height="1305" loading="lazy">
+              <img class="slide" data-slide="3" src="/assets/ftw-ios-history.webp" alt="FTW app, History screen" width="600" height="1305" loading="lazy">
+              <img class="slide" data-slide="4" src="/assets/ftw-ios-price.webp" alt="FTW app, Price screen" width="600" height="1305" loading="lazy">
             </div><span class="island"></span></div>
           </div>
           <p class="meta">Now drawn live · Other screens from the app · Simulated home</p>
@@ -287,7 +288,8 @@
           <div class="body">
             <h2>Run it on what you <em>have.</em></h2>
             <p class="section-intro">Runs on Home Assistant or any 64-bit Linux computer: a Raspberry Pi 3 or newer, a mini PC, an old laptop.</p>
-            <p class="need">You need supported equipment on your home network and a computer that stays on. Look for yours in the <a href="https://srcfl.github.io/device-drivers/">device catalog</a>.</p>
+            <p class="need">You need supported equipment on your home network and a computer that stays on. Search your inverter, battery, charger or meter by brand in the <a href="https://srcfl.github.io/device-drivers/">device catalog</a>. <!-- Read from the catalog's counts, generated from device-drivers 77cfcda on 28 Nov 2026. --><span data-catalog>6 of 91</span> drivers are confirmed on real hardware so far.</p>
+            <p class="need beta"><strong>FTW is in public beta.</strong> There is no stable release yet, and it changes often. <a href="/start">Every way to start, on one page →</a></p>
           </div>
         </div>
         <div class="paths">
@@ -303,7 +305,7 @@
             <h3>A Linux computer</h3>
             <p>Run this line on the computer, then open the address it prints.</p>
             <div class="cmd"><code id="install-line"><span>curl -fsSL</span> <span>https://ftw.energy/install.sh</span> <span>| bash -s --</span> <span>--fresh-host</span></code><button type="button" class="copy" data-copy="#install-line">Copy</button></div>
-            <p class="small-note">It installs the current release on a computer with no FTW yet. 64-bit Raspberry Pi OS, Debian or Ubuntu. <a href="https://github.com/srcfl/ftw/blob/master/docs/install.md">Step by step</a></p>
+            <p class="small-note">It installs the newest release on a 64-bit Linux computer with systemd and no FTW yet, such as Raspberry Pi OS Lite (64-bit), Debian or Ubuntu. <a href="https://github.com/srcfl/ftw/blob/master/docs/install.md">Step by step</a></p>
           </article>
         </div>
         <div class="service-list start-next">
@@ -338,6 +340,7 @@
           <p class="section-kicker">06 · News</p>
           <h2>What's <em>new.</em></h2>
           <ul class="news">
+            <li><time datetime="2026-11-28">28 Nov</time><p><strong>FTW 0.170 beta</strong> installs with one line that picks the newest release and prints the address to open. The setup guide tests each device as you add it, the plan is on from the start, and FTW opens inside Home Assistant, with a sidebar entry if you want one. <a href="https://github.com/srcfl/ftw/releases/tag/v0.170.0-beta.1">Release notes ↗</a></p></li>
             <li><time datetime="2026-11-22">22 Nov</time><p><strong>FTW Energy 1.0</strong> is out in the App Store, free for iPhone and Apple Watch. Want betas first? Ask in Discord. <a href="https://apps.apple.com/app/ftw-energy/id6822024949">App Store ↗</a></p></li>
             <li><time datetime="2026-10-29">29 Oct</time><p><strong>iPhone 0.6</strong> shows what each day cost in History, and the whole plan in lanes with a marked scale.</p></li>
             <li><time datetime="2026-10-26">26 Oct</time><p><strong>The FTW plugin</strong> now works in Claude, ChatGPT, Grok, Cursor and Codex, through one MCP address. <a href="#ai">Connect yours ↓</a></p></li>
@@ -371,7 +374,7 @@
           <p>Want to try new versions of the app before they reach the App Store? Say so in the Discord and we'll add you to the app beta.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://discord.gg/UK2ygPBu8N">Join the Discord <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-ghost" href="https://discord.gg/25xcBzQaux" hreflang="sv">På svenska <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-ghost" href="https://discord.gg/25xcBzQaux" hreflang="sv" lang="sv">Discord på svenska <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <div>
@@ -390,12 +393,12 @@
   <footer><div class="wrap footer-main">
     <div class="footer-brand"><img src="/favicon.svg" alt="" width="38" height="38"><div><strong>FTW</strong><span>Your home's energy, planned at home.<br>Built for people and agents.</span></div></div>
     <div class="footer-links">
-      <div><span>Use FTW</span><a href="https://apps.apple.com/app/ftw-energy/id6822024949">iPhone app</a><a href="https://app.ftw.energy/">Webapp</a><a href="#home-assistant">Home Assistant</a><a href="#ai">AI assistants</a><a href="#box">Box waitlist</a></div>
+      <div><span>Use FTW</span><a href="/start">Get started</a><a href="https://apps.apple.com/app/ftw-energy/id6822024949">iPhone app</a><a href="https://app.ftw.energy/">Webapp</a><a href="#home-assistant">Home Assistant</a><a href="#ai">AI assistants</a><a href="#box">Box waitlist</a></div>
       <div><span>Project</span><a href="https://github.com/srcfl/ftw">GitHub</a><a href="https://github.com/srcfl/ftw/releases">Releases</a><a href="https://srcfl.github.io/device-drivers/">Device catalog</a><a href="https://github.com/srcfl/ftw/blob/master/docs/roadmap.md">Roadmap</a><a href="/future/">The future of FTW</a><a href="https://discord.gg/UK2ygPBu8N">Discord</a></div>
       <div><span>Help + terms</span><a href="https://github.com/srcfl/ftw#documentation">Documentation</a><a href="/support">App support</a><a href="/privacy">Privacy</a><a href="/plugin-terms">Plugin terms</a><a href="https://github.com/srcfl/ftw/blob/master/LICENSING.md">Licensing</a><a href="https://github.com/srcfl/ftw/blob/master/TRADEMARKS.md">Trademarks</a></div>
     </div>
   </div><div class="wrap footer-bottom"><span>© Sourceful Labs AB and FTW contributors</span><a class="sourceful-mark" href="https://www.sourceful.energy/"><img src="https://design.sourceful.energy/assets/sourceful-squircle.svg" alt="Sourceful Energy" height="22"></a></div></footer>
   <script src="/navigation.js?v=1" defer></script>
-  <script type="module" src="/home.js?v=ring-1"></script>
+  <script type="module" src="/home.js?v=start-1"></script>
 </body>
 </html>

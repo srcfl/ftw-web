@@ -316,3 +316,19 @@ html { scroll-padding-top: 84px; }
 .doc-terms div { padding: 14px 0; border-bottom: 1px solid var(--line); }
 .doc-terms dt { color: var(--ink); font-weight: 700; }
 .doc-terms dd { margin: 4px 0 0; }
+
+/* Get started (/start, /sv/start) and the 404 page: numbered ways, a command line with Copy. */
+.doc h3 { margin: 0 0 12px; color: var(--ink); font-size: 21px; font-weight: 700; line-height: 1.25; letter-spacing: -0.015em; }
+.doc h3 span { margin-right: 10px; color: var(--signal); font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; font-weight: 500; }
+.doc code { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.88em; overflow-wrap: anywhere; }
+.doc .way { padding: 28px 0 8px; border-top: 1px solid var(--line); }
+.doc .way + h2 { margin-top: 44px; }
+.doc .note { color: var(--muted); font-size: 15px; }
+.doc .btn { margin: 12px 0 4px; text-decoration: none; }
+.doc .cmd { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 10px 0 6px; padding: 10px 10px 10px 16px; background: var(--ink); color: var(--cream); }
+.doc .cmd code { flex: 1 1 18em; min-width: 0; font-size: 14px; line-height: 1.5; }
+.doc .copy { flex: none; margin-left: auto; min-width: 72px; min-height: 44px; padding: 0 14px; border: 1px solid var(--line-dark); background: none; color: var(--cream); font: 500 11px/1 "JetBrains Mono", ui-monospace, monospace; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; }
+.doc .copy:hover { border-color: var(--cream); }
+.doc .copy.done { border-color: var(--confirmed); color: var(--confirmed); }
+.doc .copy:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+.doc ol > li > ul { margin-top: 10px; }
