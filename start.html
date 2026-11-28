@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Get started | FTW</title>
+  <meta name="description" content="What you need to run FTW, and four ways to start: Home Assistant, a Linux computer, a ready box or an AI assistant. Then add your phone.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="canonical" href="https://ftw.energy/start">
+  <link rel="alternate" hreflang="en" href="https://ftw.energy/start">
+  <link rel="alternate" hreflang="sv" href="https://ftw.energy/sv/start">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/sourceful.css?v=start-1">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/" aria-label="FTW home"><img src="/favicon.svg" alt="" width="34" height="34"><span class="brand-name">ftw</span></a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="/start" aria-current="page">Get started</a>
+        <a href="https://srcfl.github.io/device-drivers/">Device catalog</a>
+        <a href="/sv/start" hreflang="sv" lang="sv">Svenska</a>
+        <a class="nav-cta" href="https://app.ftw.energy/">Try the demo <span aria-hidden="true">↗</span></a>
+      </nav>
+      <details class="mobile-nav"><summary>Menu</summary><nav aria-label="Mobile navigation">
+        <a href="/">FTW</a>
+        <a href="/start" aria-current="page">Get started</a>
+        <a href="https://srcfl.github.io/device-drivers/">Device catalog</a>
+        <a href="/sv/start" hreflang="sv" lang="sv">Svenska</a>
+      </nav></details>
+    </div>
+  </header>
+
+  <main id="content" class="doc"><div class="wrap">
+    <p class="section-kicker">FTW · Public beta</p>
+    <h1>Get started with FTW</h1>
+    <p class="doc-lede">FTW runs on a computer in your home. It plans your battery, car and solar around prices and the weather, then runs them. Here is what you need, and four ways to start.</p>
+
+    <h2 id="need">What you need</h2>
+    <ul>
+      <li><strong>A computer at home that stays on.</strong> Home Assistant OS, or any 64-bit Linux computer with systemd: a Raspberry Pi 3 or newer, a mini PC or an old laptop.</li>
+      <li><strong>Equipment FTW supports</strong>, on your home network: an inverter, battery, EV charger or meter. Search yours by brand in the <a href="https://srcfl.github.io/device-drivers/">device catalog</a>. <!-- Read from the catalog's counts, generated from device-drivers 77cfcda on 28 Nov 2026. --><span data-catalog>6 of 91</span> drivers are confirmed on real hardware so far.</li>
+    </ul>
+    <p class="note"><strong>FTW is in public beta.</strong> There is no stable release yet, and it changes often. Tell us in the <a href="https://discord.gg/UK2ygPBu8N">FTW Discord</a> what works and what breaks.</p>
+
+    <h2 id="ways">Four ways to start</h2>
+
+    <section class="way" id="home-assistant" aria-labelledby="ha-title">
+      <h3 id="ha-title"><span>1</span> Home Assistant</h3>
+      <ol>
+        <li>Choose the button. It adds the FTW repository to your Home Assistant.<br><a class="btn btn-primary" href="https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsrcfl%2Fhome-assistant-addons">Add to Home Assistant <span aria-hidden="true">↗</span></a></li>
+        <li>Install <strong>FTW (beta)</strong>.</li>
+        <li>Choose <strong>Start</strong>.</li>
+        <li>Choose <strong>Open Web UI</strong>. FTW opens inside Home Assistant. To keep it in the sidebar, turn on <strong>Show in sidebar</strong>.</li>
+      </ol>
+      <p class="note">Needs Home Assistant OS. <a href="https://github.com/srcfl/ftw/blob/master/docs/home-assistant-app.md">Step by step</a></p>
+    </section>
+
+    <section class="way" id="linux" aria-labelledby="linux-title">
+      <h3 id="linux-title"><span>2</span> A Linux computer</h3>
+      <p>Any 64-bit Linux computer with systemd: a Raspberry Pi 3 or newer with Raspberry Pi OS Lite (64-bit), a mini PC or an old laptop.</p>
+      <ol>
+        <li>Run this line on that computer:
+          <div class="cmd"><code id="install-line"><span>curl -fsSL</span> <span>https://ftw.energy/install.sh</span> <span>| bash -s --</span> <span>--fresh-host</span></code><button type="button" class="copy" data-copy="#install-line" hidden>Copy</button></div></li>
+        <li>Open the address it prints, such as <code>http://192.168.1.23:8080/setup</code>, in a browser on the same network.</li>
+      </ol>
+      <p class="note">It installs the newest release on a computer with no FTW yet. <a href="https://github.com/srcfl/ftw/blob/master/docs/install.md">Step by step</a>. Already running FTW? <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md">Switch or update</a>.</p>
+    </section>
+
+    <section class="way" id="box" aria-labelledby="box-title">
+      <h3 id="box-title"><span>3</span> A ready box</h3>
+      <p>A small computer set up for FTW, ready to plug in. It is not on sale yet. <a href="/#box">Join the waitlist</a> and we'll email you when orders open.</p>
+    </section>
+
+    <section class="way" id="assistant" aria-labelledby="assistant-title">
+      <h3 id="assistant-title"><span>4</span> Start from an AI assistant</h3>
+      <p>Claude or ChatGPT can set up your home with you, once FTW runs on your computer.</p>
+      <ol>
+        <li>Install FTW first, with way <a href="#home-assistant">1</a> or <a href="#linux">2</a>.</li>
+        <li>Finish the setup guide, then connect the assistant under <strong>Settings → Access</strong>. On a new box from the next beta, you can also choose <strong>Set up with ChatGPT or Claude instead</strong> on the first page.</li>
+        <li>Add FTW to your assistant with this address:
+          <div class="cmd"><code id="mcp-url">https://cloud.ftw.energy/mcp?profile=public</code><button type="button" class="copy" data-copy="#mcp-url" hidden>Copy</button></div>
+          <ul>
+            <li><strong>Claude</strong>, on claude.ai or in the desktop app: open <strong>Customize → Connectors</strong>, choose <strong>+</strong>, then <strong>Add custom connector</strong>. Give it a name, paste the address and keep the recommended sign-in, Claude's published identity. On a Team or Enterprise plan, an owner adds it under <strong>Organization settings → Connectors</strong>, and then you connect.</li>
+            <li><strong>ChatGPT</strong>, on the web: FTW is not in ChatGPT's plugin directory yet; it waits for OpenAI's review. Until then, open <strong>Plugins</strong>, choose <strong>+</strong>, then <strong>Add custom MCP server</strong>, and paste the address. In a Business workspace, an admin adds it. On a Pro plan, ChatGPT can read your home but cannot control it or set it up. <a href="/chatgpt">More about FTW for ChatGPT</a></li>
+          </ul></li>
+        <li>The assistant opens an FTW Cloud page with a code. Type the code on the box under <strong>Settings → Access</strong>, or approve it in the FTW app.</li>
+        <li>Ask the assistant to set up your home. It reads only what you allow. Control and setup are separate grants, and the box checks every step.</li>
+      </ol>
+      <p class="note">Need help with the install itself? Give any assistant this page, <code>https://ftw.energy/start</code>, and ask it to help you step by step. Grok, Cursor, Claude Code and Codex connect the same way: <a href="/#ai">see the steps</a>. <a href="/privacy#assistants">How access and privacy work</a></p>
+    </section>
+
+    <h2 id="phone">Add your phone</h2>
+    <ul>
+      <li><strong>iPhone:</strong> the FTW app, <a href="https://apps.apple.com/app/ftw-energy/id6822024949">FTW Energy in the App Store</a>. Free, iOS 26 or later. On the box, open <strong>Settings → FTW app</strong>, choose <strong>Show pairing code</strong> and scan it with the app. <a href="/support">App support</a></li>
+      <li><strong>Android:</strong> an early test build. Ask for it in the <a href="https://discord.gg/UK2ygPBu8N">FTW Discord</a>.</li>
+      <li><strong>No FTW yet?</strong> <a href="https://app.ftw.energy/">Try the demo</a>. It shows a simulated home, and so does the app until you pair it.</li>
+    </ul>
+
+    <h2 id="help">Get help</h2>
+    <ul>
+      <li>Ask other owners and the people who build FTW in the <a href="https://discord.gg/UK2ygPBu8N">FTW Discord</a>, or in <a href="https://discord.gg/25xcBzQaux" hreflang="sv" lang="sv">Discord på svenska</a>.</li>
+      <li>Email <a href="mailto:support@sourceful.energy">support@sourceful.energy</a>. Help is best effort, as the <a href="https://github.com/srcfl/ftw/blob/master/SUPPORT.md">support policy</a> says.</li>
+    </ul>
+  </div></main>
+
+  <footer><div class="wrap footer-bottom"><span>© Sourceful Labs AB and FTW contributors</span><a href="https://www.sourceful.energy/">sourceful.energy <span aria-hidden="true">↗</span></a></div></footer>
+  <script src="/navigation.js?v=1" defer></script>
+  <script src="/copy.js?v=1" defer></script>
+</body>
+</html>

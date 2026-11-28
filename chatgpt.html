@@ -11,7 +11,7 @@
   <link rel="alternate" hreflang="en" href="https://ftw.sourceful.energy/chatgpt">
   <link rel="alternate" hreflang="sv" href="https://ftw.sourceful.energy/sv/chatgpt">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/sourceful.css?v=app-pages-1">
+  <link rel="stylesheet" href="/sourceful.css?v=start-1">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -31,21 +31,24 @@
     <h1>FTW for ChatGPT</h1>
 
     <p class="doc-lede">Get help installing FTW, understand your home's energy flow and plans, and investigate problems with supported meters, solar, batteries and EV chargers.</p>
-    <p><strong>Public directory release in preparation.</strong> Sourceful Labs AB develops this integration. It is not yet listed as an approved public plugin. Existing development connections remain separate.</p>
+    <p><strong>Not in ChatGPT's plugin directory yet.</strong> Sourceful Labs AB develops this integration, and it waits for OpenAI's review. Until it is listed, you can add it to ChatGPT yourself, as the steps below show.</p>
     <h2>No FTW box yet?</h2>
-    <p>The Setup Guide helps you choose a host, follow the current install guide, connect supported equipment and check fresh readings. You do not need a connected home to ask for setup help. You run the install on your own host; ChatGPT cannot log in to your Pi or router for you.</p>
-    <p>Start with <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md">Install and update FTW</a>. Check your model and tested functions in the <a href="https://srcfl.github.io/device-drivers/">device catalog</a>. A catalog entry alone does not prove control on your equipment.</p>
+    <p>Install FTW first. <a href="/start">Get started</a> shows what you need and the two ways to install it yourself: the Home Assistant button, or one line for a 64-bit Linux computer. Give ChatGPT that page and it can help you step by step. You run the install on your own computer; ChatGPT cannot log in to your Pi or router for you.</p>
+    <p>Check your model and tested functions in the <a href="https://srcfl.github.io/device-drivers/">device catalog</a>. A catalog entry alone does not prove control on your equipment.</p>
     <h2>Understand a connected home</h2>
     <p>With your approval, ChatGPT can read current power, battery and car state, past power readings, the planner's proposals, equipment health, and redacted logs and settings. Old and missing readings remain distinct from fresh measurements. Plans and estimated savings do not prove what the equipment did or what you saved.</p>
-    <p>The public connection uses a fixed set of named tools. It does not offer arbitrary API access, backup exports or remote setup writes. When a question needs data it cannot read, it explains the gap and guides you through a local check.</p>
-    <h2>Approve access in FTW</h2>
+    <p>The public connection uses a fixed set of named tools. It offers no arbitrary API access and no backup exports. When a question needs data it cannot read, it explains the gap and guides you through a local check.</p>
+    <h2 id="connect">Connect ChatGPT</h2>
     <ol>
-      <li>Run a current FTW beta, enable FTW Cloud on the box and read the Cloud information before accepting it.</li>
-      <li>Start the FTW connection in your ChatGPT development installation. The FTW authorization page shows a code and a link for the owner.</li>
+      <li>Run a current FTW beta, enable FTW Cloud on the box and read the Cloud information before accepting it. Finish the setup guide, then connect the assistant under <strong>Settings → Access</strong>. On a new box from the next beta, you can also choose <strong>Set up with ChatGPT or Claude instead</strong> on the first page.</li>
+      <li>In ChatGPT on the web, open <strong>Plugins</strong>, choose <strong>+</strong>, then <strong>Add custom MCP server</strong>. Give it a name and paste this address:
+        <div class="cmd"><code id="mcp-url">https://cloud.ftw.energy/mcp?profile=public</code><button type="button" class="copy" data-copy="#mcp-url" hidden>Copy</button></div>
+        In a Business workspace, an admin adds it. On a Pro plan, ChatGPT can read your home but cannot control it or set it up.</li>
+      <li>ChatGPT opens the FTW authorization page. It shows a code and a link for the owner. It also says that FTW Cloud has not checked this assistant: check that it names ChatGPT.</li>
       <li>Approve the request in your FTW app or the box's own Access page. Choose the rights and how long access lasts. Keep passwords, keys and approval codes out of chat.</li>
       <li>Ask which home ChatGPT can reach and what you granted. You can end access in FTW at any time.</li>
     </ol>
-    <p>Reading is separate from control. A short charging action needs your request and a matching grant. A request for a lasting goal change waits for the owner's approval. Core checks every command and keeps control on the box.</p>
+    <p>Reading, control and setup are separate. A short charging action needs your request and a matching grant. A request for a lasting goal change waits for the owner's approval. The setup tools can look for devices on your home network, test a device with control blocked, change the box's settings and restart it. They need a separate setup grant, which the owner approves on the box. With that grant, ChatGPT can save settings after you review and confirm the exact draft, and restart the box after you confirm the short break. Core checks every command and keeps control on the box.</p>
     <h2>Your data</h2>
     <p>FTW Cloud can read this assistant connection while it passes requests and answers between ChatGPT and your box. OpenAI receives the data you authorize the connection to return. See <a href="/privacy#assistants">Privacy: assistants</a> and the <a href="/chatgpt-terms">plugin terms</a>.</p>
     <h2 id="support">Get help</h2>
@@ -58,5 +61,6 @@
   </div></main>
   <footer><div class="wrap footer-bottom"><span>© Sourceful Labs AB and FTW contributors</span><a href="https://www.sourceful.energy/">sourceful.energy <span aria-hidden="true">↗</span></a></div></footer>
   <script src="/navigation.js?v=1" defer></script>
+  <script src="/copy.js?v=1" defer></script>
 </body>
 </html>

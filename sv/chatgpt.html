@@ -11,7 +11,7 @@
   <link rel="alternate" hreflang="en" href="https://ftw.sourceful.energy/chatgpt">
   <link rel="alternate" hreflang="sv" href="https://ftw.sourceful.energy/sv/chatgpt">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/sourceful.css?v=app-pages-1">
+  <link rel="stylesheet" href="/sourceful.css?v=start-1">
 </head>
 <body>
   <a class="skip-link" href="#content">Till innehållet</a>
@@ -31,21 +31,24 @@
     <h1>FTW för ChatGPT</h1>
 
     <p class="doc-lede">Få hjälp att installera FTW, förstå hemmets energiflöde och planer och undersöka fel i mätare, solceller, batterier och billaddare som FTW stöder.</p>
-    <p><strong>Den offentliga publiceringen förbereds.</strong> Sourceful Labs AB utvecklar integrationen. Den finns ännu inte som godkänt offentligt plugin. Befintliga utvecklingsanslutningar är separata.</p>
+    <p><strong>Finns inte i ChatGPT:s katalog för plugin än.</strong> Sourceful Labs AB utvecklar integrationen, och den väntar på OpenAI:s granskning. Tills den finns där kan du lägga till den i ChatGPT själv, som stegen nedan visar.</p>
     <h2>Ingen FTW-box än?</h2>
-    <p>Installationsguiden hjälper dig att välja dator, följa den aktuella installationsguiden, ansluta utrustning och kontrollera färska mätvärden. Du behöver inget anslutet hem för att få hjälp med installationen. Du kör installationen på din egen dator; ChatGPT kan inte logga in på din Pi eller router åt dig.</p>
-    <p>Börja med <a href="https://github.com/srcfl/ftw/blob/master/docs/native-beta.md">Installera och uppdatera FTW</a>. Kontrollera modell och testade funktioner i <a href="https://srcfl.github.io/device-drivers/">enhetskatalogen</a>. Att en modell finns i katalogen bevisar inte att FTW kan styra just din utrustning.</p>
+    <p>Installera FTW först. <a href="/sv/start">Kom igång</a> visar vad du behöver och de två sätten att installera själv: knappen för Home Assistant, eller en rad för en 64-bitars Linux-dator. Ge ChatGPT den sidan, så kan den hjälpa dig steg för steg. Du kör installationen på din egen dator; ChatGPT kan inte logga in på din Pi eller router åt dig.</p>
+    <p>Kontrollera modell och testade funktioner i <a href="https://srcfl.github.io/device-drivers/">enhetskatalogen</a>. Att en modell finns i katalogen bevisar inte att FTW kan styra just din utrustning.</p>
     <h2>Förstå ett anslutet hem</h2>
     <p>Med ditt godkännande kan ChatGPT läsa aktuell effekt, batteriets och bilens laddnivå, tidigare effektvärden, planerarens förslag, utrustningens status samt loggar och inställningar där boxen har dolt känsliga uppgifter. Gamla och saknade mätvärden skiljer sig från färska mätningar. Planer och beräknade besparingar bevisar inte vad utrustningen gjorde eller vad du sparade.</p>
-    <p>Den offentliga anslutningen har en fast uppsättning namngivna verktyg. Den ger inte fri API-åtkomst, export av säkerhetskopior eller rätt att spara installationens inställningar. Om en fråga kräver andra uppgifter förklarar den vad som saknas och hjälper dig att kontrollera lokalt.</p>
-    <h2>Godkänn åtkomst i FTW</h2>
+    <p>Den offentliga anslutningen har en fast uppsättning namngivna verktyg. Den ger inte fri API-åtkomst eller export av säkerhetskopior. Om en fråga kräver andra uppgifter förklarar den vad som saknas och hjälper dig att kontrollera lokalt.</p>
+    <h2 id="connect">Anslut ChatGPT</h2>
     <ol>
-      <li>Kör en aktuell FTW-beta, slå på FTW Cloud på boxen och läs informationen innan du accepterar villkoren.</li>
-      <li>Starta FTW-anslutningen i din utvecklingsinstallation av ChatGPT. FTW:s sida för godkännande visar en kod och en länk för ägaren.</li>
+      <li>Kör en aktuell FTW-beta, slå på FTW Cloud på boxen och läs informationen innan du accepterar villkoren. Gör klart installationsguiden och anslut sedan assistenten under <strong>Settings → Access</strong>. På en ny box från nästa beta kan du också välja <strong>Set up with ChatGPT or Claude instead</strong> på första sidan.</li>
+      <li>Öppna <strong>Plugins</strong> i ChatGPT på webben, välj <strong>+</strong> och sedan <strong>Add custom MCP server</strong>. Ge servern ett namn och klistra in den här adressen:
+        <div class="cmd"><code id="mcp-url">https://cloud.ftw.energy/mcp?profile=public</code><button type="button" class="copy" data-copy="#mcp-url" hidden>Kopiera</button></div>
+        I en Business-arbetsyta lägger en administratör till den. Med Pro kan ChatGPT läsa av hemmet men inte styra det eller sätta upp det.</li>
+      <li>ChatGPT öppnar FTW:s sida för godkännande. Den visar en kod och en länk för ägaren. Där står också att FTW Cloud inte har kontrollerat assistenten: se efter att det står ChatGPT.</li>
       <li>Godkänn förfrågan i FTW-appen eller på boxens egen sida för åtkomst. Välj rättigheter och giltighetstid. Skriv inte lösenord, nycklar eller koder för godkännande i chatten.</li>
       <li>Fråga vilket hem ChatGPT kan nå och vad du har tillåtit. Du kan avsluta åtkomsten i FTW när som helst.</li>
     </ol>
-    <p>Läsning och styrning är separata val. En kort laddning kräver att du ber om den och har gett rätt behörighet. En bestående måländring väntar på ägarens godkännande. Core kontrollerar varje kommando och styrningen stannar på boxen.</p>
+    <p>Läsning, styrning och installation är separata val. En kort laddning kräver att du ber om den och har gett rätt behörighet. En bestående måländring väntar på ägarens godkännande. Installationsverktygen kan leta efter enheter på hemmanätverket, testa en enhet med styrningen spärrad, ändra boxens inställningar och starta om den. De kräver en separat behörighet för installation, som ägaren godkänner på boxen. Med den behörigheten kan ChatGPT spara inställningar när du har granskat och bekräftat det exakta utkastet, och starta om boxen när du har godkänt det korta avbrottet. Core kontrollerar varje kommando och styrningen stannar på boxen.</p>
     <h2>Dina uppgifter</h2>
     <p>FTW Cloud kan läsa assistentens anslutning när tjänsten förmedlar frågor och svar mellan ChatGPT och boxen. OpenAI tar emot de uppgifter du låter anslutningen lämna ut. Läs <a href="/sv/privacy#assistants">Integritet: assistenter</a> och <a href="/sv/chatgpt-terms">villkoren för pluginet</a>.</p>
     <h2 id="support">Få hjälp</h2>
@@ -58,5 +61,6 @@
   </div></main>
   <footer><div class="wrap footer-bottom"><span>© Sourceful Labs AB and FTW contributors</span><a href="https://www.sourceful.energy/">sourceful.energy <span aria-hidden="true">↗</span></a></div></footer>
   <script src="/navigation.js?v=1" defer></script>
+  <script src="/copy.js?v=1" defer></script>
 </body>
 </html>

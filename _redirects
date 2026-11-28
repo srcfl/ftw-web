@@ -4,3 +4,6 @@
 
 # The one-line install on the home page. The installer picks the release.
 /install.sh https://raw.githubusercontent.com/srcfl/ftw/master/scripts/install.sh 302
+
+# The address to give someone who wants to connect Claude: the assistant way on the start page.
+/claude /start#assistant 302

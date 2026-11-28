@@ -68,6 +68,24 @@ short Markdown proposal or a focused fix with relevant evidence. Work is
 agentic first; see [CONTRIBUTING.md](CONTRIBUTING.md). Keep existing license
 and attribution intact. Inspect rendered copy before publishing.
 
+## The start page
+
+`/start` (`start.html`) and `/sv/start` are the one way in: what a home
+needs, the four ways to start (Home Assistant, a Linux computer, a ready box,
+an AI assistant) and then the phone. Keep them plain text pages that an
+assistant can read and follow. The home page's hero, its row of ways and
+"Get FTW" lead there, and `/claude` redirects to `/start#assistant`.
+
+Both start pages and the home page say how many drivers the
+[device catalog](https://srcfl.github.io/device-drivers/) confirms on real
+hardware ("6 of 91"). Read the numbers from the catalog's counts and change
+all three together; `tests/start-page.test.mjs` keeps them equal and checks
+the install line, the Home Assistant button and the MCP address on each page.
+
+`404.html` answers every unknown path with a 404. Without it, Cloudflare
+Pages would serve the home page with a 200. Every internal link must point at
+a page that exists; the test checks them.
+
 ## Installation copy
 
 Section 05 of the home page gives two paths first: the Home Assistant button
@@ -107,6 +125,7 @@ after a failed native install.
 - Home Assistant app: https://github.com/srcfl/ftw/blob/master/docs/home-assistant-app.md
   (the button uses https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsrcfl%2Fhome-assistant-addons)
 - Linux installer: https://ftw.energy/install.sh (a redirect; see Installation copy)
+- Get started: https://ftw.energy/start and https://ftw.energy/sv/start
 - ChatGPT integration and its availability: `/chatgpt`
 - Anonymous project statistics: https://stats.ftw.energy/
 - FTW plugin for assistants: https://github.com/srcfl/ftw-plugin
@@ -139,7 +158,8 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000. The static server runs neither `_worker.js`
 nor `_redirects`, so the sign-up forms report that sign-up is closed and
-`/install.sh` answers 404.
+`/install.sh` answers 404. It does not drop `.html` either: open
+`/start.html` for `/start`.
 
 ```bash
 node --test tests/*.test.mjs

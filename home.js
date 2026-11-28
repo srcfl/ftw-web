@@ -177,8 +177,10 @@ if (dial) {
   const hand = svg('g', { class: 'hand' });
   hand.append(svg('line', { x1: center, y1: center - 40, x2: center, y2: center - rim - 4, stroke: 'var(--ink)', 'stroke-width': 1.5, 'stroke-linecap': 'round' }));
   const time = svg('text', { x: center, y: center - 2, 'text-anchor': 'middle', fill: 'var(--ink)', 'font-size': 26, 'font-weight': 700, 'font-family': 'var(--sans)' });
-  const detail = svg('text', { x: center, y: center + 18, 'text-anchor': 'middle', fill: 'var(--ink3)', 'font-size': 10, 'font-family': 'var(--mono)', 'letter-spacing': '.06em' });
-  dial.append(ticks, sun, carRun, goal, hand, time, detail);
+  // The price and what happens go on two short lines, so the text stays inside the ticks at 11 px or more.
+  const label = y => svg('text', { x: center, y, 'text-anchor': 'middle', fill: 'var(--ink3)', 'font-size': 12, 'font-family': 'var(--mono)', 'letter-spacing': '.02em' });
+  const price = label(center + 15), action = label(center + 28);
+  dial.append(ticks, sun, carRun, goal, hand, time, price, action);
 
   // The hand steps a quarter hour every 250 ms, one turn in 24 seconds; the middle names the quarter under it.
   let turned = 0;
@@ -186,10 +188,11 @@ if (dial) {
     const q = step % 96;
     const clock = q / 4;
     const row = withPlan.rows[hours.indexOf(Math.floor(clock))];
-    const action = row.car ? 'CAR CHARGES' : row.battery > 0.05 ? 'STORES' : row.battery < -0.05 ? 'GIVES' : 'WAITS';
+    const doing = row.car ? 'CAR CHARGES' : row.battery > 0.05 ? 'STORES' : row.battery < -0.05 ? 'GIVES' : 'WAITS';
     hand.style.transform = `rotate(${180 + step * 3.75}deg)`;
     time.textContent = `${String(Math.floor(clock)).padStart(2, '0')}:${String((q % 4) * 15).padStart(2, '0')}`;
-    detail.textContent = `${(row.price / 100).toFixed(2)} KR · ${action}`;
+    price.textContent = `${(row.price / 100).toFixed(2)} KR`;
+    action.textContent = doing;
   };
   // Start at 03:00, the quarter the example conversation asks about.
   quarterAt(turned = 12);
