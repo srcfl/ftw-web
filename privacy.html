@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Privacy | FTW apps, Cloud and the FTW plugin</title>
-  <meta name="description" content="How FTW handles your data: local records, encrypted Cloud connections, the optional readable copy, and the project statistics with 48-hour retention.">
+  <meta name="description" content="How FTW handles your data: local records, encrypted Cloud connections, the readable copy FTW Cloud keeps while it is on, and the project statistics with 48-hour retention.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="canonical" href="https://ftw.sourceful.energy/privacy">
@@ -44,9 +44,9 @@
     <div class="wrap">
       <p class="section-kicker">FTW apps, Cloud and the FTW plugin</p>
       <h1>Privacy</h1>
-      <p class="updated">Updated 8 November 2026</p>
+      <p class="updated">Updated 28 November 2026</p>
 
-      <p class="doc-lede">Your box keeps the energy record; your phone keeps a recent copy. The app reaches your box through FTW Cloud, which carries the connection encrypted end to end and cannot read it. A readable copy is off unless you turn it on. The app does not track you across apps or sites. The project statistics are described below.</p>
+      <p class="doc-lede">Your box keeps the energy record; your phone keeps a recent copy. The app reaches your box through FTW Cloud, which carries the connection encrypted end to end and cannot read it. While FTW Cloud is on, your box also sends it a readable copy of your home, as described below; turning FTW Cloud off stops it. The app does not track you across apps or sites. The project statistics are described below.</p>
 
       <p>This page covers the FTW app for iPhone and Apple Watch, FTW Cloud, and the FTW plugin for AI assistants such as Grok Bot, Cursor, Claude, ChatGPT and Codex, including its MCP connection, and the <a href="#email">news and box waitlist sign-ups</a> on this website. Sourceful Labs AB, Sweden, makes the app and runs FTW Cloud. The FTW box is software you run yourself; its <a href="https://github.com/srcfl/ftw">documentation</a> describes what it sends.</p>
 
@@ -73,11 +73,20 @@
         <li>the list of devices your box allows, which the box signs: each device's id, public key and role;</li>
         <li>when you connect, for how long, and the size and timing of encrypted messages.</li>
       </ul>
-      <p>On disk FTW Cloud keeps your home id, your box's public key, the signed device list, the phones registered for notifications and the hashes of access tokens; for assistants you approve, it also keeps what the Assistants section lists. It keeps none of the traffic and logs no addresses. We use what it sees only to carry your connection.</p>
+      <p>On disk FTW Cloud keeps your home id, your box's public key, the signed device list, the phones you have suspended, the phones registered for notifications, the hashes of access tokens, when to tell you that your box has gone quiet and, under the current terms, the hourly statistics described below; for assistants you approve, it also keeps what the Assistants section lists. It keeps none of the traffic and logs no addresses. We use what it sees to carry your connection and, while the readable copy is on, to serve it as described next.</p>
 
-      <h2>The readable copy, if you turn it on</h2>
-      <p>In the app you can turn on a readable copy of your home in FTW Cloud. It is off until you do. It holds what you allow, such as live power readings, the car's charge level, prices and events like a lost connection. Device names are replaced by codes.</p>
-      <p>FTW Cloud uses the copy to show your home faster, to give your watch a reading, and to send you notifications through Apple's push service. It holds the copy in memory only and drops it an hour after your box goes quiet. Turn the copy off in the app and FTW Cloud deletes it.</p>
+      <h2>The readable copy</h2>
+      <p>Pairing a phone, or accepting the FTW Cloud terms on your box's own page, turns FTW Cloud on, and with it a readable copy of your home. The copy has no switch of its own. While FTW Cloud is on, your box sends it:</p>
+      <ul>
+        <li>live power readings and how fresh they are;</li>
+        <li>the charger and car state, such as the car's charge level and charging goal;</li>
+        <li>electricity prices;</li>
+        <li>events such as a lost connection;</li>
+        <li>the last 48 hours of power history for grid, solar, battery and home, in five-minute steps.</li>
+      </ul>
+      <p>Hourly project statistics travel with the same grant; see <a href="#statistics">Project statistics</a> below. The grant your box gives FTW Cloud also covers the plan and device health, but the box does not send those today. Your box replaces device, charger and car names with codes; your phone gets the names from your box over the encrypted connection.</p>
+      <p>FTW Cloud uses the copy to show your home faster, to give your watch and widgets a reading, to show recent history when your box cannot answer, and to send you notifications through Apple's push service. It holds the copy in memory only, never on disk. It drops the readings an hour after your box goes quiet. It keeps each part of the history until 48 hours after that part ends, and drops all of it within a day after your box goes quiet.</p>
+      <p>To stop the copy, turn FTW Cloud off: on your box under Settings → FTW app → Turn FTW Cloud off, or in the app on the owner's phone, under About FTW → FTW Cloud. Your box then asks FTW Cloud to delete your home, and the copy with it, as soon as it reaches FTW Cloud. Phones and assistants lose remote access, and the box keeps working locally. Pairing a phone again turns FTW Cloud back on.</p>
       <p>The copy is not encrypted end to end. Someone in full control of the server could read it while it is held. Sourceful has no tool for staff to read it.</p>
 
       <h2>The retired relay</h2>
@@ -94,7 +103,7 @@
       <p>You can let an assistant, such as Grok Bot, Cursor, Claude, ChatGPT or Codex, read your home through FTW Cloud at cloud.ftw.energy/mcp, and act on it if you allow that too. Nothing reaches an assistant until you approve it, on your phone with Face ID or on your box's own page with the house password. It reads by default; control is a separate choice. Control lasts minutes at a time, within limits your box sets, and your box asks you before any lasting change. Access lasts as long as you choose, from a day up to a year, and you can renew it or end it at any time.</p>
       <p>This connection is not end to end between you and your box. The assistant runs outside your home, so FTW Cloud opens the encrypted connection to your box for it. FTW Cloud makes a key for each assistant you approve and keeps it sealed by Amazon's key service (AWS KMS), which only that part of FTW Cloud may use. FTW Cloud reads the assistant's questions and your box's answers while it passes them on, holds them in memory only, and keeps none of them. Sourceful does not use them to train AI models. When a request fails, it logs the tool's name, not what was read.</p>
       <p>For each assistant, FTW Cloud keeps its name and web address as the assistant gives them, the public half of its key, which home it may reach, what it may do and until when, and hashes of its access tokens. Your box keeps a record of what each assistant read and did for 90 days.</p>
-      <p>Even with the readable copy off, FTW Cloud sends your phones a short notice through Apple's push service when an assistant gets access, asks for a change or is about to lose access. The notice names the assistant only if the readable copy is on.</p>
+      <p>FTW Cloud sends your phones a short notice through Apple's push service when an assistant gets access, asks for a change or is about to lose access. The notice that an assistant got access names it.</p>
       <p>What you let an assistant read goes to the company that runs it, such as xAI, Anthropic, OpenAI or Anysphere (Cursor), under that company's own privacy policy. Sourceful does not control what it does with it.</p>
       <p>In whichever assistant you use it, the FTW plugin sends the company that runs the assistant the answers to the tools you use, such as current power, battery and car state, past power readings, plans, device health, and redacted logs and settings. FTW Cloud receives the tool name and arguments needed for the request; the plugin does not ask for your full conversation history. That company handles what it receives under its own privacy policy and your account settings: <a href="https://x.ai/legal/privacy-policy">xAI</a> and <a href="https://cursor.com/privacy">Anysphere</a> for Grok Bot and Cursor, <a href="https://www.anthropic.com/legal/privacy">Anthropic</a> for Claude, and <a href="https://openai.com/policies/privacy-policy/">OpenAI</a> for ChatGPT and Codex. Their retention and deletion controls are separate from FTW's. Ending access in FTW does not delete an earlier conversation in the assistant.</p>
       <p>The public plugin uses named tools and does not offer arbitrary API reads or backup exports. Other, separately authorized technical assistant connections can read exact technical identifiers, network addresses and exports; some backups contain saved credentials. Grant and use only the access needed for your task.</p>
