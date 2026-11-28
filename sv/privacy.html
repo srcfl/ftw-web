@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Integritet | FTW-appar, Cloud och FTW-pluginet</title>
-  <meta name="description" content="Så hanterar FTW dina uppgifter: lokal historik, krypterad Cloud-anslutning, valbar läsbar kopia och projektstatistik med 48 timmars lagring.">
+  <meta name="description" content="Så hanterar FTW dina uppgifter: lokal historik, krypterad Cloud-anslutning, den läsbara kopian som FTW Cloud har medan den är på och projektstatistik med 48 timmars lagring.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="canonical" href="https://ftw.sourceful.energy/sv/privacy">
@@ -44,9 +44,9 @@
     <div class="wrap">
       <p class="section-kicker">FTW-appar, Cloud och FTW-pluginet</p>
       <h1>Integritet</h1>
-      <p class="updated">Uppdaterad 8 november 2026</p>
+      <p class="updated">Uppdaterad 28 november 2026</p>
 
-      <p class="doc-lede">Boxen sparar energihistoriken och telefonen en aktuell kopia. Appen når boxen genom FTW Cloud, som bär anslutningen krypterad från ände till ände och inte kan läsa den. En läsbar kopia är avstängd om du inte slår på den. Appen spårar dig inte mellan appar eller sajter. Projektstatistiken beskrivs nedan.</p>
+      <p class="doc-lede">Boxen sparar energihistoriken och telefonen en aktuell kopia. Appen når boxen genom FTW Cloud, som bär anslutningen krypterad från ände till ände och inte kan läsa den. Medan FTW Cloud är på skickar boxen också en läsbar kopia av ditt hem dit, som beskrivs nedan; stänger du av FTW Cloud upphör kopian. Appen spårar dig inte mellan appar eller sajter. Projektstatistiken beskrivs nedan.</p>
 
       <p>Den här sidan gäller FTW-appen för iPhone och Apple Watch, FTW Cloud och FTW-pluginet för AI-assistenter som Grok Bot, Cursor, Claude, ChatGPT och Codex, inklusive dess MCP-anslutning, och <a href="#email">anmälan till nyheter och väntelistan</a> på den här webbplatsen. Sourceful Labs AB i Sverige gör appen och driver FTW Cloud. FTW-boxen är programvara som du kör själv. Vad den skickar står i dess <a href="https://github.com/srcfl/ftw">dokumentation</a>.</p>
 
@@ -75,9 +75,18 @@
       </ul>
       <p>På disk sparar FTW Cloud hemmets id, boxens publika nyckel, den signerade enhetslistan, telefonerna som är anmälda för aviseringar och hashar av åtkomstnycklar; för assistenter du godkänner sparar den också det som avsnittet Assistenter räknar upp. Den sparar ingen trafik och loggar inga adresser. Vi använder det den ser bara för att bära din anslutning.</p>
 
-      <h2>Den läsbara kopian, om du slår på den</h2>
-      <p>I appen kan du slå på en läsbar kopia av ditt hem i FTW Cloud. Den är avstängd tills du gör det. Den innehåller det du tillåter, till exempel effekt just nu, bilens laddnivå, priser och händelser som en tappad anslutning. Enheternas namn byts mot koder.</p>
-      <p>FTW Cloud använder kopian för att visa hemmet snabbare, ge klockan ett värde och skicka aviseringar genom Apples pushtjänst. Kopian finns bara i minnet och tas bort en timme efter att boxen har tystnat. Stäng av kopian i appen, så raderar FTW Cloud den.</p>
+      <h2>Den läsbara kopian</h2>
+      <p>När du parkopplar en telefon, eller godkänner villkoren för FTW Cloud på boxens egen sida, slår du på FTW Cloud, och med den en läsbar kopia av ditt hem. Kopian har ingen egen brytare. Medan FTW Cloud är på skickar boxen dit:</p>
+      <ul>
+        <li>effekt just nu och hur färska värdena är;</li>
+        <li>laddarens och bilens läge, till exempel bilens laddnivå och laddmål;</li>
+        <li>elpriser;</li>
+        <li>händelser som en tappad anslutning;</li>
+        <li>de senaste 48 timmarnas effekthistorik för nät, sol, batteri och hus, i steg om fem minuter.</li>
+      </ul>
+      <p>Tillståndet som boxen ger FTW Cloud omfattar också planen och enheternas hälsa, men dem skickar boxen inte i dag. Boxen byter ut namnen på enheter, laddare och bilar mot koder; telefonen får namnen från boxen genom den krypterade anslutningen.</p>
+      <p>FTW Cloud använder kopian för att visa hemmet snabbare, ge klockan och widgetarna ett värde, visa den senaste historiken när boxen inte kan svara och skicka aviseringar genom Apples pushtjänst. Kopian finns bara i minnet, aldrig på disk. FTW Cloud tar bort mätvärdena en timme efter att boxen har tystnat. Den sparar varje del av historiken tills 48 timmar efter att delen slutar och tar bort all historik inom ett dygn efter att boxen har tystnat.</p>
+      <p>Vill du stoppa kopian stänger du av FTW Cloud: på boxen under Settings → FTW app → Turn FTW Cloud off, eller i appen under Om FTW → FTW Cloud. Boxen ber då FTW Cloud radera ditt hem, och kopian med det, så snart den når FTW Cloud. Telefoner och assistenter förlorar fjärråtkomsten, och boxen fungerar vidare lokalt. Parkopplar du en telefon igen slår du på FTW Cloud igen.</p>
       <p>Kopian är inte krypterad från ände till ände. Den som har full kontroll över servern skulle kunna läsa den medan den finns där. Sourceful har inget verktyg för personal att läsa den.</p>
 
       <h2>Det äldre reläet</h2>
@@ -94,7 +103,7 @@
       <p>Du kan låta en assistent, som Grok Bot, Cursor, Claude, ChatGPT eller Codex, läsa ditt hem genom FTW Cloud på cloud.ftw.energy/mcp, och styra det om du tillåter också det. Inget når en assistent förrän du godkänner den, i telefonen med Face ID eller på boxens egen sida med husets lösenord. Den läser som standard; styrning är ett eget val. Styrning gäller några minuter åt gången, inom gränser som boxen sätter, och boxen frågar dig före varje bestående ändring. Åtkomsten gäller så länge du väljer, från en dag upp till ett år, och du kan förnya eller avsluta den när du vill.</p>
       <p>Den här anslutningen är inte krypterad hela vägen mellan dig och boxen. Assistenten körs utanför ditt hem, så FTW Cloud öppnar den krypterade anslutningen till boxen åt den. FTW Cloud gör en nyckel för varje assistent du godkänner och förvarar den förseglad med Amazons nyckeltjänst (AWS KMS), som bara den delen av FTW Cloud får använda. FTW Cloud läser assistentens frågor och boxens svar medan den skickar dem vidare, håller dem bara i minnet och sparar inget av dem. Sourceful använder dem inte för att träna AI-modeller. När en förfrågan misslyckas loggar den verktygets namn, inte det som lästes.</p>
       <p>För varje assistent sparar FTW Cloud dess namn och webbadress som assistenten själv anger dem, den publika delen av dess nyckel, vilket hem den når, vad den får göra och till när, och hashar av dess åtkomstnycklar. Boxen sparar i 90 dagar vad varje assistent läste och gjorde.</p>
-      <p>Även med den läsbara kopian avslagen skickar FTW Cloud en kort avisering till dina telefoner genom Apples pushtjänst när en assistent får åtkomst, ber om en ändring eller snart förlorar åtkomsten. Aviseringen namnger assistenten bara om den läsbara kopian är på.</p>
+      <p>FTW Cloud skickar en kort avisering till dina telefoner genom Apples pushtjänst när en assistent får åtkomst, ber om en ändring eller snart förlorar åtkomsten. Aviseringen om att en assistent har fått åtkomst namnger assistenten.</p>
       <p>Det du låter en assistent läsa går till företaget som driver den, till exempel xAI, Anthropic, OpenAI eller Anysphere (Cursor), under det företagets egen integritetspolicy. Sourceful styr inte vad det gör med det.</p>
       <p>Oavsett vilken assistent du använder det i skickar FTW-pluginet svar från de verktyg du använder till företaget som driver assistenten, till exempel aktuell effekt, batteriets och bilens laddnivå, tidigare effektvärden, planer, enhetsstatus samt loggar och inställningar där boxen har dolt känsliga uppgifter. FTW Cloud tar emot verktygets namn och de argument frågan kräver; pluginet begär inte hela din samtalshistorik. Företaget hanterar mottagna uppgifter enligt sin egen integritetspolicy och dina kontoinställningar: <a href="https://x.ai/legal/privacy-policy">xAI</a> och <a href="https://cursor.com/privacy">Anysphere</a> för Grok Bot och Cursor, <a href="https://www.anthropic.com/legal/privacy">Anthropic</a> för Claude och <a href="https://openai.com/policies/privacy-policy/">OpenAI</a> för ChatGPT och Codex. De hanterar lagring och radering separat från FTW. Att avsluta åtkomst i FTW raderar inte ett tidigare samtal i assistenten.</p>
       <p>Det offentliga pluginet har namngivna verktyg och ger inte fri API-läsning eller export av säkerhetskopior. Andra tekniska assistentanslutningar som du godkänner separat kan läsa exakta tekniska identifierare, nätadresser och exporter; vissa säkerhetskopior innehåller sparade inloggningsuppgifter. Ge och använd bara den åtkomst uppgiften kräver.</p>
