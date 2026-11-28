@@ -73,7 +73,7 @@
         <li>the list of devices your box allows, which the box signs: each device's id, public key and role;</li>
         <li>when you connect, for how long, and the size and timing of encrypted messages.</li>
       </ul>
-      <p>On disk FTW Cloud keeps your home id, your box's public key, the signed device list, the phones registered for notifications and the hashes of access tokens; for assistants you approve, it also keeps what the Assistants section lists. It keeps none of the traffic and logs no addresses. We use what it sees only to carry your connection.</p>
+      <p>On disk FTW Cloud keeps your home id, your box's public key, the signed device list, the phones you have suspended, the phones registered for notifications, the hashes of access tokens, when to tell you that your box has gone quiet and, under the current terms, the hourly statistics described below; for assistants you approve, it also keeps what the Assistants section lists. It keeps none of the traffic and logs no addresses. We use what it sees to carry your connection and, while the readable copy is on, to serve it as described next.</p>
 
       <h2>The readable copy</h2>
       <p>Pairing a phone, or accepting the FTW Cloud terms on your box's own page, turns FTW Cloud on, and with it a readable copy of your home. The copy has no switch of its own. While FTW Cloud is on, your box sends it:</p>
@@ -84,9 +84,9 @@
         <li>events such as a lost connection;</li>
         <li>the last 48 hours of power history for grid, solar, battery and home, in five-minute steps.</li>
       </ul>
-      <p>The grant your box gives FTW Cloud also covers the plan and device health, but the box does not send those today. Your box replaces device, charger and car names with codes; your phone gets the names from your box over the encrypted connection.</p>
+      <p>Hourly project statistics travel with the same grant; see <a href="#statistics">Project statistics</a> below. The grant your box gives FTW Cloud also covers the plan and device health, but the box does not send those today. Your box replaces device, charger and car names with codes; your phone gets the names from your box over the encrypted connection.</p>
       <p>FTW Cloud uses the copy to show your home faster, to give your watch and widgets a reading, to show recent history when your box cannot answer, and to send you notifications through Apple's push service. It holds the copy in memory only, never on disk. It drops the readings an hour after your box goes quiet. It keeps each part of the history until 48 hours after that part ends, and drops all of it within a day after your box goes quiet.</p>
-      <p>To stop the copy, turn FTW Cloud off: on your box under Settings → FTW app → Turn FTW Cloud off, or in the app under About FTW → FTW Cloud. Your box then asks FTW Cloud to delete your home, and the copy with it, as soon as it reaches FTW Cloud. Phones and assistants lose remote access, and the box keeps working locally. Pairing a phone again turns FTW Cloud back on.</p>
+      <p>To stop the copy, turn FTW Cloud off: on your box under Settings → FTW app → Turn FTW Cloud off, or in the app on the owner's phone, under About FTW → FTW Cloud. Your box then asks FTW Cloud to delete your home, and the copy with it, as soon as it reaches FTW Cloud. Phones and assistants lose remote access, and the box keeps working locally. Pairing a phone again turns FTW Cloud back on.</p>
       <p>The copy is not encrypted end to end. Someone in full control of the server could read it while it is held. Sourceful has no tool for staff to read it.</p>
 
       <h2>The retired relay</h2>

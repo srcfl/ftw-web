@@ -73,7 +73,7 @@
         <li>listan över enheter som boxen tillåter, som boxen signerar: varje enhets id, publika nyckel och roll;</li>
         <li>när du ansluter, hur länge, och storlek och tidpunkt för krypterade meddelanden.</li>
       </ul>
-      <p>På disk sparar FTW Cloud hemmets id, boxens publika nyckel, den signerade enhetslistan, telefonerna som är anmälda för aviseringar och hashar av åtkomstnycklar; för assistenter du godkänner sparar den också det som avsnittet Assistenter räknar upp. Den sparar ingen trafik och loggar inga adresser. Vi använder det den ser bara för att bära din anslutning.</p>
+      <p>På disk sparar FTW Cloud hemmets id, boxens publika nyckel, den signerade enhetslistan, telefoner du har pausat, telefonerna som är anmälda för aviseringar, hashar av åtkomstnycklar, när den ska säga till att boxen har tystnat och, enligt de nuvarande villkoren, timstatistiken som beskrivs nedan; för assistenter du godkänner sparar den också det som avsnittet Assistenter räknar upp. Den sparar ingen trafik och loggar inga adresser. Vi använder det den ser för att bära din anslutning och, medan den läsbara kopian är på, för att visa den som beskrivs härnäst.</p>
 
       <h2>Den läsbara kopian</h2>
       <p>När du parkopplar en telefon, eller godkänner villkoren för FTW Cloud på boxens egen sida, slår du på FTW Cloud, och med den en läsbar kopia av ditt hem. Kopian har ingen egen brytare. Medan FTW Cloud är på skickar boxen dit:</p>
@@ -84,9 +84,9 @@
         <li>händelser som en tappad anslutning;</li>
         <li>de senaste 48 timmarnas effekthistorik för nät, sol, batteri och hus, i steg om fem minuter.</li>
       </ul>
-      <p>Tillståndet som boxen ger FTW Cloud omfattar också planen och enheternas hälsa, men dem skickar boxen inte i dag. Boxen byter ut namnen på enheter, laddare och bilar mot koder; telefonen får namnen från boxen genom den krypterade anslutningen.</p>
+      <p>Timstatistik för projektet följer med samma tillstånd; se <a href="#statistics">Projektstatistik</a> nedan. Tillståndet som boxen ger FTW Cloud omfattar också planen och enheternas hälsa, men dem skickar boxen inte i dag. Boxen byter ut namnen på enheter, laddare och bilar mot koder; telefonen får namnen från boxen genom den krypterade anslutningen.</p>
       <p>FTW Cloud använder kopian för att visa hemmet snabbare, ge klockan och widgetarna ett värde, visa den senaste historiken när boxen inte kan svara och skicka aviseringar genom Apples pushtjänst. Kopian finns bara i minnet, aldrig på disk. FTW Cloud tar bort mätvärdena en timme efter att boxen har tystnat. Den sparar varje del av historiken tills 48 timmar efter att delen slutar och tar bort all historik inom ett dygn efter att boxen har tystnat.</p>
-      <p>Vill du stoppa kopian stänger du av FTW Cloud: på boxen under Settings → FTW app → Turn FTW Cloud off, eller i appen under Om FTW → FTW Cloud. Boxen ber då FTW Cloud radera ditt hem, och kopian med det, så snart den når FTW Cloud. Telefoner och assistenter förlorar fjärråtkomsten, och boxen fungerar vidare lokalt. Parkopplar du en telefon igen slår du på FTW Cloud igen.</p>
+      <p>Vill du stoppa kopian stänger du av FTW Cloud: på boxen under Settings → FTW app → Turn FTW Cloud off, eller i appen på ägarens telefon, under Om FTW → FTW Cloud. Boxen ber då FTW Cloud radera ditt hem, och kopian med det, så snart den når FTW Cloud. Telefoner och assistenter förlorar fjärråtkomsten, och boxen fungerar vidare lokalt. Parkopplar du en telefon igen slår du på FTW Cloud igen.</p>
       <p>Kopian är inte krypterad från ände till ände. Den som har full kontroll över servern skulle kunna läsa den medan den finns där. Sourceful har inget verktyg för personal att läsa den.</p>
 
       <h2>Det äldre reläet</h2>
