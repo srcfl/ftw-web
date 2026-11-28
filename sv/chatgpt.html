@@ -33,16 +33,17 @@
     <p class="doc-lede">Få hjälp att installera FTW, förstå hemmets energiflöde och planer och undersöka fel i mätare, solceller, batterier och billaddare som FTW stöder.</p>
     <p><strong>Finns inte i ChatGPT:s katalog för plugin än.</strong> Sourceful Labs AB utvecklar integrationen, och den väntar på OpenAI:s granskning. Tills den finns där kan du lägga till den i ChatGPT själv, som stegen nedan visar.</p>
     <h2>Ingen FTW-box än?</h2>
-    <p>Installera FTW först. <a href="/sv/start">Kom igång</a> visar vad du behöver och de två sätten att installera själv: knappen för Home Assistant, eller en rad för en 64-bitars Linux-dator. Ge ChatGPT den sidan, så kan den guida dig. Du kör installationen på din egen dator; ChatGPT kan inte logga in på din Pi eller router åt dig.</p>
+    <p>Installera FTW först. <a href="/sv/start">Kom igång</a> visar vad du behöver och de två sätten att installera själv: knappen för Home Assistant, eller en rad för en 64-bitars Linux-dator. Ge ChatGPT den sidan, så kan den hjälpa dig steg för steg. Du kör installationen på din egen dator; ChatGPT kan inte logga in på din Pi eller router åt dig.</p>
     <p>Kontrollera modell och testade funktioner i <a href="https://srcfl.github.io/device-drivers/">enhetskatalogen</a>. Att en modell finns i katalogen bevisar inte att FTW kan styra just din utrustning.</p>
     <h2>Förstå ett anslutet hem</h2>
     <p>Med ditt godkännande kan ChatGPT läsa aktuell effekt, batteriets och bilens laddnivå, tidigare effektvärden, planerarens förslag, utrustningens status samt loggar och inställningar där boxen har dolt känsliga uppgifter. Gamla och saknade mätvärden skiljer sig från färska mätningar. Planer och beräknade besparingar bevisar inte vad utrustningen gjorde eller vad du sparade.</p>
     <p>Den offentliga anslutningen har en fast uppsättning namngivna verktyg. Den ger inte fri API-åtkomst eller export av säkerhetskopior. Om en fråga kräver andra uppgifter förklarar den vad som saknas och hjälper dig att kontrollera lokalt.</p>
     <h2 id="connect">Anslut ChatGPT</h2>
     <ol>
-      <li>Kör en aktuell FTW-beta, slå på FTW Cloud på boxen och läs informationen innan du accepterar villkoren. På en ny box väljer du <strong>Set up with ChatGPT or Claude instead</strong> på första sidan. På en box du redan använder öppnar du <strong>Settings → Access</strong>.</li>
-      <li>Lägg till den här adressen som en egen MCP-server på sidan <strong>Plugins</strong> i ChatGPT. I vissa arbetsytor måste utvecklarläget (developer mode) vara på först.
-        <div class="cmd"><code id="mcp-url">https://cloud.ftw.energy/mcp?profile=public</code><button type="button" class="copy" data-copy="#mcp-url" hidden>Kopiera</button></div></li>
+      <li>Kör en aktuell FTW-beta, slå på FTW Cloud på boxen och läs informationen innan du accepterar villkoren. Gör klart installationsguiden och anslut sedan assistenten under <strong>Settings → Access</strong>. På en ny box från nästa beta kan du också välja <strong>Set up with ChatGPT or Claude instead</strong> på första sidan.</li>
+      <li>Öppna <strong>Plugins</strong> i ChatGPT på webben, välj <strong>+</strong> och sedan <strong>Add custom MCP server</strong>. Ge servern ett namn och klistra in den här adressen:
+        <div class="cmd"><code id="mcp-url">https://cloud.ftw.energy/mcp?profile=public</code><button type="button" class="copy" data-copy="#mcp-url" hidden>Kopiera</button></div>
+        I en Business-arbetsyta lägger en administratör till den. Med Pro kan ChatGPT läsa av hemmet men inte styra det eller sätta upp det.</li>
       <li>ChatGPT öppnar FTW:s sida för godkännande. Den visar en kod och en länk för ägaren. Där står också att FTW Cloud inte har kontrollerat assistenten: se efter att det står ChatGPT.</li>
       <li>Godkänn förfrågan i FTW-appen eller på boxens egen sida för åtkomst. Välj rättigheter och giltighetstid. Skriv inte lösenord, nycklar eller koder för godkännande i chatten.</li>
       <li>Fråga vilket hem ChatGPT kan nå och vad du har tillåtit. Du kan avsluta åtkomsten i FTW när som helst.</li>

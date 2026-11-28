@@ -78,6 +78,20 @@ test('the ChatGPT pages describe the public tools as they are', () => {
   assert.match(read('sv/chatgpt.html'), /separat behörighet för installation/);
 });
 
+test('the assistant steps hold on boxes shipped today, and follow the assistants\' own help pages', () => {
+  for (const page of [...startPages, 'chatgpt.html', 'sv/chatgpt.html']) {
+    const html = read(page);
+    // Settings → Access works on every current box; the first-page choice comes with the next beta.
+    assert.ok(html.indexOf('Settings → Access') < html.indexOf('Set up with ChatGPT or Claude instead'), `${page} leads with Settings → Access`);
+    assert.match(html, /(next beta|nästa beta)/, `${page} says when the first-page choice arrives`);
+    assert.match(html, /Add custom MCP server/, page);
+  }
+  for (const page of [...startPages, 'chatgpt.html', 'sv/chatgpt.html', 'index.html']) {
+    assert.doesNotMatch(read(page), /developer mode|client ID empty|klient-id tomt/, `${page} uses the old steps`);
+  }
+  for (const page of [...startPages, 'index.html']) assert.match(read(page), /Customize → Connectors/, page);
+});
+
 test('/claude sends a 302 to the assistant way on the start page', () => {
   const rule = redirects.find(r => r.source === '/claude');
   assert.ok(rule, '_redirects has a rule for /claude');

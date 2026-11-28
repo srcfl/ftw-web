@@ -73,7 +73,7 @@
           <p class="project-state">FTW · Open-source core · Now in the App Store</p>
           <h1>Your home's energy, planned to cost less.</h1>
           <p class="hero-lede">FTW runs on a small computer in your home. It plans your battery, car and solar around prices and the weather, then runs them. Follow it live on your phone. Ask your AI why.</p>
-          <p class="hero-need"><span>You need</span>Home Assistant or a 64-bit Linux computer that stays on, and <a href="/start#need">equipment FTW supports</a>.</p>
+          <p class="hero-need"><span>You need</span>Home Assistant OS or a 64-bit Linux computer that stays on, and <a href="/start#need">equipment FTW supports</a>.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://app.ftw.energy/">Try the live demo <span aria-hidden="true">↗</span></a>
             <a class="btn btn-ghost" href="/start">Get FTW <span aria-hidden="true">→</span></a>
@@ -218,8 +218,8 @@
               <button type="button" role="tab" id="tab-claude-code" aria-controls="panel-claude-code" aria-selected="false" tabindex="-1">Claude Code</button>
               <button type="button" role="tab" id="tab-codex" aria-controls="panel-codex" aria-selected="false" tabindex="-1">Codex</button>
             </div>
-            <div class="panel" role="tabpanel" id="panel-claude" aria-labelledby="tab-claude"><ol><li>In Claude on the web, desktop or phone, open <b>Settings → Connectors</b>.</li><li>Choose <b>Add custom connector</b> and paste the address. Leave the client ID empty.</li><li>Sign in to FTW Cloud, then approve Claude in FTW.</li></ol></div>
-            <div class="panel" role="tabpanel" id="panel-chatgpt" aria-labelledby="tab-chatgpt" hidden><ol><li>FTW is waiting for its listing in ChatGPT's plugin directory.</li><li>Until then, add the address as a custom MCP server on the <b>Plugins</b> page. Some workspaces need developer mode turned on first.</li><li>Sign in to FTW Cloud, then approve ChatGPT in FTW.</li></ol><p class="small-note"><a href="/chatgpt">More about FTW for ChatGPT →</a></p></div>
+            <div class="panel" role="tabpanel" id="panel-claude" aria-labelledby="tab-claude"><ol><li>On claude.ai or in the desktop app, open <b>Customize → Connectors</b>.</li><li>Choose <b>+</b>, then <b>Add custom connector</b>. Paste the address and keep the recommended sign-in. On Team or Enterprise, an owner adds it under <b>Organization settings</b>.</li><li>Sign in to FTW Cloud, then approve Claude in FTW.</li></ol></div>
+            <div class="panel" role="tabpanel" id="panel-chatgpt" aria-labelledby="tab-chatgpt" hidden><ol><li>FTW is waiting for its listing in ChatGPT's plugin directory.</li><li>Until then, on the web, open <b>Plugins</b>, choose <b>+</b>, then <b>Add custom MCP server</b> and paste the address. In a Business workspace, an admin adds it. On Pro, ChatGPT can read but not control.</li><li>Sign in to FTW Cloud, then approve ChatGPT in FTW.</li></ol><p class="small-note"><a href="/chatgpt">More about FTW for ChatGPT →</a></p></div>
             <div class="panel" role="tabpanel" id="panel-grok" aria-labelledby="tab-grok" hidden><ol><li>Ask Grok to connect FTW at the address.</li><li>Approve the connect card Grok shows you.</li><li>Sign in to FTW Cloud, then approve Grok in FTW.</li></ol></div>
             <div class="panel" role="tabpanel" id="panel-cursor" aria-labelledby="tab-cursor" hidden><ol><li>Add the address as an MCP server in Cursor's settings.</li><li>Or copy the <a href="https://github.com/srcfl/ftw-plugin">plugin</a> to <code>~/.cursor/plugins/local/ftw</code> and reload the window.</li><li>Sign in to FTW Cloud, then approve Cursor in FTW.</li></ol></div>
             <div class="panel" role="tabpanel" id="panel-claude-code" aria-labelledby="tab-claude-code" hidden><ol><li>Add the plugin, with its setup and energy skills:<div class="cmd"><code id="cc-1">/plugin marketplace add srcfl/ftw-plugin</code><button type="button" class="copy" data-copy="#cc-1">Copy</button></div><div class="cmd"><code id="cc-2">/plugin install ftw@ftw</code><button type="button" class="copy" data-copy="#cc-2">Copy</button></div></li><li>Or the server alone:<div class="cmd"><code id="cc-3">claude mcp add --transport http -s user ftw "https://cloud.ftw.energy/mcp?profile=public"</code><button type="button" class="copy" data-copy="#cc-3">Copy</button></div></li><li>Approve Claude Code in FTW.</li></ol></div>
@@ -287,7 +287,7 @@
           <div class="rail"><p class="section-kicker">05 · Get FTW</p><p class="meta">Free software · Home Assistant · Linux</p></div>
           <div class="body">
             <h2>Run it on what you <em>have.</em></h2>
-            <p class="section-intro">Runs on Home Assistant or any 64-bit Linux computer: a Raspberry Pi 3 or newer, a mini PC, an old laptop.</p>
+            <p class="section-intro">Runs on Home Assistant OS or any 64-bit Linux computer: a Raspberry Pi 3 or newer, a mini PC, an old laptop.</p>
             <p class="need">You need supported equipment on your home network and a computer that stays on. Search your inverter, battery, charger or meter by brand in the <a href="https://srcfl.github.io/device-drivers/">device catalog</a>. <!-- Read from the catalog's counts, generated from device-drivers 77cfcda on 28 Nov 2026. --><span data-catalog>6 of 91</span> drivers are confirmed on real hardware so far.</p>
             <p class="need beta"><strong>FTW is in public beta.</strong> There is no stable release yet, and it changes often. <a href="/start">Every way to start, on one page →</a></p>
           </div>

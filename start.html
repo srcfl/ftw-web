@@ -40,7 +40,7 @@
 
     <h2 id="need">What you need</h2>
     <ul>
-      <li><strong>A computer at home that stays on.</strong> Home Assistant, or any 64-bit Linux computer with systemd: a Raspberry Pi 3 or newer, a mini PC or an old laptop.</li>
+      <li><strong>A computer at home that stays on.</strong> Home Assistant OS, or any 64-bit Linux computer with systemd: a Raspberry Pi 3 or newer, a mini PC or an old laptop.</li>
       <li><strong>Equipment FTW supports</strong>, on your home network: an inverter, battery, EV charger or meter. Search yours by brand in the <a href="https://srcfl.github.io/device-drivers/">device catalog</a>. <!-- Read from the catalog's counts, generated from device-drivers 77cfcda on 28 Nov 2026. --><span data-catalog>6 of 91</span> drivers are confirmed on real hardware so far.</li>
     </ul>
     <p class="note"><strong>FTW is in public beta.</strong> There is no stable release yet, and it changes often. Tell us in the <a href="https://discord.gg/UK2ygPBu8N">FTW Discord</a> what works and what breaks.</p>
@@ -79,17 +79,17 @@
       <p>Claude or ChatGPT can set up your home with you, once FTW runs on your computer.</p>
       <ol>
         <li>Install FTW first, with way <a href="#home-assistant">1</a> or <a href="#linux">2</a>.</li>
-        <li>On the box's first page, choose <strong>Set up with ChatGPT or Claude instead</strong>. Already set up? Connect later under <strong>Settings → Access</strong>.</li>
+        <li>Finish the setup guide, then connect the assistant under <strong>Settings → Access</strong>. On a new box from the next beta, you can also choose <strong>Set up with ChatGPT or Claude instead</strong> on the first page.</li>
         <li>Add FTW to your assistant with this address:
           <div class="cmd"><code id="mcp-url">https://cloud.ftw.energy/mcp?profile=public</code><button type="button" class="copy" data-copy="#mcp-url" hidden>Copy</button></div>
           <ul>
-            <li><strong>Claude:</strong> in Claude on the web, desktop or phone, open <strong>Settings → Connectors</strong>. Choose <strong>Add custom connector</strong>, paste the address and leave the client ID empty.</li>
-            <li><strong>ChatGPT:</strong> FTW is not in ChatGPT's plugin directory yet; it waits for OpenAI's review. Until then, add the address as a custom MCP server on ChatGPT's <strong>Plugins</strong> page. Some workspaces need developer mode turned on first. <a href="/chatgpt">More about FTW for ChatGPT</a></li>
+            <li><strong>Claude</strong>, on claude.ai or in the desktop app: open <strong>Customize → Connectors</strong>, choose <strong>+</strong>, then <strong>Add custom connector</strong>. Give it a name, paste the address and keep the recommended sign-in, Claude's published identity. On a Team or Enterprise plan, an owner adds it under <strong>Organization settings → Connectors</strong>, and then you connect.</li>
+            <li><strong>ChatGPT</strong>, on the web: FTW is not in ChatGPT's plugin directory yet; it waits for OpenAI's review. Until then, open <strong>Plugins</strong>, choose <strong>+</strong>, then <strong>Add custom MCP server</strong>, and paste the address. In a Business workspace, an admin adds it. On a Pro plan, ChatGPT can read your home but cannot control it or set it up. <a href="/chatgpt">More about FTW for ChatGPT</a></li>
           </ul></li>
         <li>The assistant opens an FTW Cloud page with a code. Type the code on the box under <strong>Settings → Access</strong>, or approve it in the FTW app.</li>
         <li>Ask the assistant to set up your home. It reads only what you allow. Control and setup are separate grants, and the box checks every step.</li>
       </ol>
-      <p class="note">Need help with the install itself? Give any assistant this page, <code>https://ftw.energy/start</code>, and ask it to walk you through. Grok, Cursor, Claude Code and Codex connect the same way: <a href="/#ai">see the steps</a>. <a href="/privacy#assistants">How access and privacy work</a></p>
+      <p class="note">Need help with the install itself? Give any assistant this page, <code>https://ftw.energy/start</code>, and ask it to help you step by step. Grok, Cursor, Claude Code and Codex connect the same way: <a href="/#ai">see the steps</a>. <a href="/privacy#assistants">How access and privacy work</a></p>
     </section>
 
     <h2 id="phone">Add your phone</h2>

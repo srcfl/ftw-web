@@ -40,7 +40,7 @@
 
     <h2 id="need">Det här behöver du</h2>
     <ul>
-      <li><strong>En dator hemma som alltid är på.</strong> Home Assistant, eller en 64-bitars Linux-dator med systemd: en Raspberry Pi 3 eller nyare, en minidator eller en gammal bärbar dator.</li>
+      <li><strong>En dator hemma som alltid är på.</strong> Home Assistant OS, eller en 64-bitars Linux-dator med systemd: en Raspberry Pi 3 eller nyare, en minidator eller en gammal bärbar dator.</li>
       <li><strong>Utrustning som FTW stöder</strong>, på hemmanätverket: växelriktare, batteri, laddbox eller elmätare. Sök efter din på märke i <a href="https://srcfl.github.io/device-drivers/" hreflang="en">enhetskatalogen</a> (på engelska). <!-- Läst ur katalogens siffror, byggd från device-drivers 77cfcda den 28 nov 2026. --><span data-catalog>6 av 91</span> drivrutiner är bekräftade på riktig hårdvara hittills.</li>
     </ul>
     <p class="note"><strong>FTW är i öppen beta.</strong> Det finns ingen stabil version än, och FTW ändras ofta. Berätta i <a href="https://discord.gg/25xcBzQaux">Discord på svenska</a> vad som fungerar och vad som går sönder.</p>
@@ -78,18 +78,18 @@
       <h3 id="assistant-title"><span>4</span> Börja med en AI-assistent</h3>
       <p>Claude eller ChatGPT kan sätta upp hemmet tillsammans med dig, när FTW väl körs på din dator.</p>
       <ol>
-        <li>Installera FTW först, på sätt <a href="#home-assistant">1</a> eller <a href="#linux">2</a>.</li>
-        <li>Välj <strong>Set up with ChatGPT or Claude instead</strong> på boxens första sida. Redan igång? Anslut senare under <strong>Settings → Access</strong>.</li>
+        <li>Installera FTW först, med sätt <a href="#home-assistant">1</a> eller <a href="#linux">2</a>.</li>
+        <li>Gör klart installationsguiden och anslut sedan assistenten under <strong>Settings → Access</strong>. På en ny box från nästa beta kan du också välja <strong>Set up with ChatGPT or Claude instead</strong> på första sidan.</li>
         <li>Lägg till FTW i assistenten med den här adressen:
           <div class="cmd"><code id="mcp-url">https://cloud.ftw.energy/mcp?profile=public</code><button type="button" class="copy" data-copy="#mcp-url" hidden>Kopiera</button></div>
           <ul>
-            <li><strong>Claude:</strong> öppna <strong>Settings → Connectors</strong> i Claude på webben, datorn eller telefonen. Välj <strong>Add custom connector</strong>, klistra in adressen och lämna klient-id tomt.</li>
-            <li><strong>ChatGPT:</strong> FTW finns inte i ChatGPT:s katalog för plugin än; den väntar på OpenAI:s granskning. Till dess lägger du till adressen som en egen MCP-server på sidan <strong>Plugins</strong> i ChatGPT. I vissa arbetsytor måste utvecklarläget (developer mode) vara på först. <a href="/sv/chatgpt">Mer om FTW för ChatGPT</a></li>
+            <li><strong>Claude</strong>, på claude.ai eller i datorappen: öppna <strong>Customize → Connectors</strong>, välj <strong>+</strong> och sedan <strong>Add custom connector</strong>. Ge kopplingen ett namn, klistra in adressen och behåll den rekommenderade inloggningen, Claude's published identity. Med Team eller Enterprise lägger en ägare till den under <strong>Organization settings → Connectors</strong>, och sedan ansluter du.</li>
+            <li><strong>ChatGPT</strong>, på webben: FTW finns inte i ChatGPT:s katalog för plugin än; den väntar på OpenAI:s granskning. Till dess öppnar du <strong>Plugins</strong>, väljer <strong>+</strong> och sedan <strong>Add custom MCP server</strong>, och klistrar in adressen. I en Business-arbetsyta lägger en administratör till den. Med Pro kan ChatGPT läsa av hemmet men inte styra det eller sätta upp det. <a href="/sv/chatgpt">Mer om FTW för ChatGPT</a></li>
           </ul></li>
         <li>Assistenten öppnar en sida hos FTW Cloud med en kod. Skriv koden på boxen under <strong>Settings → Access</strong>, eller godkänn i FTW-appen.</li>
         <li>Be assistenten att sätta upp ditt hem. Den läser bara det du tillåter. Styrning och installation är separata behörigheter, och boxen kontrollerar varje steg.</li>
       </ol>
-      <p class="note">Behöver du hjälp med själva installationen? Ge valfri assistent den här sidan, <code>https://ftw.energy/sv/start</code>, och be den guida dig. Grok, Cursor, Claude Code och Codex ansluts på samma sätt: <a href="/#ai" hreflang="en">se stegen</a> (på engelska). <a href="/sv/privacy#assistants">Så fungerar åtkomst och integritet</a></p>
+      <p class="note">Behöver du hjälp med själva installationen? Ge valfri assistent den här sidan, <code>https://ftw.energy/sv/start</code>, och be den hjälpa dig steg för steg. Grok, Cursor, Claude Code och Codex ansluts på samma sätt: <a href="/#ai" hreflang="en">se stegen</a> (på engelska). <a href="/sv/privacy#assistants">Så fungerar åtkomst och integritet</a></p>
     </section>
 
     <h2 id="phone">Lägg till telefonen</h2>
@@ -102,7 +102,7 @@
     <h2 id="help">Få hjälp</h2>
     <ul>
       <li>Fråga andra ägare och dem som bygger FTW i <a href="https://discord.gg/25xcBzQaux">Discord på svenska</a>, eller i <a href="https://discord.gg/UK2ygPBu8N" hreflang="en">FTW:s Discord</a> på engelska.</li>
-      <li>Mejla <a href="mailto:support@sourceful.energy">support@sourceful.energy</a>. Hjälpen ges efter förmåga, enligt <a href="https://github.com/srcfl/ftw/blob/master/SUPPORT.md" hreflang="en">supportpolicyn</a> (på engelska).</li>
+      <li>Mejla <a href="mailto:support@sourceful.energy">support@sourceful.energy</a>. Vi hjälper till så gott vi kan, enligt <a href="https://github.com/srcfl/ftw/blob/master/SUPPORT.md" hreflang="en">supportpolicyn</a> (på engelska).</li>
     </ul>
   </div></main>
 

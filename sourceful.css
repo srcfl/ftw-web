@@ -56,7 +56,7 @@ code, pre, .nav-links, .brand-name, .project-state, .section-kicker,
 .nav-links { display: flex; align-items: center; gap: 26px; font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
 .nav-links a { color: var(--cream); text-decoration: none; opacity: 0.68; }
 .nav-links a:hover { opacity: 1; }
-.nav-links .nav-cta { display: inline-flex; align-items: center; gap: 10px; min-height: 38px; padding: 0 14px; background: var(--signal); color: var(--ink); opacity: 1; font-weight: 700; }
+.nav-links .nav-cta { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 14px; background: var(--signal); color: var(--ink); opacity: 1; font-weight: 700; }
 
 .hero { background: var(--cream); border-bottom: 1px solid var(--line); }
 .hero-layout { min-height: min(860px, calc(100svh - 68px)); display: grid; grid-template-columns: minmax(0, 7fr) minmax(360px, 5fr); gap: 64px; align-items: center; padding-block: 72px; }
@@ -267,7 +267,7 @@ footer { padding: 62px 0 26px; background: var(--ink); color: var(--cream); }
 @media (max-width: 600px) {
   .nav { min-height: 62px; gap: 12px; }
   .brand-name { font-size: 17px; }
-  .nav-links .nav-cta { min-height: 34px; padding-inline: 11px; }
+  .nav-links .nav-cta { min-height: 44px; padding-inline: 11px; }
   .hero-layout { padding-block: 54px 66px; }
   .project-state { align-items: flex-start; line-height: 1.5; }
   h1 { font-size: clamp(3.25rem, 15.5vw, 4.5rem); }

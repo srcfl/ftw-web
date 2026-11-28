@@ -70,7 +70,7 @@ h3 { margin-bottom: 8px; font-size: 21px; font-weight: 500; line-height: 1.25; l
 .nav-links { display: flex; align-items: center; gap: 24px; font-size: 11px; }
 .nav-links a { color: var(--ink2); text-decoration: none; }
 .nav-links a:hover { color: var(--ink); }
-.nav-links .nav-cta { padding: 10px 14px; background: var(--ink); color: var(--ground); }
+.nav-links .nav-cta { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; background: var(--ink); color: var(--ground); }
 .nav-links .nav-cta:hover { color: var(--ground); background: #ffffff; }
 .mobile-nav { display: none; position: relative; }
 .mobile-nav summary { list-style: none; cursor: pointer; padding: 10px 14px; border: 1px solid var(--rule); font-size: 11px; }
@@ -261,7 +261,7 @@ h3 { margin-bottom: 8px; font-size: 21px; font-weight: 500; line-height: 1.25; l
 .address code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; color: var(--stores); font-size: clamp(14px, 1.6vw, 19px); scrollbar-width: none; }
 .cmd { margin: 12px 0 4px; padding-bottom: 8px; border-color: var(--rule); }
 .cmd code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; font-size: 13px; scrollbar-width: none; }
-.copy { flex: none; min-height: 32px; padding: 0 12px; border: 1px solid var(--rule); background: none; color: var(--ink2); font: 500 11px/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; }
+.copy { flex: none; min-height: 44px; padding: 0 12px; border: 1px solid var(--rule); background: none; color: var(--ink2); font: 500 11px/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; }
 .copy:hover { border-color: var(--ink2); color: var(--ink); }
 .copy.done { border-color: var(--live); color: var(--live); }
 .tabs { display: flex; flex-wrap: wrap; gap: 4px 26px; margin: 40px 0 24px; border-bottom: 1px solid var(--rule); }
@@ -410,7 +410,7 @@ footer { padding: 64px 0 28px; border-top: 1px solid var(--hairline); background
 @media (max-width: 600px) {
   .wrap { width: calc(100% - 32px); }
   body { font-size: 16px; }
-  .nav-links .nav-cta { padding: 9px 10px; }
+  .nav-links .nav-cta { padding: 0 10px; }
   .project-facts { grid-template-columns: 1fr 1fr; row-gap: 16px; }
   .project-facts div:nth-child(3) { padding-left: 0; border-left: 0; }
   .hero-actions .btn { flex: 1 1 auto; }
